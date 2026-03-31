@@ -100,19 +100,19 @@ const D = {
 
   // ─── III. TT2 YIELD CURVE & GAP IRP & OMO ────────────────────
   yield_curve: {
-    on:    { value: "4,56",     updated: "27/03/2026", source: "vietnambiz.vn 22/3", note: "%/năm · LS O/N kết tuần 20/3 = 4,56% · giảm từ 6,01% đầu tuần 9/3 và từ 4,24% ngày 12/3 · hạ nhiệt sau đợt hút ròng mạnh" },
-    w1:    { value: "~5,0–5,5",  updated: "27/03/2026", source: "TT2 ước tính 22/3",  note: "%/năm · 1 tuần · theo pattern sau hút ròng" },
-    w2:    { value: "~5,5–6,0",  updated: "27/03/2026", source: "TT2 quan sát",       note: "%/năm · 2 tuần" },
-    m1:    { value: "~6,45",     updated: "27/03/2026", source: "tapchikinhtetaichinh 20/2", note: "%/năm · 1 tháng · từ báo cáo Q1/2026" },
-    m3:    { value: "~7,87",     updated: "27/03/2026", source: "vietstock 16/3",     note: "%/năm · 3 tháng · từ tuần 9–16/3" },
-    m6:    { value: "~7,5–8,0",  updated: "27/03/2026", source: "TT2 ước tính",      note: "%/năm · 6 tháng · ước tính" },
-    shape: { value: "Flat/đảo chiều đoạn ngắn · dốc dần kỳ hạn dài", updated:"27/03/2026", source:"Quan sát", note:"O/N 4,56% vs 3T 7,87% vs 12T ~8% → phản ánh LDR siết + kỳ thuế 31/3 sắp đến" },
+    on:    { value: "4,56",     updated: "31/03/2026", source: "vietnambiz.vn 22/3", note: "%/năm · LS O/N kết tuần 20/3 = 4,56% · giảm từ 6,01% đầu tuần 9/3 và từ 4,24% ngày 12/3 · hạ nhiệt sau đợt hút ròng mạnh" },
+    w1:    { value: "~5,0–5,5",  updated: "31/03/2026", source: "TT2 ước tính 22/3",  note: "%/năm · 1 tuần · theo pattern sau hút ròng" },
+    w2:    { value: "~5,5–6,0",  updated: "31/03/2026", source: "TT2 quan sát",       note: "%/năm · 2 tuần" },
+    m1:    { value: "~6,45",     updated: "31/03/2026", source: "tapchikinhtetaichinh 20/2", note: "%/năm · 1 tháng · từ báo cáo Q1/2026" },
+    m3:    { value: "~7,87",     updated: "31/03/2026", source: "vietstock 16/3",     note: "%/năm · 3 tháng · từ tuần 9–16/3" },
+    m6:    { value: "~7,5–8,0",  updated: "31/03/2026", source: "TT2 ước tính",      note: "%/năm · 6 tháng · ước tính" },
+    shape: { value: "Flat/đảo chiều đoạn ngắn · dốc dần kỳ hạn dài", updated:"31/03/2026", source:"Quan sát", note:"O/N 4,56% vs 3T 7,87% vs 12T ~8% → phản ánh LDR siết + kỳ thuế 31/3 sắp đến" },
     tpcp_10y:{ value: "~4,05",   updated: "01/03/2026", source: "HNX",               note: "%/năm · TP CP 10 năm · ERP reference" },
   },
 
   // GAP IRP — Lý thuyết IRP: Δe ≈ i_vnd − i_usd (không covered)
   irp: {
-    ls_vnd_tt2:    { value: "5,5–6,5",    updated: "27/03/2026", source: "NHNN/TT2",          note: "% · LS qua đêm VND" },
+    ls_vnd_tt2:    { value: "5,5–6,5",    updated: "31/03/2026", source: "NHNN/TT2",          note: "% · LS qua đêm VND" },
     ls_usd_fed:    { value: "3,63",       updated: "28/01/2026", source: "Fed",                note: "% · Fed funds effective rate (midpoint)" },
     gap_vnd_usd:   { value: "+1,9–2,9",  updated: "31/03/2026", source: "Tính toán",          note: "% · Gap VND>USD → về lý thuyết VND nên tăng giá" },
     thuc_te:       { value: "VND vẫn mất giá", updated:"31/03/2026", source:"Quan sát",       note: "→ Các yếu tố phi IRP chiếm ưu thế: DXY↑, BOP nhập siêu, war premium" },
@@ -123,25 +123,25 @@ const D = {
   // OMO — Nghiệp vụ Thị trường Mở
   omo: {
     luu_hanh_moi:  { value: "~178.109",   updated: "31/03/2026", source: "vietstock.vn 26/3", note: "tỷ VNĐ · Thấp nhất từ giữa 9/2025 · Sau đảo chiều bơm ròng 25.981 tỷ ngày 24/3 → OMO có thể nhích lên · NHNN cân bằng: vừa hút ròng tổng T3, vừa bơm khẩn khi LS LNH spike 8,8%" },
-    luu_hanh_truoc:{ value:245000"287.918",    updated: "27/03/2026", source: "cafef.vn 17/3",       note: "OMO lưu hành tuần 21–27/3: ~245.000 tỷ đồng · Bơm ròng 1.624 tỷ trong tuần · Kênh tín phiếu không giao dịch mới" },
-    trang_thai:    { value: "Hút ròng 5 tuần · tổng ~245.000 tỷ", updated: "27/03/2026", source: "cafef/vietnambiz 22/3", note: "🔴 Tuần 16–20/3: hút 84.336 tỷ (5 phiên liên tiếp) · 16/3: hút 39.486 tỷ kỷ lục 1,5 năm · Thanh khoản dồi dào → NHNN hút để kiểm soát M2 và áp lực tỷ giá" },
+    luu_hanh_truoc:{ value:245000"287.918",    updated: "31/03/2026", source: "cafef.vn 17/3",       note: "OMO lưu hành tuần 21–27/3: ~245.000 tỷ đồng · Bơm ròng 1.624 tỷ trong tuần · Kênh tín phiếu không giao dịch mới" },
+    trang_thai:    { value: "Hút ròng 5 tuần · tổng ~245.000 tỷ", updated: "31/03/2026", source: "cafef/vietnambiz 22/3", note: "🔴 Tuần 16–20/3: hút 84.336 tỷ (5 phiên liên tiếp) · 16/3: hút 39.486 tỷ kỷ lục 1,5 năm · Thanh khoản dồi dào → NHNN hút để kiểm soát M2 và áp lực tỷ giá" },
     ls_omo:        { value: 4.5,          updated: "01/12/2025", source: "NHNN",               note: "%/năm · LS OMO cầm cố · Bơm 15.000 tỷ/tuần vs đáo hạn ~100.000 tỷ → net hút ròng 84k tỷ/tuần" },
     co_che:        { value: "Tuần 21–27/3: bơm 30.535 tỷ · hút 28.911 tỷ → bơm ròng 1.624 tỷ (OMO lưu hành ~245.000 tỷ). Kỳ thuế 31/3 ĐÃ QUA. TT1 >6T vẫn 7,5–8,5% do LDR ~100% + forward USD · Lãi suất liên ngân hàng biến động mạnh tuần qua", updated:"31/03/2026", source:"danviet/giadinh 30/3", note:"" },
     rang_buoc_cau_truc: { value: "Cấu trúc dài hạn", updated:"31/03/2026", source:"Phân tích luận điểm", note: "🔴 LUẬN ĐIỂM CỐT LÕI: LS VND không còn điều kiện về mức thấp vì bị chi phối bởi 3 ràng buộc đồng thời: (1) Ổn định tỷ giá = mục tiêu ưu tiên → NHNN không thể bơm đủ thanh khoản · (2) LDR ~100% → không thể mở rộng tài sản không huy động vốn · (3) Nghĩa vụ forward USD → rút VND theo kỳ hạn. Khi 3 ràng buộc chưa tháo gỡ → LS không phải spike tạm thời mà là TRẠNG THÁI CÂN BẰNG MỚI kéo dài đến ít nhất Q3/2026" },
-    alert:         { value: "⚠️ WATCH 31/3: Kỳ thuế T3 → DN rút tiền nộp thuế → TT2 thiếu hụt → LS O/N có thể spike 8–11% ngắn hạn (pattern T2: spike 17% → về 4%). NHNN sẽ bơm hỗ trợ nhưng lag 1–2 ngày", updated:"27/03/2026", source:"Phân tích 23/3", note:"" },
+    alert:         { value: "⚠️ WATCH 31/3: Kỳ thuế T3 → DN rút tiền nộp thuế → TT2 thiếu hụt → LS O/N có thể spike 8–11% ngắn hạn (pattern T2: spike 17% → về 4%). NHNN sẽ bơm hỗ trợ nhưng lag 1–2 ngày", updated:"31/03/2026", source:"Phân tích 23/3", note:"" },
   },
 
   // ─── IV. LS TT1 & CPI ────────────────────────────────────────
   rates_tt1: {
-    tran_ngan_han: { value: 4.75,          updated: "27/03/2026", source: "NHNN QĐ",           note: "Trần <6T · Toàn Big4 đã chạm trần: BIDV/VietinBank/VCB/Agribank đều 4,75% trên online" },
+    tran_ngan_han: { value: 4.75,          updated: "31/03/2026", source: "NHNN QĐ",           note: "Trần <6T · Toàn Big4 đã chạm trần: BIDV/VietinBank/VCB/Agribank đều 4,75% trên online" },
     big4_6_12t:    { value: "7,5–8,5",    updated: "30/03/2026", source: "thoibaotaichinh 28/3", note: "%/năm · 🔴 BIG4 TIẾP TỤC TĂNG 12–24T: VCB/BIDV/VietinBank đồng loạt tăng 0,7–1,2%pp kỳ hạn 12–24T 'sau 3 tháng án binh bất động' · VPBank +0,1%pp · MB +0,6%pp · TPBank +0,7%pp · Tổng 18+ NH tăng LS trong T3 · Chu kỳ tiền rẻ đang khép lại" },
-    tn_lon_6_12t:  { value: "7,8–8,4",    updated: "27/03/2026", source: "VnNet/doanhnghiephoinhap 23/3", note: "%/năm · MB 8,4%/6–12T · VPBank 8,3–8,5% · TCB/SHB/Sacombank 7,5–7,8% · LPBank 7,0%/12T niêm yết" },
-    tn_vua_6_12t:  { value: "8,0–8,5",    updated: "27/03/2026", source: "doanhnghiephoinhap 23/3", note: "%/năm · NCB 8,1–8,4% · SeABank 8,3% · nhiều nơi chạm mốc 9% với điều kiện đặc biệt theo tin 23/3" },
-    tn_12t_dinh:   { value: "8,5–9,0",    updated: "27/03/2026", source: "doanhnghiephoinhap/VTC 23/3", note: "%/năm · VPBank 8,5%/12T (≥50 tỷ) · Vikki 8,5% online · Nhiều chi nhánh NCB/GPBank: 8,4% · Điều kiện đặc biệt: lên tới 9%" },
+    tn_lon_6_12t:  { value: "7,8–8,4",    updated: "31/03/2026", source: "VnNet/doanhnghiephoinhap 23/3", note: "%/năm · MB 8,4%/6–12T · VPBank 8,3–8,5% · TCB/SHB/Sacombank 7,5–7,8% · LPBank 7,0%/12T niêm yết" },
+    tn_vua_6_12t:  { value: "8,0–8,5",    updated: "31/03/2026", source: "doanhnghiephoinhap 23/3", note: "%/năm · NCB 8,1–8,4% · SeABank 8,3% · nhiều nơi chạm mốc 9% với điều kiện đặc biệt theo tin 23/3" },
+    tn_12t_dinh:   { value: "8,5–9,0",    updated: "31/03/2026", source: "doanhnghiephoinhap/VTC 23/3", note: "%/năm · VPBank 8,5%/12T (≥50 tỷ) · Vikki 8,5% online · Nhiều chi nhánh NCB/GPBank: 8,4% · Điều kiện đặc biệt: lên tới 9%" },
     nhan_xet:      { value: "🔴 BIG4 7%+ · VCBNeo 7,2% · 18 NH tăng T3: Không phải vòng xoáy cạnh tranh đơn thuần — đây là biểu hiện của RÀNG BUỘC CẤU TRÚC. LDR ~100% + huy động T2 âm −0,11% + forward USD đáo hạn Q3/2026 = hệ thống PHẢI trả lãi cao để hút vốn ổn định. Câu hỏi không phải 'khi nào LS giảm' mà là 'ràng buộc nào tháo gỡ trước': LDR giảm (cần huy động tăng mạnh hoặc tín dụng giảm), hoặc NHNN được phép nới thanh khoản (cần tỷ giá ổn định), hoặc forward đáo hạn xong Q3/2026.", updated:"31/03/2026", source:"Phân tích cấu trúc v3.12", note:"" },
     ldr:           { value: "~100%",        updated: "31/03/2026", source: "Phân tích cấu trúc T12/2025", note: "🔴 ĐIỀU CHỈNH QUAN TRỌNG: LDR toàn hệ thống ~100% cuối 2025 (một phần NH vượt 105–110%) · Tín dụng +19% vs huy động +14% năm 2025 → gap tích lũy · T2/2026: huy động âm −0,11% trong khi tín dụng +1,44% → khoảng trống TIẾP TỤC MỞ RỘNG · Không phải ~85% như ước tính cũ" },
     ldr_t2_hd:     { value: "−0,11%",       updated: "31/03/2026", source: "Phân tích T2/2026", note: "Huy động T2/2026: ÂM −0,11% trong khi tín dụng vẫn +1,44% → funding gap mở rộng thêm → buộc NH cạnh tranh huy động mạnh hơn → LS TT1 không thể giảm" },
-    du_bao_ls:     { value: "Đỉnh 8,5–9% · kéo dài đến Q2/2026", updated:"27/03/2026", source:"VCBS/ACBS/doanhnghiephoinhap", note: "VCBS: tiếp tục tăng H1/2026 · ACBS: đến khi tỷ giá + địa chính trị hạ nhiệt · LS cho vay mua nhà: 9,5–13% · NIM ngân hàng bị squeeze" },
+    du_bao_ls:     { value: "Đỉnh 8,5–9% · kéo dài đến Q2/2026", updated:"31/03/2026", source:"VCBS/ACBS/doanhnghiephoinhap", note: "VCBS: tiếp tục tăng H1/2026 · ACBS: đến khi tỷ giá + địa chính trị hạ nhiệt · LS cho vay mua nhà: 9,5–13% · NIM ngân hàng bị squeeze" },
     // ── ADDITIONS v3.14 ──
     real_rate:      { value: "~2,5–3,5%",   updated:"30/03/2026", source:"Tính toán: LS_TT1 − CPI_forecast", note:"Lãi suất thực r = LS TT1 Big4 (~7,5–8,5%) − CPI forecast T3/T4 (~4,5–5,5%) = ~2,5–3,5% · Đang bị bào mòn nhanh khi CPI leo thang theo Brent · Khi r tiệm cận 0 → dòng tiền chạy sang Vàng và USD chợ đen · Đây là lý giải cấu trúc cho EMP spread 1.795đ" },
     ldr_big4:       { value: "~92–95%",     updated:"30/03/2026", source:"Ước tính ngành T12/2025", note:"LDR Big4 (VCB/BIDV/VietinBank/Agribank): ~92–95% · Còn trong ngưỡng kiểm soát nhưng đang tăng · Big4 huy động 42,3% tổng dư nợ hệ thống" },
@@ -166,7 +166,7 @@ const D = {
     fdi_giai_ngan: { value: 3.21,           updated: "06/03/2026", source: "Cục Thống kê",     note: "tỷ USD 2T/2026 · +8,8% YoY · cao nhất 5 năm" },
     fdi_dang_ky:   { value: 6.03,           updated: "06/03/2026", source: "Cục Đầu tư NN",   note: "tỷ USD 2T/2026 · −12,6% (nền cao 2025)" },
     kieu_hoi_2025: { value: "~18",          updated: "01/01/2026", source: "NHNN ước tính",    note: "tỷ USD cả năm 2025" },
-    du_tru:        { value: 83.6,           updated: "27/03/2026", source: "TradingEconomics/IMF Dec 2025", note: "tỷ USD cuối T12/2025 (83.619 tỷ) · tăng từ 81.4 tỷ T11 và 82.2 tỷ T9/2025 · vẫn dưới IMF 3T NK (~2,5T NK) · M2/DTNH ratio ~940% (ngưỡng an toàn <400%) · Allianz cảnh báo rủi ro dự trữ mỏng" },
+    du_tru:        { value: 83.6,           updated: "31/03/2026", source: "TradingEconomics/IMF Dec 2025", note: "tỷ USD cuối T12/2025 (83.619 tỷ) · tăng từ 81.4 tỷ T11 và 82.2 tỷ T9/2025 · vẫn dưới IMF 3T NK (~2,5T NK) · M2/DTNH ratio ~940% (ngưỡng an toàn <400%) · Allianz cảnh báo rủi ro dự trữ mỏng" },
   },
 
   freight: {
@@ -182,10 +182,10 @@ const D = {
     yoy_2025:      { value: "+14,0",        updated: "01/01/2026", source: "NHNN/GSO",         note: "% YoY cả năm 2025 · GDP nominal ~12% → tiền tăng nhanh hơn GDP" },
     abs_2025:      { value: "~18.500",      updated: "01/01/2026", source: "NHNN ước tính",    note: "nghìn tỷ VNĐ · M2 tuyệt đối cuối 2025" },
     multiplier:    { value: "~4,2",         updated: "01/01/2026", source: "NHNN tính toán",   note: "× · Money Multiplier (M2/M0) Q4/2025 · ước tính không đổi nhiều Q1/2026" },
-    tin_dung:      { value: "~1,4% YTD T2", updated: "27/03/2026", source: "VCBS/Thanhnien T2/2026", note: "Tín dụng T2 +1,4% YTD vs huy động +0,36% YTD · gap ngày càng rộng · mục tiêu cả năm 15%" },
-    co_che:        { value: "NHNN hút ròng M0 → M2 kiểm soát · tín dụng +1,4% YTD vs huy động +0,36% → LDR doãng → LS TT1 tăng. M2 Q1/2026 CHƯA CÓ chính thức (NHNN chỉ công bố theo quý, sẽ có tháng 4/2026)", updated:"27/03/2026", source:"MV=PQ + giới hạn nguồn", note:"" },
-    irp_link:      { value: "M2 tăng ~12–14% YoY (ước tính từ proxy tín dụng) vs GDP ~8–10% → áp lực VND dài hạn", updated:"27/03/2026", source:"PPP/IRP proxy", note:"" },
-    data_limit:    { value: "⚠️ GIỚI HẠN NGUỒN: NHNN chỉ công bố M2 theo QUÝ — không có số liệu tháng. M2 Q4/2025 (01/01/2026) là mới nhất. Q1/2026 sẽ có tháng 4/2026. Không thể cập nhật thường xuyên hơn được.", updated:"27/03/2026", source:"Phân tích cấu trúc", note:"" },
+    tin_dung:      { value: "~1,4% YTD T2", updated: "31/03/2026", source: "VCBS/Thanhnien T2/2026", note: "Tín dụng T2 +1,4% YTD vs huy động +0,36% YTD · gap ngày càng rộng · mục tiêu cả năm 15%" },
+    co_che:        { value: "NHNN hút ròng M0 → M2 kiểm soát · tín dụng +1,4% YTD vs huy động +0,36% → LDR doãng → LS TT1 tăng. M2 Q1/2026 CHƯA CÓ chính thức (NHNN chỉ công bố theo quý, sẽ có tháng 4/2026)", updated:"31/03/2026", source:"MV=PQ + giới hạn nguồn", note:"" },
+    irp_link:      { value: "M2 tăng ~12–14% YoY (ước tính từ proxy tín dụng) vs GDP ~8–10% → áp lực VND dài hạn", updated:"31/03/2026", source:"PPP/IRP proxy", note:"" },
+    data_limit:    { value: "⚠️ GIỚI HẠN NGUỒN: NHNN chỉ công bố M2 theo QUÝ — không có số liệu tháng. M2 Q4/2025 (01/01/2026) là mới nhất. Q1/2026 sẽ có tháng 4/2026. Không thể cập nhật thường xuyên hơn được.", updated:"31/03/2026", source:"Phân tích cấu trúc", note:"" },
   },
 
   nsnn: {
@@ -230,7 +230,7 @@ const D = {
 
   // ─── IX. CONFLUENCE ALERT ────────────────────────────────────
   confluence: {
-    score_total:   { value: 10,            updated: "27/03/2026", source: "Cập nhật khẩn",     note: "/10 · MỨC TỐI ĐA · Cả 3 chains đồng pha xấu ở cường độ cao nhất" },
+    score_total:   { value: 10,            updated: "31/03/2026", source: "Cập nhật khẩn",     note: "/10 · MỨC TỐI ĐA · Cả 3 chains đồng pha xấu ở cường độ cao nhất" },
     chain_a_m2:    { value: "Brent $115+ → NHNN phải hút FX bảo vệ VND → M0↓ → M2 thắt → LS LNH bật lên lại", updated:"31/03/2026", source:"Chain A leo thang", note:"M2→TK: ĐẢO CHIỀU" },
     chain_b_tax:   { value: "Kỳ thuế T3 (31/3) + chiến tranh leo thang → DN import khó khăn → vay ngân hàng khẩn → TT2 spike", updated:"31/03/2026", source:"Chain B leo thang", note:"Thuế→LNH: DOUBLE RISK" },
     chain_c_freight:{ value:"Brent $115–120 + UAE đóng không phận → Cước có thể +100% → CPI T3: 4,5–5,5% → Vượt mục tiêu → NHNN thắt", updated:"31/03/2026", source:"Chain C leo thang", note:"Cước→CPI: EXTREME" },
@@ -240,7 +240,7 @@ const D = {
 
   // ─── X. FED & KỊCH BẢN HORMUZ ───────────────────────────────
   fed: {
-    rate_range:    { value: "3,50–3,75",   updated: "28/01/2026", source: "Fed.gov",           note: "% · HOLD tháng 1 (10-2)" },
+    rate_range:    { value: "3,50–3,75",   updated: "31/03/2026", source: "Fed.gov",           note: "% · HOLD tháng 1 (10-2)" },
     meeting_now:   { value: "17–18/03/2026",updated:"31/03/2026", source: "Fed.gov/Kết quả",   note: "✅ HOLD confirmed 18/3 · SEP: PCE lạm phát 2026 tăng 2,7% · Chỉ 1 lần cắt 2026 · Powell: theo dõi dầu" },
     prob_hold:     { value:98"HOLD ✅",       updated: "31/03/2026", source: "Fed.gov",           note: "HOLD 3,50–3,75% CHÍNH THỨC · Phố Wall giảm mạnh sau họp · DXY quay lại 100" },
     dot_plot:      { value: "1 lần cắt 2026", updated:"31/03/2026", source: "Fed SEP 18/3",    note: "Median dot plot mới · PCE 2026 nâng lên 2,7% (vs 2,5% T12/2025) · tín hiệu hawkish rõ" },
@@ -261,11 +261,11 @@ const D = {
   trump: {
     vector:        { value: "🟡 ĐÀMPHÁN TIẾN TRIỂN — Mỹ gửi đề xuất 15 điểm cho Iran", updated: "31/03/2026", source: "giavang.net/vietnambiz 25–26/3", note: "NYT: Mỹ gửi đề xuất 15 điểm cho Iran · Iran phủ nhận đàm phán trực tiếp nhưng 'thiện chí' về Hormuz (Trump) · Israel tìm lệnh ngừng bắn 1 tháng · Deadline 28/3 · DXY 99,59 (+0,36%) · Thị trường bối rối — tin trái chiều · Chợ đen VN giảm 154đ = thị trường tin hạ nhiệt" },
     iran_policy:   { value: "Chiến tranh tuần 5 · Bế tắc · Deadline 6/4", updated: "30/03/2026", source: "danviet/tradingkey 27–30/3", note: "Iran từ chối đề xuất 15 điểm · Cánh cửa ngoại giao 'chưa khép' nhưng Iran kiểm soát bởi phe cứng rắn (IRGC) · Israel tấn công cơ sở hạt nhân 28/3 → escalation · Trump gia hạn 6/4 nhưng đồng thời cân nhắc 10.000 quân bổ sung · KBSV: 65% deal ngừng bắn · 40% Hormuz mở · Macquarie: 40% xác suất kéo đến T6 → $200" },
-    oil_action:    { value: "Đã cạn công cụ · GL-U: miễn trừng phạt 140M thùng Iran trên biển", updated: "27/03/2026", source: "CNN/FDD 20–21/3", note: "Đã dùng: SPR 172M thùng + Jones Act miễn 60 ngày + IEA 400M thùng · Mới: GL-U (General License U) — cho phép mua 140M thùng dầu Iran trên tàu trong 30 ngày đến 19/4 · Mâu thuẫn: vừa đánh Iran vừa mua dầu Iran · Nội bộ thừa nhận giá cao có thể kéo dài nhiều tháng" },
-    hormuz_plan:   { value: "Đa phương hóa bảo vệ + quét mìn", updated: "27/03/2026", source: "Bloomberg/CNBC 22–23/3", note: "Truth Social: kêu gọi Trung/Pháp/Nhật/Hàn/Anh gửi tàu · Mỹ đang 'quét mạnh eo biển' · Không xác nhận hộ tống tàu thương mại · Saudi East-West Pipeline bypass: max 1–2M thùng/ngày vs 20M bình thường" },
-    fed_signal:    { value: "Gây áp lực Powell cắt lãi · 'Powell phải ra đi càng sớm càng tốt'", updated: "27/03/2026", source: "TIME/Atlantic Council/CNN", note: "Trump thúc cắt lãi suất · Đang điều tra Powell · Powell hết nhiệm kỳ 23/5/2026 · Warsh đang xét duyệt để thay thế · Powell: sẽ ở lại nếu Warsh chưa được Thượng viện xác nhận (Tillis đang chặn) · Powell HOLD → mâu thuẫn với Trump" },
-    tariff_status: { value: "Tariff 15% toàn cầu còn hiệu lực · SC đang xem xét", updated: "27/03/2026", source: "CNN/Atlantic Council 23/3", note: "SCOTUS đã bãi bỏ phần lớn tariff 'Liberation Day' · Trump ban hành tariff 15% toàn cầu thay thế · Tác động: CPI Mỹ +0,8pp (Goldman) · Việt Nam được miễn/giảm một phần do nhượng bộ thương mại nhưng vẫn chịu hiệu ứng gián tiếp qua XNK" },
-    market_risk:   { value: "🔴 Rủi ro kép: Stagflation Mỹ + địa chính trị leo thang", updated: "27/03/2026", source: "Goldman/IEA/Fortune 22–23/3", note: "Goldman: Brent >$110 kéo 10 tuần → Mỹ vượt đỉnh 2008 ($147) · Recession probability 25% nếu Hormuz đóng 1 tháng · GDP Mỹ 2026 bị hạ 0,3pp · S&P 500 giảm, Dow -500+ pts · Trường hợp xấu nhất: stagflation toàn cầu" },
+    oil_action:    { value: "Đã cạn công cụ · GL-U: miễn trừng phạt 140M thùng Iran trên biển", updated: "31/03/2026", source: "CNN/FDD 20–21/3", note: "Đã dùng: SPR 172M thùng + Jones Act miễn 60 ngày + IEA 400M thùng · Mới: GL-U (General License U) — cho phép mua 140M thùng dầu Iran trên tàu trong 30 ngày đến 19/4 · Mâu thuẫn: vừa đánh Iran vừa mua dầu Iran · Nội bộ thừa nhận giá cao có thể kéo dài nhiều tháng" },
+    hormuz_plan:   { value: "Đa phương hóa bảo vệ + quét mìn", updated: "31/03/2026", source: "Bloomberg/CNBC 22–23/3", note: "Truth Social: kêu gọi Trung/Pháp/Nhật/Hàn/Anh gửi tàu · Mỹ đang 'quét mạnh eo biển' · Không xác nhận hộ tống tàu thương mại · Saudi East-West Pipeline bypass: max 1–2M thùng/ngày vs 20M bình thường" },
+    fed_signal:    { value: "Gây áp lực Powell cắt lãi · 'Powell phải ra đi càng sớm càng tốt'", updated: "31/03/2026", source: "TIME/Atlantic Council/CNN", note: "Trump thúc cắt lãi suất · Đang điều tra Powell · Powell hết nhiệm kỳ 23/5/2026 · Warsh đang xét duyệt để thay thế · Powell: sẽ ở lại nếu Warsh chưa được Thượng viện xác nhận (Tillis đang chặn) · Powell HOLD → mâu thuẫn với Trump" },
+    tariff_status: { value: "Tariff 15% toàn cầu còn hiệu lực · SC đang xem xét", updated: "31/03/2026", source: "CNN/Atlantic Council 23/3", note: "SCOTUS đã bãi bỏ phần lớn tariff 'Liberation Day' · Trump ban hành tariff 15% toàn cầu thay thế · Tác động: CPI Mỹ +0,8pp (Goldman) · Việt Nam được miễn/giảm một phần do nhượng bộ thương mại nhưng vẫn chịu hiệu ứng gián tiếp qua XNK" },
+    market_risk:   { value: "🔴 Rủi ro kép: Stagflation Mỹ + địa chính trị leo thang", updated: "31/03/2026", source: "Goldman/IEA/Fortune 22–23/3", note: "Goldman: Brent >$110 kéo 10 tuần → Mỹ vượt đỉnh 2008 ($147) · Recession probability 25% nếu Hormuz đóng 1 tháng · GDP Mỹ 2026 bị hạ 0,3pp · S&P 500 giảm, Dow -500+ pts · Trường hợp xấu nhất: stagflation toàn cầu" },
     watch_next:    { value: "28/3 (NGÀY MAI): Deadline cuối — Đàm phán Mỹ-Iran quyết định", updated: "31/03/2026", source: "vietnambiz/giavang.net 26/3", note: "⚡ NGÀY MAI 28/3: Mỹ gửi đề xuất 15 điểm · Iran nói 'thiện chí' nhưng phủ nhận đàm phán trực tiếp · Nếu deal: Brent về $85–95, xăng giảm tiếp, VND ổn định · Nếu vỡ: Trump leo thang → Brent $115+, xăng tăng lại, LS TT1 tiếp tục tăng" },
   },
 
@@ -273,11 +273,11 @@ const D = {
   signals: {
     tuan_nay:      { value: "31/03/2026 — Ngày 32 chiến tranh · 4 sự kiện lớn tuần tới", updated:"31/03/2026", source:"Tổng hợp 31/3", note: "🔴 CẬP NHẬT 31/3: NHNN TC 25.100 giữ · VCB 26.135/26.355 kịch trần · Chợ đen 27.123–27.263 (+75đ, hạ từ đỉnh 28.150) · EMP ~910đ · DXY 100,14 · Brent $115–116 (Houthis + Iran cảnh báo xâm lược) · Brent tháng 3 tăng 55% kỷ lục từ 1988 · Pakistan: Iran cho 20 tàu qua Hormuz (tín hiệu nhỏ) · 4 sự kiện: Non-farm 3/4 · Deadline 6/4 · FTSE 7/4 · Xăng 9/4" },
     trump_watch:   { value: "⚡⚡ TUẦN TỚI 31/3–6/4: FTSE 7/4 + Deadline Iran 6/4", updated:"30/03/2026", source:"doanhnghiephoinhap/nongnghiep 30/3", note: "2 sự kiện then chốt đầu T4: (1) FTSE 7/4 nâng hạng VN → nếu xác nhận: tỷ USD vào CK, VN-Index hồi phục, VND được hỗ trợ · (2) Deadline 6/4 Iran-Mỹ: nếu bế tắc → Trump leo thang → Brent $120+ → xăng tăng 9/4 → CPI T4 >5,5% · Kịch bản tích cực: FTSE + deal = VN-Index 1.750–1.850 · Kịch bản tiêu cực: bế tắc + không nâng hạng = VN-Index test 1.586" },
-    ls_lnh_trend:  { value: "TT2: ~4–5% · TT1 >6T: 7,6–8% · Kỳ thuế 31/3 sắp spike TT2", updated:"27/03/2026", source:"Nhận định 23/3", note: "Big4 thực tế 7,6–8% = toàn hệ thống đang căng. Kỳ thuế 31/3 → TT2 spike thêm. IEA: khủng hoảng năng lượng tệ hơn 1970s" },
-    dtc_co_che:    { value: "ĐTC không giải quyết LDR · Ưu tiên mới: theo dõi Iran phản hồi", updated:"27/03/2026", source:"Phân tích 23/3", note:"Tuần này xác suất địa chính trị override tất cả các yếu tố nội địa" },
+    ls_lnh_trend:  { value: "TT2: ~4–5% · TT1 >6T: 7,6–8% · Kỳ thuế 31/3 sắp spike TT2", updated:"31/03/2026", source:"Nhận định 23/3", note: "Big4 thực tế 7,6–8% = toàn hệ thống đang căng. Kỳ thuế 31/3 → TT2 spike thêm. IEA: khủng hoảng năng lượng tệ hơn 1970s" },
+    dtc_co_che:    { value: "ĐTC không giải quyết LDR · Ưu tiên mới: theo dõi Iran phản hồi", updated:"31/03/2026", source:"Phân tích 23/3", note:"Tuần này xác suất địa chính trị override tất cả các yếu tố nội địa" },
     q2_du_bao_ty_gia:{ value:"26.364–27.500 (phụ thuộc 28/3)", updated:"31/03/2026", source:"Nội bộ 24/3", note: "EMP 1.656đ kỷ lục · NHNN TC đã 25.109 · Nếu đàm phán 28/3 thành → TG tự do về 26.800–27.000 · Nếu thất bại → 28.000+" },
-    q2_du_bao_ls:  { value: "LS >6T tiếp tục tăng · đỉnh 8,5–9%", updated:"27/03/2026", source:"VCBS/ACBS/Nội bộ", note: "Brent $113 → CPI T4 không dưới 5% → NHNN không thể nới. LS cao + CPI cao = double squeeze DN" },
-    q2_du_bao_cpi: { value: "5,5–7,5% YoY (KB-D)", updated:"27/03/2026", source:"Nội bộ 23/3", note: "T4–T6 · Nếu Brent giữ $113+ → xăng kỳ 2/4 tăng thêm · BÔXD cạn sau 15/4 → tăng thẳng · Goldman: tariff + dầu → PCE Mỹ +0,8pp" },
+    q2_du_bao_ls:  { value: "LS >6T tiếp tục tăng · đỉnh 8,5–9%", updated:"31/03/2026", source:"VCBS/ACBS/Nội bộ", note: "Brent $113 → CPI T4 không dưới 5% → NHNN không thể nới. LS cao + CPI cao = double squeeze DN" },
+    q2_du_bao_cpi: { value: "5,5–7,5% YoY (KB-D)", updated:"31/03/2026", source:"Nội bộ 23/3", note: "T4–T6 · Nếu Brent giữ $113+ → xăng kỳ 2/4 tăng thêm · BÔXD cạn sau 15/4 → tăng thẳng · Goldman: tariff + dầu → PCE Mỹ +0,8pp" },
   },
 
   // ─── XII. REVIEW & ROADMAP ────────────────────────────────────
