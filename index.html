@@ -11,6 +11,30 @@
   --font-mono-stack: 'IBM Plex Mono', 'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace;
   --font-sans-stack: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+/* Font readability improvements v3.15 */
+body, .card, .panel, td, th, .row, .lbl, .label {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.lbl, .label, td, th {
+  font-weight: 450;
+  letter-spacing: 0.01em;
+}
+.ctitle {
+  font-size: 13px !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.sec {
+  font-size: 14px !important;
+  letter-spacing: 0.05em;
+}
+.val, .value-big {
+  font-size: 22px !important;
+  font-weight: 700;
+}
+
 </style>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -384,41 +408,41 @@ const D = {
 :root{
   --bg:#0b0e13;--surface:#111418;--card:#171b21;--card2:#1d2128;--card3:#222730;
   --border:#252a33;--border2:#2e3540;
-  --text:#dde3ec;--dim:#4a5568;--dim2:#6b7a93;
+  --text:#e8edf5;--dim:#7a8ba8;--dim2:#96a7be;
   --green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--blue:#3b82f6;--purple:#8b5cf6;--teal:#14b8a6;
   --ok:#22c55e;--warn:#f59e0b;--err:#ef4444;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:1.6;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.6;}
 .mono{font-family:'IBM Plex Mono',monospace;}
 
 /* HEADER */
 .hdr{background:linear-gradient(135deg,#0d1117 0%,#111827 60%,#0a0f1a 100%);border-bottom:1px solid var(--border);padding:20px 36px 0;}
-.hdr-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--yellow);margin-bottom:6px;text-transform:uppercase;}
-.hdr-title{font-size:28px;font-weight:600;color:#fff;letter-spacing:-0.5px;}
+.hdr-tag{font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:3px;color:var(--yellow);margin-bottom:6px;text-transform:uppercase;}
+.hdr-title{font-size:32px;font-weight:600;color:#fff;letter-spacing:-0.5px;}
 .hdr-title em{color:var(--yellow);font-style:normal;}
-.hdr-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim2);margin-top:4px;}
+.hdr-sub{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2);margin-top:4px;}
 .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:4px;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 .kpi-strip{display:flex;margin-top:16px;border-top:1px solid var(--border);}
 .kpi{flex:1;padding:11px 14px;border-right:1px solid var(--border);}
 .kpi:last-child{border-right:none;}
-.kpi-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;margin-bottom:4px;}
-.kpi-val{font-size:20px;font-weight:600;line-height:1;font-family:'IBM Plex Mono',monospace;}
-.kpi-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim2);margin-top:3px;}
+.kpi-lbl{font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;margin-bottom:4px;}
+.kpi-val{font-size:24px;font-weight:600;line-height:1;font-family:'IBM Plex Mono',monospace;}
+.kpi-sub{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2);margin-top:3px;}
 
 /* LAYOUT */
 .page{max-width:1440px;margin:0 auto;padding:20px 36px 80px;}
-.sec{display:flex;align-items:center;gap:10px;padding:18px 0 9px;border-top:1px solid var(--border);margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);}
+.sec{display:flex;align-items:center;gap:10px;padding:18px 0 9px;border-top:1px solid var(--border);margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);}
 .sec::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
-.sec-n{opacity:.4;font-size:7px;}
-.theory{display:inline-block;padding:1px 6px;border-radius:2px;background:rgba(139,92,246,.12);color:var(--purple);border:1px solid rgba(139,92,246,.2);font-size:8px;}
-.new-t{display:inline-block;padding:1px 6px;border-radius:2px;background:rgba(20,184,166,.12);color:var(--teal);border:1px solid rgba(20,184,166,.2);font-size:8px;}
-.badge-live{display:inline-block;padding:2px 8px;border-radius:2px;background:rgba(34,197,94,.12);color:var(--ok);border:1px solid rgba(34,197,94,.25);font-size:8px;font-family:'IBM Plex Mono',monospace;}
+.sec-n{opacity:.4;font-size:15px;}
+.theory{display:inline-block;padding:1px 6px;border-radius:2px;background:rgba(139,92,246,.12);color:var(--purple);border:1px solid rgba(139,92,246,.2);font-size:16px;}
+.new-t{display:inline-block;padding:1px 6px;border-radius:2px;background:rgba(20,184,166,.12);color:var(--teal);border:1px solid rgba(20,184,166,.2);font-size:16px;}
+.badge-live{display:inline-block;padding:2px 8px;border-radius:2px;background:rgba(34,197,94,.12);color:var(--ok);border:1px solid rgba(34,197,94,.25);font-size:16px;font-family:'IBM Plex Mono',monospace;}
 
 /* CARDS */
 .card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:14px;}
-.ctitle{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.ctitle{font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
@@ -428,15 +452,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 /* DATA ROW */
 .drow{display:flex;align-items:flex-start;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(37,42,51,.6);}
 .drow:last-child{border-bottom:none;}
-.drow-lbl{font-size:11px;color:var(--dim2);flex:1;}
-.drow-val{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;text-align:right;margin-left:8px;}
-.drow-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-top:1px;}
+.drow-lbl{font-size:16px;color:var(--dim2);flex:1;}
+.drow-val{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:15px;text-align:right;margin-left:8px;}
+.drow-sub{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-top:1px;}
 
 /* COLORS */
 .g{color:var(--ok);} .r{color:var(--red);} .y{color:var(--yellow);} .b{color:var(--blue);} .p{color:var(--purple);} .d{color:var(--dim2);}
 
 /* CALLOUT */
-.co{border-left:3px solid;border-radius:3px;padding:9px 12px;font-size:11px;line-height:1.7;margin-top:8px;}
+.co{border-left:3px solid;border-radius:3px;padding:9px 12px;font-size:16px;line-height:1.7;margin-top:8px;}
 .co-y{background:rgba(245,158,11,.06);border-color:var(--yellow);} .co-y strong{color:var(--yellow);}
 .co-r{background:rgba(239,68,68,.06);border-color:var(--red);} .co-r strong{color:var(--red);}
 .co-g{background:rgba(34,197,94,.06);border-color:var(--ok);} .co-g strong{color:var(--ok);}
@@ -446,17 +470,17 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 /* FX */
 .fx-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
 .fx-side{padding:12px 14px;background:var(--card2);}
-.fx-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;}
-.fx-rate{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;line-height:1;}
-.fx-meta{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim2);margin-top:3px;}
-.fx-fc{margin-top:8px;padding:7px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:10px;}
+.fx-lbl{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase;}
+.fx-rate{font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;line-height:1;}
+.fx-meta{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2);margin-top:3px;}
+.fx-fc{margin-top:8px;padding:7px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:15px;}
 
 /* YIELD CURVE */
 .yc-bar{display:flex;align-items:flex-end;gap:6px;height:80px;margin:10px 0;}
 .yc-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .yc-bar-inner{width:100%;background:linear-gradient(180deg,var(--yellow),rgba(245,158,11,.3));border-radius:2px 2px 0 0;transition:height .5s ease;}
-.yc-lbl{font-family:'IBM Plex Mono',monospace;font-size:7.5px;color:var(--dim);text-align:center;}
-.yc-val{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--yellow);text-align:center;}
+.yc-lbl{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim);text-align:center;}
+.yc-val{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--yellow);text-align:center;}
 
 /* EMP GAUGE */
 .emp-bar{height:7px;background:var(--border);border-radius:4px;overflow:hidden;margin:5px 0;}
@@ -468,31 +492,31 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .ri-err{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.3);}
 .ri-warn{background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.2);}
 .ri-ok{background:rgba(34,197,94,.05);border-color:rgba(34,197,94,.2);}
-.ri-lbl{font-size:11px;font-weight:500;margin-bottom:3px;}
-.ri-level{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;margin-bottom:3px;}
-.ri-note{font-size:9px;color:var(--dim2);}
-.ri-score{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700;float:right;line-height:1;}
+.ri-lbl{font-size:16px;font-weight:500;margin-bottom:3px;}
+.ri-level{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;margin-bottom:3px;}
+.ri-note{font-size:15px;color:var(--dim2);}
+.ri-score{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:700;float:right;line-height:1;}
 
 /* CONFLUENCE CHAIN */
 .chain{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:6px 0;}
-.cn{padding:4px 10px;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:10px;border:1px solid;}
+.cn{padding:4px 10px;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:15px;border:1px solid;}
 .cn-y{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:var(--yellow);}
 .cn-r{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:var(--red);}
 .cn-b{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.25);color:var(--blue);}
-.chain-arr{color:var(--dim);font-size:12px;padding:0 2px;}
+.chain-arr{color:var(--dim);font-size:15px;padding:0 2px;}
 
 /* KB */
-.kb-row{display:grid;grid-template-columns:90px 1fr 90px 60px;gap:8px;align-items:center;padding:8px 12px;border-radius:3px;margin-bottom:5px;font-size:11px;border:1px solid transparent;}
+.kb-row{display:grid;grid-template-columns:90px 1fr 90px 60px;gap:8px;align-items:center;padding:8px 12px;border-radius:3px;margin-bottom:5px;font-size:16px;border:1px solid transparent;}
 .kb-now{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.25);}
-.kb-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;}
-.kb-desc{color:var(--dim2);font-size:10px;}
-.kb-idx{font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;}
-.kb-prob{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim2);text-align:right;}
+.kb-lbl{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;}
+.kb-desc{color:var(--dim2);font-size:15px;}
+.kb-idx{font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;}
+.kb-prob{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2);text-align:right;}
 
 /* TABLE */
 .tbl{width:100%;border-collapse:collapse;}
-.tbl th{background:var(--bg);font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);padding:6px 10px;text-align:left;border-bottom:1px solid var(--border);font-weight:400;}
-.tbl td{padding:7px 10px;border-bottom:1px solid rgba(37,42,51,.5);font-family:'IBM Plex Mono',monospace;font-size:11px;vertical-align:top;}
+.tbl th{background:var(--bg);font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);padding:6px 10px;text-align:left;border-bottom:1px solid var(--border);font-weight:400;}
+.tbl td{padding:7px 10px;border-bottom:1px solid rgba(37,42,51,.5);font-family:'IBM Plex Mono',monospace;font-size:16px;vertical-align:top;}
 .tbl tr:last-child td{border-bottom:none;}
 .tbl tr:hover td{background:rgba(245,158,11,.02);}
 
@@ -500,7 +524,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .cl-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;}
 .cl-ok{background:var(--ok);} .cl-warn{background:var(--warn);} .cl-err{background:var(--err);}
 .stale{color:var(--red)!important;font-weight:600;}
-.freq-badge{display:inline-block;padding:2px 7px;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:8px;}
+.freq-badge{display:inline-block;padding:2px 7px;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:16px;}
 .fd{background:rgba(34,197,94,.1);color:var(--ok);border:1px solid rgba(34,197,94,.2);}
 .fw{background:rgba(59,130,246,.1);color:var(--blue);border:1px solid rgba(59,130,246,.2);}
 .fm{background:rgba(245,158,11,.1);color:var(--yellow);border:1px solid rgba(245,158,11,.2);}
@@ -510,48 +534,48 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 /* ROADMAP */
 .rm-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid rgba(37,42,51,.4);}
 .rm-item:last-child{border-bottom:none;}
-.rm-status{font-family:'IBM Plex Mono',monospace;font-size:10px;white-space:nowrap;min-width:90px;}
-.rm-text{font-size:11px;color:var(--dim2);}
+.rm-status{font-family:'IBM Plex Mono',monospace;font-size:15px;white-space:nowrap;min-width:90px;}
+.rm-text{font-size:16px;color:var(--dim2);}
 
 /* METRIC BOX */
 .mbox{padding:10px 12px;background:var(--card2);border-radius:2px;}
-.mbox-lbl{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;}
-.mbox-val{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600;line-height:1;}
-.mbox-sub{font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim2);margin-top:3px;}
+.mbox-lbl{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;}
+.mbox-val{font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:600;line-height:1;}
+.mbox-sub{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim2);margin-top:3px;}
 
 /* UPDATE GUIDE */
-.update-guide{background:var(--card2);border:1px solid var(--border2);border-radius:3px;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim2);line-height:1.9;}
+.update-guide{background:var(--card2);border:1px solid var(--border2);border-radius:3px;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2);line-height:1.9;}
 .update-guide strong{color:var(--yellow);}
-.update-guide code{background:rgba(245,158,11,.1);padding:1px 5px;border-radius:2px;color:var(--yellow);font-size:9.5px;}
+.update-guide code{background:rgba(245,158,11,.1);padding:1px 5px;border-radius:2px;color:var(--yellow);font-size:15px;}
 
 /* FOOTER */
-.footer{border-top:1px solid var(--border);padding:11px 36px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);}
+.footer{border-top:1px solid var(--border);padding:11px 36px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim);}
 
 /* ── SCORECARD ── */
 .sc-overview { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:12px; }
 .sc-kpi { background:var(--s2); border:1px solid var(--border); padding:12px 14px; text-align:center; }
-.sc-kpi-val { font-family:var(--mono); font-size:28px; font-weight:600; line-height:1; }
-.sc-kpi-lbl { font-family:var(--mono); font-size:8px; color:var(--dim); letter-spacing:1px; margin-top:4px; }
+.sc-kpi-val { font-family:var(--mono); font-size:32px; font-weight:600; line-height:1; }
+.sc-kpi-lbl { font-family:var(--mono); font-size:16px; color:var(--dim); letter-spacing:1px; margin-top:4px; }
 .sc-week { background:var(--s1); border:1px solid var(--border); margin-bottom:14px; overflow:hidden; }
 .sc-week-hdr { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--s2); border-bottom:1px solid var(--border); }
-.sc-week-title { font-family:var(--mono); font-size:10px; color:var(--text); font-weight:600; }
-.sc-week-score { font-family:var(--mono); font-size:11px; }
+.sc-week-title { font-family:var(--mono); font-size:15px; color:var(--text); font-weight:600; }
+.sc-week-score { font-family:var(--mono); font-size:16px; }
 .sc-bar-wrap { height:6px; background:var(--border); margin:0 14px 8px; }
 .sc-bar-fill { height:100%; transition:width .4s; }
 .sc-items { padding:0 14px 12px; }
 .sc-item { display:flex; align-items:flex-start; gap:8px; padding:5px 0; border-bottom:1px solid var(--border); }
 .sc-item:last-child { border-bottom:none; }
-.sc-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; font-size:8px; }
+.sc-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center; font-size:16px; }
 .sc-dot-hit  { background:rgba(34,197,94,.2);  border:1px solid var(--ok);  color:var(--ok); }
 .sc-dot-miss { background:rgba(239,68,68,.2);  border:1px solid var(--red); color:var(--red); }
 .sc-item-body { flex:1; }
-.sc-item-label { font-family:var(--mono); font-size:9px; color:var(--muted); letter-spacing:.5px; }
-.sc-item-vals { display:flex; gap:12px; margin-top:2px; font-size:10px; }
-.sc-pred { color:var(--dim2); font-family:var(--mono); font-size:9px; }
-.sc-actual { font-family:var(--mono); font-size:9px; font-weight:600; }
-.sc-item-note { font-size:9px; color:var(--dim2); margin-top:2px; line-height:1.5; }
-.sc-summary { margin:8px 14px 0; padding:8px 10px; background:rgba(59,130,246,.05); border:1px solid rgba(59,130,246,.15); border-left:2px solid var(--blue); font-size:10px; color:var(--muted); line-height:1.7; }
-.sc-caveat { margin-top:8px; padding:8px 12px; background:rgba(245,158,11,.04); border:1px solid rgba(245,158,11,.15); font-size:9px; color:var(--dim2); line-height:1.7; font-family:var(--mono); }
+.sc-item-label { font-family:var(--mono); font-size:15px; color:var(--muted); letter-spacing:.5px; }
+.sc-item-vals { display:flex; gap:12px; margin-top:2px; font-size:15px; }
+.sc-pred { color:var(--dim2); font-family:var(--mono); font-size:15px; }
+.sc-actual { font-family:var(--mono); font-size:15px; font-weight:600; }
+.sc-item-note { font-size:15px; color:var(--dim2); margin-top:2px; line-height:1.5; }
+.sc-summary { margin:8px 14px 0; padding:8px 10px; background:rgba(59,130,246,.05); border:1px solid rgba(59,130,246,.15); border-left:2px solid var(--blue); font-size:15px; color:var(--muted); line-height:1.7; }
+.sc-caveat { margin-top:8px; padding:8px 12px; background:rgba(245,158,11,.04); border:1px solid rgba(245,158,11,.15); font-size:15px; color:var(--dim2); line-height:1.7; font-family:var(--mono); }
 .accuracy-ring { position:relative; display:inline-block; }
 
 
@@ -565,15 +589,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   display:flex; align-items:center; gap:8px;
   padding:8px 16px; background:rgba(59,130,246,.15);
   border:1px solid rgba(59,130,246,.3); color:var(--blue);
-  font-family:var(--mono); font-size:10px; letter-spacing:1px;
+  font-family:var(--mono); font-size:15px; letter-spacing:1px;
   cursor:pointer; transition:.2s;
 }
 .ar-btn:hover { background:rgba(59,130,246,.25); }
 .ar-btn:disabled { opacity:.5; cursor:not-allowed; }
-.ar-status { font-family:var(--mono); font-size:10px; color:var(--dim2); }
+.ar-status { font-family:var(--mono); font-size:15px; color:var(--dim2); }
 .ar-loading {
   padding:20px; text-align:center;
-  font-family:var(--mono); font-size:11px; color:var(--muted);
+  font-family:var(--mono); font-size:16px; color:var(--muted);
 }
 .ar-dot { display:inline-block; animation:ar-spin 1.2s linear infinite; }
 @keyframes ar-spin { to { transform: rotate(360deg); } }
@@ -581,7 +605,31 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   display:inline-flex; align-items:center; gap:4px;
   padding:2px 8px; background:rgba(34,197,94,.1);
   border:1px solid rgba(34,197,94,.25); color:var(--ok);
-  font-family:var(--mono); font-size:8px; letter-spacing:1px;
+  font-family:var(--mono); font-size:16px; letter-spacing:1px;
+}
+
+
+/* Font readability improvements v3.15 */
+body, .card, .panel, td, th, .row, .lbl, .label {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.lbl, .label, td, th {
+  font-weight: 450;
+  letter-spacing: 0.01em;
+}
+.ctitle {
+  font-size: 13px !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.sec {
+  font-size: 14px !important;
+  letter-spacing: 0.05em;
+}
+.val, .value-big {
+  font-size: 22px !important;
+  font-weight: 700;
 }
 
 </style>
@@ -601,7 +649,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="sec"><span class="sec-n">I</span> Tỷ Giá USD/VND · DXY · EMP Index <span class="theory">IRP · EMP · PPP</span></div>
 <div class="g3">
   <div class="card" style="grid-column:span 2">
-    <div class="ctitle">TỶ GIÁ GIAO DỊCH THỰC TẾ <span id="fx-ts" class="d mono" style="font-size:9px"></span></div>
+    <div class="ctitle">TỶ GIÁ GIAO DỊCH THỰC TẾ <span id="fx-ts" class="d mono" style="font-size:15px"></span></div>
     <div class="fx-split" id="fx-split"></div>
     <div id="fx-bottom" style="margin-top:8px"></div>
   </div>
@@ -722,7 +770,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <div id="panel-fed"></div>
   </div>
   <div class="card">
-    <div class="ctitle">KỊCH BẢN DẦU & HORMUZ — 4 KB <span style="font-size:8px;color:var(--dim2);font-weight:400;margin-left:6px">( Giá dầu · Tàu qua Hormuz · VN-Index ước tính · Xác suất )</span></div>
+    <div class="ctitle">KỊCH BẢN DẦU & HORMUZ — 4 KB <span style="font-size:16px;color:var(--dim2);font-weight:400;margin-left:6px">( Giá dầu · Tàu qua Hormuz · VN-Index ước tính · Xác suất )</span></div>
     <div id="panel-kb"></div>
   </div>
 </div>
@@ -752,7 +800,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="sec"><span class="sec-n">XIII</span> Update Checklist — Trạng Thái Dữ Liệu <span class="badge-live">● Auto từ D.checklist</span></div>
 <div class="g2">
   <div class="card">
-    <div class="ctitle">CHECKLIST <span id="cl-sum" class="d mono" style="font-size:9px"></span></div>
+    <div class="ctitle">CHECKLIST <span id="cl-sum" class="d mono" style="font-size:15px"></span></div>
     <table class="tbl">
       <thead><tr><th></th><th>Biến số</th><th>Cập nhật</th><th>Nguồn</th><th>Tần suất</th></tr></thead>
       <tbody id="cl-body"></tbody>
@@ -796,7 +844,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="sec"><span class="sec-n">XIV</span> Model Scorecard — Độ Chính Xác Dự Báo Hàng Tuần <span class="theory">Backtesting · Transparency</span></div>
 <div class="ar-trigger">
   <div>
-    <div style="font-family:var(--mono);font-size:10px;color:var(--text);font-weight:600">
+    <div style="font-family:var(--mono);font-size:15px;color:var(--text);font-weight:600">
       <span class="ar-auto-badge">⚡ AUTO</span>
       &nbsp;AI tự động search và chấm điểm dự báo tuần trước mỗi thứ Hai
     </div>
@@ -819,7 +867,7 @@ const fmt=(n,d=0)=>{if(n==null)return'—';if(typeof n==='string')return n;retur
 const v=o=>o?.value??'—';const u=o=>o?.updated??'';const n=o=>o?.note??'';const s=o=>o?.source??'';
 const clr=v=>v>0?'g':v<0?'r':'';
 const drow=(lbl,val,cls='',sub='',src='')=>
-  `<div class="drow"><div class="flex1"><div class="drow-lbl">${lbl}${src?`<span class="mono" style="font-size:8px;color:var(--dim);margin-left:4px">${src}</span>`:''}${sub?`<div class="drow-sub">${sub}</div>`:''}</div></div><div class="drow-val ${cls}">${val}</div></div>`;
+  `<div class="drow"><div class="flex1"><div class="drow-lbl">${lbl}${src?`<span class="mono" style="font-size:16px;color:var(--dim);margin-left:4px">${src}</span>`:''}${sub?`<div class="drow-sub">${sub}</div>`:''}</div></div><div class="drow-val ${cls}">${val}</div></div>`;
 const mbox=(lbl,val,sub,cls)=>
   `<div class="mbox"><div class="mbox-lbl">${lbl}</div><div class="mbox-val ${cls}">${val}</div>${sub?`<div class="mbox-sub">${sub}</div>`:''}</div>`;
 function daysSince(ds){if(!ds)return 999;const[d,m,y]=ds.split('/').map(Number);return Math.round((new Date(2026,2,17)-new Date(y,m-1,d))/86400000);}
@@ -849,15 +897,15 @@ document.getElementById('fx-split').innerHTML=`
     <div class="fx-lbl">↑ Mua vào (NH trả) · Xuất khẩu bán USD</div>
     <div class="fx-rate g">${fmt(v(D.fx.vcb_mua))}</div>
     <div class="fx-meta">VCB CK · ${u(D.fx.vcb_mua)} · ${n(D.fx.vcb_mua)}</div>
-    <div class="fx-fc">Dự báo: <strong>${v(D.fx.forecast_mua)}</strong><br><span style="font-size:9px;color:var(--dim2)">${n(D.fx.forecast_mua)}</span></div>
-    <div class="mono" style="font-size:9px;color:var(--dim2);margin-top:6px">Tiền mặt: ${fmt(v(D.fx.vcb_tienmat))}</div>
+    <div class="fx-fc">Dự báo: <strong>${v(D.fx.forecast_mua)}</strong><br><span style="font-size:15px;color:var(--dim2)">${n(D.fx.forecast_mua)}</span></div>
+    <div class="mono" style="font-size:15px;color:var(--dim2);margin-top:6px">Tiền mặt: ${fmt(v(D.fx.vcb_tienmat))}</div>
   </div>
   <div class="fx-side">
     <div class="fx-lbl">↓ Bán ra (bạn trả) · Nhập khẩu mua USD</div>
     <div class="fx-rate r">${fmt(v(D.fx.vcb_ban))}</div>
     <div class="fx-meta">VCB · ${u(D.fx.vcb_ban)} · ${n(D.fx.vcb_ban)}</div>
-    <div class="fx-fc">Dự báo: <strong>${v(D.fx.forecast_ban)}</strong><br><span style="font-size:9px;color:var(--dim2)">${n(D.fx.forecast_ban)}</span></div>
-    <div class="mono" style="font-size:9px;color:var(--dim2);margin-top:6px">TB 33NH: ${v(D.fx.tb33nh)} · UOB Q2: ${fmt(v(D.fx.uob_q2))}</div>
+    <div class="fx-fc">Dự báo: <strong>${v(D.fx.forecast_ban)}</strong><br><span style="font-size:15px;color:var(--dim2)">${n(D.fx.forecast_ban)}</span></div>
+    <div class="mono" style="font-size:15px;color:var(--dim2);margin-top:6px">TB 33NH: ${v(D.fx.tb33nh)} · UOB Q2: ${fmt(v(D.fx.uob_q2))}</div>
   </div>`;
 document.getElementById('fx-bottom').innerHTML=`
   <div class="g3" style="gap:6px;margin-bottom:6px">
@@ -865,7 +913,7 @@ document.getElementById('fx-bottom').innerHTML=`
     ${mbox('NHNN Trần ±5%',fmt(v(D.fx.nhnn_tran)),'',`r`)}
     ${mbox('NHNN Sàn ±5%',fmt(v(D.fx.nhnn_san)),'',`g`)}
   </div>
-  <div class="mono" style="font-size:9px;color:var(--dim2)">Bid–Ask Spread VCB: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.vcb_mua))}đ</strong> · Spread TC↔VCBbán: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.nhnn_tc))}đ</strong></div>`;
+  <div class="mono" style="font-size:15px;color:var(--dim2)">Bid–Ask Spread VCB: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.vcb_mua))}đ</strong> · Spread TC↔VCBbán: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.nhnn_tc))}đ</strong></div>`;
 // EMP
 const emp=parseFloat(v(D.fx.spread_emp).replace(/[~]/g,'').replace(/,/g,'.').split('\u2013')[0]), empPct=Math.min(100,emp/2000*100), empC=emp>1500?'r':emp>1000?'r':emp>600?'y':'g';
 const empLbl=emp>1500?'🔴🔴 EXTREME':emp>1000?'🔴 CRITICAL':emp>600?'🟡 ALERT':'🟢 Normal';
@@ -874,7 +922,7 @@ document.getElementById('fx-tudo').innerHTML=`
   ${drow('TG tự do bán',fmt(v(D.fx.tg_tu_do_ban))+'đ','r',n(D.fx.tg_tu_do_ban))}
   ${drow('EMP Spread',fmt(emp)+'đ',empC,'Ngưỡng: >600đ ALERT · >800đ CRITICAL')}
   <div class="emp-bar"><div class="emp-fill ${empC}" style="width:${empPct}%;background:${emp>800?'var(--red)':emp>600?'var(--yellow)':'var(--ok)'}"></div></div>
-  <div class="mono" style="display:flex;justify-content:space-between;font-size:7.5px;color:var(--dim)"><span>0</span><span>600đ</span><span>800đ</span><span>1000đ</span></div>
+  <div class="mono" style="display:flex;justify-content:space-between;font-size:15px;color:var(--dim)"><span>0</span><span>600đ</span><span>800đ</span><span>1000đ</span></div>
   <div class="co co-${empC}" style="margin-top:8px"><strong>EMP: ${empLbl} (${fmt(emp)}đ)</strong><br>${n(D.fx.spread_emp)}</div>`;
 
 document.getElementById('panel-dxy').innerHTML=`
@@ -960,7 +1008,7 @@ document.getElementById('panel-yc').innerHTML=`
     </div>
     <div>
       <div class="ctitle" style="border:none;padding-bottom:4px">GAP IRP VND–USD <span class="theory">IRP</span></div>
-      <div style="font-size:9px;color:var(--dim);margin-bottom:4px;font-family:'IBM Plex Mono',monospace">
+      <div style="font-size:15px;color:var(--dim);margin-bottom:4px;font-family:'IBM Plex Mono',monospace">
         LS TT2 O/N = LS ngân hàng cho nhau vay qua đêm (KHÔNG phải LS tiết kiệm)
       </div>
       ${drow('LS TT2 O/N VND (qua đêm)',v(D.irp.ls_vnd_tt2)+'%','y',u(D.irp.ls_vnd_tt2))}
@@ -979,7 +1027,7 @@ document.getElementById('panel-omo').innerHTML=`
   ${drow('Trạng thái',v(D.omo.trang_thai),'r',u(D.omo.trang_thai))}
   ${drow('LS OMO',v(D.omo.ls_omo)+'%/năm','b',n(D.omo.ls_omo))}
   <div class="co co-y" style="margin-top:8px"><strong>Cơ chế MV=PQ (Ngắn hạn):</strong><br>${v(D.omo.co_che)}</div>
-  <div style="margin-top:8px;padding:10px 12px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.25);border-left:3px solid var(--blue);border-radius:3px;font-size:11px;line-height:1.9">
+  <div style="margin-top:8px;padding:10px 12px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.25);border-left:3px solid var(--blue);border-radius:3px;font-size:16px;line-height:1.9">
     <strong style="color:var(--blue)">📌 Tại sao TT2 hạ mà LS ngân hàng (TT1) vẫn cao?</strong><br>
     <span style="color:var(--dim2)">
     <strong style="color:var(--ok)">TT2 (Liên ngân hàng)</strong> — NH cho nhau vay qua đêm khi thiếu tiền mặt tức thời<br>
@@ -989,7 +1037,7 @@ document.getElementById('panel-omo').innerHTML=`
     <em>→ TT2 hạ nhiệt KHÔNG đồng nghĩa TT1 sẽ giảm — đây là 2 thị trường khác nhau với driver cấu trúc khác nhau</em>
     </span>
   </div>
-  <div style="margin-top:8px;padding:10px 12px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red);border-radius:3px;font-size:11px;line-height:1.85">
+  <div style="margin-top:8px;padding:10px 12px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red);border-radius:3px;font-size:16px;line-height:1.85">
     <strong style="color:var(--red)">🔗 CHUỖI NHÂN QUẢ CẤU TRÚC — Tại sao LS VND không thể về mức thấp cũ</strong><br>
     <span style="color:var(--dim2)">
     <strong style="color:var(--amber)">① Ổn định tỷ giá = mục tiêu ưu tiên</strong><br>
@@ -1013,16 +1061,16 @@ document.getElementById('panel-omo').innerHTML=`
 
 // ── IV. TT1 & CPI ──
 document.getElementById('panel-tt1').innerHTML=`
-  <div style="margin-bottom:10px;padding:9px 12px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:3px;font-size:10px;line-height:1.8">
+  <div style="margin-bottom:10px;padding:9px 12px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:3px;font-size:15px;line-height:1.8">
     <strong style="color:var(--blue)">📌 TT1 = Tiền gửi của dân & doanh nghiệp tại ngân hàng</strong>
     <span class="d"> — khác với LS liên ngân hàng TT2 (ngân hàng cho nhau vay)</span>
   </div>
   <table class="tbl">
     <thead><tr><th>Kỳ hạn</th><th>Big4 Nhà nước</th><th>Tư nhân</th><th>Ghi chú</th></tr></thead>
     <tbody>
-      <tr><td>&lt; 6T</td><td class="y">&lt; ${v(D.rates_tt1.tran_ngan_han)}%</td><td class="y">&lt; ${v(D.rates_tt1.tran_ngan_han)}%</td><td class="d" style="font-size:9px">${n(D.rates_tt1.tran_ngan_han)}</td></tr>
-      <tr><td>6–12T</td><td class="y">${v(D.rates_tt1.big4_6_12t)}%</td><td class="r">${v(D.rates_tt1.tn_lon_6_12t)}%</td><td class="d" style="font-size:9px">Big4 cao hơn kỳ vọng</td></tr>
-      <tr style="background:rgba(239,68,68,.04)"><td>12T đỉnh</td><td class="r">~7,5%</td><td class="r">${v(D.rates_tt1.tn_12t_dinh)}%</td><td class="r" style="font-size:9px">Đỉnh hiện tại</td></tr>
+      <tr><td>&lt; 6T</td><td class="y">&lt; ${v(D.rates_tt1.tran_ngan_han)}%</td><td class="y">&lt; ${v(D.rates_tt1.tran_ngan_han)}%</td><td class="d" style="font-size:15px">${n(D.rates_tt1.tran_ngan_han)}</td></tr>
+      <tr><td>6–12T</td><td class="y">${v(D.rates_tt1.big4_6_12t)}%</td><td class="r">${v(D.rates_tt1.tn_lon_6_12t)}%</td><td class="d" style="font-size:15px">Big4 cao hơn kỳ vọng</td></tr>
+      <tr style="background:rgba(239,68,68,.04)"><td>12T đỉnh</td><td class="r">~7,5%</td><td class="r">${v(D.rates_tt1.tn_12t_dinh)}%</td><td class="r" style="font-size:15px">Đỉnh hiện tại</td></tr>
     </tbody>
   </table>
   ${drow('LDR hệ thống',v(D.rates_tt1.ldr),'r',n(D.rates_tt1.ldr))}
@@ -1031,7 +1079,7 @@ document.getElementById('panel-tt1').innerHTML=`
     ${v(D.rates_tt1.nhan_xet)}
   </div>
   ${drow('LDR T2 Huy động', v(D.rates_tt1.ldr_t2_hd), 'r', n(D.rates_tt1.ldr_t2_hd))}
-  <div style="margin-top:8px;padding:9px 12px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red);border-radius:3px;font-size:11px;line-height:1.85">
+  <div style="margin-top:8px;padding:9px 12px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red);border-radius:3px;font-size:16px;line-height:1.85">
     <strong style="color:var(--red)">📊 LDR PHÂN TẦNG — Nơi rủi ro thanh khoản tích tụ</strong><br>
     <span style="color:var(--dim2)">
     <strong style="color:var(--ok)">Big4 (VCB/BIDV/VietinBank/Agribank):</strong> ${v(D.rates_tt1.ldr_big4)} · Còn trong ngưỡng kiểm soát<br>
@@ -1039,7 +1087,7 @@ document.getElementById('panel-tt1').innerHTML=`
     <em>→ Khi tư nhân cạn tiền → phải tăng LS mạnh hơn → kéo Big4 tăng theo → vòng xoáy leo thang</em>
     </span>
   </div>
-  <div style="margin-top:8px;padding:9px 12px;background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.2);border-left:3px solid var(--amber);border-radius:3px;font-size:11px;line-height:1.85">
+  <div style="margin-top:8px;padding:9px 12px;background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.2);border-left:3px solid var(--amber);border-radius:3px;font-size:16px;line-height:1.85">
     <strong style="color:var(--amber)">📐 LÃI SUẤT THỰC r = LS_TT1 − CPI_forecast</strong><br>
     <span style="color:var(--dim2)">
     LS TT1 Big4 thực tế: <strong style="color:var(--red)">${v(D.rates_tt1.big4_6_12t)}%</strong> · CPI forecast T3/T4: <strong style="color:var(--amber)">${v(D.cpi.t3_forecast)}%</strong><br>
@@ -1047,11 +1095,11 @@ document.getElementById('panel-tt1').innerHTML=`
     <em>→ Khi r bị bào mòn (CPI tăng nhanh hơn LS) → dòng tiền chạy sang Vàng & USD chợ đen → EMP spread tăng</em>
     </span>
   </div>
-  <div style="margin-top:8px;padding:9px 12px;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.2);border-left:3px solid var(--cyan);border-radius:3px;font-size:11px;line-height:1.85">
+  <div style="margin-top:8px;padding:9px 12px;background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.2);border-left:3px solid var(--cyan);border-radius:3px;font-size:16px;line-height:1.85">
     <strong style="color:var(--cyan)">⏱ TIME-TO-IMPACT: BÔXD → Xăng → CPI</strong><br>
     <span style="color:var(--dim2)">${v(D.rates_tt1.time_to_impact)}</span>
   </div>
-  <div style="margin-top:8px;padding:9px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-left:3px solid var(--amber);border-radius:3px;font-size:10px;line-height:1.9">
+  <div style="margin-top:8px;padding:9px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-left:3px solid var(--amber);border-radius:3px;font-size:15px;line-height:1.9">
     <strong style="color:var(--amber)">📌 Forward USD → áp lực chi phí vốn TT1</strong><br>
     <span style="color:var(--dim2)">
     NHNN bán USD forward 180 ngày @26.850 (24/3) → NH nhận VND, trả USD sau 6 tháng<br>
@@ -1133,7 +1181,7 @@ const riskRows=D.risk_matrix.sort((a,b)=>b.score-a.score).map(r=>`
     <div class="ri-lbl">${r.label} <span class="ri-score ${r.color}">${r.score}</span></div>
     <div class="ri-level ${r.color}">${r.level}</div>
     <div class="ri-note">${r.note}</div>
-    <div class="mono" style="font-size:8px;color:var(--dim);margin-top:3px">${r.updated}</div>
+    <div class="mono" style="font-size:16px;color:var(--dim);margin-top:3px">${r.updated}</div>
   </div>`).join('');
 const totScore=D.risk_matrix.reduce((s,r)=>s+r.score,0)/D.risk_matrix.length;
 document.getElementById('panel-risk').innerHTML=`
@@ -1145,18 +1193,18 @@ document.getElementById('panel-confluence').innerHTML=`
   <div class="g2" style="gap:10px">
     <div>
       ${drow('Confluence Score tổng',v(D.confluence.score_total)+'/10','r',u(D.confluence.score_total)+' · '+n(D.confluence.score_total))}
-      <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:5px;letter-spacing:1px">CHAIN A — M2 → THANH KHOẢN</div>
+      <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-bottom:5px;letter-spacing:1px">CHAIN A — M2 → THANH KHOẢN</div>
       <div class="chain"><div class="cn cn-y">M2 +14%</div><div class="chain-arr">→</div><div class="cn cn-r">NHNN OMO hút</div><div class="chain-arr">→</div><div class="cn cn-r">TK TT2 thắt</div><div class="chain-arr">→</div><div class="cn cn-r">LS LNH cao</div></div>
-      <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:5px;letter-spacing:1px">CHAIN B — THUẾ → LS LNH SPIKE</div>
+      <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-bottom:5px;letter-spacing:1px">CHAIN B — THUẾ → LS LNH SPIKE</div>
       <div class="chain"><div class="cn cn-b">Kỳ thuế T3 (31/3)</div><div class="chain-arr">→</div><div class="cn cn-r">DN rút tiền NH</div><div class="chain-arr">→</div><div class="cn cn-r">NHTM thiếu VND</div><div class="chain-arr">→</div><div class="cn cn-r">TT2 spike</div></div>
-      <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:5px;letter-spacing:1px">CHAIN C — CƯỚC/DẦU → CPI</div>
+      <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-bottom:5px;letter-spacing:1px">CHAIN C — CƯỚC/DẦU → CPI</div>
       <div class="chain"><div class="cn cn-r">Brent $104</div><div class="chain-arr">+</div><div class="cn cn-r">Cước +30%</div><div class="chain-arr">→</div><div class="cn cn-y">CPI T5–T6 ↑</div><div class="chain-arr">→</div><div class="cn cn-b">NHNN cân nhắc thắt</div></div>
     </div>
     <div>
       <div class="co co-r"><strong>🔴 NET SIGNAL: ${v(D.confluence.net_signal)}</strong></div>
       <div class="co co-g" style="margin-top:8px"><strong>Catalyst đảo chiều:</strong><br>${v(D.confluence.catalyst_reverse)}</div>
-      <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:5px">PIPELINE THEO DÕI HÀNG TUẦN</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim2);line-height:2">
+      <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-bottom:5px">PIPELINE THEO DÕI HÀNG TUẦN</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2);line-height:2">
         📊 <strong class="y">Hàng ngày:</strong> OMO lưu hành · LS LNH O/N<br>
         📊 <strong class="b">Hàng tuần:</strong> Yield curve TT2 · Hormuz flows · Cước container<br>
         📊 <strong class="y">Hàng tháng:</strong> M2 · NSNN Thu/Chi · Tín dụng<br>
@@ -1184,7 +1232,7 @@ const kbData=[
 
 // Header hướng dẫn đọc
 const kbHeader = `
-  <div style="display:grid;grid-template-columns:80px 1fr 110px 100px 80px;gap:8px;padding:5px 10px 8px;border-bottom:1px solid var(--border);margin-bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);letter-spacing:1px;text-transform:uppercase">
+  <div style="display:grid;grid-template-columns:80px 1fr 110px 100px 80px;gap:8px;padding:5px 10px 8px;border-bottom:1px solid var(--border);margin-bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);letter-spacing:1px;text-transform:uppercase">
     <div>Kịch bản</div>
     <div>Mô tả tình hình</div>
     <div>Giá dầu / Eo biển</div>
@@ -1195,31 +1243,31 @@ const kbHeader = `
 const kbRows = kbData.map(k=>`
   <div style="display:grid;grid-template-columns:80px 1fr 110px 100px 80px;gap:8px;align-items:center;padding:10px;border-radius:3px;margin-bottom:5px;border:1px solid ${k.isNow?'rgba(245,158,11,.35)':'transparent'};background:${k.isNow?'rgba(245,158,11,.06)':'var(--card2)'}">
     <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700" class="${k.cls}">${k.lbl}${k.isNow?' 📍':''}</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-top:2px">${k.isNow?'ĐANG Ở ĐÂY':'Kịch bản'}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700" class="${k.cls}">${k.lbl}${k.isNow?' 📍':''}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-top:2px">${k.isNow?'ĐANG Ở ĐÂY':'Kịch bản'}</div>
     </div>
     <div>
-      <div style="font-size:11px;color:var(--text);font-weight:${k.isNow?'600':'400'}">${k.desc}</div>
-      <div style="font-size:9px;color:var(--dim2);margin-top:2px;font-family:'IBM Plex Mono',monospace">Hormuz: ${k.tau}</div>
+      <div style="font-size:16px;color:var(--text);font-weight:${k.isNow?'600':'400'}">${k.desc}</div>
+      <div style="font-size:15px;color:var(--dim2);margin-top:2px;font-family:'IBM Plex Mono',monospace">Hormuz: ${k.tau}</div>
     </div>
     <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600" class="${k.cls}">${k.oil}</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-top:2px">${k.tau}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600" class="${k.cls}">${k.oil}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-top:2px">${k.tau}</div>
     </div>
     <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700" class="${k.cls}">${k.vnIndex}</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-top:2px">điểm · ước tính</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700" class="${k.cls}">${k.vnIndex}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-top:2px">điểm · ước tính</div>
     </div>
     <div style="text-align:right">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:700" class="${k.cls}">${k.xacSuat}</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--dim);margin-top:2px">xác suất</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:700" class="${k.cls}">${k.xacSuat}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--dim);margin-top:2px">xác suất</div>
     </div>
   </div>`).join('');
 
 document.getElementById('panel-kb').innerHTML = kbHeader + kbRows +
   `<div class="co co-r" style="margin-top:8px">
     <strong>🔴 Hiện tại KB-D (XS 55%):</strong> Israel tấn công South Pars 18/3 · Iran trả đũa Ras Laffan Qatar · Hormuz ~0–2 tàu/ngày · Brent $109–112<br>
-    <span style="color:var(--dim2);font-size:10px">📌 <em>VN-Index ước tính là kịch bản định hướng, không phải dự báo chính xác. Phụ thuộc tình hình chiến sự thực tế.</em></span>
+    <span style="color:var(--dim2);font-size:15px">📌 <em>VN-Index ước tính là kịch bản định hướng, không phải dự báo chính xác. Phụ thuộc tình hình chiến sự thực tế.</em></span>
   </div>`;
 
 // ── X-b. TRUMP POLICY TRACKER ──
@@ -1227,11 +1275,11 @@ const trumpVectorCls = v(D.trump.vector).includes('LEO THANG') ? 'r' : v(D.trump
 document.getElementById('panel-trump').innerHTML=`
   <div style="padding:12px 14px;margin-bottom:12px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.35);border-left:3px solid #ef4444;border-radius:4px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:1px;text-transform:uppercase">TRUMP POLICY VECTOR</span>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim2)">${u(D.trump.vector)}</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim);letter-spacing:1px;text-transform:uppercase">TRUMP POLICY VECTOR</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--dim2)">${u(D.trump.vector)}</span>
     </div>
-    <div style="font-size:14px;font-weight:600;color:var(--red);line-height:1.5">${v(D.trump.vector)}</div>
-    <div style="font-size:10px;color:var(--dim2);margin-top:4px;line-height:1.7">${n(D.trump.vector)}</div>
+    <div style="font-size:16px;font-weight:600;color:var(--red);line-height:1.5">${v(D.trump.vector)}</div>
+    <div style="font-size:15px;color:var(--dim2);margin-top:4px;line-height:1.7">${n(D.trump.vector)}</div>
   </div>
   <div class="g2" style="gap:10px;margin-bottom:10px">
     <div>
@@ -1246,9 +1294,9 @@ document.getElementById('panel-trump').innerHTML=`
     </div>
   </div>
   <div style="padding:10px 14px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);border-left:3px solid var(--yellow);border-radius:4px">
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--yellow);letter-spacing:1px;text-transform:uppercase">⚡ WATCH NEXT</span>
-    <div style="font-size:12px;font-weight:600;color:var(--yellow);margin-top:4px">${v(D.trump.watch_next)}</div>
-    <div style="font-size:10px;color:var(--dim2);margin-top:3px;line-height:1.7">${n(D.trump.watch_next)}</div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--yellow);letter-spacing:1px;text-transform:uppercase">⚡ WATCH NEXT</span>
+    <div style="font-size:15px;font-weight:600;color:var(--yellow);margin-top:4px">${v(D.trump.watch_next)}</div>
+    <div style="font-size:15px;color:var(--dim2);margin-top:3px;line-height:1.7">${n(D.trump.watch_next)}</div>
   </div>`;
 
 // ── XI. TÍN HIỆU TUẦN ──
@@ -1264,7 +1312,7 @@ document.getElementById('panel-signals').innerHTML=`
 
 // ── XII. REVIEW & ROADMAP ──
 document.getElementById('panel-changelog').innerHTML=`
-  <div class="mono" style="font-size:10px;line-height:2;color:var(--dim2)">
+  <div class="mono" style="font-size:15px;line-height:2;color:var(--dim2)">
     ${[D.review.v34_changes, D.review.v35_changes, D.review.v36_changes].map(r=>`<div>📋 ${v(r)}</div>`).join('')}
   </div>`;
 document.getElementById('panel-roadmap').innerHTML=D.review.roadmap.map(r=>`
@@ -1281,8 +1329,8 @@ document.getElementById('cl-body').innerHTML=D.checklist.map(item=>{
   return `<tr>
     <td><span class="cl-dot cl-${st}"></span></td>
     <td style="font-weight:500">${item.label}</td>
-    <td class="mono ${st==='err'?'stale':''}" style="font-size:10px">${item.updated} <span class="d">(${days}d)</span></td>
-    <td class="d" style="font-size:10px">${item.source}</td>
+    <td class="mono ${st==='err'?'stale':''}" style="font-size:15px">${item.updated} <span class="d">(${days}d)</span></td>
+    <td class="d" style="font-size:15px">${item.source}</td>
     <td><span class="freq-badge ${fl[item.frequency]}">${fl2[item.frequency]}</span></td>
   </tr>`;
 }).join('');
@@ -1542,7 +1590,7 @@ function renderScorecard(weeksFromStorage) {
         <div class="sc-kpi-lbl">TUẦN ĐÃ REVIEW</div>
       </div>
       <div class="sc-kpi">
-        <div class="sc-kpi-val" style="color:var(--amber);font-size:11px">${ov.next_review}</div>
+        <div class="sc-kpi-val" style="color:var(--amber);font-size:16px">${ov.next_review}</div>
         <div class="sc-kpi-lbl">KỲ REVIEW TIẾP</div>
       </div>
     </div>
@@ -1570,12 +1618,12 @@ function renderScorecard(weeksFromStorage) {
           <div class="sc-week-title">
             ${isAI ? '<span class="ar-auto-badge">🤖 AI</span>&nbsp;' : ''}TUẦN ${w.week}
           </div>
-          <div style="font-family:var(--mono);font-size:8px;color:var(--dim2);margin-top:2px">
+          <div style="font-family:var(--mono);font-size:16px;color:var(--dim2);margin-top:2px">
             ${hits}/${total} dự báo chính xác
             ${isAI && w.reviewed_at ? ' · Reviewed: ' + new Date(w.reviewed_at).toLocaleString('vi-VN') : ''}
           </div>
         </div>
-        <div class="sc-week-score" style="color:${scoreColor};font-size:22px;font-family:var(--mono);font-weight:600">${pct}%</div>
+        <div class="sc-week-score" style="color:${scoreColor};font-size:26px;font-family:var(--mono);font-weight:600">${pct}%</div>
       </div>
       <div class="sc-bar-wrap"><div class="sc-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
       <div class="sc-items">
