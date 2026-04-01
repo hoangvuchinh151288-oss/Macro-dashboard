@@ -65,8 +65,8 @@ const D = {
     tg_tu_do_mua:  { value: 27500,         updated: "01/04/2026", source: "danviet/giadinh 30/3 sáng", note: "📉 HẠ NHIỆT: Chợ đen 1/4 13h: 27.500 MUA (−200đ vs hôm qua) · Iran xác nhận đàm phán qua Pakistan · Trump: rời Iran 2–3 tuần · DXY thủng 100 · Brent $103–107 hạ từ $116 · Tâm lý đảo chiều nhanh" },
     tg_tu_do_ban:  { value: 27550,         updated: "01/04/2026", source: "danviet/giadinh 30/3 sáng", note: "📉 Chợ đen bán 1/4: 27.550 (−200đ) · Từ đỉnh 28.150 (29/3) giảm 600đ trong 3 ngày · BATNA Mỹ mạnh → deal khả năng cao → USD trú ẩn mất dần · Nếu Hormuz mở → về 26.500–26.800" },
     spread_emp:    { value: "~1.140–1.190",    updated: "01/04/2026", source: "tính toán 30/3 sáng", note: "📉 EMP thu hẹp: 27.550−26.357=1.193đ (1/4) · Từ đỉnh 1.795đ (29/3) giảm 600đ · Deal scenario: EMP về 400–600đ · No-deal: lên lại 1.500đ+ · Deadline 6/4 = ngưỡng quyết định tới" },
-    forecast_mua:  { value: "26.109–26.309",updated:"31/03/2026", source: "Nội bộ 26/3",      note: "NHNN can thiệp kỳ hạn 180 ngày @26.850 → tín hiệu trần tâm lý · Brent $102,8 · DXY 99,59 (+0,36%) · Deadline 28/3 → thị trường chờ kết quả đàm phán Mỹ-Iran" },
-    forecast_ban:  { value: "26.364–26.800",updated:"31/03/2026", source: "Nội bộ 24/3",      note: "Kỳ thuế 31/3 + EMP 1.656đ → NHNN sẽ phải can thiệp mạnh hơn tuần tới. Nếu đàm phán Mỹ-Iran thành công → Brent về $85–95 → VND bớt áp lực" },
+    forecast_mua:  { value: "26.109–26.309",updated:"31/03/2026", source: "Nội bộ 1/4",      note: "NHNN can thiệp kỳ hạn 180 ngày @26.850 → tín hiệu trần tâm lý · Brent $102,8 · DXY 99,59 (+0,36%) · Deadline 28/3 → thị trường chờ kết quả đàm phán Mỹ-Iran" },
+    forecast_ban:  { value: "26.364–26.800",updated:"31/03/2026", source: "Nội bộ 1/4",      note: "Kỳ thuế 31/3 + EMP 1.656đ → NHNN sẽ phải can thiệp mạnh hơn tuần tới. Nếu đàm phán Mỹ-Iran thành công → Brent về $85–95 → VND bớt áp lực" },
     uob_q2:        { value: 26400,         updated: "01/03/2026", source: "UOB Research",      note: "Dự báo Q2/2026 · Thực tế chợ đen 27.050 hiện > UOB nhưng đang giảm. NHNN kỳ hạn @26.850 = mốc trần tâm lý 6 tháng tới" },
     nhnn_kyhan:    { value: "26.850",      updated: "31/03/2026", source: "Vietstock/Maybank 26/3", note: "🔴 CAN THIỆP MỚI QUAN TRỌNG: NHNN cung cấp hợp đồng kỳ hạn 180 ngày (hủy ngang) giá 26.850 · Cao hơn giao ngay 26.360 (~1,8%) · Maybank: NHNN tránh bán giao ngay do dự trữ ~2 tháng NK · 26.850 = trần tâm lý 6 tháng · Nếu tỷ giá thấp hơn → NH hủy hợp đồng. Cơ chế phòng thủ, không tấn công" },
     // ── FORWARD USD — CƠ CHẾ RÚT THANH KHOẢN VND THEO KỲ HẠN (luận điểm cấu trúc mới)
@@ -104,17 +104,17 @@ const D = {
   // PPP War Premium Calculator
   ppp_war: {
     base_brent:    { value: 73,            updated: "01/04/2026", source: "Pre-war baseline",  note: "📉 HẠ NHIỆT: Brent 1/4 ~$103–107 (từ đỉnh $116, −8%) · Trump: Mỹ rời Iran 2–3 tuần · UAE chuẩn bị giúp mở Hormuz bằng vũ lực · Goldman base case: Hormuz mở trong T4 theo 4 tuần · Nếu deal → Brent về $80–90 Q3 · NHƯNG: Brent open 1/4: $103,26 → vẫn cao hơn pre-war $73" },
-    war_premium:   { value: "$40–45/thùng",       updated: "31/03/2026", source: "Cập nhật 21/3",    note: "Goldman: war premium $14–18/thùng (model) · Thực tế Brent $115–116 vs baseline $73 = +$42–43 · Dubai physical: $126/bbl (cao hơn paper price 76%)" },
+    war_premium:   { value: "$40–45/thùng",       updated: "31/03/2026", source: "Cập nhật 1/4",    note: "Goldman: war premium $14–18/thùng (model) · Thực tế Brent $115–116 vs baseline $73 = +$42–43 · Dubai physical: $126/bbl (cao hơn paper price 76%)" },
     iea_offset:    { value: "~16–18",      updated: "31/03/2026", source: "Goldman model + SPR mới", note: "USD/thùng · IEA 400M + SPR Mỹ 172M + Jones Act miễn 60 ngày → offset lớn hơn trước" },
-    fair_brent:    { value: "$90–100",       updated: "01/04/2026", source: "Tính toán 21/3",    note: "📉 HẠ NHIỆT: Brent 1/4 ~$103–107 (từ đỉnh $116, −8%) · Trump: Mỹ rời Iran 2–3 tuần · UAE chuẩn bị giúp mở Hormuz bằng vũ lực · Goldman base case: Hormuz mở trong T4 theo 4 tuần · Nếu deal → Brent về $80–90 Q3 · NHƯNG: Brent open 1/4: $103,26 → vẫn cao hơn pre-war $73" },
-    note:          { value: "🟡 HẠ NHIỆT NHẸ 20/3: Trump tuyên bố Israel không tấn công thêm South Pars · Mỹ xả SPR 172M thùng · Brent từ đỉnh $119→$107. NHƯNG: Iran chưa rút quân · Ras Laffan thiệt hại nặng · war premium vẫn ~$35/thùng", updated:"31/03/2026", source:"Phân tích 21/3", note:"" },
+    fair_brent:    { value: "$90–100",       updated: "01/04/2026", source: "Tính toán 1/4",    note: "📉 HẠ NHIỆT: Brent 1/4 ~$103–107 (từ đỉnh $116, −8%) · Trump: Mỹ rời Iran 2–3 tuần · UAE chuẩn bị giúp mở Hormuz bằng vũ lực · Goldman base case: Hormuz mở trong T4 theo 4 tuần · Nếu deal → Brent về $80–90 Q3 · NHƯNG: Brent open 1/4: $103,26 → vẫn cao hơn pre-war $73" },
+    note:          { value: "🟡 HẠ NHIỆT NHẸ 20/3: Trump tuyên bố Israel không tấn công thêm South Pars · Mỹ xả SPR 172M thùng · Brent từ đỉnh $119→$107. NHƯNG: Iran chưa rút quân · Ras Laffan thiệt hại nặng · war premium vẫn ~$35/thùng", updated:"31/03/2026", source:"Phân tích 1/4", note:"" },
   },
 
   cpi_trans: {
     sensitivity:   { value: "0,3–0,4",    updated: "01/03/2026", source: "UOB calibrated",    note: "%CPI / +10 USD Brent · lag 2–3 tháng" },
-    brent_avg_t3:  { value: "$105–115",    updated: "01/04/2026", source: "Cập nhật 21/3",     note: "📉 HẠ NHIỆT: Brent 1/4 ~$103–107 (từ đỉnh $116, −8%) · Trump: Mỹ rời Iran 2–3 tuần · UAE chuẩn bị giúp mở Hormuz bằng vũ lực · Goldman base case: Hormuz mở trong T4 theo 4 tuần · Nếu deal → Brent về $80–90 Q3 · NHƯNG: Brent open 1/4: $103,26 → vẫn cao hơn pre-war $73" },
+    brent_avg_t3:  { value: "$105–115",    updated: "01/04/2026", source: "Cập nhật 1/4",     note: "📉 HẠ NHIỆT: Brent 1/4 ~$103–107 (từ đỉnh $116, −8%) · Trump: Mỹ rời Iran 2–3 tuần · UAE chuẩn bị giúp mở Hormuz bằng vũ lực · Goldman base case: Hormuz mở trong T4 theo 4 tuần · Nếu deal → Brent về $80–90 Q3 · NHƯNG: Brent open 1/4: $103,26 → vẫn cao hơn pre-war $73" },
     cpi_impact_t5: { value: "+4,5–6,5%",   updated: "31/03/2026", source: "Tính toán cập nhật", note: "% CPI T5–T6 · RON95 30.690đ chắc chắn đẩy CPI T4–T5 · lag 1–2T" },
-    chain:         { value: "🔴 RON95 30.690đ (kỷ lục, +20% 1 kỳ) → CPI T4: 4,5–5,5% → vượt mục tiêu QH 4,5% → NHNN không thể nới → LS TT1 duy trì cao · Diesel +6.395đ → logistics + phân bón → CPI lan rộng", updated:"31/03/2026", source:"Nội bộ 21/3", note:"" },
+    chain:         { value: "🔴 RON95 30.690đ (kỷ lục, +20% 1 kỳ) → CPI T4: 4,5–5,5% → vượt mục tiêu QH 4,5% → NHNN không thể nới → LS TT1 duy trì cao · Diesel +6.395đ → logistics + phân bón → CPI lan rộng", updated:"31/03/2026", source:"Nội bộ 1/4", note:"" },
   },
 
   // ─── VÀNG ─────────────────────────────────────────────────────
@@ -277,17 +277,17 @@ const D = {
   hormuz: {
     kb_now:        { value: "KB-D LEO THANG 📍 · Brent >$115", updated: "30/03/2026", source: "nongnghiepmoitruong/vnplus 30/3", note: "🔴 KB-D TRỞ LẠI: Brent >$115 · Đàm phán Islamabad bế tắc · Israel tấn công cơ sở hạt nhân 28/3 · Macquarie: 40% xác suất kéo đến T6 → $200 · Hormuz vẫn <5% flow bình thường · 10.000 quân Mỹ bổ sung có thể kéo dài leo thang" },
     tau_ngay:      { value: "~1–5 (chưa thay đổi)", updated: "31/03/2026", source: "Iran bác bỏ/danviet 24/3", note: "Iran xác nhận: Hormuz CHƯA trở lại bình thường · Chỉ cho tàu 'không liên quan đến kẻ thù' qua · Trump hoãn tấn công không đồng nghĩa Hormuz được mở · Phải chờ kết quả đàm phán 28/3" },
-    kba:           { value: "XS 8%",        updated: "31/03/2026", source: "Nội bộ 24/3", note: ">20 tàu/ngày · Dầu $73–80 · VN-Index 2.050–2.200 · Tăng từ 5% sau Trump hoãn" },
-    kbb:           { value: "XS 22%",       updated: "31/03/2026", source: "Nội bộ 24/3", note: "12–20 tàu · Dầu $80–95 · VN-Index 1.900–2.000 · Tăng từ 12% — Brent $96–105 sáng 24/3 phù hợp KB này" },
-    kbc:           { value: "XS 35% 📍",    updated: "31/03/2026", source: "Nội bộ 24/3", note: "4–12 tàu · Dầu $95–115 · VN-Index 1.750–1.900 · Brent $98–105 sáng 24/3 đang ở đây · Trump hoãn → KB-C trở thành mode chính" },
-    kbd:           { value: "XS 35%",       updated: "31/03/2026", source: "Nội bộ 24/3", note: "<4 tàu · Dầu >$115 · VN-Index 1.500–1.700 · Giảm từ 55% — Trump hoãn → xác suất giảm nhưng vẫn cao vì Iran chưa xác nhận đàm phán thực chất" },
+    kba:           { value: "XS 8%",        updated: "31/03/2026", source: "Nội bộ 1/4", note: ">20 tàu/ngày · Dầu $73–80 · VN-Index 2.050–2.200 · Tăng từ 5% sau Trump hoãn" },
+    kbb:           { value: "XS 22%",       updated: "31/03/2026", source: "Nội bộ 1/4", note: "12–20 tàu · Dầu $80–95 · VN-Index 1.900–2.000 · Tăng từ 12% — Brent $96–105 sáng 24/3 phù hợp KB này" },
+    kbc:           { value: "XS 35% 📍",    updated: "31/03/2026", source: "Nội bộ 1/4", note: "4–12 tàu · Dầu $95–115 · VN-Index 1.750–1.900 · Brent $98–105 sáng 24/3 đang ở đây · Trump hoãn → KB-C trở thành mode chính" },
+    kbd:           { value: "XS 35%",       updated: "31/03/2026", source: "Nội bộ 1/4", note: "<4 tàu · Dầu >$115 · VN-Index 1.500–1.700 · Giảm từ 55% — Trump hoãn → xác suất giảm nhưng vẫn cao vì Iran chưa xác nhận đàm phán thực chất" },
   },
 
   // ─── X-b. TRUMP POLICY TRACKER ───────────────────────────────
   trump: {
     vector:        { value: "🟡 ĐÀMPHÁN TIẾN TRIỂN — Mỹ gửi đề xuất 15 điểm cho Iran", updated: "01/04/2026", source: "giavang.net/vietnambiz 25–26/3", note: "🟢 ĐẢO CHIỀU NHANH 1/4: Trump nói sẽ rời Iran trong 2–3 tuần · UAE chuẩn bị giúp mở Hormuz bằng vũ lực (đồng minh Mỹ) · Iran đã xác nhận đàm phán gián tiếp qua Pakistan · 20 tàu qua Hormuz như thiện chí · Goldman base case: Hormuz mở T4 · BATNA Mỹ thắng: không cần Hormuz, xuất khẩu dầu, Powell: dầu không gây tăng LS · Deal xác suất cao trước 6/4" },
     iran_policy:   { value: "Chiến tranh tuần 5 · Bế tắc · Deadline 6/4", updated: "30/03/2026", source: "danviet/tradingkey 27–30/3", note: "Iran từ chối đề xuất 15 điểm · Cánh cửa ngoại giao 'chưa khép' nhưng Iran kiểm soát bởi phe cứng rắn (IRGC) · Israel tấn công cơ sở hạt nhân 28/3 → escalation · Trump gia hạn 6/4 nhưng đồng thời cân nhắc 10.000 quân bổ sung · KBSV: 65% deal ngừng bắn · 40% Hormuz mở · Macquarie: 40% xác suất kéo đến T6 → $200" },
-    oil_action:    { value: "Đã cạn công cụ · GL-U: miễn trừng phạt 140M thùng Iran trên biển", updated: "31/03/2026", source: "CNN/FDD 20–21/3", note: "Đã dùng: SPR 172M thùng + Jones Act miễn 60 ngày + IEA 400M thùng · Mới: GL-U (General License U) — cho phép mua 140M thùng dầu Iran trên tàu trong 30 ngày đến 19/4 · Mâu thuẫn: vừa đánh Iran vừa mua dầu Iran · Nội bộ thừa nhận giá cao có thể kéo dài nhiều tháng" },
+    oil_action:    { value: "Đã cạn công cụ · GL-U: miễn trừng phạt 140M thùng Iran trên biển", updated: "31/03/2026", source: "CNBC/Reuters 1/4", note: "Đã dùng: SPR 172M thùng + Jones Act miễn 60 ngày + IEA 400M thùng · Mới: GL-U (General License U) — cho phép mua 140M thùng dầu Iran trên tàu trong 30 ngày đến 19/4 · Mâu thuẫn: vừa đánh Iran vừa mua dầu Iran · Nội bộ thừa nhận giá cao có thể kéo dài nhiều tháng" },
     hormuz_plan:   { value: "Đa phương hóa bảo vệ + quét mìn", updated: "31/03/2026", source: "Bloomberg/CNBC 22–23/3", note: "Truth Social: kêu gọi Trung/Pháp/Nhật/Hàn/Anh gửi tàu · Mỹ đang 'quét mạnh eo biển' · Không xác nhận hộ tống tàu thương mại · Saudi East-West Pipeline bypass: max 1–2M thùng/ngày vs 20M bình thường" },
     fed_signal:    { value: "Gây áp lực Powell cắt lãi · 'Powell phải ra đi càng sớm càng tốt'", updated: "31/03/2026", source: "TIME/Atlantic Council/CNN", note: "Trump thúc cắt lãi suất · Đang điều tra Powell · Powell hết nhiệm kỳ 23/5/2026 · Warsh đang xét duyệt để thay thế · Powell: sẽ ở lại nếu Warsh chưa được Thượng viện xác nhận (Tillis đang chặn) · Powell HOLD → mâu thuẫn với Trump" },
     tariff_status: { value: "Tariff 15% toàn cầu còn hiệu lực · SC đang xem xét", updated: "31/03/2026", source: "CNN/Atlantic Council 23/3", note: "SCOTUS đã bãi bỏ phần lớn tariff 'Liberation Day' · Trump ban hành tariff 15% toàn cầu thay thế · Tác động: CPI Mỹ +0,8pp (Goldman) · Việt Nam được miễn/giảm một phần do nhượng bộ thương mại nhưng vẫn chịu hiệu ứng gián tiếp qua XNK" },
@@ -344,7 +344,7 @@ const D = {
     { id:"omo",        label:"OMO NHNN (lưu hành)",    updated:"30/03/2026", source:"vietstock.vn 30/3",                frequency:"weekly",    ok:true  },
     { id:"hormuz",     label:"Hormuz flows (tàu/ngày)",updated:"27/03/2026", source:"Ước tính 23/3",       frequency:"weekly",    ok:true  },
     { id:"ls_lnh",     label:"LS LNH O/N + Yield Curve",updated:"27/03/2026",source:"vietnambiz/cafef 22/3", frequency:"weekly",    ok:true  },
-    { id:"ls_tt1",     label:"LS huy động TT1",        updated:"27/03/2026", source:"VnNet/VietnamBiz 20/3", frequency:"weekly",    ok:true  },
+    { id:"ls_tt1",     label:"LS huy động TT1",        updated:"27/03/2026", source:"thoibaotaichinh/danviet 1/4", frequency:"weekly",    ok:true  },
     { id:"m2",         label:"M2 & Multiplier",        updated:"27/03/2026", source:"NHNN Q4/2025 · proxy tín dụng T2 (công bố quý)", frequency:"monthly",   ok:true  },
     { id:"nsnn",       label:"NSNN Thu/Chi/Đọng KBNN", updated:"07/03/2026", source:"Kho bạc NN",          frequency:"monthly",   ok:true  },
     { id:"dtc",        label:"Đầu tư công giải ngân",  updated:"07/03/2026", source:"Bộ Tài chính",        frequency:"monthly",   ok:true  },
@@ -757,7 +757,7 @@ body, .card, .panel, td, th, .row, .lbl, .label {
 <div class="card" id="panel-tax"></div>
 
 <!-- VIII. MA TRẬN RỦI RO -->
-<div class="sec"><span class="sec-n">VIII</span> Ma Trận Rủi Ro — 12 Yếu Tố <span class="new-t">Cập nhật 17/03/2026</span></div>
+<div class="sec"><span class="sec-n">VIII</span> Ma Trận Rủi Ro — 12 Yếu Tố <span class="new-t">Cập nhật 1/4/2026</span></div>
 <div class="card" id="panel-risk"></div>
 
 <!-- IX. CONFLUENCE ALERT -->
@@ -951,12 +951,16 @@ document.getElementById('panel-hormuz-flows').innerHTML=`
   <table class="tbl" style="margin-top:8px">
     <thead><tr><th>Ngày</th><th>Sự kiện</th><th>Tàu/ngày</th><th>KB</th></tr></thead>
     <tbody>
-      <tr><td class="d">01/3</td><td class="d">Iran đóng Hormuz · tàu mắc kẹt</td><td class="r">~2–3</td><td class="r">KB-D→C</td></tr>
-      <tr><td class="d">09/3</td><td class="d">Brent đỉnh $119,50 · IEA họp</td><td class="r">~3</td><td class="r">KB-C/D</td></tr>
-      <tr><td class="d">10/3</td><td class="d">Trump "sắp kết thúc" → Brent −7%</td><td class="y">~3–4</td><td class="y">KB-C</td></tr>
-      <tr><td class="d">11/3</td><td class="d">IEA 400M thùng · 3 tàu tấn công</td><td class="r">~3</td><td class="r">KB-C/D</td></tr>
-      <tr><td class="d">14/3</td><td class="d">Brent phá $100 lại · tàu Ấn từ Oman</td><td class="y">~4–5</td><td class="y">KB-C</td></tr>
-      <tr style="background:rgba(245,158,11,.04)"><td class="y">16/3</td><td class="d">Goldman: hồi từ 21/3 · Iran cho 2 tàu Ấn qua</td><td class="y">~4–6</td><td class="y">KB-C</td></tr>
+      <tr><td class="d">01/3</td><td class="d">Iran đóng Hormuz · tàu mắc kẹt</td><td class="r">~2–3</td><td class="r">KB-D</td></tr>
+      <tr><td class="d">09/3</td><td class="d">Brent đỉnh $119,50 · IEA 400M thùng</td><td class="r">~3</td><td class="r">KB-D</td></tr>
+      <tr><td class="d">10/3</td><td class="d">Trump "sắp kết thúc" → Brent −7%</td><td class="y">~3–4</td><td class="y">KB-C/D</td></tr>
+      <tr><td class="d">14/3</td><td class="d">Brent phá $100 · tàu Ấn từ Oman</td><td class="y">~4–5</td><td class="y">KB-C</td></tr>
+      <tr><td class="d">21/3</td><td class="d">Goldman: Hormuz mở T4 · Iran cho tàu Ấn</td><td class="y">~4–6</td><td class="y">KB-C</td></tr>
+      <tr><td class="d">24/3</td><td class="d">Trump gia hạn 6/4 · EMP đỉnh 1.656đ</td><td class="y">~4–6</td><td class="y">KB-C/D</td></tr>
+      <tr><td class="d">27/3</td><td class="d">Iran đàm phán qua Pakistan · 20 tàu cho qua</td><td class="y">~6–10</td><td class="y">KB-C</td></tr>
+      <tr><td class="d">29/3</td><td class="d">Chợ đen 28.150 kỷ lục · Brent $116</td><td class="r">~4–5</td><td class="r">KB-D</td></tr>
+      <tr><td class="d">31/3</td><td class="d">Iran xác nhận đàm phán · BATNA Mỹ mạnh</td><td class="y">~10–15</td><td class="y">KB-C</td></tr>
+      <tr style="background:rgba(34,197,94,.06)"><td class="g">01/4</td><td class="g">Trump rời Iran 2–3 tuần · UAE mở Hormuz · DXY <100</td><td class="g">~15–20</td><td class="g">KB-B/C</td></tr>
     </tbody>
   </table>`;
 
