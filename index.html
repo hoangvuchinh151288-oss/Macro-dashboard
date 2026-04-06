@@ -53,6 +53,7 @@ const D = {
     note: "v3.17 · 06/04 DEADLINE: NFP +178k · Fed cornered 77,5% · Chợ đen 27.350 · Brent $107-109 · Hormuz 80,5% không mở T4 (Polymarket)",
   },
 
+
   // ─── I. TỶ GIÁ ───────────────────────────────────────────────
   fx: {
     nhnn_tc:       { value: 25107,         updated: "06/04/2026", source: "doanhnghiephoinhap/nongnghiep 30/3", note: "NHNN TC 6/4: 25.107 (giữ nguyên từ 3/4) · Trần 26.362 · NHNN chưa điều chỉnh sau Good Friday · Chờ phản ứng thị trường Mỹ hôm nay sau NFP +178k + Deadline Iran · UOB dự báo TC 25.200 cuối Q2 nếu DXY giữ trên 99" },
@@ -93,8 +94,15 @@ const D = {
     spread_futures:{ value: "~$20–25",     updated: "31/03/2026", source: "Ước tính",           note: "Backwardation sâu · war premium còn ~$40–45/thùng vs baseline $73 · Dubai physical $126 cao hơn Brent paper 76% · SPR + rerouting đang che giấu crisis thực" },
     iea_release:   { value: "IEA 400M + SPR Mỹ 172M thùng", updated: "31/03/2026", source: "Reuters/IEA", note: "Jones Act miễn 60 ngày · các nước đồng minh hỗ trợ vận tải Hormuz → offset lớn" },
     hormuz_tau:    { value: "Đàm phán gián tiếp · UAE vào cuộc · Trump rút 2–3 tuần",        updated: "06/04/2026", source: "Ước tính từ diễn biến", note: "Tàu 3/4: Iran dần cho các tàu thân thiện qua · 20 tàu Pakistan + thêm Oman dự thảo protocol · Trump leo thang 2/4 → lưu lượng không tăng thêm · Deadline 6/4 còn 3 ngày → ngưỡng quyết định cuối · Nếu deal → mở hoàn toàn trong 4 tuần (Goldman base) → Brent về $80–90 · Nếu no-deal → Trump tấn công tiếp → Brent $120+" },
-    goldman_q1:    { value: "$110–120",    updated: "31/03/2026", source: "Cập nhật 23/3",      note: "Brent TB T3/2026 ~$110–120 · Macquarie: nếu kéo đến T6 → $200 (xác suất 40%) · Rystad: world shifted \'buffered to fragile\' · Goldman base case: Hormuz mở lại trong T4 theo 4 tuần" },
-    goldman_q2:    { value: "$85–110",     updated: "31/03/2026", source: "Kịch bản nếu ngừng bắn", note: "Nếu Trump-Iran đàm phán Q2 · Netanyahu phát tín hiệu hạ nhiệt · OPEC+ có thể bơm thêm" },
+    goldman_q1:    { value: "$107–115",    updated: "06/04/2026", source: "Goldman/IEA/EIA 5-6/4",      note: "Brent TB T3/2026 ~$110–120 · Macquarie: nếu kéo đến T6 → $200 (xác suất 40%) · Rystad: world shifted \'buffered to fragile\' · Goldman base case: Hormuz mở lại trong T4 theo 4 tuần" },
+    // Dự báo giá dầu theo kịch bản Q2–Q3/2026
+    price_path_kba: { value: "$60–75/Q3",  updated: "06/04/2026", source: "EIA/Goldman 6/4", note: "KB-A (10%): Deal + Hormuz mở hoàn toàn T4 → war premium $14-18 biến mất ngay → Brent về $80-90 T4 → $73-80 Q2 → $65-75 Q3 (OPEC+ tăng cung bù + SPR refill) · EIA Q3 forecast nếu Hormuz mở sớm: $70-75 · Xăng VN 9/4: giảm · Tỷ giá VN: hạ nhiệt nhanh" },
+    price_path_kbb: { value: "$80–95/Q3",  updated: "06/04/2026", source: "Goldman/Rystad 6/4", note: "KB-B (15%): Deal một phần T4-T5 (Hormuz mở 50-70%) → Brent $95-105 T4 → $85-95 Q2 → $80-95 Q3 · Goldman base: Hormuz mở 4 tuần = $85-95 T2 · Xăng VN 9/4: tăng 1.000-1.500đ · EMP VN về 600-800đ Q2 · Fed có thể cut 1 lần Q4 nếu CPI hạ nhiệt" },
+    price_path_kbc: { value: "$95–115/Q3", updated: "06/04/2026", source: "Polymarket/IEA 6/4", note: "KB-C (45% - BASE CASE): Hormuz đóng phần lớn T4-T5 → Brent $105-115 T4 · IEA: T4 tệ hơn T3 (buffer tháng 3 hết) · Polymarket: 80,5% Hormuz chưa mở T4 · Ceasefire T5-T6 → Brent $95-110 Q2 → $90-105 Q3 · Xăng VN: +2.000-3.000đ kỳ 9/4 · CPI T4-T5: 5-6% · EMP 1.000-1.300đ Q2" },
+    price_path_kbd: { value: ">$115/Q3",   updated: "06/04/2026", source: "Macquarie/CSIS 6/4", note: "KB-D (30%): Leo thang tiếp (Trump đánh Kharg Island / không có deal đến T6) → Brent $115-130 T4-T5 · Macquarie: nếu kéo T6 → $200 (xác suất 40%) · Goldman: Hormuz 5% lưu lượng 10 tuần → phá kỷ lục $147 (2008) · Xăng VN: +5.000-8.000đ · CPI VN: 7-9% · Suy thoái toàn cầu · EMP VN: >1.500đ · NHNN phải tăng LS" },
+    brent_baseline: { value: "$73",         updated: "01/03/2026", source: "Pre-war Feb 2026",   note: "Mức giá pre-war (trước 28/2/2026) · War premium hiện tại = Brent $108 - $73 = $35/thùng · Goldman tính war premium narrower: $14-18/thùng vs baseline supply-demand · Phần còn lại: fear premium + physical disruption + backwardation · Nếu Hormuz mở: về $80-85 (baseline + OPEC+ cuts premium)" },
+    eia_q3_base:    { value: "$80/Q3",      updated: "06/04/2026", source: "EIA STEO April 6/4", note: "EIA Short-Term Energy Outlook: nếu Hormuz mở T4-T5 → Brent trung bình Q3 $80 · Nếu kéo đến T6 → Q3 $95-110 · EIA revise lên mỗi 2 tuần theo diễn biến · US production 13,6M bpd 2026 = buffer nội địa nhưng không đủ offset Hormuz" },
+            goldman_q2:    { value: "$75–100",     updated: "06/04/2026", source: "Goldman/EIA/Macquarie 6/4", note: "Kịch bản ceasefire Q2: Brent về $85-100 · EIA: nếu Hormuz mở T5 → Brent $80 Q3/2026 · Goldman: war premium $14-18 biến mất sau deal → về baseline $73-80 + OPEC+ offset · Macquarie: nếu kéo đến T6 → $200 (xác suất 40%)" },
     xang_ron95:    { value: 26975,         updated: "30/03/2026", source: "Bộ Công Thương 25/3 + dự báo", note: "Hiện tại: RON95 ~26.975đ/lít (kỳ điều hành 25/3) · BÔXD còn ~613 tỷ · ⚠️ KỲ 9/4: Brent >$115 → giá cơ sở tăng mạnh → xăng nhiều khả năng tăng 3.000–5.000đ/lít · Thủ tướng chỉ đạo không để thiếu xăng + xây kho dự trữ chiến lược Nghi Sơn" },
     xang_e5ron92:  { value: 25277,         updated: "25/03/2026", source: "Bộ Công thương",     note: "E5RON92: ~25.277đ/lít (kỳ 25/3 · giảm ~1.700đ theo Brent hạ · Kỳ tiếp 9/4: rủi ro tăng 3.000–5.000đ nếu Brent >$110)" },
     ky_tiep:       { value: "09/04/2026",  updated: "30/03/2026", source: "Lịch điều hành",    note: "🔴 KỲ 9/4: RỦI RO CAO · Brent hiện >$115 · Nếu giữ mức này đến 9/4 → xăng RON95 tăng lại 3.000–5.000đ/lít · FTSE 7/4 công bố nâng hạng (cùng tuần) · Kép 9/4 và 7/4 là 2 sự kiện then chốt đầu tháng 4" },
@@ -677,6 +685,10 @@ body, .card, .panel, td, th, .row, .lbl, .label {
   <div class="card">
     <div class="ctitle">BRENT/WTI SPOT & FUTURES</div>
     <div id="panel-oil"></div>
+  </div>
+  <div class="card">
+    <div class="ctitle">DỰ BÁO GIÁ DẦU Q2–Q3/2026 THEO KỊCH BẢN <span class="theory">PPP · KB</span></div>
+    <div id="panel-oil-path"></div>
   </div>
   <div class="card">
     <div class="ctitle">HORMUZ FLOWS TRACKER <span class="new-t">MarineTraffic</span></div>
@@ -1699,6 +1711,43 @@ function checkAutoTrigger() {
 // ── Khởi động ──
 checkAutoTrigger();
 
+
+  function renderOilPath() {
+    const o = D.oil;
+    const p = el => `<div class="row"><span class="lbl">${el.label}</span><span class="val ${el.cls||''}">${el.value}</span></div>` +
+      `<div style="font-size:11px;color:var(--dim);margin:2px 0 6px 0;line-height:1.5">${el.note||''}</div>`;
+
+    const kbs = [
+      { label:'KB-A (10%) · Deal T4 · Hormuz mở', cls:'g', value: o.price_path_kba?.value||'?', note: o.price_path_kba?.note||'' },
+      { label:'KB-B (15%) · Deal một phần T4-T5', cls:'y', value: o.price_path_kbb?.value||'?', note: o.price_path_kbb?.note||'' },
+      { label:'KB-C (45%) · Kéo dài → T5-T6 ◀ BASE', cls:'r', value: o.price_path_kbc?.value||'?', note: o.price_path_kbc?.note||'' },
+      { label:'KB-D (30%) · Leo thang · Kharg/kéo T6+', cls:'r', value: o.price_path_kbd?.value||'?', note: o.price_path_kbd?.note||'' },
+    ];
+    const refs = [
+      { label:'Baseline pre-war', cls:'d', value: o.brent_baseline?.value||'$73', note: o.brent_baseline?.note||'' },
+      { label:'EIA Q3 base case', cls:'d', value: o.eia_q3_base?.value||'?', note: o.eia_q3_base?.note||'' },
+    ];
+
+    let html = `<div style="margin-bottom:8px;font-size:11px;color:var(--dim)">Nguồn: Goldman Sachs · IEA · EIA STEO · Macquarie · Polymarket · Cập nhật 06/04/2026</div>`;
+    html += `<table class="tbl" style="margin-bottom:10px"><thead><tr><th>Kịch bản</th><th>Brent Q3/2026</th></tr></thead><tbody>`;
+    kbs.forEach(k => {
+      html += `<tr><td class="${k.cls}" style="font-size:11px">${k.label}</td><td class="${k.cls}" style="font-weight:600">${k.value}</td></tr>`;
+    });
+    html += `</tbody></table>`;
+
+    html += `<div style="font-size:11px;color:var(--dim2);margin-bottom:6px;font-weight:600">Ghi chú kịch bản:</div>`;
+    kbs.forEach(k => {
+      html += `<div style="margin-bottom:6px"><span class="${k.cls}" style="font-size:11px;font-weight:600">${k.label}:</span> <span style="font-size:11px;color:var(--dim)">${k.note}</span></div>`;
+    });
+
+    html += `<div style="border-top:0.5px solid var(--border);margin:8px 0"></div>`;
+    html += `<div style="font-size:11px;color:var(--dim2);margin-bottom:4px;font-weight:600">Tham chiếu:</div>`;
+    refs.forEach(r => {
+      html += `<div style="margin-bottom:4px"><span class="d" style="font-size:11px;font-weight:600">${r.label}:</span> <span class="${r.cls}" style="font-size:11px;font-weight:600"> ${r.value}</span> <span style="font-size:11px;color:var(--dim)"> · ${r.note}</span></div>`;
+    });
+
+    document.getElementById('panel-oil-path').innerHTML = html;
+  }
 </script>
 
 </body>
