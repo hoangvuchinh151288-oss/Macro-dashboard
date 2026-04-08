@@ -867,6 +867,7 @@ body, .card, .panel, td, th, .row, .lbl, .label {
   <button class="ar-btn" id="ar-run-btn" onclick="runAutoReview()">
     <span id="ar-btn-icon">🔄</span> CHẠY REVIEW NGAY
   </button>
+  <button class="ar-btn" style="background:rgba(239,68,68,.1);font-size:11px;padding:4px 10px;margin-left:8px" onclick="localStorage.removeItem('anthropic_api_key');alert('Đã xóa API key')">🔑 Đổi API Key</button>
 </div>
 <div class="card" style="margin-bottom:16px">
   <div class="ctitle">TỔNG QUAN HIỆU SUẤT <span class="theory">AI tự động review · Chạy mỗi thứ Hai · Dùng web_search</span></div>
@@ -1484,9 +1485,21 @@ Tiêu chí HIT:
 
 // ── Gọi Claude API với web_search ──
 async function callClaudeReview(prompt) {
+  // Lấy API key từ localStorage
+  let apiKey = localStorage.getItem('anthropic_api_key');
+  if (!apiKey) {
+    apiKey = window.prompt('Nhập Anthropic API Key của bạn (sk-ant-...):\n(Sẽ được lưu trong trình duyệt)');
+    if (!apiKey) throw new Error('Cần API key để chạy review');
+    localStorage.setItem('anthropic_api_key', apiKey.trim());
+  }
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey.trim(),
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
       max_tokens: 1500,
