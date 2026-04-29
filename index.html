@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.29 | 28/04/2026</title>
+<title>VN Macro Dashboard v3.30 | 28/04/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -180,7 +180,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.29",
+    version: "3.30",
     date: "28/04/2026",
     note: "v3.23 · 21/04 EMP 549đ→298đ · Brent +6,1%→$95,89 (Hormuz đóng lại) · LNH O/N 3,88% · VCB 26.097/26.357 · Iran từ chối đàm phán · [v3.22] US10Y + CNH/USD + Bessent/Navarro Index · ⚠️ HORMUZ PHONG TỎA ĐANG THỰC THI · Đàm phán Islamabad thất bại 21h · Ngừng bắn tạm thời 2T vẫn duy trì · Iran liên hệ Trump → tín hiệu đàm phán · Brent dao động 99–103 USD · Chợ đen 26.860/26.910 (EMP↑549đ)",
   },
@@ -281,8 +281,8 @@ const D = {
     luu_hanh_truoc: { value: "~289,000 tỷ trước khi hút ròng 2 tuần liên tiếp", updated: "21/04/2026", source: "cafef.vn", note: "OMO trước: ~150.000–200.000 tỷ · Trend giảm dần sau kỳ thuế T3 và ceasefire" },
     trang_thai:     { value: "HÚT RÒNG 3 tuần liên: 66,200 tỷ (6-12/4) + 72,500 tỷ (13-17/4) + 66,831 tỷ (13-20/4) · OMO lưu hành: ~182,703 tỷ", updated: "23/04/2026", source: "cafef/vietnambiz", note: "NHNN chuyển sang bơm linh hoạt · TT2 O/N về 4–4,5%" },
     ls_omo:         { value: 4.5, updated: "21/04/2026", source: "NHNN", note: "LS OMO: 4,0%/năm · Giữ nguyên · [v3.18 FIX: 4.5→4.0] · NHNN chỉ đạo NH giảm thương mại" },
-    co_che:         { value: "TT22/TT26 NGHỊCH LÝ: Từ 1/1/2026 KBNN deposits bị loại 100% khỏi LDR → LDR tăng → NH phải chạy đua huy động TT1. TT2 hạ nhiệt (3,88%) KHÔNG kéo được TT1 xuống vì LDR cấu trúc. ĐANG ĐỀ XUẤT: Nới TT26 → cho tính 20% KBNN vào LDR = van áp lực quan trọng nhất. Họp 9/4: 13/18 NH đã giảm LS huy động", updated: "21/04/2026", source: "danviet/giadinh", note: "" },
-    rang_buoc_cau_truc: { value: "TT22/TT26 NGHỊCH LÝ: Từ 1/1/2026 KBNN deposits loại 100% khỏi LDR → LDR tăng mạnh (~100,000 tỷ bị loại) → Big4 phải chạy đua huy động TT1 → LS TT1 tăng dù TT2 hạ nhiệt. ĐANG ĐỀ XUẤT: Nới TT26, cho tính lại 20% KBNN vào LDR = van an toàn quan trọng nhất Q2/2026", updated: "21/04/2026", source: "Phân tích", note: "🔴 3 ràng buộc: (1) Ổn định tỷ giá (2) LDR ~100% (3) Forward USD. Khi 3 ràng buộc chưa tháo → LS là trạng thái cân bằng mới đến ít nhất Q3/2026" },
+    co_che:         { value: "LDR→CDR THAY THẾ (Dự thảo TT mới vs TT22): (1) CDR loại KBNN không kỳ hạn (0%) và chỉ tính 80% KBNN kỳ hạn → D NHỎ HƠN → CDR CAO HƠN LDR → NH bị THẮT hơn không phải nới. (2) C (tử số) thêm trái phiếu DN → CDR tăng thêm. (3) C được trừ vốn CSH → giảm CDR một phần. (4) TẠM THỜI: TT22 vẫn hiệu lực đến khi TT mới ban hành. Tác động ròng: CDR > LDR hiện tại → TT1 KHÔNG hạ nhiệt từ quy định này", updated: "28/04/2026", source: "danviet/giadinh", note: "" },
+    rang_buoc_cau_truc: { value: "CDR vs LDR: Dự thảo TT mới thay LDR bằng CDR. KBNN kỳ hạn: 80% vào D (vs 100% theo TT22 từ 2026) → D giảm → CDR tăng. KBNN không kỳ hạn: 0% (bị loại hoàn toàn). Vốn CSH trừ khỏi C → bù một phần. Tác động ròng: NH bị THẮT hơn TT22. LCR/NSFR (Basel III) thay tỷ lệ chi trả từ 1/1/2028. LDR vẫn 85% max nhưng cách tính khác.", updated: "28/04/2026", source: "Phân tích", note: "🔴 3 ràng buộc: (1) Ổn định tỷ giá (2) LDR ~100% (3) Forward USD. Khi 3 ràng buộc chưa tháo → LS là trạng thái cân bằng mới đến ít nhất Q3/2026" },
     alert:          { value: "⚠️ Kỳ thuế T6 (30/6) → spike LS O/N tiếp theo · LNH O/N 3,88% hạ nhiệt (21/4)", updated: "21/04/2026", source: "Lịch thuế", note: "" },
   },
 
