@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.35 | 04/05/2026</title>
+<title>VN Macro Dashboard v3.36 | 05/05/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -180,22 +180,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.35",
-    date: "04/05/2026",
+    version: "3.36",
+    date: "05/05/2026",
     note: "v3.23 · 21/04 EMP 549đ→298đ · Brent +6,1%→$95,89 (Hormuz đóng lại) · LNH O/N 3,88% · VCB 26.097/26.357 · Iran từ chối đàm phán · [v3.22] US10Y + CNH/USD + Bessent/Navarro Index · ⚠️ HORMUZ PHONG TỎA ĐANG THỰC THI · Đàm phán Islamabad thất bại 21h · Ngừng bắn tạm thời 2T vẫn duy trì · Iran liên hệ Trump → tín hiệu đàm phán · Brent dao động 99–103 USD · Chợ đen 26.860/26.910 (EMP↑549đ)",
   },
 
   fx: {
-    nhnn_tc:       { value: 25113, updated: "04/05/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
-    nhnn_tran:     { value: 26368, updated: "04/05/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
-    nhnn_san:      { value: 23858, updated: "04/05/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
-    vcb_mua:       { value: 26108, updated: "04/05/2026", source: "tygiausd.org/VCB 12/4", note: "VCB 12/4: mua 26.100 / bán 26.360 · Giảm 13đ vs 10/4 · ACB: 26.150/26.360 · Tiếp tục xu hướng giảm sau ceasefire" },
-    vcb_ban:       { value: 26368, updated: "04/05/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
+    nhnn_tc:       { value: 25113, updated: "05/05/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
+    nhnn_tran:     { value: 26368, updated: "05/05/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
+    nhnn_san:      { value: 23858, updated: "05/05/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
+    vcb_mua:       { value: 26108, updated: "05/05/2026", source: "tygiausd.org/VCB 12/4", note: "VCB 12/4: mua 26.100 / bán 26.360 · Giảm 13đ vs 10/4 · ACB: 26.150/26.360 · Tiếp tục xu hướng giảm sau ceasefire" },
+    vcb_ban:       { value: 26368, updated: "05/05/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
     vcb_tienmat:   { value: 26108, updated: "02/05/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
     tb33nh:        { value: "~26.108–26.368", updated: "02/05/2026", source: "webgia.com 12/4", note: "TB 33 NH 12/4: ~26.100–26.360 · ACB: 26.150/26.360 · Sacombank mua cao nhất: 26.220 · SCB bán thấp nhất: 26.350" },
-    tg_tu_do_mua:  { value: 26509, updated: "04/05/2026", source: "danviet.vn 21/4", note: "Chợ đen 21/4 15h: 26.600 MUA · Giảm 83đ vs hôm qua · Giảm từ đỉnh 26.860 (14/4) · Xu hướng hạ nhiệt 3 tuần" },
-    tg_tu_do_ban:  { value: 26609, updated: "04/05/2026", source: "danviet.vn 21/4", note: "Chợ đen bán 21/4: 26.655 · EMP: 26.655−26.357 = ~298đ · Giảm mạnh từ 549đ (14/4) · Áp lực FX hạ nhiệt đáng kể từ đỉnh ~28.000 cuối T3" },
-    spread_emp:    { value: "~362đ (26.730−26.368)", updated: "04/05/2026", source: "tính toán 13/4", note: "EMP 13/4: ~470đ (26.830−26.360) · TĂNG từ 428đ do Islamabad thất bại · Trump phong tỏa Hormuz → rủi ro tỷ giá tăng trở lại · Cần theo dõi biến động phiên sáng" },
+    tg_tu_do_mua:  { value: 26509, updated: "05/05/2026", source: "danviet.vn 21/4", note: "Chợ đen 21/4 15h: 26.600 MUA · Giảm 83đ vs hôm qua · Giảm từ đỉnh 26.860 (14/4) · Xu hướng hạ nhiệt 3 tuần" },
+    tg_tu_do_ban:  { value: 26609, updated: "05/05/2026", source: "danviet.vn 21/4", note: "Chợ đen bán 21/4: 26.655 · EMP: 26.655−26.357 = ~298đ · Giảm mạnh từ 549đ (14/4) · Áp lực FX hạ nhiệt đáng kể từ đỉnh ~28.000 cuối T3" },
+    spread_emp:    { value: "~301đ ↓↓ (từ đỉnh 432đ · 5/5 sáng)", updated: "05/05/2026", source: "tính toán 13/4", note: "EMP 13/4: ~470đ (26.830−26.360) · TĂNG từ 428đ do Islamabad thất bại · Trump phong tỏa Hormuz → rủi ro tỷ giá tăng trở lại · Cần theo dõi biến động phiên sáng" },
     forecast_mua:  { value: "25.800–26.100", updated: "10/04/2026", source: "Nội bộ", note: "Dự báo mua Q2: 25.800–26.100 · UOB Q2 VCB bán: 26.100" },
     forecast_ban:  { value: "26.100–26.400", updated: "10/04/2026", source: "Nội bộ", note: "Dự báo bán Q2: 26.100–26.400 · Ceasefire + DXY yếu = VND hưởng lợi" },
     uob_q2:        { value: 26100, updated: "10/04/2026", source: "UOB Research", note: "UOB Q2/2026: 26.100 · Q3: 26.000 · Q4: 25.900 · [v3.18 FIX: 26400→26100]" },
@@ -216,12 +216,12 @@ const D = {
   },
 
   oil: {
-    brent:          { value: "~108–111 (hạ từ đỉnh $126.41/30/4 · WB: năng lượng +24% năm 2026 · Hormuz phục hồi chậm dự kiến tháng 10 · Trump blockade giữ)", updated: "04/05/2026", source: "CNBC/Reuters 25/4", note: "Brent 25/4: $101-105 · ceasefire gia han nhung Iran bat MSC Francesca · Witkoff+Kushner Pakistan 25/4 · IEA: largest energy threat in history · Goldman Q2:$90 base" },
-    wti:            { value: "~99–102 (hạ cùng Brent · US exports kỷ lục thay thế dầu Trung Đông)", updated: "04/05/2026", source: "CNBC 25/4", note: "WTI 25/4: ~$92-94 · ceasefire gia han nhung Iran bat MSC Francesca · Strait van dong cua hieu qua · IEA: largest energy threat in history" },
+    brent:          { value: "🔴 $114.44 CLOSE 4/5 (+6%) · Iran tấn công UAE · Fujairah oil hub bốc cháy · Project Freedom khai màn · Iran bắn cảnh cáo tàu Mỹ · Đỉnh kể từ 5/2022", updated: "05/05/2026", source: "CNBC/Reuters 25/4", note: "Brent 25/4: $101-105 · ceasefire gia han nhung Iran bat MSC Francesca · Witkoff+Kushner Pakistan 25/4 · IEA: largest energy threat in history · Goldman Q2:$90 base" },
+    wti:            { value: "$106.42 (+4%) settle 4/5 · Citi: Brent có thể $150 nếu Hormuz đóng đến hết T6 · Morgan Stanley: day of reckoning đang đến", updated: "05/05/2026", source: "CNBC 25/4", note: "WTI 25/4: ~$92-94 · ceasefire gia han nhung Iran bat MSC Francesca · Strait van dong cua hieu qua · IEA: largest energy threat in history" },
     spread_futures: { value: "~$10–15", updated: "10/04/2026", source: "Ước tính", note: "Backwardation 10/4: ~$10–15 · Jun WTI ~$82–85 vs May ~$94–96" },
     iea_release:    { value: "IEA 400M + SPR Mỹ 172M · dùng ~60%", updated: "10/04/2026", source: "Reuters/IEA", note: "Còn ~250M thùng dự trữ để dùng · Đủ 3–4 tuần thêm" },
-    hormuz_tau:     { value: ">90% drop (UK Royal Navy 1/5) · CENTCOM: 45 tàu bị quay đầu · Iran: phí $1M+/tàu · US Treasury: sanctions nếu trả phí Iran · 230 tanker mắc kẹt trong Vịnh", updated: "02/05/2026", source: "Reuters/VOV 21/4", note: "Timeline: 28/2 dong → 7-8/4 ceasefire → 13/4 Blockade Mỹ → 17/4 Iran mo trong ceasefire → 18/4 20 tau → 22/4 Trump gia han → 23/4 Iran bat MSC Francesca → 25/4 Witkoff+Kushner Pakistan · 16 tau/ngay (21/4) · IEA: largest energy threat · Goldman: 10% normal" },
-    goldman_q1:     { value: "Goldman: Brent $90 cuối 2026 · ING: $140-150 nếu leo thang · DB: Axes report là catalyst đẩy $126 · Hormuz 4% bình thường · UAE rút OPEC+ 1/5 (thêm bất ổn cung)", updated: "01/05/2026", source: "Goldman/IEA/EIA", note: "Brent 25/4: $101-105 · Iran bat MSC Francesca · Witkoff+Kushner Pakistan · Macquarie: neo T6 → $200 (XS 40%)" },
+    hormuz_tau:     { value: "🔴 KB-D KÍCH HOẠT 4/5: Iran tấn công UAE (12 tên lửa ĐĐ + 3 cruise + 4 drone) · Fujairah oil hub bốc cháy · Project Freedom: Mỹ đưa 2 tàu Mỹ qua Hormuz · Iran bắn cảnh cáo tàu Mỹ · UAE intercepted · Ceasefire thực tế ĐÃ VỠ", updated: "05/05/2026", source: "Reuters/VOV 21/4", note: "Timeline: 28/2 dong → 7-8/4 ceasefire → 13/4 Blockade Mỹ → 17/4 Iran mo trong ceasefire → 18/4 20 tau → 22/4 Trump gia han → 23/4 Iran bat MSC Francesca → 25/4 Witkoff+Kushner Pakistan · 16 tau/ngay (21/4) · IEA: largest energy threat · Goldman: 10% normal" },
+    goldman_q1:     { value: "Goldman: Brent avg $90 Q4/2026 (↑ từ $80) · Citi: $150 nếu Hormuz đóng đến hết T6 · Morgan Stanley: recession risk đang đến · Floors: $80-90 theo Jefferies · Iran→UAE = KB-D confirmed", updated: "05/05/2026", source: "Goldman/IEA/EIA", note: "Brent 25/4: $101-105 · Iran bat MSC Francesca · Witkoff+Kushner Pakistan · Macquarie: neo T6 → $200 (XS 40%)" },
     price_path_kba: { value: "KB-A: $60–78/Q3", updated: "21/04/2026", source: "EIA STEO April/Goldman 14/4", note: "KB-A XS 5% (vs cũ 25%): Ngừng bắn → Hormuz mở hoàn toàn T5 · Goldman: Q2 $90→Q3 $82 · EIA Q4 baseline $88 · Xăng VN: giảm 3.000–5.000đ · IMF hạ GDP TG 3,1%" },
     price_path_kbb: { value: "KB-B BASE: $82–95/Q3", updated: "21/04/2026", source: "Goldman/Morgan Stanley 14/4", note: "KB-B BASE XS 30%: Hormuz mở một phần (30-50% flow) T5-T6 → Goldman Q3 $82 (baseline) · Morgan Stanley Q2 $110→Q3 $100 · Oxford Econ Q2 $114 (50% flow by May) · Xăng VN điều chỉnh giảm từ T5" },
     price_path_kbc: { value: "KB-C: $100–120/Q3", updated: "21/04/2026", source: "Goldman upside/Barclays 14/4", note: "KB-C XS 45%: Hormuz tiếp tục đóng qua T5 (hiện tại đang xảy ra!) · Goldman upside: Brent Q3 $120 nếu đóng thêm 1 tháng · IEA: supply shock -10.1 mbpd tháng 3, -2.3 mb/d tháng 4 · EIA Q2 peak $115 · Barclays: test $120 nếu conflict kéo dài" },
@@ -382,7 +382,7 @@ const D = {
     chain_a_m2:     { value: "Brent giảm → CPI hạ → NHNN room bơm → M2 tăng → tín dụng phục hồi Q2", updated: "10/04/2026", source: "Chain A hạ nhiệt", note: "" },
     chain_b_tax:    { value: "Kỳ thuế T6 (30/6) = điểm theo dõi tiếp theo → spike TT2 khoảng tháng 6", updated: "10/04/2026", source: "Chain B", note: "" },
     chain_c_freight:{ value: "Brent $95 + Hormuz mở → Cước giảm → CPI T5-T6 hạ → NHNN có room hỗ trợ", updated: "10/04/2026", source: "Chain C hạ nhiệt", note: "" },
-    net_signal:     { value: "🟡 MIXED (4/5): NHNN BƠM RÒNG 89,632 tỷ (đảo chiều tích cực #1) · Brent hạ $108-111 từ $126 · Chợ đen 26.730↑ EMP 362đ · Cuộc đua LS HĐ hạ nhiệt · NFP 8/5 là sự kiện quyết định tuần · Iran talks chờ · Dự thảo TT26: 20% KBNN trở lại LDR (Big4 hưởng lợi)", updated: "04/05/2026", source: "Changelog" },
+    net_signal:     { value: "🔴🔴 KB-D (5/5): Iran TẤN CÔNG UAE (4/5) · Fujairah oil hub cháy · Brent $114.44 (+6%) · WTI $106.42 · Project Freedom khai màn · Ceasefire VỠ · Chợ đen 26.668↓↓ (EMP 301đ - nghịch lý!) · VN-Index: cần theo dõi mở cửa sáng 5/5", updated: "05/05/2026", source: "Changelog" },
     v321_changes: { value: "v3.21 · 14/04 ⚠️ CẬP NHẬT: Hormuz phong tỏa đang thực thi · Ngừng bắn tạm thời 2T · Iran liên hệ Trump · EMP 549đ · Brent 99–103 · Chợ đen 26.860/26.910 · Confluence 9,0/10 · KB-D 63%", updated: "14/04/2026", source: "Changelog" },
     v320_changes: { value: "v3.20 · 13/04 🚨 ĐẢO CHIỀU: Islamabad talks thất bại · Trump phong tỏa Hormuz · WTI +9,3%→>$105 · Brent bật mạnh · KB-D trở lại · VCB giảm LS 24T: 6,5%→6%/năm · Chợ đen 26.800/26.830 · Scorecard API key guide", updated: "21/04/2026", source: "Changelog", note: "" },
     roadmap: [
@@ -796,6 +796,7 @@ document.getElementById('panel-hormuz-flows').innerHTML=`
       <tr><td class="d">28/4</td><td class="d">Brent $108 · Iran đề xuất MỚI · FOMC 28-29/4</td><td class="r">~5–10</td><td class="r">KB-C/D</td></tr>
       <tr><td class="d">29/4</td><td class="d">Fed HOLD · Trump báo muốn blockade "for months"</td><td class="r">~4–5</td><td class="r">KB-C/D</td></tr>
       <tr><td class="d" style="color:var(--err)">30/4</td><td class="d" style="color:var(--err)">BRENT ĐỈNH $126.41 (cao nhất 4 năm) · Trump REJECT đề xuất Iran · CENTCOM briefing quân sự · UAE rút OPEC+</td><td class="r">~4%</td><td class="r" style="color:var(--err)">KB-C/D↑</td></tr>
+      <tr><td class="d" style="color:var(--err);font-weight:bold">04/5</td><td class="d" style="color:var(--err)">🔴 KB-D XÁC NHẬN: Iran tấn công UAE (12 tên lửa ĐĐ + 3 cruise + 4 drone) · Fujairah oil hub bốc cháy · Project Freedom: Mỹ mở chiến dịch hàng hải · 2 tàu Mỹ transit · Iran bắn cảnh cáo HQ Mỹ · Brent +6% → $114.44 · WTI $106.42 · CEASEFIRE VỠ</td><td class="r" style="color:var(--err)">~1-2% thông thường</td><td class="r" style="color:var(--err);font-weight:bold">KB-D ✗</td></tr>
       <tr><td class="d" style="color:var(--warn)">02/5</td><td class="d" style="color:var(--warn)">Trump tuyên bố hostilities 'TERMINATED' (letter to Congress 60-day) · Blockade giữ · Gas $4.39 · CENTCOM 45 tàu quay đầu · Iran QH: luật cấm tàu hostile · Iran: cá heo mang mìn (WSJ)</td><td class="r">>90%</td><td class="y">KB-C stalemate</td></tr>
       <tr><td class="d">01/5</td><td class="d">Brent settle ~$114 · DXY 98.02↓ · Chợ đen VN hạ nhiệt 26.707 · VN nghỉ lễ</td><td class="r">~4%</td><td class="r">KB-C/D</td></tr>
     </tbody>
