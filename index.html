@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.37 | 05/05/2026</title>
+<title>VN Macro Dashboard v3.38 | 05/05/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -180,7 +180,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.37",
+    version: "3.38",
     date: "05/05/2026",
     note: "v3.23 · 21/04 EMP 549đ→298đ · Brent +6,1%→$95,89 (Hormuz đóng lại) · LNH O/N 3,88% · VCB 26.097/26.357 · Iran từ chối đàm phán · [v3.22] US10Y + CNH/USD + Bessent/Navarro Index · ⚠️ HORMUZ PHONG TỎA ĐANG THỰC THI · Đàm phán Islamabad thất bại 21h · Ngừng bắn tạm thời 2T vẫn duy trì · Iran liên hệ Trump → tín hiệu đàm phán · Brent dao động 99–103 USD · Chợ đen 26.860/26.910 (EMP↑549đ)",
   },
@@ -480,6 +480,14 @@ const D = {
       caveat:"Một số dự báo có tính directional (chiều hướng đúng) chứ không phải chính xác tuyệt đối về con số",
       next_review:"28/04/2026 (Thứ Hai · FOMC week)",
     },
+  },
+
+  fed: {
+    rate_range:  { value: "3,50–3,75", updated: "05/05/2026", source: "FOMC 28-29/4/2026", note: "Fed HOLD · Vote 8-4 · Powell giữ ghế · Chờ CPI hạ nhiệt trước khi cut" },
+    prob_hold:   { value: "~85% hold T6", updated: "05/05/2026", source: "CME FedWatch", note: "NFP 8/5 là catalyst · CPI 5.46% → Fed thận trọng · Recession risk tăng" },
+    next_cut:    { value: "Q4/2026 hoặc Q1/2027", updated: "05/05/2026", source: "consensus", note: "Phụ thuộc CPI + NFP + Brent · Hormuz kéo lạm phát toàn cầu" },
+    meeting_now: { value: "HOLD 3,50–3,75% (28-29/4)", updated: "05/05/2026", source: "FOMC", note: "Kỳ họp tiếp: 17-18/6/2026 · NFP 8/5 quyết định outlook" },
+    dot_plot:    { value: "2 lần cắt 2026 (median) · 4 lần 2027", updated: "05/05/2026", source: "SEP 3/2026", note: "Thị trường giờ pricing ≤1 lần 2026 do Hormuz + CPI cao" },
   },
 };
 </script>
