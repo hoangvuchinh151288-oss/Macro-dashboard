@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.38 | 05/05/2026</title>
+<title>VN Macro Dashboard v3.39 | 05/05/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -180,7 +180,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.38",
+    version: "3.39",
     date: "05/05/2026",
     note: "v3.23 · 21/04 EMP 549đ→298đ · Brent +6,1%→$95,89 (Hormuz đóng lại) · LNH O/N 3,88% · VCB 26.097/26.357 · Iran từ chối đàm phán · [v3.22] US10Y + CNH/USD + Bessent/Navarro Index · ⚠️ HORMUZ PHONG TỎA ĐANG THỰC THI · Đàm phán Islamabad thất bại 21h · Ngừng bắn tạm thời 2T vẫn duy trì · Iran liên hệ Trump → tín hiệu đàm phán · Brent dao động 99–103 USD · Chợ đen 26.860/26.910 (EMP↑549đ)",
   },
@@ -488,6 +488,48 @@ const D = {
     next_cut:    { value: "Q4/2026 hoặc Q1/2027", updated: "05/05/2026", source: "consensus", note: "Phụ thuộc CPI + NFP + Brent · Hormuz kéo lạm phát toàn cầu" },
     meeting_now: { value: "HOLD 3,50–3,75% (28-29/4)", updated: "05/05/2026", source: "FOMC", note: "Kỳ họp tiếp: 17-18/6/2026 · NFP 8/5 quyết định outlook" },
     dot_plot:    { value: "2 lần cắt 2026 (median) · 4 lần 2027", updated: "05/05/2026", source: "SEP 3/2026", note: "Thị trường giờ pricing ≤1 lần 2026 do Hormuz + CPI cao" },
+  },
+
+  hormuz: {
+    kb_now:   { value: "KB-D (35%) — Iran tấn công UAE 4/5 · Project Freedom · Ceasefire VỠ · Brent $114.44", updated: "05/05/2026", source: "CENTCOM/Reuters", note: "KB-B 35% · KB-C 28% · KB-D 35% · KB-A 2%" },
+    kba:      { value: "2%", updated: "05/05/2026", note: "Deal toàn diện — quá xa" },
+    kbb:      { value: "35%", updated: "05/05/2026", note: "Partial deal — Araghchi talks progress + Saudi de-escalate" },
+    kbc:      { value: "28%", updated: "05/05/2026", note: "Stalemate $100-115" },
+    kbd:      { value: "35%", updated: "05/05/2026", note: "Iran→UAE 4/5 + Project Freedom = dual escalation · Brent $114+" },
+    tau_ngay: { value: ">90% shutdown · 4/5: Iran tấn công UAE (12 tên lửa) · Fujairah oil hub cháy · 2 tàu Mỹ transit · CENTCOM phá 6 tàu Iran nhỏ", updated: "05/05/2026", source: "UK Royal Navy/CENTCOM", note: "Project Freedom: 100+ máy bay + 15.000 quân · 2 tàu Mỹ qua thành công" },
+  },
+
+  signals: {
+    tuan_nay:        { value: "05/05 v3.38: Iran tấn công UAE (4/5) · Fujairah fire · Brent $114.44 (+6%) · Project Freedom · D.fed + D.hormuz + D.signals + D.trump added · FX 26.720 EMP 353đ · CPI T4 5.46%", updated: "05/05/2026", source: "tổng hợp", note: "Tuần cực nóng — KB-D xác nhận" },
+    trump_watch:     { value: "🔴 Project Freedom 4/5 · 2 tàu Mỹ transit Hormuz · Iran tấn công UAE (12 tên lửa + drone) · Fujairah oil hub cháy · UAE intercepted · Gas $4.39 · Trump: sẽ kết thúc nhanh · CENTCOM phá 6 tàu Iran", updated: "05/05/2026", source: "CNBC/Reuters", note: "Trump tránh tuyên bố ceasefire vi phạm — giữ cửa thoát" },
+    q2_du_bao_cpi:   { value: "4.5-5.5% (T5 tăng do xăng +1.5-2.5k/lít · Brent $114 · chi phí đẩy) · Rủi ro vượt 6% nếu KB-D kéo dài", updated: "05/05/2026", source: "tính toán", note: "CPI T4 đã 5.46% — NHNN không thể nới lỏng" },
+    q2_du_bao_ls:    { value: "TT1 đi ngang 7.5-8.5% · Hạ nhiệt Q3 nếu Brent <$100 · NHNN bơm ròng 89,632T = tín hiệu #1 xanh · TT26 ban hành giúp Big4", updated: "05/05/2026", source: "tính toán", note: "CDR draft thắt hơn LDR — xem chi tiết section LDR" },
+    q2_du_bao_ty_gia:{ value: "EMP 353đ (KB-C/D) · Nếu KB-B deal: EMP về 150-200đ · Nếu KB-D kéo: EMP 450-550đ · NHNN giữ TC 25.113 ổn định", updated: "05/05/2026", source: "tygiausd.org", note: "Chợ đen 26.720 bán · DXY 98.31" },
+  },
+
+  trump: {
+    iran_policy:  { value: "🔴 Project Freedom 4/5: Mỹ escort tàu qua Hormuz (100+ máy bay + 15k quân) · Iran tấn công UAE ngay lập tức · Ceasefire thực tế VỠ · Trump tránh tuyên bố vi phạm — giữ door open", updated: "05/05/2026", source: "CNBC/Reuters/Axios", note: "Dual escalation: Iran→UAE + Mỹ→Hormuz cùng ngày 4/5" },
+    market_risk:  { value: "🔴🔴 VERY HIGH: Iran tấn công UAE infrastructure · Brent $114.44 (+6%) · WTI $106.42 · Project Freedom limited scope · Gas $4.39 · Citi: $150 nếu Hormuz đóng hết T6 · Recession risk tăng", updated: "05/05/2026", source: "Reuters/OilPrice", note: "Stocks: Dow -557pts · S&P -0.41% · Energy sector +0.6% (duy nhất xanh)" },
+    hormuz_plan:  { value: "Project Freedom: escort dân sự qua Hormuz · Không phải full naval escort · US Navy advise + interdict threats · CENTCOM phá 6 tàu Iran nhỏ · 2 tàu Mỹ transit thành công", updated: "05/05/2026", source: "CENTCOM", note: "Limited scope — không giải quyết Hormuz shipping crisis hoàn toàn" },
+    oil_action:   { value: "Chưa khai thác strategic reserve · Project Freedom = ưu tiên hàng đầu · Gas $4.39 = pain threshold cao · OPEC+ +188k bpd T6 (symbolic — members không SX được)", updated: "05/05/2026", source: "tổng hợp", note: "SPR không khai thác do cần leverage đàm phán" },
+    fed_signal:   { value: "Fed HOLD 28-29/4 · Powell giữ ghế · NFP 8/5 = catalyst · Trump không can thiệp Fed · Recession risk từ Hormuz > lạm phát trong ngắn hạn", updated: "05/05/2026", source: "Fed/CNBC", note: "Market pricing ≤1 cut 2026 (vs 2 lần dot plot)" },
+    tariff_status:{ value: "EU 25% tuần tới · Trung Quốc đàm phán tiếp · VN hưởng lợi xuất khẩu vào Mỹ (33.9 tỷ 4T = 28% tổng XK) · Thuế EU thêm rủi ro global trade", updated: "05/05/2026", source: "Reuters", note: "VN: nhập siêu 7.11 tỷ 4T — 94% tư liệu SX" },
+    vector:       { value: "🔴 ESCALATION: Iran→UAE + Project Freedom = leo thang song song · Nhưng Trump giữ ceasefire label · Araghchi nói talks 'making progress' → dual-track · Saudi kêu gọi de-escalate", updated: "05/05/2026", source: "Reuters/Al Jazeera", note: "Cả 2 bên leo thang để có vị thế mặc cả tốt hơn — pattern trước deal" },
+    watch_next:   { value: "8/5 NFP Mỹ (catalyst quan trọng nhất) · Xăng kỳ tới VN (~15/5) tăng 1.5-2.5k/lít · UAE phản công? · Iran→UAE round 2? · Project Freedom phase 2 · Deal talks Pakistan round 2?", updated: "05/05/2026", source: "tổng hợp", note: "Hajj deadline ~20/5 = pressure mềm cho deal" },
+  },
+
+  review: {
+    roadmap:       { value: "v3.38 · 05/05 · Full fix: D.fed+D.hormuz+D.signals+D.trump+D.review · v3.37 full data update 83 fields · v3.36 Iran→UAE KB-D · v3.35 macro 4T/2026", updated: "05/05/2026", note: "Changelog từ v3.4 đến v3.38" },
+    v318_changes:  { value: "v3.18 PATCH: Fix daysSince() · DOMContentLoaded race · KB color · EMP gauge · KPI strip truncate · checklist auto", updated: "14/04/2026", note: "v3.18 là bản render engine ổn định" },
+    v317_changes:  { value: "v3.17: Trump tracker · Bessent/Navarro Index · Pain Threshold · Deal Signal · Political Clock", updated: "14/04/2026", note: "" },
+    v316_changes:  { value: "v3.16: US10Y + CNH/USD + Scorecard weekly history", updated: "14/04/2026", note: "" },
+    v315_changes:  { value: "v3.15: KB scenarios Hormuz · Ceasefire tracker · Brent path", updated: "10/04/2026", note: "" },
+    v314_changes:  { value: "v3.14: OMO tracker · TT1 peak signals · LDR analysis", updated: "10/04/2026", note: "" },
+    v313_changes:  { value: "v3.13: BOP · Freight · Cước container proxy CPI", updated: "10/04/2026", note: "" },
+    v312_changes:  { value: "v3.12: Yield curve · IRP · Real rate · Gap VND-USD", updated: "10/04/2026", note: "" },
+    v311_changes:  { value: "v3.11: EMP gauge · FX section split mua/bán · Forecast", updated: "10/04/2026", note: "" },
+    v35_changes:   { value: "v3.5: CPI truyền dẫn · Xăng dầu VN · Lạm phát chain", updated: "10/04/2026", note: "" },
+    v34_changes:   { value: "v3.4: Dashboard khởi tạo · D object · Dark theme · IRP·EMP·PPP·MV=PQ", updated: "31/03/2026", note: "" },
   },
 };
 </script>
