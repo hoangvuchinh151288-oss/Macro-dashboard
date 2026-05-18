@@ -66,11 +66,11 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .fx-rate{font-family:'IBM Plex Mono',monospace;font-size:31px;font-weight:600;line-height:1;}
 .fx-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim2);margin-top:3px;}
 .fx-fc{margin-top:8px;padding:7px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:12px;}
-.yc-bar{display:flex;align-items:flex-end;gap:6px;height:80px;margin:10px 0;}
-.yc-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
-.yc-bar-inner{width:100%;border-radius:2px 2px 0 0;}
-.yc-lbl{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);text-align:center;}
-.yc-val{font-family:'IBM Plex Mono',monospace;font-size:13px;text-align:center;}
+.yc-bar{display:flex;align-items:flex-end;gap:6px;height:100px;margin:10px 0;}
+.yc-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;height:100%;justify-content:flex-end;}
+.yc-bar-inner{width:100%;border-radius:2px 2px 0 0;min-height:4px;}
+.yc-lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);text-align:center;white-space:nowrap;}
+.yc-val{font-family:'IBM Plex Mono',monospace;font-size:11px;text-align:center;white-space:nowrap;line-height:1.2;}
 .emp-bar{height:7px;background:var(--border);border-radius:4px;overflow:hidden;margin:5px 0;}
 .emp-fill{height:100%;border-radius:4px;}
 .risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
@@ -898,10 +898,10 @@ const ycData=[
 const ycMax=8.5;
 const ycBars=ycData.map(d=>{
   const raw=(d.v.split('–')[1]||d.v).replace(/[~%]/g,'').replace(',','.').trim();
-  const hi=parseFloat(raw);const pct=(hi/ycMax*100).toFixed(0);
+  const hi=parseFloat(raw);const pct=Math.max(8,(hi/ycMax*100)).toFixed(0);
   const cls=hi>=7.5?'r':hi>=6.5?'y':'b';
-  const bg=hi>=7.5?'rgba(239,68,68,.5)':hi>=6.5?'rgba(245,158,11,.5)':'rgba(59,130,246,.5)';
-  return `<div class="yc-col"><div class="yc-val ${cls}">${d.v}%</div><div class="yc-bar-inner" style="height:${pct}%;background:${bg}"></div><div class="yc-lbl">${d.k}</div></div>`;
+  const bg=hi>=7.5?'rgba(239,68,68,.55)':hi>=6.5?'rgba(245,158,11,.55)':'rgba(59,130,246,.55)';
+  return `<div class="yc-col"><div class="yc-val ${cls}">${d.v}%</div><div style="flex:1;width:100%;display:flex;align-items:flex-end;"><div class="yc-bar-inner" style="height:${pct}%;background:${bg};width:100%"></div></div><div class="yc-lbl">${d.k}</div></div>`;
 }).join('');
 document.getElementById('panel-yc').innerHTML=`
   <div class="g2" style="gap:10px">
