@@ -32,7 +32,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .kpi{flex:1;padding:11px 14px;border-right:1px solid var(--border);}
 .kpi:last-child{border-right:none;}
 .kpi-lbl{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;margin-bottom:4px;}
-.kpi-val{font-size:21px;font-weight:600;line-height:1;font-family:'IBM Plex Mono',monospace;}
+.kpi-val{font-size:21px;font-weight:600;line-height:1;font-family:'IBM Plex Mono',monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}
 .kpi-sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim2);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .page{max-width:1440px;margin:0 auto;padding:20px 36px 80px;}
 .sec{display:flex;align-items:center;gap:10px;padding:18px 0 9px;border-top:1px solid var(--border);margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--yellow);}
@@ -186,15 +186,15 @@ const D = {
   },
 
   fx: {
-    nhnn_tc:       { value: 25113, updated: "07/06/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
-    nhnn_tran:     { value: 26368, updated: "07/06/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
-    nhnn_san:      { value: 23858, updated: "02/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
-    vcb_mua:       { value: 26108, updated: "07/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB 12/4: mua 26.100 / bán 26.360 · Giảm 13đ vs 10/4 · ACB: 26.150/26.360 · Tiếp tục xu hướng giảm sau ceasefire" },
-    vcb_ban:       { value: 26368, updated: "07/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
-    vcb_tienmat:   { value: 26108, updated: "07/06/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
+    nhnn_tc:       { value: 25140, updated: "07/06/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
+    nhnn_tran:     { value: 26404, updated: "07/06/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
+    nhnn_san:      { value: 23882, updated: "07/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
+    vcb_mua:       { value: 26094, updated: "07/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB 12/4: mua 26.100 / bán 26.360 · Giảm 13đ vs 10/4 · ACB: 26.150/26.360 · Tiếp tục xu hướng giảm sau ceasefire" },
+    vcb_ban:       { value: 26404, updated: "07/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
+    vcb_tienmat:   { value: 26094, updated: "07/06/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
     tb33nh:        { value: "~26.131-26.391 (VCB · BIDV · TCB · ACB dong thuan · VCB tang 10d mua)", updated: "21/05/2026", source: "webgia.com 12/4", note: "TB 33 NH 12/4: ~26.100–26.360 · ACB: 26.150/26.360 · Sacombank mua cao nhất: 26.220 · SCB bán thấp nhất: 26.350" },
-    tg_tu_do_mua:  { value: 26670, updated: "07/06/2026", source: "danviet.vn 21/4", note: "Chợ đen 21/4 15h: 26.600 MUA · Giảm 83đ vs hôm qua · Giảm từ đỉnh 26.860 (14/4) · Xu hướng hạ nhiệt 3 tuần" },
-    tg_tu_do_ban:  { value: 26720, updated: "07/06/2026", source: "danviet.vn 21/4", note: "Chợ đen bán 21/4: 26.655 · EMP: 26.655−26.357 = ~298đ · Giảm mạnh từ 549đ (14/4) · Áp lực FX hạ nhiệt đáng kể từ đỉnh ~28.000 cuối T3" },
+    tg_tu_do_mua:  { value: "26.360", updated: "07/06/2026", source: "danviet.vn 21/4", note: "Chợ đen 21/4 15h: 26.600 MUA · Giảm 83đ vs hôm qua · Giảm từ đỉnh 26.860 (14/4) · Xu hướng hạ nhiệt 3 tuần" },
+    tg_tu_do_ban:  { value: "26.390", updated: "07/06/2026", source: "danviet.vn 21/4", note: "Chợ đen bán 21/4: 26.655 · EMP: 26.655−26.357 = ~298đ · Giảm mạnh từ 549đ (14/4) · Áp lực FX hạ nhiệt đáng kể từ đỉnh ~28.000 cuối T3" },
     spread_emp:    { value: "EMP -14d (5/6 23h: cho den ban 26.390 - VCB ban 26.404) · GAN VE 0! · Tu -98d (2/6) → -60d → -14d → sap ve 0 · Trump chinh sua MOU (uranium + Hormuz) → deal khi · Webgia trung binh 06/06: 26.238 · Thi truong USD/VND binh on nhat tu truoc xung dot", updated: "07/06/2026", source: "tính toán 13/4", note: "EMP 13/4: ~470đ (26.830−26.360) · TĂNG từ 428đ do Islamabad thất bại · Trump phong tỏa Hormuz → rủi ro tỷ giá tăng trở lại · Cần theo dõi biến động phiên sáng" },
     forecast_mua:  { value: "26.000-26.300 (KB-B deal → DXY yeu → VND manh) · 26.300-26.500 (KB-C stalemate hien tai) · VNDIRECT: 27.100 cuoi nam neu khong co deal · EMP hien tai 27d → pricing deal gan", updated: "29/05/2026", source: "Nội bộ", note: "Dự báo mua Q2: 25.800–26.100 · UOB Q2 VCB bán: 26.100" },
     forecast_ban:  { value: "VNDIRECT du bao LNH: 27.100 cuoi 2026 (ap luc con lon) · Hien tai: VCB ban 26.393 | EMP 27d → thi truong tin deal · Neu deal: ve 25.800-26.100 trong T6-T7", updated: "29/05/2026", source: "Nội bộ", note: "Dự báo bán Q2: 26.100–26.400 · Ceasefire + DXY yếu = VND hưởng lợi" },
@@ -707,6 +707,7 @@ const D = {
 // ═══════════════════════════════════════════════════════════
 const fmt=(n,d=0)=>{if(n==null)return'—';if(typeof n==='string')return n;return Number(n).toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});};
 const v=o=>o?.value??'—';const u=o=>o?.updated??'';const n=o=>o?.note??'';
+const short=s=>{if(!s||s==='—')return s;const m=s.match(/^([^·(]+)/);return m?m[1].trim().replace(/\s+$/,''):s.substring(0,20);};
 const drow=(lbl,val,cls='',sub='',src='')=>
   `<div class="drow"><div class="flex1"><div class="drow-lbl">${lbl}${src?`<span class="mono" style="font-size:11px;color:var(--dim);margin-left:4px">${src}</span>`:''}${sub?`<div class="drow-sub">${sub}</div>`:''}</div></div><div class="drow-val ${cls}">${val}</div></div>`;
 const mbox=(lbl,val,sub,cls)=>
@@ -735,8 +736,8 @@ const kbShort=v(D.hormuz.kb_now).split('·')[0].trim();
 document.getElementById('kpi-strip').innerHTML=`
   <div class="kpi"><div class="kpi-lbl">NHNN TC</div><div class="kpi-val y">${fmt(v(D.fx.nhnn_tc))}</div><div class="kpi-sub">${u(D.fx.nhnn_tc)}</div></div>
   <div class="kpi"><div class="kpi-lbl">VCB Bán ra</div><div class="kpi-val r">${fmt(v(D.fx.vcb_ban))}</div><div class="kpi-sub">${u(D.fx.vcb_ban)}</div></div>
-  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val r">${v(D.fx.spread_emp)}</div><div class="kpi-sub">Từ đỉnh 1.795đ (29/3)</div></div>
-  <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">$${v(D.oil.brent)}/thùng</div><div class="kpi-sub">${u(D.oil.brent)}</div></div>
+  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val r">${short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
+  <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">$${short(v(D.oil.brent).replace(/^\$/,''))}/thùng</div><div class="kpi-sub">${u(D.oil.brent)}</div></div>
   <div class="kpi"><div class="kpi-lbl">LS đỉnh 12T</div><div class="kpi-val r">${v(D.rates_tt1.tn_12t_dinh)}%/năm</div><div class="kpi-sub">Tư nhân · giảm dần T4</div></div>
   <div class="kpi"><div class="kpi-lbl">Confluence Score</div><div class="kpi-val r">${v(D.confluence.score_total)}/10</div><div class="kpi-sub">🚨 Islamabad thất bại · Dầu >$105</div></div>
   <div class="kpi"><div class="kpi-lbl">Kịch bản Hormuz</div><div class="kpi-val y">${kbShort}</div><div class="kpi-sub">${v(D.hormuz.tau_ngay)} tàu/ngày</div></div>
