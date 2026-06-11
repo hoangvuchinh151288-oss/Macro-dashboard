@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.56 | 10/06/2026</title>
+<title>VN Macro Dashboard v3.57 | 11/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,8 +184,8 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.56",
-    date: "10/06/2026",
+    version: "3.57",
+    date: "11/06/2026",
     note: "v3.23 · 21/04 EMP 549đ→298đ · Brent +6,1%→$95,89 (Hormuz đóng lại) · LNH O/N 3,88% · VCB 26.097/26.357 · Iran từ chối đàm phán · [v3.22] US10Y + CNH/USD + Bessent/Navarro Index · ⚠️ HORMUZ PHONG TỎA ĐANG THỰC THI · Đàm phán Islamabad thất bại 21h · Ngừng bắn tạm thời 2T vẫn duy trì · Iran liên hệ Trump → tín hiệu đàm phán · Brent dao động 99–103 USD · Chợ đen 26.860/26.910 (EMP↑549đ)",
   },
 
@@ -197,9 +197,9 @@ const D = {
     vcb_ban:       { value: 26410, updated: "10/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
     vcb_tienmat:   { value: 26100, updated: "10/06/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
     tb33nh:        { value: "~26.131-26.391 (VCB · BIDV · TCB · ACB dong thuan · VCB tang 10d mua)", updated: "21/05/2026", source: "webgia.com 12/4", note: "TB 33 NH 12/4: ~26.100–26.360 · ACB: 26.150/26.360 · Sacombank mua cao nhất: 26.220 · SCB bán thấp nhất: 26.350" },
-    tg_tu_do_mua:  { value: "26.340", updated: "10/06/2026", source: "danviet.vn 21/4", note: "Chợ đen 21/4 15h: 26.600 MUA · Giảm 83đ vs hôm qua · Giảm từ đỉnh 26.860 (14/4) · Xu hướng hạ nhiệt 3 tuần" },
-    tg_tu_do_ban:  { value: "26.360", updated: "10/06/2026", source: "danviet.vn 21/4", note: "Chợ đen bán 21/4: 26.655 · EMP: 26.655−26.357 = ~298đ · Giảm mạnh từ 549đ (14/4) · Áp lực FX hạ nhiệt đáng kể từ đỉnh ~28.000 cuối T3" },
-    spread_emp:    { value: "INVERTED -50d (9-10/6) · Cho den ban 26.360 < VCB ban 26.410 · Tu dinh 549d (T3) → -50d · US tai khong kich Iran (10-11/6) → Brent $93-95 · EMP van am vi thin market + deal signal con", updated: "10/06/2026", source: "tính toán 13/4", note: "EMP 13/4: ~470đ (26.830−26.360) · TĂNG từ 428đ do Islamabad thất bại · Trump phong tỏa Hormuz → rủi ro tỷ giá tăng trở lại · Cần theo dõi biến động phiên sáng" },
+    tg_tu_do_mua:  { value: "26.340", updated: "10/06/2026", source: "tygiausd.org 10/6", note: "Chợ đen mua 10/6: 26.340 · EMP INVERTED: Chợ đen MUA (26.340) thấp hơn VCB MUA (26.100) +240d NHƯNG thấp hơn VCB BÁN (26.410) -70d · Người có USD muốn bán nhưng ít người mua" },
+    tg_tu_do_ban:  { value: "26.360", updated: "10/06/2026", source: "tygiausd.org 10/6", note: "Chợ đen bán 10/6: 26.360 · EMP INVERTED: 26.360-26.410 = -50d · Lần đầu tiên chợ đen rẻ hơn VCB · US tái không kích Iran 10-11/6 nhưng EMP vẫn âm (thin market)" },
+    spread_emp:    { value: "INVERTED -50d (9-10/6) · Cho den ban 26.360 < VCB ban 26.410 · Tu dinh 549d (T3) → -50d · US tai khong kich Iran (10-11/6) → Brent $93-95 · EMP van am vi thin market + deal signal con", updated: "10/06/2026", source: "tính toán 13/4", note: "10/6 INVERTED -50d: Chợ đen BÁN (26.360) < VCB BÁN (26.410) = -50d · Lần đầu tiên trong lịch sử · Nguyên nhân: deal Iran + thin market + USD vào NH · Hành trình: 549d (đỉnh T3) → +27d (29/5) → -50d (10/6) · US tái không kích 10-11/6 nhưng EMP vẫn âm" },
     forecast_mua:  { value: "26.000-26.300 (KB-B deal → DXY yeu → VND manh) · 26.300-26.500 (KB-C stalemate hien tai) · VNDIRECT: 27.100 cuoi nam neu khong co deal · EMP hien tai 27d → pricing deal gan", updated: "29/05/2026", source: "Nội bộ", note: "Dự báo mua Q2: 25.800–26.100 · UOB Q2 VCB bán: 26.100" },
     forecast_ban:  { value: "VNDIRECT du bao LNH: 27.100 cuoi 2026 (ap luc con lon) · Hien tai: VCB ban 26.393 | EMP 27d → thi truong tin deal · Neu deal: ve 25.800-26.100 trong T6-T7", updated: "29/05/2026", source: "Nội bộ", note: "Dự báo bán Q2: 26.100–26.400 · Ceasefire + DXY yếu = VND hưởng lợi" },
     uob_q2:        { value: "VNDIRECT T5/2026: Ty gia LNH cuoi 2026 len 27.100d/USD · cuoi 2027: 27.778d/USD · Ap luc tu nhap sieu 7,11 ty + lam phat + USD du manh · CPI binh quan 2026: 5,4% (muc cao nhat CTCK) · Brent cao → xang tang → CPI kho kiem soat · NHNN kho ha LS khi CPI vuot 4,5%", updated: "29/05/2026", source: "UOB Research", note: "UOB Q2/2026: 26.100 · Q3: 26.000 · Q4: 25.900 · [v3.18 FIX: 26400→26100]" },
@@ -742,7 +742,7 @@ const kbShort=v(D.hormuz.kb_now).split('·')[0].trim();
 document.getElementById('kpi-strip').innerHTML=`
   <div class="kpi"><div class="kpi-lbl">NHNN TC</div><div class="kpi-val y">${fmt(v(D.fx.nhnn_tc))}</div><div class="kpi-sub">${u(D.fx.nhnn_tc)}</div></div>
   <div class="kpi"><div class="kpi-lbl">VCB Bán ra</div><div class="kpi-val r">${fmt(v(D.fx.vcb_ban))}</div><div class="kpi-sub">${u(D.fx.vcb_ban)}</div></div>
-  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val r">${short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
+  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val ${empInverted?'b':'r'}">${empInverted?'INVERTED '+emp+'đ':short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${empInverted?'Chợ đen BÁN < VCB BÁN · Lần đầu lịch sử':v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
   <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">$${short(v(D.oil.brent).replace(/^\$/,''))}/thùng</div><div class="kpi-sub">${u(D.oil.brent)}</div></div>
   <div class="kpi"><div class="kpi-lbl">LS đỉnh 12T</div><div class="kpi-val r">${short(v(D.rates_tt1.tn_12t_dinh))}%/năm</div><div class="kpi-sub">Tư nhân · giảm dần T4</div></div>
   <div class="kpi"><div class="kpi-lbl">Confluence Score</div><div class="kpi-val r">${v(D.confluence.score_total)}/10</div><div class="kpi-sub">Deal finalize · Brent $92 · EMP -14đ</div></div>
@@ -778,18 +778,23 @@ document.getElementById('fx-bottom').innerHTML=`
     &nbsp;·&nbsp; UOB Q2 target: <strong class="b">${fmt(v(D.fx.uob_q2))}</strong>
   </div>`;
 
-// EMP gauge
-const empRaw=String(v(D.fx.spread_emp)).replace(/[~đ\s]/g,'').replace(/,/g,'.').split('–')[0];
-const emp=parseFloat(empRaw)||599;
-const empPct=Math.min(100,emp/2000*100);
-const empC=emp>1500?'r':emp>800?'r':emp>600?'y':'g';
-const empColor=emp>800?'var(--red)':emp>600?'var(--yellow)':'var(--ok)';
-const empLbl=emp>1500?'🔴🔴 EXTREME':emp>1000?'🔴 CRITICAL':emp>600?'🟡 ALERT':'🟢 Normal';
+// EMP gauge — handle INVERTED (negative) state
+const empStr=String(v(D.fx.spread_emp));
+const empInverted=empStr.includes('INVERTED')||empStr.includes('inverted');
+const empMatchInv=empStr.match(/INVERTED[\s-]*(\d+)/i);
+const empMatchPos=empStr.match(/(?:^|[~\s])(\d{1,3}(?:[.,]\d+)?)[đd]/);
+const empSign=empInverted?-1:1;
+const empNum=empMatchInv?parseFloat(empMatchInv[1]):empMatchPos?parseFloat(empMatchPos[1].replace(',','.')):0;
+const emp=empSign*empNum;
+const empPct=empInverted?0:Math.min(100,Math.abs(emp)/2000*100);
+const empC=empInverted?'b':emp>1500?'r':emp>800?'r':emp>600?'y':'g';
+const empColor=empInverted?'var(--blue)':emp>800?'var(--red)':emp>600?'var(--yellow)':'var(--ok)';
+const empLbl=empInverted?'🔵 INVERTED':emp>1500?'🔴🔴 EXTREME':emp>1000?'🔴 CRITICAL':emp>600?'🟡 ALERT':'🟢 Normal';
 document.getElementById('fx-tudo').innerHTML=`
   ${drow('TG tự do mua',fmt(v(D.fx.tg_tu_do_mua))+'đ','g',u(D.fx.tg_tu_do_mua))}
   ${drow('TG tự do bán',fmt(v(D.fx.tg_tu_do_ban))+'đ','r',n(D.fx.tg_tu_do_ban))}
   ${drow('EMP Spread',fmt(emp)+'đ',empC,'Ngưỡng: >600đ ALERT · >800đ CRITICAL')}
-  <div class="emp-bar"><div class="emp-fill" style="width:${empPct.toFixed(1)}%;background:${empColor}"></div></div>
+  <div class="emp-bar"><div class="emp-fill" style="width:${empInverted?'100':empPct.toFixed(1)}%;background:${empInverted?'linear-gradient(90deg,var(--blue),rgba(59,130,246,0.3))':empColor};opacity:${empInverted?'0.5':'1'}"></div></div>
   <div class="mono" style="display:flex;justify-content:space-between;font-size:12px;color:var(--dim)"><span>0</span><span>600đ</span><span>800đ</span><span>1.000đ</span></div>
   <div class="co co-${empC}" style="margin-top:8px"><strong>EMP: ${empLbl} (${fmt(emp)}đ)</strong><br>${n(D.fx.spread_emp)}</div>`;
 
