@@ -755,7 +755,7 @@ const kbShort=v(D.hormuz.kb_now).split('·')[0].trim();
 document.getElementById('kpi-strip').innerHTML=`
   <div class="kpi"><div class="kpi-lbl">NHNN TC</div><div class="kpi-val y">${fmt(v(D.fx.nhnn_tc))}</div><div class="kpi-sub">${u(D.fx.nhnn_tc)}</div></div>
   <div class="kpi"><div class="kpi-lbl">VCB Bán ra</div><div class="kpi-val r">${fmt(v(D.fx.vcb_ban))}</div><div class="kpi-sub">${u(D.fx.vcb_ban)}</div></div>
-  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val ${empInverted?'b':'r'}">${empInverted?'INVERTED '+emp+'đ':short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${empInverted?'Chợ đen BÁN < VCB BÁN (lần đầu)':v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
+  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val ${empInverted?'b':'r'}" style="${empInverted?'font-size:15px;':''}">${empInverted?'INV '+emp+'đ ↓':short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${empInverted?'🔵 INVERTED · Chợ đen BÁN < VCB BÁN':v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
   <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">$${short(v(D.oil.brent).replace(/^\$/,''))}/thùng</div><div class="kpi-sub">${u(D.oil.brent)}</div></div>
   <div class="kpi"><div class="kpi-lbl">LS đỉnh 12T</div><div class="kpi-val r">${short(v(D.rates_tt1.tn_12t_dinh))}%/năm</div><div class="kpi-sub">Tư nhân · giảm dần T4</div></div>
   <div class="kpi"><div class="kpi-lbl">Confluence Score</div><div class="kpi-val r">${v(D.confluence.score_total)}/10</div><div class="kpi-sub">Deal finalize · Brent $92 · EMP -14đ</div></div>
