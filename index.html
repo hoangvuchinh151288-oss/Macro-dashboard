@@ -737,6 +737,19 @@ document.getElementById('patch-note').textContent='v3.18 PATCH';
 document.getElementById('f-ver').textContent=D.meta.version;
 document.getElementById('f-date').textContent=D.meta.date;
 
+// EMP calculation (moved up before kpi-strip)
+const empStr_=String(v(D.fx.spread_emp));
+const empInverted=empStr_.includes('INVERTED');
+const empMatchInv_=empStr_.match(/INVERTED[\s-]*(\d+)/i);
+const empMatchPos_=empStr_.match(/(?:^|[~\s])(\d{1,3}(?:[.,]\d+)?)[đd]/);
+const empSign_=empInverted?-1:1;
+const empNum_=empMatchInv_?parseFloat(empMatchInv_[1]):empMatchPos_?parseFloat(empMatchPos_[1].replace(',','.')):0;
+const emp=empSign_*empNum_;
+const empPct=empInverted?0:Math.min(100,Math.abs(emp)/2000*100);
+const empC=empInverted?'b':emp>1500?'r':emp>800?'r':emp>600?'y':'g';
+const empColor=empInverted?'var(--blue)':emp>800?'var(--red)':emp>600?'var(--yellow)':'var(--ok)';
+const empLbl=empInverted?'🔵 INVERTED':emp>1500?'🔴🔴 EXTREME':emp>1000?'🔴 CRITICAL':emp>600?'🟡 ALERT':'🟢 Normal';
+
 // FIX JS #5: KPI strip — kb_now truncated
 const kbShort=v(D.hormuz.kb_now).split('·')[0].trim();
 document.getElementById('kpi-strip').innerHTML=`
@@ -778,18 +791,7 @@ document.getElementById('fx-bottom').innerHTML=`
     &nbsp;·&nbsp; UOB Q2 target: <strong class="b">${fmt(v(D.fx.uob_q2))}</strong>
   </div>`;
 
-// EMP gauge — handle INVERTED (negative) state
-const empStr=String(v(D.fx.spread_emp));
-const empInverted=empStr.includes('INVERTED')||empStr.includes('inverted');
-const empMatchInv=empStr.match(/INVERTED[\s-]*(\d+)/i);
-const empMatchPos=empStr.match(/(?:^|[~\s])(\d{1,3}(?:[.,]\d+)?)[đd]/);
-const empSign=empInverted?-1:1;
-const empNum=empMatchInv?parseFloat(empMatchInv[1]):empMatchPos?parseFloat(empMatchPos[1].replace(',','.')):0;
-const emp=empSign*empNum;
-const empPct=empInverted?0:Math.min(100,Math.abs(emp)/2000*100);
-const empC=empInverted?'b':emp>1500?'r':emp>800?'r':emp>600?'y':'g';
-const empColor=empInverted?'var(--blue)':emp>800?'var(--red)':emp>600?'var(--yellow)':'var(--ok)';
-const empLbl=empInverted?'🔵 INVERTED':emp>1500?'🔴🔴 EXTREME':emp>1000?'🔴 CRITICAL':emp>600?'🟡 ALERT':'🟢 Normal';
+// EMP vars computed above (moved before kpi-strip)
 document.getElementById('fx-tudo').innerHTML=`
   ${drow('TG tự do mua',fmt(v(D.fx.tg_tu_do_mua))+'đ','g',u(D.fx.tg_tu_do_mua))}
   ${drow('TG tự do bán',fmt(v(D.fx.tg_tu_do_ban))+'đ','r',n(D.fx.tg_tu_do_ban))}
