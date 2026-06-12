@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.62 | 12/06/2026</title>
+<title>VN Macro Dashboard v3.63 | 12/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.62",
+    version: "3.63",
     date: "12/06/2026",
     note: "12/6 v3.58: DXY crossed 100 (NFP 172k × 2 vs forecast) · Gold $4.210 (−$240/oz trong 1 tuần) · SJC 136/141M (−18.7M vs tuần trước) · US CPI T5: 4.2% · Kevin Warsh FOMC 16-17/6 hawkish · Brent $93-95 · EMP INVERTED −50đ · LDR 114% (10-11/6) · Brent $93-95 · EIA 7 tuần US inv giảm · EMP INVERTED -50đ (lần đầu lịch sử) · CPI VN T5: 5,6% YoY · US CPI T5: 4,2% (mạnh nhất 3 năm) · VCB 26.100/26.410 · LDR 114% · TT2 O/N 6,6% · NHNN FX Swap 1 tỷ USD · Scorecard Model v2.0: conf+cat+calibration",
   },
@@ -208,7 +208,7 @@ const D = {
       gia_ban:     { value: "~26.750", updated: "17/05/2026", source: "NHNN", note: "Forward tham chiếu 10/4: ~26.750 vs 26.850 trước ceasefire" },
       co_che_rut:  { value: "Ceasefire → Hormuz mở → Brent giảm → CPI giảm → LS TT1 giảm", updated: "17/05/2026", source: "Phân tích cấu trúc", note: "" },
       tac_dong_tt2:{ value: "TT2 hạ nhiệt · O/N về 4–4,5%", updated: "17/05/2026", source: "Phân tích", note: "O/N về 4–4,5% từ đỉnh 8,8% · Kỳ thuế T3 qua · Ceasefire giảm risk premium" },
-      tac_dong_tt1:{ value: "TT1 bắt đầu giảm sau 9/4", updated: "17/05/2026", source: "Phân tích", note: "ABBank −0,5% mở màn · Big4 −0,3–0,5% tuần này · LDR 100% = ràng buộc" },
+      tac_dong_tt1:{ value: "T6/2026: TT1 CHƯA GIẢM · LDR 114% + CPI 5,6% + US CPI 4,2% = 3 rào cản · NHNN không thể hạ LS tái cấp vốn · Khi NHNN hạ: TT1 sẽ theo trong 1-2T · Catalyst: Brent <$90 + CPI T6 <4,5%", updated: "12/06/2026", source: "Phân tích 12/6", note: "T6: Big4 7.8-8%, tư nhân lớn 8-8.5%, tư nhân vừa 8.5-9%. Cả 3 nhóm giữ nguyên vì LDR 114% + CPI 5.6% · Big4 −0,3–0,5% tuần này · LDR 100% = ràng buộc" },
       diem_dao_han:{ value: "Q3/2026 · Forward NHNN @26.750", updated: "17/05/2026", source: "Tính toán", note: "Forward đáo hạn ~Sep 2026 · NH phải trả USD cho NHNN" },
       ket_luan:    { value: "Tác động kép giảm dần sau ceasefire", updated: "17/05/2026", source: "Phân tích", note: "Ceasefire → tỷ giá giảm → CPI sẽ giảm → LS sẽ giảm · Timeline: EMP 1-2T · CPI T5-T6 · LS TT1 T4-Q2" },
     },
@@ -292,9 +292,9 @@ const D = {
 
   rates_tt1: {
     tran_ngan_han: { value: 4.75, updated: "10/04/2026", source: "NHNN QĐ", note: "Trần <6T: Big4 đều 4,75% online" },
-    big4_6_12t:    { value: "Niem yet ≤6% (quy dinh) · Thuc te: 7,8-8% (khach VIP 7,5-7,8%) · TT08/2026 (15/5): room LDR mo → co the ha nhe trong T6", updated: "17/05/2026", source: "cafef/markettimes/phân tích 13/4", note: "⚠️ HAI MỨC LÃI SUẤT: (1) NIÊM YẾT công khai ≤6%/năm (áp lực SBV — VCB/BIDV/VietinBank/Agribank tuân thủ từ 13/4) · (2) THỰC TẾ huy động >6T: 7,8–8%/năm (các NH phải cạnh tranh do LDR ~100% chưa cải thiện · thanh khoản chưa được xử lý cơ bản) · Chênh lệch niêm yết vs thực tế = dấu hiệu thanh khoản thực sự căng" },
-    tn_lon_6_12t:  { value: "MB/VPBank/TCB/ACB: 8,0-8,5% · Chi phi HĐ tang do canh tranh · Se ha sau Big4 khoang 1-2 thang", updated: "17/05/2026", source: "Khảo sát 28/4", note: "Big TMCP (MB/VPBank/ACB/Techcombank): 8% (6T-12T) · VPBank 6T: 6,9%→ 12T: 7,1% · MB 12T: 6,5-7,5% · Xu hướng: BẮT ĐẦU ổn định, chưa giảm" },
-    tn_vua_6_12t:  { value: "LPB/SeAB/ABBank: 8,5-9% · LDR cao · Canh tranh HĐ gay gat · TT08 khong tac dong nhom nay", updated: "17/05/2026", source: "Khảo sát 28/4", note: "NH tư nhân nhỏ/vừa: PVcomBank 10% · OceanBank/PGBank/HDBank: 9-9,5% · BacABank 7,25% (6T) · Tư nhân buộc giữ cao để cạnh tranh thanh khoản" },
+    big4_6_12t:    { value: "Niêm yết ≤6% (quy định) · Thực tế: 7,8-8% (VIP 7,5-7,8%) · T6: CHƯA HẠ · CPI 5,6%+LDR 114% → NHNN không hạ LS tái cấp vốn · Điều kiện hạ: Brent <$90 + CPI <4,5%", updated: "12/06/2026", source: "cafef/markettimes 12/6", note: "⚠️ HAI MỨC LÃI SUẤT: (1) NIÊM YẾT công khai ≤6%/năm (áp lực SBV — VCB/BIDV/VietinBank/Agribank tuân thủ từ 13/4) · (2) THỰC TẾ huy động >6T: 7,8–8%/năm (các NH phải cạnh tranh do LDR ~100% chưa cải thiện · thanh khoản chưa được xử lý cơ bản) · Chênh lệch niêm yết vs thực tế = dấu hiệu thanh khoản thực sự căng" },
+    tn_lon_6_12t:  { value: "MB/VPBank/TCB/ACB: 8,0-8,5% · T6/2026: DUY TRI do CPI 5,6%+LDR 114% · Chưa hạ dù TT08 · Điều kiện ha: NHNN hạ LS → 1-2 tháng sau", updated: "12/06/2026", source: "Khảo sát 12/6", note: "Big TMCP (MB/VPBank/ACB/Techcombank): 8% (6T-12T) · VPBank 6T: 6,9%→ 12T: 7,1% · MB 12T: 6,5-7,5% · Xu hướng: BẮT ĐẦU ổn định, chưa giảm" },
+    tn_vua_6_12t:  { value: "LPB/SeAB/ABBank: 8,5-9% · T6: giữ cao · LDR tư nhân vừa >115% · CPI 5,6% → không thể hạ · TT08 không tác động nhóm này", updated: "12/06/2026", source: "Khảo sát 12/6", note: "NH tư nhân nhỏ/vừa: PVcomBank 10% · OceanBank/PGBank/HDBank: 9-9,5% · BacABank 7,25% (6T) · Tư nhân buộc giữ cao để cạnh tranh thanh khoản" },
     tn_12t_dinh:   { value: "9,5-10 · PVcomBank/BaovietBank cao nhat · Ap luc thanh khoan · Can theo doi chat", updated: "09/06/2026", source: "Khảo sát 28/4", note: "Đỉnh LS 12T: PVcomBank 10% · OceanBank 7,2% (quầy) · Cake by VPBank online 7,4% · BAC A BANK 7,25% (6T) · ĐỈnh chưa qua → không có dấu hiệu giảm Q2/2026" },
     nhan_xet:      { value: "TT08/2026 (15/5): Big4 LDR giam 1,1-1,5% → ap luc HD ha · TMCP lon: cham hon 1-2 thang · NH nho: khong doi · Du bao toan nganh giam 30-50bps trong Q3 neu CPI ha", updated: "17/05/2026", source: "cafef/markettimes 13/4", note: "VCB giảm 24T: 6,5%→6% hiệu lực 13/4 · Tất cả kỳ hạn VCB ≤6%/năm · NHƯNG: Islamabad thất bại + dầu >$105 → áp lực CPI tăng trở lại → NHNN phải cân nhắc kỹ · LDR ~100% vẫn ràng buộc cứng" },
     ldr:           { value: "LDR trung vi: ~107-108% (sau TT08/2026 Big4 giam 1,1-1,5%) · LNST Q1 nganh NH: +14% YoY · Big4 huong loi truc tiep TT08 · NH tu nhan: chua thay doi · Muc tieu: ve <100% cuoi 2026", updated: "17/05/2026", source: "Phân tích cấu trúc", note: "LDR hệ thống: ~100% · Big4: 92–95% · Tư nhân: 105–115%" },
@@ -307,11 +307,11 @@ const D = {
   },
 
   cpi: {
-    t1_2026:     { value: 2.53, updated: "10/06/2026", source: "Cục Thống kê", note: "CPI T1/2026: +2,9% YoY · Ổn định trước chiến tranh Iran 28/2" },
-    t2_2026:     { value: "Binh quan 2T: ~2.9% · 3T: ~3.5% · 4T: 3,99% · T4 rieng le: 5,46% → leo nhanh · T5 du kien: 5.5-6.0% · Gia xang ky 15/5 la yeu to chinh", updated: "17/05/2026", source: "Cục TK ước", note: "CPI T2/2026: ~3,0% YoY · MBS BQ 2T: 2,94% · PMI T2: 54,3" },
-    bq_2t:       { value: "Binh quan 4T/2026: +3,99% YoY (GSO) · T4: 5,46% → trend tang nhanh · T5 forecast: 5,5-6,0% · Can: Brent ve $90 thi CPI moi ha duoi 4,5% trong Q3", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "CPI BQ Q1/2026 CHÍNH THỨC: +3,51% YoY · Lạm phát cơ bản: +3,63%" },
-    t3_forecast: { value: "T5: 5,6% YoY chinh thuc (3/6) · T6/2026 du bao: 4,8-5,0% (xang 1/6 giam) · Cuoi 2026: KB-B deal → CPI ha ~4,0-4,5% · KB-D escalation → CPI 6-7%", updated: "10/06/2026", source: "Cục Thống kê 4/4/2026", note: "CPI T3/2026 CHÍNH THỨC: +4,65% YoY (đỉnh 5 năm) · +1,23% MoM · CPI T4 tiếp tục cao" },
-    muc_tieu:    { value: 4.5, updated: "17/05/2026", source: "QH/CP", note: "Mục tiêu 4,5%/năm · T3: 4,65% vượt mục tiêu · Ceasefire → T5-T6 hạ dần" },
+    t1_2026:     { value: 2.53, updated: "10/06/2026", source: "Cục Thống kê", note: "CPI T1/2026: +2,53% YoY · Ổn định · Trước xung đột 28/2 · Nhóm GT: +0,3% · Lạm phát cơ bản: +3,6%" },
+    t2_2026:     { value: "T2: ~3,0% | T3: 4,65% | T4: 5,46% | T5: 5,6% (chinh thuc 3/6) · Nhom GT T5: +12,5% YoY (ky luc do dau) · Lam phat co ban T5: 4,67%", updated: "12/06/2026", source: "GSO/Cục TK 3/6", note: "CPI T2: ~3,0% · T3: 4,65% (chinh thuc đỉnh 5 năm) · T4: 5,46% · T5: 5,6% (+0,29% MoM) · 3 tháng liên tiếp vượt mục tiêu 4,5%" },
+    bq_2t:       { value: "4,31% · BQ 5T/2026 (chinh thuc) · Lam phat co ban 5T: 4,04%", updated: "12/06/2026", source: "GSO 3/6/2026", note: "BQ 5T/2026: +4,31% YoY · Lam phat co ban 5T: +4,04% · T5 rieng le: 5,6% (manh nhat tu 1/2020) · Nhom GT binh quan 5T: +10,4%" },
+    t3_forecast: { value: "T5: 5,6% YoY +0,29% MoM (chinh thuc 3/6) · T6 forecast: 4,8-5,2% (xang 11/6 giam: E10RON95 22.060d E5RON92 21.330d · Quy BOXD trich lap lai) · Neu Brent tang lai (re-escalation $93-95) → T6 co the 5.0-5.3%", updated: "10/06/2026", source: "Cục Thống kê 4/4/2026", note: "CPI T3/2026 CHÍNH THỨC: +4,65% YoY (đỉnh 5 năm) · +1,23% MoM · CPI T4 tiếp tục cao" },
+    muc_tieu:    { value: 4.5, updated: "17/05/2026", source: "QH/CP", note: "Mục tiêu 4,5%/năm (2026) · T3: 4,65% > MT · T4: 5,46% > MT · T5: 5,6% > MT · 3 tháng liên tiếp vượt mục tiêu · T6: 4,8-5,2% (du bao · xang giam nhieu) · NHNN khong the ha LS khi CPI con cao" },
   },
 
   bop: {
@@ -1022,8 +1022,8 @@ document.getElementById('panel-tt1').innerHTML=`
 document.getElementById('panel-cpi').innerHTML=`
   <div class="g3" style="gap:6px;margin-bottom:10px">
     ${mbox('CPI T1/2026',fmt(v(D.cpi.t1_2026),2)+'%','YoY','y')}
-    ${mbox('CPI T2/2026',v(D.cpi.t2_2026)+'%','YoY ước','y')}
-    ${mbox('BQ Q1/2026',v(D.cpi.bq_2t)+'%','YoY CHÍNH THỨC','y')}
+    ${mbox('CPI T2-T5/2026',v(D.cpi.t2_2026),'YoY thực tế','y')}
+    ${mbox('BQ 5T/2026',v(D.cpi.bq_2t)+'%','YoY CHÍNH THỨC','y')}
     ${mbox('CPI T3/2026',v(D.cpi.t3_forecast),'YoY CHÍNH THỨC đỉnh 5 năm','r')}
     ${mbox('Mục tiêu',fmt(v(D.cpi.muc_tieu))+'%/năm',n(D.cpi.muc_tieu),'r')}
   </div>`;
