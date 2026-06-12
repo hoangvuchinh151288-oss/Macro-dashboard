@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.59 | 12/06/2026</title>
+<title>VN Macro Dashboard v3.60 | 12/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.59",
+    version: "3.60",
     date: "12/06/2026",
     note: "12/6 v3.58: DXY crossed 100 (NFP 172k × 2 vs forecast) · Gold $4.210 (−$240/oz trong 1 tuần) · SJC 136/141M (−18.7M vs tuần trước) · US CPI T5: 4.2% · Kevin Warsh FOMC 16-17/6 hawkish · Brent $93-95 · EMP INVERTED −50đ · LDR 114% (10-11/6) · Brent $93-95 · EIA 7 tuần US inv giảm · EMP INVERTED -50đ (lần đầu lịch sử) · CPI VN T5: 5,6% YoY · US CPI T5: 4,2% (mạnh nhất 3 năm) · VCB 26.100/26.410 · LDR 114% · TT2 O/N 6,6% · NHNN FX Swap 1 tỷ USD · Scorecard Model v2.0: conf+cat+calibration",
   },
@@ -240,10 +240,10 @@ const D = {
   },
 
   ppp_war: {
-    base_brent:  { value: 73, updated: "10/04/2026", source: "reuters/cnbc", note: "Pre-war Brent Feb 2026: $73" },
-    war_premium: { value: "~$35-45/thung · IEA: giam 4M bbl/ngay T3-T4 · Saudi Aramco: -100M bbl/tuan · Hormuz 30 tau/tuan (tu binh thuong 120+/ngay) · Normalization mat nhieu thang du deal", updated: "17/05/2026", source: "Cập nhật", note: "War premium 10/4: ~$20–25 (giảm từ $40–45) · Về $5 nếu Hormuz mở hoàn toàn" },
-    iea_offset:  { value: "~6–10 (IEA+SPR đang khai thác)", updated: "21/04/2026", source: "Goldman+SPR", note: "IEA offset: ~$8–12/thùng · Còn ~250M thùng" },
-    fair_brent:  { value: "~$65-75 (pre-war fundamental) · War premium hien tai: ~$35-45/thung · Khi Hormuz mo: Brent co the ve $85-95 trong 2-4 tuan · IEA: mat 4M bbl/ngay T3-T4", updated: "17/05/2026", source: "reuters/cnbc", note: "Fair value Brent 10/4: ~$85–90 · Actual $93–95 = còn $5–10 premium" },
+    base_brent:  { value: 73, updated: "12/06/2026", source: "reuters/cnbc/EIA", note: "Pre-war Brent Feb 2026: $68-73 (avg ~$70) · Su dung $73 lam base · Before US-Israeli strikes 28/2 · Brent dinh xung dot: $126.41 (30/4)" },
+    war_premium: { value: "~$20-22/thung (12/6 · giam tu peak $53 thang 4-5) · Brent $93-95 − Base $73 = $20-22 · Deal signal + DXY 100 + NFP 172k demand destruction da giam premium · Tai leo thang 10-11/6 giu o muc hien tai · EIA: undersupply con 6.3M bbl/ngay Q2", updated: "12/06/2026", source: "Tinh toan tu Brent/Reuters", note: "War premium: $93-$73 = ~$20 (12/6) · Peak: $126-$73 = $53 (30/4) · Giam nhanh tu T5 theo deal signal · Tai leo thang 10-11/6 giu level hien tai · Hormuz mở hoàn toàn" },
+    iea_offset:  { value: "~5–8 (IEA+SPR dang can dan)", updated: "12/06/2026", source: "IEA/EIA Jun9", note: "IEA offset: ~$5-8/thung (giam tu $8-12) · Tong da giai phong ~300M+ thung · Con ~180-200M thung buffer · EIA: emergency release chua duoc kich hoat het cong suat" },
+    fair_brent:  { value: "~$80-85 (nang tu $73 do infrastructure damage + supply deficit con du deal) · War premium con lai: ~$8-15/thung · Goldman Q4: $90 (co lam gia tri fair hien tai) · Khi Hormuz mo day du: $80-88 trong 3-6 tuan · IEA: mat 4M bbl/ngay T3-T4", updated: "17/05/2026", source: "reuters/cnbc", note: "Fair value Brent 10/4: ~$85–90 · Actual $93–95 = còn $5–10 premium" },
     note:        { value: "~98,35 · DXY yếu · USD mất safe-haven khi Iran leo thang", updated: "21/04/2026", source: "investing.com", note: "" },
   },
 
@@ -867,7 +867,7 @@ document.getElementById('panel-hormuz-flows').innerHTML=`
   const premHi=Math.max(0,parseFloat(bRaw[1]||bRaw[0])-parseFloat(fRaw[0]));
   document.getElementById('panel-ppp-war').innerHTML=`
     ${drow('Base Brent (pre-war)','$'+v(D.ppp_war.base_brent),'d',u(D.ppp_war.base_brent))}
-    ${drow('War Premium','$'+v(D.ppp_war.war_premium),'r','Giảm từ $40–45 · '+u(D.ppp_war.war_premium))}
+    ${drow('War Premium','$'+v(D.ppp_war.war_premium),'r','Giảm từ peak $53 (30/4) về $20-22 (12/6) · '+u(D.ppp_war.war_premium))}
     ${drow('IEA offset','−$'+v(D.ppp_war.iea_offset),'b',n(D.ppp_war.iea_offset))}
     ${drow('Fair value Brent','$'+v(D.ppp_war.fair_brent),'y',n(D.ppp_war.fair_brent))}
     ${drow('Brent thực tế','$'+v(D.oil.brent),'r',`Premium so fair: ~$${fmt(premLo,0)}–$${fmt(premHi,0)}/thùng (midpoint ~$${fmt(bMid-fMid,1)})`)}
