@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.63 | 12/06/2026</title>
+<title>VN Macro Dashboard v3.64 | 12/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.63",
+    version: "3.64",
     date: "12/06/2026",
     note: "12/6 v3.58: DXY crossed 100 (NFP 172k × 2 vs forecast) · Gold $4.210 (−$240/oz trong 1 tuần) · SJC 136/141M (−18.7M vs tuần trước) · US CPI T5: 4.2% · Kevin Warsh FOMC 16-17/6 hawkish · Brent $93-95 · EMP INVERTED −50đ · LDR 114% (10-11/6) · Brent $93-95 · EIA 7 tuần US inv giảm · EMP INVERTED -50đ (lần đầu lịch sử) · CPI VN T5: 5,6% YoY · US CPI T5: 4,2% (mạnh nhất 3 năm) · VCB 26.100/26.410 · LDR 114% · TT2 O/N 6,6% · NHNN FX Swap 1 tỷ USD · Scorecard Model v2.0: conf+cat+calibration",
   },
@@ -209,8 +209,8 @@ const D = {
       co_che_rut:  { value: "Ceasefire → Hormuz mở → Brent giảm → CPI giảm → LS TT1 giảm", updated: "17/05/2026", source: "Phân tích cấu trúc", note: "" },
       tac_dong_tt2:{ value: "TT2 hạ nhiệt · O/N về 4–4,5%", updated: "17/05/2026", source: "Phân tích", note: "O/N về 4–4,5% từ đỉnh 8,8% · Kỳ thuế T3 qua · Ceasefire giảm risk premium" },
       tac_dong_tt1:{ value: "T6/2026: TT1 CHƯA GIẢM · LDR 114% + CPI 5,6% + US CPI 4,2% = 3 rào cản · NHNN không thể hạ LS tái cấp vốn · Khi NHNN hạ: TT1 sẽ theo trong 1-2T · Catalyst: Brent <$90 + CPI T6 <4,5%", updated: "12/06/2026", source: "Phân tích 12/6", note: "T6: Big4 7.8-8%, tư nhân lớn 8-8.5%, tư nhân vừa 8.5-9%. Cả 3 nhóm giữ nguyên vì LDR 114% + CPI 5.6% · Big4 −0,3–0,5% tuần này · LDR 100% = ràng buộc" },
-      diem_dao_han:{ value: "Q3/2026 · Forward NHNN @26.750", updated: "17/05/2026", source: "Tính toán", note: "Forward đáo hạn ~Sep 2026 · NH phải trả USD cho NHNN" },
-      ket_luan:    { value: "Tác động kép giảm dần sau ceasefire", updated: "17/05/2026", source: "Phân tích", note: "Ceasefire → tỷ giá giảm → CPI sẽ giảm → LS sẽ giảm · Timeline: EMP 1-2T · CPI T5-T6 · LS TT1 T4-Q2" },
+      diem_dao_han:{ value: "Q3/2026 (T7-T8) · NHNN USD swap 1 tỷ USD (1/6, 14 ngày) đã đáo hạn 15/6 · EMP -50đ → áp lực đảo chiều giảm", updated: "12/06/2026", source: "Tính toán", note: "NHNN mở USD swap 1 tỷ (1/6) để bơm 23.932 tỷ VND → TT2 từ 11% về 6.6% trong 48h · Đáo hạn 15/6" },
+      ket_luan:    { value: "T6/2026: Deal signal mạnh (EMP -50đ, Brent $92-95) NHƯNG US re-escalation 10-11/6 · LDR 114% + CPI 5.6% = NH chưa thể hạ TT1 · Key: FOMC Warsh 16-17/6 + CPI T6 + Deal MOU", updated: "12/06/2026", source: "Phân tích", note: "Các catalyst Q3: (1) Deal Iran ký → Brent <$90 → CPI T6 <4.5% → NHNN hạ LS → TT1 giảm sau 1-2T (2) FTSE upgrade 21/9" },
     },
   },
 
@@ -300,9 +300,9 @@ const D = {
     ldr:           { value: "LDR trung vi: ~107-108% (sau TT08/2026 Big4 giam 1,1-1,5%) · LNST Q1 nganh NH: +14% YoY · Big4 huong loi truc tiep TT08 · NH tu nhan: chua thay doi · Muc tieu: ve <100% cuoi 2026", updated: "17/05/2026", source: "Phân tích cấu trúc", note: "LDR hệ thống: ~100% · Big4: 92–95% · Tư nhân: 105–115%" },
     ldr_t2_hd:     { value: "HĐ T3/2026: +0,44% YTD (vs tin dung +3,18%) · Sau TT08/2026 (15/5): Big4 room mo them · NMCP lon: chua thay doi · Cuoc dua LS HD: chi con 6/27 NH niem yet ≥7% (xu huong tot)", updated: "17/05/2026", source: "Phân tích T2/2026", note: "LDR huy động T4: ước +0,5% · Tín dụng Q1 +2,65% nhưng huy động cũng tăng" },
     du_bao_ls:     { value: "Q2: TT1 bat dau ha nhiet · TT08/2026 giam LDR Big4 1,1-1,5% · Q3: giam 30-50bps neu Brent <$100 + CPI ha + DTC giai ngan · Q4: ve 7% Big4 neu FTSE inflow + Fed cut + Brent <$90", updated: "17/05/2026", source: "Phân tích 13/4", note: "VCB đã giảm 24T→6% · Target Q2 Big4: 6,0–7,0% · RỦI RO MỚI: Brent >$105 → CPI lag T5-T6 có thể cao hơn dự báo → NHNN phải cân nhắc pace giảm LS · Kịch bản tốt nhất: 5,5–6,5% Q2 nếu Hormuz giải tỏa · Xấu: quay về 7,5–8,5%" },
-    real_rate:     { value: "Real rate VN: TT1 7.5% - CPI 5.46% = ~2% (duong, that chat nhe) · Tac dong: BDS tiep tuc kho, tieu dung co lai · Neu Brent ve $90: CPI ha → real rate tang → NHNN co room cat giam", updated: "17/05/2026", source: "Tính toán 13/4", note: "LS thực THỰC TẾ: ~2,8–3,0% = huy động thực 7,8–8% − CPI T3 4,65% · LS thực NIÊM YẾT: chỉ ~1,35% = 6% − CPI (thấp, kém hấp dẫn) · Khoảng cách lớn niêm yết vs thực tế = thanh khoản vẫn căng · LDR chưa được giải quyết cơ bản" },
-    ldr_big4:      { value: "Big4 sau TT08/2026 (15/5): LDR giam 1,1-1,5% · VCB/BID/CTG huong loi truc tiep · Room tin dung mo them ~30-50k ty/NH · Agri: huong loi tuong tu · Buffer them 130-150k ty toan Big4", updated: "17/05/2026", source: "Ước tính ngành", note: "LDR Big4: ~92–95% · Còn room giảm LS nhanh hơn tư nhân" },
-    ldr_tu_nhan:   { value: "NH tu nhan nho: LDR van cao (>115% thuc te) · TT08 khong tac dong · Chi phi HĐ 9-10% · Rui ro NPL tu BDS · Can theo doi chat", updated: "17/05/2026", source: "Ước tính ngành", note: "LDR tư nhân: ~105–115% · Ràng buộc cơ bản · Không thể giảm LS mạnh" },
+    real_rate:     { value: "Real rate VN: TT1 7,5-8% - CPI 5,6% = ~2,0% · Positive nhưng hẹp · Thấp hơn khi CPI leo 5,6%", updated: "12/06/2026", source: "Tính toán 13/4", note: "Real rate T5/2026: 7.5-8% TT1 - 5.6% CPI = ~2.0% · Tháng 4: 7.5-8% - 5.46% = ~2.1% · Giảm dần" },
+    ldr_big4:      { value: "Big4 (VCB/BIDV/VietinBank/Agribank): ~110-115% · BIDV Q1: 113,4% · TT08/2026 (15/5): giảm 1,1-1,5% · Vẫn cao hơn trần 85%", updated: "12/06/2026", source: "Ước tính ngành", note: "Big4 LDR sau TT08: vẫn >100% · Cần outside money (ĐTC giải ngân + NHNN mua USD) để cải thiện thực chất" },
+    ldr_tu_nhan:   { value: "Tư nhân lớn (MB/VPBank/TCB...): ~115-120% thực tế · Vượt trần 85% · Cạnh tranh HĐ 8-10% để hút tiền gửi", updated: "12/06/2026", source: "Ước tính ngành", note: "NH tư nhân: LDR >115% thực tế · Niêm yết thấp nhưng LS thực tế cao do thanh khoản thực sự căng" },
     time_to_impact:{ value: "TT08/2026 co hieu luc NGAY HOM NAY (15/5) · Big4 huong loi truc tiep · TMCP lon: huong loi gian tiep qua thanh khoan he thong · LCR/NSFR Basel III giu nguyen 1/1/2028 · Next: TT26 (CDR day du) van la van de", updated: "15/05/2026", source: "Tính toán", note: "" },
   },
 
@@ -317,7 +317,7 @@ const D = {
   bop: {
     xk_2t:        { value: "Nhap sieu 4T: 7,11 ty USD · 94,2% la tu lieu SX → tot · FDI giai ngan Q1: 5,41 ty (+9.1%) · FDI dang ky 4T: 18,24 ty (+32%) · Canh bao: Thuong mai My-Trung on dinh co the giam FDI vao VN", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "XK Q1/2026: 122,93 tỷ USD (+19,1% YoY) · Mỹ: 39,0 tỷ (+24,3%) · FDI: 79%" },
     nk_2t:        { value: "175,64 ty USD 4T (+28,7% YoY) · Tu lieu SX: 94,2% · May moc: 54,8% · TQ: NK lon nhat 50,1 ty · Tang NK la tin hieu tot (san xuat phuc hoi)", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "NK Q1/2026: 126,57 tỷ USD (+27,0% YoY) · TQ: 50,1 tỷ" },
-    can_can_2t:   { value: -3.64, updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "Cán cân TM Q1/2026: NHẬP SIÊU 3,64 tỷ USD (vs XS 3,57 tỷ Q1/2025)" },
+    can_can_2t:   { value: -3.64, updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "Nhập siêu 4T: 7,11 tỷ USD · 94,2% là tư liệu SX → tốt · Nhập khẩu để sản xuất > xuất khẩu T4 tạm thời" },
     tong_xnk_2t:  { value: "344,17 ty USD 4T (+24,2%) · XK: 168,53 ty (+19,7%) · NK: 175,64 ty (+28,7%) · My: XK lon nhat 33,9 ty (28% tong) · TQ: NK lon nhat 50,1 ty", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "Tổng XNK Q1/2026: 249,50 tỷ USD (+23,0% YoY) · T3 kỷ lục 93,55 tỷ" },
     fdi_giai_ngan:{ value: "5,41 ty USD Q1 (+9,1% YoY) · 4T: tong FDI vao 18,24 ty (+32%) · Singapore→Han→TQ→Nhat · Canh bao: My-Trung hoa giai co the giam FDI dich chuyen vao VN", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "FDI thực hiện Q1/2026: 5,41 tỷ USD (+9,1% YoY) · Cao nhất Q1 trong 5 năm" },
     fdi_dang_ky:  { value: "15,2 ty USD Q1 (+42,9% · Luat Dau tu 2025) · 4T: 18,24 ty (+32%) · Khach QT 4T: 8,79 trieu (ky luc) · Rui ro dai han: My-Trung giai chien tranh thuong mai → FDI vao VN cham lai", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "FDI đăng ký Q1/2026: 15,20 tỷ USD (+42,9% YoY)" },
@@ -337,7 +337,7 @@ const D = {
     yoy_2025:  { value: "M2 T3/2026: +1,04% YTD (den 24/3) · Tin dung: +3,18% YTD → mat can doi M2/TD · TT08/2026 (15/5): Big4 room mo → M2 se tang nhanh hon trong T5-T6 · DTC giai ngan la key catalyst", updated: "17/05/2026", source: "NHNN/GSO", note: "M2 YoY 2025: +13,5% · 2026 target: ~14-15% · Q1 tín dụng +2,65%" },
     abs_2025:  { value: "~14 trieu ty (tong du no toan he thong uoc 2026) · Big4 chiem ~50% · LDR trung vi 108.9% (truoc TT08/2026) · Du bao: LDR giam ve 106-107% sau TT08", updated: "17/05/2026", source: "NHNN ước tính", note: "M2 cuối 2025: ~20.000 nghìn tỷ · Q1/2026 tín dụng 19,08 triệu tỷ" },
     multiplier:{ value: "~5,5-6,0x (so nhan tien M2/M0) · Thap vi LDR cao · TT08/2026 + DTC giai ngan se nang so nhan nay len Q3 · NHNN bom rong 89,632 ty = tin hieu tich cuc", updated: "17/05/2026", source: "NHNN tính toán", note: "Money multiplier: ~4,3 · LDR 100% = multiplier cao" },
-    tin_dung:  { value: "Tin dung +3,18% YTD Q1 · HĐ chi +0,44% (24/3) · LDR trung vi 108,9% (truoc TT08) · Sau TT08: Big4 room mo them 130-150k ty · DTC giai ngan T5-T8 se bom M2 truc tiep", updated: "17/05/2026", source: "VCBS/Thanhnien", note: "Tín dụng Q1/2026: +2,65% = 19,08 triệu tỷ · Target 15% cả năm" },
+    tin_dung:  { value: "TD T1/2026: +3,18% YTD Q1 · HĐ +0,44% YTD · M2 +1,04% YTD · Mismatch: TD >> HĐ >> M2 → LDR 114%", updated: "12/06/2026", source: "VCBS/Thanhnien", note: "Tốc độ tín dụng: T1 +3.18% là cao nhất đầu năm so với nhiều năm · Nguy cơ LDR tiếp tục tăng H2" },
     co_che:    { value: "NHNN hút ròng M0 → M2 kiểm soát · tín dụng +2,65% YTD T3. M2 Q1/2026 CHƯA CÓ chính thức (công bố theo quý, có cuối T4)", updated: "10/04/2026", source: "MV=PQ", note: "" },
     irp_link:  { value: "M2 tăng ~12–14% YoY vs GDP ~8–10% → áp lực VND dài hạn", updated: "10/04/2026", source: "PPP/IRP proxy", note: "" },
     data_limit:{ value: "⚠️ NHNN chỉ công bố M2 theo QUÝ — không có số tháng. Q1/2026 sẽ có cuối T4", updated: "10/04/2026", source: "Phân tích cấu trúc", note: "" },
@@ -382,7 +382,7 @@ const D = {
   ],
 
   confluence: {
-    score_total:    { value: 8.5, updated: "21/04/2026", source: "Tổng hợp 21/4", note: "Confluence score 14/4: 9,0/10 · Hormuz ĐANG PHONG TỎA thực tế · Ngừng bắn tạm thời (đến ~26/4) giảm bớt rủi ro tức thời · Iran chủ động liên hệ → tín hiệu đàm phán · EMP tăng lên 549đ · Brent 99–103 USD · Cẩn trọng cao" },
+    score_total:    { value: "8.5/10", updated: "12/06/2026", source: "Tổng hợp 21/4", note: "Deal finalize · Brent $92-95 · EMP -50đ · LDR 114% · CPI 5.6% > 4.5% · FOMC 16-17/6 · US CPI 4.2%" },
     chain_a_m2:     { value: "Brent giảm → CPI hạ → NHNN room bơm → M2 tăng → tín dụng phục hồi Q2", updated: "17/05/2026", source: "Chain A hạ nhiệt", note: "" },
     chain_b_tax:    { value: "Kỳ thuế T6 (30/6) = điểm theo dõi tiếp theo → spike TT2 khoảng tháng 6", updated: "17/05/2026", source: "Chain B", note: "" },
     chain_c_freight:{ value: "Brent $95 + Hormuz mở → Cước giảm → CPI T5-T6 hạ → NHNN có room hỗ trợ", updated: "17/05/2026", source: "Chain C hạ nhiệt", note: "" },
