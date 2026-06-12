@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.60 | 12/06/2026</title>
+<title>VN Macro Dashboard v3.61 | 12/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.60",
+    version: "3.61",
     date: "12/06/2026",
     note: "12/6 v3.58: DXY crossed 100 (NFP 172k × 2 vs forecast) · Gold $4.210 (−$240/oz trong 1 tuần) · SJC 136/141M (−18.7M vs tuần trước) · US CPI T5: 4.2% · Kevin Warsh FOMC 16-17/6 hawkish · Brent $93-95 · EMP INVERTED −50đ · LDR 114% (10-11/6) · Brent $93-95 · EIA 7 tuần US inv giảm · EMP INVERTED -50đ (lần đầu lịch sử) · CPI VN T5: 5,6% YoY · US CPI T5: 4,2% (mạnh nhất 3 năm) · VCB 26.100/26.410 · LDR 114% · TT2 O/N 6,6% · NHNN FX Swap 1 tỷ USD · Scorecard Model v2.0: conf+cat+calibration",
   },
@@ -233,10 +233,10 @@ const D = {
     brent_baseline: { value: "$107-108 (close 15/5) · Weekly +8% · IEA: undersupply den thang 10 du deal thang 6 · 30 tau qua Hormuz 13/5 (tau TQ + trung lap) · Rezaei doi boi thuong · Deal 14-point chua ky", updated: "17/05/2026", source: "axios/pbs/npr", note: "Baseline pre-war (Feb 2026): $73/thùng · War premium hiện tại: $20–22" },
     eia_q3_base:    { value: "IEA T5/2026: Undersupply nghiem trong ca thi truong dau lan LNG den T10 du deal T6 · EIA: US production ky luc nhung khong bu duoc Hormuz · Goldman: Brent avg $90 Q4", updated: "17/05/2026", source: "EIA STEO April", note: "EIA STEO 7/4: Brent >$95 còn 2T → <$80 Q3 → ~$70 cuối năm" },
     goldman_q2:     { value: "Goldman Q4/2026: Brent $90 WTI $83 (TANG tu $80 ngay 26/4 · cited 14.5M bbl/day ME losses) · Risk: $115 neu Hormuz dong them 1 thang · EIA Q4: $89 · Goldman avg 2026: $85 · 2027: $64 mid", updated: "12/06/2026", source: "Goldman/EIA/Capital.com 26/4", note: "Goldman nang Q4 tu $80 len $90 (26/4) · ING Q4: $100+ neu KB-D · Citi Q4: $80 · EIA: Brent ve $79/bbl T12/2026 khi Hormuz mo · Goldman 2027: mid-$60s00 (XS 40%)" },
-    xang_ron95:     { value: "24.150d/lit (T6/2026 · giam 20% tu dinh T3 · Thue 0% den 30/6/2026 · Brent $93-95 → xang ky toi co the tang nhe)", updated: "10/06/2026", source: "PLXVN 10/4", note: "Xăng RON95 10/4: 23.543đ/lít · Kỳ điều hành 10/4 · [v3.18 FIX: 26975→23543] · Kỳ tiếp: 25/4" },
-    xang_e5ron92:   { value: 22344, updated: "17/05/2026", source: "PLXVN 10/4", note: "Xăng E5RON92 10/4: 22.344đ/lít · Chênh lệch RON95−E5: 1.199đ" },
-    ky_tiep:        { value: "Ky dieu chinh ~15/5/2026: Brent $107 → xang tang uoc 2.000-2.500d/lit · CPI T5 tang them 0.3-0.5% → ap luc len CPI ca nam · Quy ~1/6 neu Brent ve $90: xang co the giam", updated: "17/05/2026", source: "Lịch điều hành", note: "Kỳ tiếp 25/4 · Brent $95 → ước giảm 500–1.000đ" },
-    booxd_status:   { value: "Hormuz ~2–7 tàu/ngày · Đỉnh 20 tàu (18/4) rồi đóng lại · Flows ~3,8 mb/d (IEA) vs 20+ pre-war · Xăng VN 23.760đ (16/4) · Kỳ tiếp 25/4", updated: "21/04/2026", source: "BCT/Danviet", note: "BÔXD còn ~1.000 tỷ · Thủ tướng ứng NS đến 15/4 · Kỳ 10/4 không cần dùng nhiều" },
+    xang_ron95:     { value: 22060, updated: "12/06/2026", source: "BCT/PLXVN 11/6", note: "E10 RON95-III 11/6: 22.060đ (giảm 270đ vs kỳ 4/6) · Đỉnh 23/3: 30.115đ → hiện −8.055đ (−26.7%) · E10 RON95 bán đại trà từ 1/6 thay thế E5 RON95 · Thue 0% hết 30/6/2026 · Kỳ 25/6: Brent $93-95 → có thể tăng 200-500đ" },
+    xang_e5ron92:   { value: 21330, updated: "12/06/2026", source: "BCT/PLXVN 11/6", note: "E5RON92 11/6: 21.330đ (giảm 450đ vs kỳ 4/6 là 21.784đ) · Chênh E10RON95-III vs E5RON92: 730đ/lít · Dầu Diesel 11/6: 25.870đ (giảm 990đ · đỉnh 44.788đ ngày 3/4 → giảm −42%)" },
+    ky_tiep:        { value: "Kỳ 11/6 (hôm qua 15h): E10RON95-III −270đ → 22.060đ · E5RON92 −450đ → 21.330đ · Diesel −990đ → 25.870đ · Quỹ BÔXD: TRÍCH LẬP TRỞ LẠI (100đ xăng sinh học · 200đ diesel)", updated: "12/06/2026", source: "BCT 11/6/2026", note: "Kỳ tiếp ~25/6: Brent $93-95 (tái leo thang) → xăng có thể tăng nhẹ 200-500đ · Hoặc giảm nếu deal Iran · Tổng giảm từ đỉnh T3: RON95 −8.055đ (−26.7%) · Diesel −18.918đ (−42%)" },
+    booxd_status:   { value: "Kỳ 11/6: TRÍCH LẬP TRỞ LẠI (tín hiệu tích cực!) · Xăng SH: +100đ/lít · Diesel+Mazut: +200đ/lít · Trước đó liên tục CHI từ T3-T5 để ghìm giá · Brent $93-95 (tái leo thang) → theo dõi kỳ 25/6", updated: "12/06/2026", source: "BCT 11/6/2026", note: "BÔXD trích lập lại = giá xăng giảm đủ rồi · Kỳ 25/6: nếu Brent on dinh $90-95 → tiếp tục trích lập · Nếu Brent >$100 → có thể phải chi lại · T3-T5 chi mạnh để ghìm giá: đỉnh RON95 30.115đ vs thực tế ~26.000-27.000đ" },
   },
 
   ppp_war: {
@@ -885,7 +885,7 @@ document.getElementById('panel-cpi-trans').innerHTML=`
 
 document.getElementById('panel-xang').innerHTML=`
   <div class="g4" style="gap:8px">
-    ${mbox('RON95 ('+u(D.oil.xang_ron95)+')',fmt(v(D.oil.xang_ron95))+'đ/lít',n(D.oil.xang_ron95),'y')}
+    ${mbox('E10 RON95 ('+u(D.oil.xang_ron95)+')',fmt(v(D.oil.xang_ron95))+'đ/lít',n(D.oil.xang_ron95),'y')}
     ${mbox('E5 RON92 ('+u(D.oil.xang_e5ron92)+')',fmt(v(D.oil.xang_e5ron92))+'đ/lít','','y')}
     ${mbox('Kỳ điều hành tiếp',v(D.oil.ky_tiep),n(D.oil.ky_tiep),'r')}
     ${mbox('Quỹ BÔXD',v(D.oil.booxd_status),n(D.oil.booxd_status),'r')}
