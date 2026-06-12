@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.64 | 12/06/2026</title>
+<title>VN Macro Dashboard v3.65 | 12/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.64",
+    version: "3.65",
     date: "12/06/2026",
     note: "12/6 v3.58: DXY crossed 100 (NFP 172k × 2 vs forecast) · Gold $4.210 (−$240/oz trong 1 tuần) · SJC 136/141M (−18.7M vs tuần trước) · US CPI T5: 4.2% · Kevin Warsh FOMC 16-17/6 hawkish · Brent $93-95 · EMP INVERTED −50đ · LDR 114% (10-11/6) · Brent $93-95 · EIA 7 tuần US inv giảm · EMP INVERTED -50đ (lần đầu lịch sử) · CPI VN T5: 5,6% YoY · US CPI T5: 4,2% (mạnh nhất 3 năm) · VCB 26.100/26.410 · LDR 114% · TT2 O/N 6,6% · NHNN FX Swap 1 tỷ USD · Scorecard Model v2.0: conf+cat+calibration",
   },
@@ -282,9 +282,9 @@ const D = {
 
   omo: {
     luu_hanh_moi:   { value: "OMO luu hanh ~325-327k ty · NHNN FX Swap 1 ty USD (1/6) bom 23.932 ty VND · TT2 O/N spike 11% (2/6) → 6,6% (48h can thiep) · LDR he thong 114% (cao nhat 2026)", updated: "10/06/2026", source: "vietstock.vn", note: "OMO lưu hành: ước ~80.000–120.000 tỷ · Giảm từ đỉnh 245.000 tỷ" },
-    luu_hanh_truoc: { value: "~182.703 ty (cuoi tuan 13-20/4) · Sau bom rong 89.632T (20-27/4): ~272.000T · TT08/2026 (15/5): them 130-150k ty room Big4 · He thong thanh khoan cai thien ro ret", updated: "17/05/2026", source: "cafef.vn", note: "OMO trước: ~150.000–200.000 tỷ · Trend giảm dần sau kỳ thuế T3 và ceasefire" },
-    trang_thai:     { value: "21/5 STATUS: 3/5 tin hieu TT1 peak XANH/VANG · #1 NHNN bom rong (XANH) · #2 TT08/2026 co hieu luc (VANG) · #4 DTC giai ngan can tang toc (CHO) · #3 M2>TD (DO) · #5 Brent<$85+CPI<4.5% (DO nhung SAP CHUYEN neu deal) · KEY: deal Iran → Brent $80 → CPI ha → tin hieu #5 XANH → NHNN co room cat LS", updated: "21/05/2026", source: "cafef/vietnambiz", note: "NHNN chuyển sang bơm linh hoạt · TT2 O/N về 4–4,5%" },
-    ls_omo:         { value: 4.5, updated: "17/05/2026", source: "NHNN", note: "LS OMO: 4,0%/năm · Giữ nguyên · [v3.18 FIX: 4.5→4.0] · NHNN chỉ đạo NH giảm thương mại" },
+    luu_hanh_truoc: { value: "OMO đỉnh T5: ~272.000 tỷ (sau bơm ròng 89.632T tuần 20-27/4) · TT08/2026 (15/5): thêm 130-150k tỷ room Big4 · T6: OMO ~325-327k tỷ · Spike TT2 11% (2/6) → NHNN FX Swap 1 tỷ USD (1/6) bơm thêm 23.932 tỷ", updated: "12/06/2026", source: "cafef/vietstock 12/6", note: "OMO T6: ~325-327k tỷ lưu hành · NHNN duy trì bơm để giữ TT2 6.6-7% · FX Swap 1 tỷ USD = outside money thực sự" },
+    trang_thai:     { value: "12/6 STATUS: 2.5/5 tín hiệu · #1 BƠM ròng ✓ NHƯNG O/N 6.6-7% (CHƯA <3%) → ⚠️ · #2 TT08 có HLực (15/5) NHƯNG LDR 114% vẫn TĂNG → ⚠️ · #3 M2/TD=0.33 (ĐỎ) · #4 ĐTC 17%/5T (CHẬM · cần T7-T8) → ⏳ · #5 Brent $93-95 (GẦN $85) + CPI 5.6% → ⚠️ gần đạt · KEY CATALYST: Deal MOU + FOMC Warsh 16-17/6 + CPI T6 + Xăng 25/6", updated: "12/06/2026", source: "12/6 tổng hợp", note: "TT2 O/N: 6.6-7% (spike 11% ngày 2/6 → NHNN can thiệp) · OMO 325-327k tỷ · LDR 114% · Re-escalation Iran 10-11/6 tạo áp lực mới" },
+    ls_omo:         { value: 4.5, updated: "12/06/2026", source: "NHNN 12/6", note: "LS OMO: 4,5%/năm · NHNN giữ nguyên · CPI 5,6% + LDR 114% = không thể hạ · Khi KB-B deal + CPI <4,5%: có thể hạ 25-50bps T8 FIX: 4.5→4.0] · NHNN chỉ đạo NH giảm thương mại" },
     co_che:         { value: "LDR→CDR THAY THẾ (Dự thảo TT mới vs TT22): (1) CDR loại KBNN không kỳ hạn (0%) và chỉ tính 80% KBNN kỳ hạn → D NHỎ HƠN → CDR CAO HƠN LDR → NH bị THẮT hơn không phải nới. (2) C (tử số) thêm trái phiếu DN → CDR tăng thêm. (3) C được trừ vốn CSH → giảm CDR một phần. (4) TẠM THỜI: TT22 vẫn hiệu lực đến khi TT mới ban hành. Tác động ròng: CDR > LDR hiện tại → TT1 KHÔNG hạ nhiệt từ quy định này", updated: "28/04/2026", source: "danviet/giadinh", note: "" },
     rang_buoc_cau_truc: { value: "CDR vs LDR: Dự thảo TT mới thay LDR bằng CDR. KBNN kỳ hạn: 80% vào D (vs 100% theo TT22 từ 2026) → D giảm → CDR tăng. KBNN không kỳ hạn: 0% (bị loại hoàn toàn). Vốn CSH trừ khỏi C → bù một phần. Tác động ròng: NH bị THẮT hơn TT22. LCR/NSFR (Basel III) thay tỷ lệ chi trả từ 1/1/2028. LDR vẫn 85% max nhưng cách tính khác.", updated: "17/05/2026", source: "Phân tích", note: "🔴 3 ràng buộc: (1) Ổn định tỷ giá (2) LDR ~100% (3) Forward USD. Khi 3 ràng buộc chưa tháo → LS là trạng thái cân bằng mới đến ít nhất Q3/2026" },
     alert:          { value: "⚠️ Kỳ thuế T6 (30/6) → spike LS O/N tiếp theo · LNH O/N 3,88% hạ nhiệt (21/4)", updated: "17/05/2026", source: "Lịch thuế", note: "" },
@@ -928,6 +928,52 @@ document.getElementById('panel-omo').innerHTML=`
   ${drow('Trạng thái',v(D.omo.trang_thai),'g',u(D.omo.trang_thai))}
   ${drow('LS OMO',v(D.omo.ls_omo)+'%/năm','b',n(D.omo.ls_omo))}
   <div class="co co-y" style="margin-top:8px"><strong>Cơ chế MV=PQ:</strong> ${v(D.omo.co_che)}</div>
+  <div style="margin-top:10px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.25);border-left:3px solid var(--blue);border-radius:3px;padding:10px 12px;font-size:12px">
+    <strong style="color:var(--blue)">🔗 CƠ CHẾ TRUYỀN DẪN Q3/Q4 — Hai kịch bản</strong>
+    <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div style="background:rgba(15,110,86,.08);border-radius:3px;padding:8px">
+        <div style="color:var(--ok);font-weight:600;margin-bottom:4px">✅ KB-B: Deal MOU (xác suất 42%)</div>
+        <div style="color:var(--dim2);line-height:1.8">
+          T7/2026: Iran MOU ký<br>
+          → Brent $80-88 (-$5-15/thùng)<br>
+          → Xăng 10/7: giảm 2.000-3.000đ/lít<br>
+          → CPI T6: 4,5-5,0% | CPI T7: 4,0-4,5%<br>
+          → <strong style="color:var(--ok)">Tín hiệu #5 XANH</strong><br>
+          → NHNN hạ LS OMO 25-50bps (T8/2026)<br>
+          → TT2 giảm 1-1,5% (T8-T9)<br>
+          → TT1 Big4 giảm 0,3-0,5% (lag 4-8T)<br>
+          → <strong style="color:var(--ok)">TT1 Q4: 7,0-7,5%</strong>
+        </div>
+      </div>
+      <div style="background:rgba(239,68,68,.06);border-radius:3px;padding:8px">
+        <div style="color:var(--red);font-weight:600;margin-bottom:4px">❌ KB-D: Escalation (22%)</div>
+        <div style="color:var(--dim2);line-height:1.8">
+          T6-T7: US tiếp tục không kích<br>
+          → Brent &gt;$100 (war premium tăng)<br>
+          → Xăng 25/6-10/7: tăng 1-2k đ/lít<br>
+          → CPI T6: 5,5-6,0%<br>
+          → <strong style="color:var(--red)">Tín hiệu #5 ĐỎ</strong><br>
+          → NHNN giữ LS cao (không thể hạ)<br>
+          → TT1 duy trì 8-9%<br>
+          → LDR tiếp tục tăng (&gt;115%)<br>
+          → <strong style="color:var(--red)">Rủi ro hệ thống Q4</strong>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:8px;border-top:1px solid rgba(255,255,255,.07);padding-top:6px">
+      <div style="color:var(--amber);font-weight:600;margin-bottom:4px">🗓 Key Catalyst Dates Q3/2026</div>
+      <div style="color:var(--dim2);line-height:2;display:grid;grid-template-columns:1fr 1fr">
+        <span>15/6: NHNN USD Swap đáo hạn ($1tỷ)</span>
+        <span>16-17/6: Fed FOMC Warsh (dot plot mới)</span>
+        <span>~25/6: Xăng kỳ tiếp (Brent $93-95 → +/-?)</span>
+        <span>30/6: Hết thuế 0% xăng dầu</span>
+        <span>~25/6: CPI T6 release</span>
+        <span>T7-T8: ĐTC mùa cao điểm</span>
+        <span>T8/2026: NHNN họp LS (KB-B)</span>
+        <span>21/9: FTSE VN upgrade evaluation</span>
+      </div>
+    </div>
+  </div>
   <div style="margin-top:8px;padding:10px 12px;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.25);border-left:3px solid var(--blue);border-radius:3px;font-size:13px;line-height:1.9">
     <strong style="color:var(--blue)">📌 Tại sao TT2 hạ mà LS ngân hàng (TT1) vẫn cao?</strong><br>
     <span style="color:var(--dim2)">
@@ -961,14 +1007,14 @@ document.getElementById('panel-omo').innerHTML=`
     <table class="tbl" style="font-size:11px">
       <thead><tr><th>#</th><th>Tín hiệu</th><th>Trạng thái</th></tr></thead>
       <tbody>
-        <tr><td>①</td><td>NHNN bơm ròng ≥3 tuần liên · TT2 O/N &lt;3% bền vững</td><td class="r">❌ Hiện HÚT ròng · O/N 3,5-3,9%</td></tr>
-        <tr><td>②</td><td>TT26 chính thức nới: cho 20% KBNN vào LDR → giảm LDR cấu trúc</td><td class="r">⏳ Đã đề xuất, CHƯA ban hành</td></tr>
-        <tr><td>③</td><td>M2 tăng nhanh hơn tín dụng (M2/TD &gt;1,05) → dư thanh khoản</td><td class="r">❌ Tín dụng Q1 +3,18% &gt; M2 (thiếu số)</td></tr>
-        <tr><td>④</td><td>ĐTC giải ngân lớn T5-T8 → VND tuần hoàn vào NH (mùa vụ)</td><td class="y">⏳ T5/2026 — CHỜ xem tốc độ</td></tr>
-        <tr><td>⑤</td><td>Brent &lt;$85 + CPI &lt;4% → SBV cắt OMO rate → TT2 giảm → TT1 lag 4-8T</td><td class="r">❌ Brent $108 · CPI dự kiến 5-6% T5-T6</td></tr>
+        <tr><td>①</td><td>NHNN bơm ròng ≥3 tuần · TT2 O/N &lt;3% bền vững</td><td class="y">⚠️ BƠM ròng ✓ (OMO 325k tỷ + FX Swap) · O/N 6,6-7% (chưa &lt;3%) · Spike 11% (2/6) → 6,6%</td></tr>
+        <tr><td>②</td><td>TT08 nới 20% KBNN vào mẫu số D → giảm LDR cấu trúc</td><td class="y">⚠️ TT08 ĐÃ HLực (15/5) · Big4 LDR -1,1-1,5% · NHƯNG LDR hệ thống 114% (TĂNG từ 108,9%) — TD &gt;&gt; HĐ</td></tr>
+        <tr><td>③</td><td>M2 tăng nhanh hơn tín dụng (M2/TD &gt;1,05) → dư thanh khoản</td><td class="r">❌ M2 +1,04% YTD &lt;&lt; TD +3,18% YTD · M2/TD = 0,33 · Cần outside money (ĐTC + NHNN mua USD)</td></tr>
+        <tr><td>④</td><td>ĐTC giải ngân lớn T6-T8 → outside money → D↑ → LDR↓</td><td class="y">⏳ ĐTC 5T: ~17%/kế hoạch · Cần tăng tốc T7-T8 (mùa cao điểm) · Mỗi 100k tỷ ≈ LDR -2,5%</td></tr>
+        <tr><td>⑤</td><td>Brent &lt;$90 + CPI &lt;4,5% → NHNN room hạ LS OMO → TT2↓ → TT1 lag 4-8T</td><td class="y">⚠️ Brent $93-95 (GẦN $90) · CPI T5: 5,6% (chưa &lt;4,5%) · KB-B deal T7: CPI T6-T7 có thể &lt;4,5%</td></tr>
       </tbody>
     </table>
-    <div style="margin-top:6px;font-size:11px;color:var(--dim2)">📌 Kết luận: TT1 vẫn cao ít nhất Q2/2026. Tín hiệu giảm sớm nhất: TT26 nới + ĐTC mạnh T5-T6 → TT1 có thể đỉnh trong T5/2026 và giảm dần T6-T7.</div>
+    <div style="margin-top:6px;font-size:11px;color:var(--ok)">📌 12/6 Kết luận: 2,5/5 tín hiệu ⚠️PARTIAL · TT1 đỉnh T6/2026 · Giảm: KB-B deal T7 → NHNN hạ LS T8 → TT1 giảm T9-T10 · KB-D escalation: TT1 &gt;8% kéo dài T4/2026</div>
   </div>
 `;
 
