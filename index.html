@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.61 | 12/06/2026</title>
+<title>VN Macro Dashboard v3.62 | 12/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.61",
+    version: "3.62",
     date: "12/06/2026",
     note: "12/6 v3.58: DXY crossed 100 (NFP 172k × 2 vs forecast) · Gold $4.210 (−$240/oz trong 1 tuần) · SJC 136/141M (−18.7M vs tuần trước) · US CPI T5: 4.2% · Kevin Warsh FOMC 16-17/6 hawkish · Brent $93-95 · EMP INVERTED −50đ · LDR 114% (10-11/6) · Brent $93-95 · EIA 7 tuần US inv giảm · EMP INVERTED -50đ (lần đầu lịch sử) · CPI VN T5: 5,6% YoY · US CPI T5: 4,2% (mạnh nhất 3 năm) · VCB 26.100/26.410 · LDR 114% · TT2 O/N 6,6% · NHNN FX Swap 1 tỷ USD · Scorecard Model v2.0: conf+cat+calibration",
   },
@@ -261,21 +261,21 @@ const D = {
   },
 
   yield_curve: {
-    on:      { value: "3,5–3,9%", updated: "21/04/2026", source: "vietnambiz.vn", note: "O/N TT2 10/4: ~4,0–4,5% · Giảm từ đỉnh 8,8% · NHNN bơm ròng · Kỳ thuế T3 đã qua" },
-    w1:      { value: "4,5-4,9%/nam (on dinh · NHNN bom rong)", updated: "17/05/2026", source: "TT2 ước tính", note: "1W TT2: ~4,5–5,0% · Xu hướng giảm sau kỳ thuế" },
-    w2:      { value: "~6,0-6,5%/nam", updated: "17/05/2026", source: "TT2 quan sát", note: "2W TT2: ~5,0–5,5%" },
-    m1:      { value: "~7,0-7,3%/nam", updated: "17/05/2026", source: "tapchikinhtetaichinh", note: "1M TT2: ~6,0–6,5% · Cam kết 46 NH → kỳ vọng TT2 về 5,5–6,0% trong T5" },
-    m3:      { value: "~7,3-7,6%/nam", updated: "17/05/2026", source: "vietstock", note: "3M TT2: ~7,0–7,5% · ABBank −0,5% → áp lực lên TT2 kỳ dài" },
-    m6:      { value: "~7,8-8,0%/nam (uoc)", updated: "17/05/2026", source: "TT2 ước tính", note: "6M TT2: ~7,0–7,5% · Xu hướng phẳng dần" },
-    shape:   { value: "Hump-shaped · O/N ha nhiet sau TT08/2026 va NHNN bom rong · M3+ cao do CPI VN 5.46% · Ky vong: yield curve phang dan khi Brent ve duoi $100", updated: "17/05/2026", source: "Quan sát", note: "Yield curve: dốc từ O/N (4%) lên 6M (7%) · Không còn đảo chiều ngắn" },
-    tpcp_10y:{ value: "~5,8-6,2% (uoc · TPCP 10Y · thap hon TT1 → nghich ly thanh khoan)", updated: "17/05/2026", source: "HNX", note: "TPCP 10 năm: ~4,05%/năm · Ổn định" },
+    on:      { value: "6,6–7,0%", updated: "12/06/2026", source: "vietnambiz.vn", note: "TT2 O/N spike 11% ngày 2/6 (LDR 114%+kỳ thuế+re-escalation) → NHNN bơm OMO+USD Swap 1 tỷ → settled 6.6-7.0% (12/6) · Vẫn cao vs pre-war <4%" },
+    w1:      { value: "6,5–7,0%", updated: "12/06/2026", source: "TT2 ước tính", note: "1W TT2 12/6: ~6.5-7.0% · Tăng theo O/N spike · NHNN quản lý qua OMO ~325-327k tỷ lưu hành" },
+    w2:      { value: "6,8–7,2%", updated: "12/06/2026", source: "TT2 quan sát", note: "2W TT2 12/6: ~6.8-7.2% · Hump-shaped curve · LDR 114% duy trì áp lực" },
+    m1:      { value: "7,0–7,3%", updated: "12/06/2026", source: "tapchikinhtetaichinh", note: "1M TT2 12/6: ~7.0-7.3% · Ổn định · TT1 Big4: 7.0-7.5% · TT1 tư nhân: 8.0-8.5%" },
+    m3:      { value: "7,2–7,5%", updated: "12/06/2026", source: "vietstock", note: "3M TT2 12/6: ~7.2-7.5% · Gần flat với 1M · US CPI 4.2% → Fed HOLD → gap IRP duy trì" },
+    m6:      { value: "7,5–7,8%", updated: "12/06/2026", source: "TT2 ước tính", note: "6M TT2 12/6: ~7.5-7.8% · Yield curve hump-shaped: O/N cao > long end" },
+    shape:   { value: "Hump-shaped (12/6): O/N elevated 6.6-7% (spike 11% ngày 2/6 → settled) · 1M-3M: 7.0-7.5% flat · 6M: 7.5-7.8% · Nguyên nhân: LDR 114% + re-escalation Iran + CPI 5.6% T5 · NHNN can thiệp: OMO ~325k tỷ + USD Swap 1 tỷ · Kỳ vọng: FOMC 16-17/6 Warsh hawkish → gap IRP VN-US duy trì ~3.75-4.25%", updated: "17/05/2026", source: "Quan sát", note: "Yield curve: dốc từ O/N (4%) lên 6M (7%) · Không còn đảo chiều ngắn" },
+    tpcp_10y:{ value: "~5,8-6,2% (ổn định · Hormuz + US CPI 4.2% → TPCP ít biến động · Thấp hơn TT1 = nghịch lý thanh khoản còn)", updated: "17/05/2026", source: "HNX", note: "TPCP 10 năm: ~4,05%/năm · Ổn định" },
   },
 
   irp: {
-    ls_vnd_tt2:  { value: "IRP = LS VND - LS USD: ~4.0-4.5% (TT1 Big4 7.5-8% vs Fed 3.5-3.75%) · Gap nay ho tro VND · EMP 3d phan anh thi truong tin deal se xay ra · Neu Fed cat giam: IRP thu hep → ap luc VND", updated: "17/05/2026", source: "NHNN/TT2", note: "LS TT2 O/N VND: ~4,0–4,5% · 46 NH cam kết giảm → TT2 về 3,5–4%" },
-    ls_usd_fed:  { value: "Fed HOLD 3,50-3,75% · CPI My T4: +0.6% MoM (nong, day lui pivot) · NFP T4: +115k, that nghiep 4.3% · CME: 0% cat T6 · Pivot: T10/2026 som nhat · FOMC tiep theo: 17-18/6/2026", updated: "17/05/2026", source: "Fed", note: "Fed funds: 3,5–3,75% · CME 10/4: 77,5% giữ cả năm" },
-    gap_vnd_usd: { value: "~4.0-4.5% (TT1 VND 7.5-8% vs Fed 3.5-3.75%) · CPI My cao → Fed khong cut → gap giu vung → ho tro VND", updated: "17/05/2026", source: "Tính toán", note: "GAP VND-USD: +0,5–1,0% · Giảm từ +1,9–2,9% · Nghịch lý IRP giảm bớt" },
-    thuc_te:     { value: "VND ổn định · EMP hạ 298đ · TT2 O/N 3,88% ↓ từ >6% đầu T4 · TT1 vẫn căng do TT26/LDR", updated: "17/05/2026", source: "Quan sát 21/4", note: "VND tăng giá (DXY 98,44 khép tuần) · Chợ đen 26.788 từ đỉnh 28.150 · EMP 428đ từ 1.795đ · Xu hướng: tiếp tục hạ nhiệt" },
+    ls_vnd_tt2:  { value: "6,6–7,0", updated: "12/06/2026", source: "TT2/NHNN 12/6", note: "TT2 O/N VND 12/6: 6.6-7.0% (spike 11% ngày 2/6 → settled) · TT1 Big4: 7.0-7.5% · TT1 tư nhân: 8.0-8.5% · LDR 114% duy trì áp lực · IRP gap = TT2 O/N - Fed: ~3.1-3.5%; TT1-Fed: ~3.75-4.25%" },
+    ls_usd_fed:  { value: "3,50–3,75", updated: "12/06/2026", source: "Fed/CME 12/6", note: "Kevin Warsh FOMC 16-17/6 (debut) · US CPI T5: 4.2% (mạnh nhất từ 4/2023 · cô bố 10/6) · NFP T5: 172k (double forecast 85k · 5/6) · CME: 0% cut T6 · Fed HOLD đến 2027 · DXY ~100" },
+    gap_vnd_usd: { value: "~3,75–4,25", updated: "12/06/2026", source: "Tính toán 12/6", note: "GAP = TT1 VND (7.5-8%) - Fed (3.5-3.75%) = 3.75-4.25% · NFP 172k + US CPI 4.2% → Fed hawkish → gap duy trì · DXY ~100 phản ánh Fed HOLD" },
+    thuc_te:     { value: "EMP INVERTED −50đ · TT2 O/N 6,6-7% · DXY ~100 · VND ổn định dù tái leo thang Iran", updated: "12/06/2026", source: "12/6 quan sát", note: "EMP INVERTED: chợ đen bán (26.360) < VCB bán (26.410) = −50đ (lần đầu lịch sử) · DXY ~100 (NFP 172k + US CPI 4.2%) · US tái không kích Iran 10-11/6 → Brent $93-95 · KB-B 42% KB-D 22%" },
     du_bao_irp:  { value: "Q2 (hien tai): TT1 bat dau ha nhiet · TT08/2026 giam LDR Big4 1,1-1,5% → room tin dung mo · Q3: giam 30-50bps neu Brent < 100 + CPI ha + DTC giai ngan · Q4: ve 7% Big4 neu FTSE inflow + Fed cut + Brent < 90", updated: "15/05/2026", source: "IRP model", note: "Dự báo IRP Q2: 26.100–26.400 · UOB: 26.100" },
     note:        { value: "~98,35 · DXY yếu · USD mất safe-haven khi Iran leo thang", updated: "21/04/2026", source: "investing.com", note: "" },
   },
