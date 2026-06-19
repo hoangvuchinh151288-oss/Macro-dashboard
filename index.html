@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.73 | 19/06/2026</title>
+<title>VN Macro Dashboard v3.74 | 19/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.73",
+    version: "3.74",
     date: "19/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -1181,10 +1181,10 @@ document.getElementById('panel-fed').innerHTML=`
 
 (function(){
   const kbData=[
-    {lbl:'KB-A',oil:'$60–75',tau:'>20/ngày',xs:'25%',vni:'2.050–2.200',cls:'g',desc:'Islamabad deal + Hormuz mở T4'},
-    {lbl:'KB-B',oil:'$80–95',tau:'12–20/ngày',xs:'50%',vni:'1.900–2.000',cls:'y',desc:'Ceasefire giữ + đàm phán kéo dài',isNow:true},
-    {lbl:'KB-C',oil:'$95–110',tau:'4–12/ngày',xs:'20%',vni:'1.750–1.900',cls:'r',desc:'Ceasefire vỡ → leo thang nhẹ'},
-    {lbl:'KB-D',oil:'>$110',tau:'0–4/ngày',xs:'5%',vni:'1.500–1.700',cls:'r',desc:'Leo thang mới · Macquarie $200'},
+    {lbl:'KB-A',oil:'<$80',tau:'>30/ngày',xs:'45%',vni:'2.150–2.300',cls:'g',desc:'Deal hoàn tất, ký 19/6 Bürgenstock · Hormuz reopening',isNow:true},
+    {lbl:'KB-B',oil:'$78–85',tau:'15–30/ngày',xs:'45%',vni:'2.050–2.150',cls:'y',desc:'Hormuz mở dần (mines+infrastructure 4-8 tuần)'},
+    {lbl:'KB-C',oil:'$85–95',tau:'5–15/ngày',xs:'7%',vni:'1.900–2.000',cls:'r',desc:'Trở ngại trong 60 ngày đàm phán chi tiết'},
+    {lbl:'KB-D',oil:'>$100',tau:'0–5/ngày',xs:'3%',vni:'1.700–1.850',cls:'r',desc:'Deal đổ vỡ (rủi ro thấp, gần zero)'},
   ];
   const hdr=`<div style="display:grid;grid-template-columns:80px 1fr 90px 80px 60px;gap:8px;padding:5px 10px 8px;border-bottom:1px solid var(--border);font-family:\'IBM Plex Mono\',monospace;font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase"><div>Kịch bản</div><div>Mô tả</div><div>Dầu / Tàu</div><div>VN-Index</div><div style="text-align:right">XS</div></div>`;
   const rows=kbData.map(k=>`
