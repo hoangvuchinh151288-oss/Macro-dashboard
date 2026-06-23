@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.76 | 23/06/2026</title>
+<title>VN Macro Dashboard v3.77 | 23/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.76",
+    version: "3.77",
     date: "23/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -225,14 +225,14 @@ const D = {
     spread_futures: { value: "Backwardation: spot $107 > futures $102-104 (market: shortage hien tai > tuong lai) · IEA: den T10 moi binh thuong du deal T6 · Contango khi deal xay ra", updated: "17/05/2026", source: "Ước tính", note: "Backwardation 10/4: ~$10–15 · Jun WTI ~$82–85 vs May ~$94–96" },
     iea_release:    { value: "IEA T5/2026: undersupply nghiem trong den T10 du xung dot ket thuc T6 · Cruise flow giam 4M bbl/ngay T3-T4 · Khuyen nghi IEA Emergency Release: chua duoc kich hoat", updated: "17/05/2026", source: "Reuters/IEA", note: "Còn ~250M thùng dự trữ để dùng · Đủ 3–4 tuần thêm" },
     hormuz_tau:     { value: "30 tau qua tu 13/5 (tau TQ + trung lap, khong phai tau My) · Deal 14-point chua ky · Rezaei doi boi thuong + khong pha hat nhan · IEA: undersupply den T10 du deal T6 · Normalization: mat nhieu thang", updated: "17/05/2026", source: "Reuters/VOV 21/4", note: "Timeline: 28/2 dong → 7-8/4 ceasefire → 13/4 Blockade Mỹ → 17/4 Iran mo trong ceasefire → 18/4 20 tau → 22/4 Trump gia han → 23/4 Iran bat MSC Francesca → 25/4 Witkoff+Kushner Pakistan · 16 tau/ngay (21/4) · IEA: largest energy threat · Goldman: 10% normal" },
-    goldman_q1:     { value: "Goldman Q3/2026: Brent $82 WTI $77 (base · giữ nguyên) · KB-D severe: $120 Q3 neu Hormuz mostly shut them 1 thang · EIA Jun-Jul: $105/bbl · Morgan Stanley Q3: $100 · Citi Q3: $95", updated: "12/06/2026", source: "Goldman/EIA STEO Jun9", note: "EIA STEO Jun9: Brent $107 avg T5 · $105 T6-T7 · Goldman Q3: $82 (base) / $120 (KB-D severe) · JPMorgan Q3: ~$96 · Consensus Q3: $90-110ancesca · Witkoff+Kushner Pakistan · Macquarie: neo T6 → $200 (XS 40%)" },
-    price_path_kba: { value: "5%", updated: "17/05/2026", source: "EIA STEO April/Goldman 14/4", note: "KB-A XS 5% (vs cũ 25%): Ngừng bắn → Hormuz mở hoàn toàn T5 · Goldman: Q2 $90→Q3 $82 · EIA Q4 baseline $88 · Xăng VN: giảm 3.000–5.000đ · IMF hạ GDP TG 3,1%" },
-    price_path_kbb: { value: "40%", updated: "17/05/2026", source: "Goldman/Morgan Stanley 14/4", note: "KB-B BASE XS 30%: Hormuz mở một phần (30-50% flow) T5-T6 → Goldman Q3 $82 (baseline) · Morgan Stanley Q2 $110→Q3 $100 · Oxford Econ Q2 $114 (50% flow by May) · Xăng VN điều chỉnh giảm từ T5" },
-    price_path_kbc: { value: "30%", updated: "17/05/2026", source: "Goldman upside/Barclays 14/4", note: "KB-C XS 45%: Hormuz tiếp tục đóng qua T5 (hiện tại đang xảy ra!) · Goldman upside: Brent Q3 $120 nếu đóng thêm 1 tháng · IEA: supply shock -10.1 mbpd tháng 3, -2.3 mb/d tháng 4 · EIA Q2 peak $115 · Barclays: test $120 nếu conflict kéo dài" },
-    price_path_kbd: { value: "25%", updated: "17/05/2026", source: "Macquarie/Eurasia Group 14/4", note: "KB-D XS 20%: Conflict kéo T6+ · Macquarie: 40% chance kéo qua T6 → $200 · Eurasia: >50% war qua T5, oil $150+ · Supply đã mất >8 mbpd (Goldman: ~8M; IEA: 10.1M; EIA: 9.1M tháng 4) · Mất 5 tháng để phục hồi công suất" },
+    goldman_q1:     { value: "Goldman Q3/2026 REVISED: $72-78 (tu $82 truoc deal · Iran supply quay lai + 80M bbl Hormuz) · EIA post-deal: $75-80 · Morgan Stanley: $70-75 · WTI Q3: $67-72 · Brent hien $76.68 = da phan anh phan lon su phuc hoi", updated: "23/06/2026", source: "Goldman/EIA STEO Jun9", note: "Goldman da revise xuong sau deal 19/6: Iran 60-day license + Kuwait+ADNOC resuming · Full Hormuz reopening = 80M bbl extra supply · EIA STEO se update trong tuan toi" },
+    price_path_kba: { value: "Q3: $65-72 · Q4: $60-68", updated: "23/06/2026", source: "EIA STEO April/Goldman 14/4", note: "KB-A (45% · Deal done 19/6): Iran supply 60-day license · 80M bbl Hormuz release · ADNOC+Kuwait resuming · Goldman revised Q3 $82→$70-75 · Brent hien $76.68 (da phan anh) · Q4: full normalization → $60-68 (WTI $55-62)" },
+    price_path_kbb: { value: "Q3: $70-78 · Q4: $63-70", updated: "23/06/2026", source: "Goldman/Morgan Stanley 14/4", note: "KB-B (45% · Hormuz mo dan 4-8 tuan): 30-50% flow tang dan → Q3 binh quan $70-78 · Q4 khi full recovery: $63-70 · Goldman post-deal estimate range · EIA STEO se update xuong · Supply lag 4-6 tuan" },
+    price_path_kbc: { value: "Q3: $78-88 · Q4: $72-80", updated: "23/06/2026", source: "Goldman upside/Barclays 14/4", note: "KB-C (7% · 60-ngay dam phan kho khan): Tro ngai trong chi tiet deal → cung hoi phuc cham hon → Q3 $78-88 · Q4 co the giam khi giai quyet duoc → $72-80" },
+    price_path_kbd: { value: "Q3: $90-105 · Q4: $80-95", updated: "23/06/2026", source: "Macquarie/Eurasia Group 14/4", note: "KB-D (3% · Deal do vo · near zero risk): Hormuz dong lai → supply shock → Q3 $90-105 · Q4 tuy theo escalation level → $80-95 · Xac suat rat thap (3%)" },
     brent_baseline: { value: "$107-108 (close 15/5) · Weekly +8% · IEA: undersupply den thang 10 du deal thang 6 · 30 tau qua Hormuz 13/5 (tau TQ + trung lap) · Rezaei doi boi thuong · Deal 14-point chua ky", updated: "17/05/2026", source: "axios/pbs/npr", note: "Baseline pre-war (Feb 2026): $73/thùng · War premium hiện tại: $20–22" },
-    eia_q3_base:    { value: "IEA T5/2026: Undersupply nghiem trong ca thi truong dau lan LNG den T10 du deal T6 · EIA: US production ky luc nhung khong bu duoc Hormuz · Goldman: Brent avg $90 Q4", updated: "17/05/2026", source: "EIA STEO April", note: "EIA STEO 7/4: Brent >$95 còn 2T → <$80 Q3 → ~$70 cuối năm" },
-    goldman_q2:     { value: "Goldman Q4/2026: Brent $90 WTI $83 (TANG tu $80 ngay 26/4 · cited 14.5M bbl/day ME losses) · Risk: $115 neu Hormuz dong them 1 thang · EIA Q4: $89 · Goldman avg 2026: $85 · 2027: $64 mid", updated: "12/06/2026", source: "Goldman/EIA/Capital.com 26/4", note: "Goldman nang Q4 tu $80 len $90 (26/4) · ING Q4: $100+ neu KB-D · Citi Q4: $80 · EIA: Brent ve $79/bbl T12/2026 khi Hormuz mo · Goldman 2027: mid-$60s00 (XS 40%)" },
+    eia_q3_base:    { value: "EIA Q3 post-deal (revised): $75-80 (tu $88 truoc deal) · Iran 30M bbl/tuan qua Hormuz hien nay · Q4: $70-75 · Supply surplus Q4: +1-2M bbl/ngay · OPEC+ response: co the cat 500k-1M bbl/ngay de giu gia", updated: "23/06/2026", source: "EIA STEO April", note: "EIA STEO se cap nhat chinh thuc sau khi Iran oil flows on dinh (2-4 tuan nua) · Current estimate: Brent trung binh Q3 $75-80, Q4 $70-75" },
+    goldman_q2:     { value: "Goldman Q4/2026 REVISED: $65-70 (tu $90 truoc deal · full normalization) · Citi: $60-65 (pessimistic) · EIA Q4: $70-75 · Goldman 2026 avg revised: $72 (tu $85) · 2027: $60-65 · Key risk: OPEC+ co the cat san xuat de giu gia", updated: "23/06/2026", source: "Goldman/EIA/Capital.com 26/4", note: "Q4: Iran + Iraq + UAE full production = supply surge · Demand: global slowdown (FOMC hawkish) + EV adoption · Net: oversupply co the xuat hien Q4 → Brent test $60-65" },
     xang_ron95:     { value: 22060, updated: "12/06/2026", source: "BCT/PLXVN 11/6", note: "E10 RON95-III 11/6: 22.060đ (giảm 270đ vs kỳ 4/6) · Đỉnh 23/3: 30.115đ → hiện −8.055đ (−26.7%) · E10 RON95 bán đại trà từ 1/6 thay thế E5 RON95 · Thue 0% hết 30/6/2026 · Kỳ 25/6: Brent $93-95 → có thể tăng 200-500đ" },
     xang_e5ron92:   { value: 21330, updated: "12/06/2026", source: "BCT/PLXVN 11/6", note: "E5RON92 11/6: 21.330đ (giảm 450đ vs kỳ 4/6 là 21.784đ) · Chênh E10RON95-III vs E5RON92: 730đ/lít · Dầu Diesel 11/6: 25.870đ (giảm 990đ · đỉnh 44.788đ ngày 3/4 → giảm −42%)" },
     ky_tiep:        { value: "Kỳ 11/6 (hôm qua 15h): E10RON95-III −270đ → 22.060đ · E5RON92 −450đ → 21.330đ · Diesel −990đ → 25.870đ · Quỹ BÔXD: TRÍCH LẬP TRỞ LẠI (100đ xăng sinh học · 200đ diesel)", updated: "12/06/2026", source: "BCT 11/6/2026", note: "Kỳ tiếp ~25/6: Brent $93-95 (tái leo thang) → xăng có thể tăng nhẹ 200-500đ · Hoặc giảm nếu deal Iran · Tổng giảm từ đỉnh T3: RON95 −8.055đ (−26.7%) · Diesel −18.918đ (−42%)" },
@@ -828,12 +828,12 @@ function renderOilPath(){
     {label:`KB-D (${v(D.hormuz.kbd)}) · Leo thang mới`,cls:'r',value:v(D.oil.price_path_kbd),note:n(D.oil.price_path_kbd)},
   ];
   const refs=[
-    {label:'Baseline pre-war (Feb 2026)',cls:'d',value:v(D.oil.brent_baseline),note:n(D.oil.brent_baseline)},
-    {label:'EIA STEO Q3 base',cls:'d',value:v(D.oil.eia_q3_base),note:n(D.oil.eia_q3_base)},
-    {label:'Goldman Q2',cls:'b',value:v(D.oil.goldman_q2),note:n(D.oil.goldman_q2)},
+    {label:'Pre-war base (Feb 2026)',cls:'d',value:v(D.oil.brent_baseline),note:n(D.oil.brent_baseline)},
+    {label:'EIA Q3-Q4 (post-deal)',cls:'d',value:v(D.oil.eia_q3_base),note:n(D.oil.eia_q3_base)},
+    {label:'Goldman Q3-Q4 (revised)',cls:'b',value:v(D.oil.goldman_q2),note:n(D.oil.goldman_q2)},
   ];
   let html=`<div style="margin-bottom:8px;font-size:11px;color:var(--dim)">Nguồn: Goldman · IEA · EIA STEO · Macquarie · ${D.meta.date}</div>`;
-  html+=`<table class="tbl" style="margin-bottom:8px"><thead><tr><th>Kịch bản</th><th>Brent Q3/2026</th></tr></thead><tbody>`;
+  html+=`<table class="tbl" style="margin-bottom:8px"><thead><tr><th>Kịch bản</th><th>Brent Q3 / Q4 2026</th></tr></thead><tbody>`;
   kbs.forEach(k=>{html+=`<tr><td class="${k.cls}" style="font-size:11px">${k.label}</td><td class="${k.cls}" style="font-weight:600">${k.value}</td></tr>`;});
   html+=`</tbody></table>`;
   kbs.forEach(k=>{html+=`<div style="margin-bottom:5px"><span class="${k.cls}" style="font-size:11px;font-weight:600">${k.label}:</span> <span style="font-size:11px;color:var(--dim2)">${k.note}</span></div>`;});
