@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.77 | 23/06/2026</title>
+<title>VN Macro Dashboard v3.78 | 23/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.77",
+    version: "3.78",
     date: "23/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -248,10 +248,10 @@ const D = {
   },
 
   cpi_trans: {
-    sensitivity:   { value: "Brent $107 → Xang tang 2.000-2.500d/lit ky 15/5 → CPI T5 +0.3-0.5% truc tiep · Vong 2: logistics, thuc pham T6-T7 · Tong: CPI T5 ≈ 5.5-6.0% · Khi deal: Brent $90 → xang giam → CPI ha 3 thang sau", updated: "17/05/2026", source: "UOB calibrated", note: "+0,3–0,4% per +$10 Brent · Ceasefire = CPI dự báo giảm ~1–1,5% so trước" },
-    brent_avg_t3:  { value: "T5/2026 avg: ~$104-108 · Goldman: avg $90 Q4/2026 · IEA: severe undersupply den T10 · Saudi Aramco: -100M bbl/tuan · Normalization 2027 neu Hormuz khong mo truoc mid-June", updated: "17/05/2026", source: "axios/pbs/npr", note: "Brent 25/4: $101-105 · Iran bat MSC Francesca · Witkoff+Kushner Pakistan · IEA: largest energy threat" },
-    cpi_impact_t5: { value: "T5/2026: +0.3-0.5% tu xang tang · +0.1-0.2% logistics · Tong CPI T5 ≈ 5.5-6.0% YoY · Vuot muc tieu ca nam 4.5% · Neu deal Iran T6: CPI co the ha ve <4.5% tu T8-T9", updated: "17/05/2026", source: "Tính toán", note: "CPI impact T5-T6: +2,5–4,5% (giảm từ +4,5–6,5%) · Brent $95 vs $115 trước" },
-    chain:         { value: "Brent $95 (giảm từ $115) → Xăng 10/4: 23.543đ → CPI T4 còn cao do lag T3 → T5-T6 giảm dần khi Hormuz mở → NHNN có room hỗ trợ Q2", updated: "10/04/2026", source: "Nội bộ", note: "" },
+    sensitivity:   { value: "Brent $76.68 → Xăng 25/6: GIAM 5.000-7.000d/lit (lon nhat tu xung dot) · CPI T6: -0.8-1.2% direct (xang chiem 3.6% gio CPI) · Vong 2: logistics + thuc pham T7-T8 -0.2-0.4% · Tong CPI T6: 4.0-4.5% (duoi MT 4.5% LAN DAU TU T3/2026!)", updated: "23/06/2026", source: "UOB calibrated", note: "+0.3-0.4% per +$10 Brent (UOB calibrated, van ap dung) · Hien tai: Brent -$30 vs T5 avg $107 → xang giam ~$30x0.4=$12 → ~3.500-6.000d/lit" },
+    brent_avg_t3:  { value: "T6/2026 avg: ~$79-82 · WTI avg T6: ~$74-77 · T7/2026 forecast: $70-78 (Goldman/EIA post-deal) · T8-Q4: $65-72 (full normalization) · Iran 60-day license · 80M bbl Hormuz supply", updated: "23/06/2026", source: "axios/pbs/npr", note: "T6 avg (dau thang cao $93-95, cuoi thang giam $76-77) → avg ~$80 · T5 avg $104-108 (cu) da loi thoi hoan toan" },
+    cpi_impact_t5: { value: "T6/2026 FORECAST: 4.0-4.5% YoY (DUOI MT 4.5% LAN DAU!) · Xang 25/6 -5-7k d = tac dong -0.8-1.2% direct · T7/2026: 3.0-3.5% (tiep tuc giam · Brent $70-78 + Hormuz supply surge) · T8: co the <3.0% neu Brent ve $65-70 · NHNN: CPI T6 < 4.5% → room ha LS OMO T8 CHAC CHAN", updated: "23/06/2026", source: "Tính toán", note: "T5/2026 actual: 5.6% (da qua, co so de so sanh) · CPI T6: 4.0-4.5% = giam ~1.1-1.6% voi T5 · Toc do giam nhanh nhat tu dau 2026" },
+    chain:         { value: "Brent $76.68 (23/6 · giam tu $126 dinh T4 -39%) → Xang 25/6: giam 5-7k d/lit (forecast MANH NHAT) → CPI T6: 4.0-4.5% (DUOI MT lan dau!) → CPI T7: 3.0-3.5% → NHNN ha LS OMO 25-50bps (T8/2026) → TT2 giam 1-1.5% (T8-T9) → TT1 Big4 giam 0.3-0.5% (lag 4-8 tuan) → Q4/2026 TT1: 6.0-6.5%", updated: "23/06/2026", source: "Nội bộ", note: "" },
   },
 
   gold: {
@@ -329,7 +329,7 @@ const D = {
     hp_rotterdam: { value: "SCFI tang 40-60% YTD · Tuyen Hormuz/Vinh Ba Tu: gan dong hoan toan · Tuyen vong Hao Vong: +12-15 ngay · Cang VN: hub trung chuyen tang (GMD, PHP) · Normalization: mat nhieu thang du deal", updated: "17/05/2026", source: "Freightos/Drewry", note: "Cước HP→Rotterdam: ~$3.000–4.000/FEU · Giảm từ $4.000–5.500 sau ceasefire" },
     vs_2025:      { value: "vs 2025: cuoc tang 40-60% · Container $5.000-8.000/TEU (tuyen A-Au) · Diesel +57% YoY · IEA: energy shock lon nhat lich su · Cang VN: trung chuyen tang manh do tau tranh Hormuz", updated: "17/05/2026", source: "Drewry", note: "Cước so 2025: +15–25% · Xu hướng giảm dần sau ceasefire" },
     route:        { value: "Hormuz >90% dong: Chau A→chau Au buoc vong Hao Vong (+12-15 ngay, +$1.500-2.000/container) · VN hub trung chuyen · 30 tau qua Hormuz 13/5 (TQ + trung lap) nhung chua phuc hoi chinh thuc", updated: "17/05/2026", source: "Quan sát", note: "~50–70 tàu/ngày qua Hormuz từ <5 · Islamabad deal → 80%+ quay về trong 1 tuần" },
-    cpi_impact:   { value: "Brent $107: truyen dan qua xang dau (3.6% gio CPI) + logistics + dien · Tong: +0.5-1.0% CPI neu duy tri 3 thang · IEA: undersupply den T10 → CPI kho ha truoc Q4", updated: "17/05/2026", source: "Nội bộ", note: "CPI impact: +0,1–0,2% · Cước giảm → CPI T5-T6 tích cực" },
+    cpi_impact:   { value: "Brent avg T6 ~$80 (giam tu $107 T5): xang giam -5-7k d/lit → CPI T6 -0.8-1.2% direct · T7: tiep tuc giam theo Brent $70-78 · Logistics/thuc pham: giam theo · NHNN: room ha LS OMO T8 (CPI T6 <4.5%)", updated: "23/06/2026", source: "Nội bộ", note: "CPI impact: -0.8-1.2% T6 (tu xang) · Logistics: -0.1-0.2% T7-T8 · Net vs T5 5.6%: giam manh ~1.5-2.0%" },
     houthi:       { value: "Houthi Red Sea: van active · Ket hop Hormuz = double choke · Cuoc A-Au cuc cao · VN cargo tang · Normalization ca hai diem nghen mat nhieu thang sau deal", updated: "17/05/2026", source: "Reuters", note: "Houthi: dừng tấn công sau ceasefire · Bab el-Mandeb: tàu có thể đi nhưng còn rủi ro" },
   },
 
@@ -876,12 +876,29 @@ document.getElementById('panel-hormuz-flows').innerHTML=`
 
 document.getElementById('panel-cpi-trans').innerHTML=`
   <div class="g4" style="gap:8px;margin-bottom:10px">
-    ${mbox('CPI Sensitivity',v(D.cpi_trans.sensitivity)+'%/+10USD','UOB calibrated','y')}
-    ${mbox('Brent avg T3',v(D.cpi_trans.brent_avg_t3)+' USD','TB tháng 3/2026','r')}
-    ${mbox('CPI Impact T5-T6',v(D.cpi_trans.cpi_impact_t5),'% cộng thêm','r')}
-    ${mbox('Lag','2–3 tháng','Brent→Xăng→CPI','b')}
+    ${mbox('CPI Sensitivity (23/6)',v(D.cpi_trans.sensitivity),'UOB calibrated','y')}
+    ${mbox('Brent avg T6/2026',v(D.cpi_trans.brent_avg_t3),'TB T6 avg ~$80','r')}
+    ${mbox('CPI Impact T6-T7',v(D.cpi_trans.cpi_impact_t5),'forecast post-deal','g')}
+    ${mbox('Lag','1–2 tháng','Brent→Xăng→CPI (nhanh hơn do Xăng 25/6)','b')}
   </div>
-  <div class="co co-g"><strong>Chuỗi truyền dẫn post-ceasefire:</strong> ${v(D.cpi_trans.chain)}</div>`;
+  <div class="co co-g"><strong style="color:var(--ok)">✅ Chuỗi truyền dẫn post-deal (23/6):</strong> ${v(D.cpi_trans.chain)}</div>
+  <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px">
+    <div style="background:rgba(15,110,86,.1);border-radius:3px;padding:6px 8px;border-left:2px solid var(--ok)">
+      <div style="color:var(--ok);font-weight:600">T6 (25/6)</div>
+      <div style="color:var(--dim2)">Xăng giảm 5-7k đ/lít</div>
+      <div style="color:var(--ok)">CPI T6: 4.0-4.5%</div>
+    </div>
+    <div style="background:rgba(15,110,86,.1);border-radius:3px;padding:6px 8px;border-left:2px solid var(--ok)">
+      <div style="color:var(--ok);font-weight:600">T7-T8</div>
+      <div style="color:var(--dim2)">Brent $70-78 · Hormuz flows</div>
+      <div style="color:var(--ok)">CPI T7: 3.0-3.5% · NHNN hạ T8</div>
+    </div>
+    <div style="background:rgba(59,130,246,.08);border-radius:3px;padding:6px 8px;border-left:2px solid var(--blue)">
+      <div style="color:var(--blue);font-weight:600">Q4/2026</div>
+      <div style="color:var(--dim2)">NHNN hạ 25-50bps T8 → TT2↓ → TT1 lag</div>
+      <div style="color:var(--blue)">TT1 Big4: 6.0-6.5%</div>
+    </div>
+  </div>`;
 
 document.getElementById('panel-xang').innerHTML=`
   <div class="g4" style="gap:8px">
