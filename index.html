@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.78 | 23/06/2026</title>
+<title>VN Macro Dashboard v3.79 | 23/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.78",
+    version: "3.79",
     date: "23/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -233,10 +233,10 @@ const D = {
     brent_baseline: { value: "$107-108 (close 15/5) · Weekly +8% · IEA: undersupply den thang 10 du deal thang 6 · 30 tau qua Hormuz 13/5 (tau TQ + trung lap) · Rezaei doi boi thuong · Deal 14-point chua ky", updated: "17/05/2026", source: "axios/pbs/npr", note: "Baseline pre-war (Feb 2026): $73/thùng · War premium hiện tại: $20–22" },
     eia_q3_base:    { value: "EIA Q3 post-deal (revised): $75-80 (tu $88 truoc deal) · Iran 30M bbl/tuan qua Hormuz hien nay · Q4: $70-75 · Supply surplus Q4: +1-2M bbl/ngay · OPEC+ response: co the cat 500k-1M bbl/ngay de giu gia", updated: "23/06/2026", source: "EIA STEO April", note: "EIA STEO se cap nhat chinh thuc sau khi Iran oil flows on dinh (2-4 tuan nua) · Current estimate: Brent trung binh Q3 $75-80, Q4 $70-75" },
     goldman_q2:     { value: "Goldman Q4/2026 REVISED: $65-70 (tu $90 truoc deal · full normalization) · Citi: $60-65 (pessimistic) · EIA Q4: $70-75 · Goldman 2026 avg revised: $72 (tu $85) · 2027: $60-65 · Key risk: OPEC+ co the cat san xuat de giu gia", updated: "23/06/2026", source: "Goldman/EIA/Capital.com 26/4", note: "Q4: Iran + Iraq + UAE full production = supply surge · Demand: global slowdown (FOMC hawkish) + EV adoption · Net: oversupply co the xuat hien Q4 → Brent test $60-65" },
-    xang_ron95:     { value: 22060, updated: "12/06/2026", source: "BCT/PLXVN 11/6", note: "E10 RON95-III 11/6: 22.060đ (giảm 270đ vs kỳ 4/6) · Đỉnh 23/3: 30.115đ → hiện −8.055đ (−26.7%) · E10 RON95 bán đại trà từ 1/6 thay thế E5 RON95 · Thue 0% hết 30/6/2026 · Kỳ 25/6: Brent $93-95 → có thể tăng 200-500đ" },
-    xang_e5ron92:   { value: 21330, updated: "12/06/2026", source: "BCT/PLXVN 11/6", note: "E5RON92 11/6: 21.330đ (giảm 450đ vs kỳ 4/6 là 21.784đ) · Chênh E10RON95-III vs E5RON92: 730đ/lít · Dầu Diesel 11/6: 25.870đ (giảm 990đ · đỉnh 44.788đ ngày 3/4 → giảm −42%)" },
-    ky_tiep:        { value: "Kỳ 11/6 (hôm qua 15h): E10RON95-III −270đ → 22.060đ · E5RON92 −450đ → 21.330đ · Diesel −990đ → 25.870đ · Quỹ BÔXD: TRÍCH LẬP TRỞ LẠI (100đ xăng sinh học · 200đ diesel)", updated: "12/06/2026", source: "BCT 11/6/2026", note: "Kỳ tiếp ~25/6: Brent $93-95 (tái leo thang) → xăng có thể tăng nhẹ 200-500đ · Hoặc giảm nếu deal Iran · Tổng giảm từ đỉnh T3: RON95 −8.055đ (−26.7%) · Diesel −18.918đ (−42%)" },
-    booxd_status:   { value: "Kỳ 11/6: TRÍCH LẬP TRỞ LẠI (tín hiệu tích cực!) · Xăng SH: +100đ/lít · Diesel+Mazut: +200đ/lít · Trước đó liên tục CHI từ T3-T5 để ghìm giá · Brent $93-95 (tái leo thang) → theo dõi kỳ 25/6", updated: "12/06/2026", source: "BCT 11/6/2026", note: "BÔXD trích lập lại = giá xăng giảm đủ rồi · Kỳ 25/6: nếu Brent on dinh $90-95 → tiếp tục trích lập · Nếu Brent >$100 → có thể phải chi lại · T3-T5 chi mạnh để ghìm giá: đỉnh RON95 30.115đ vs thực tế ~26.000-27.000đ" },
+    xang_ron95:     { value: 22060, updated: "23/06/2026", source: "BCT/PLXVN 11/6", note: "Kỳ 11/6: 22.060đ (giá hiện hành) · KỲ 25/6 (2 ngày nữa): Brent avg 15 ngày ~$83 → GẢM ĐÃ TIẾP ~360-560đ → dự báo ~21.500-21.700đ · Đỉnh 23/3: 30.115đ → hiện −8.055đ (−26.7%) · Thue 0% hết 30/6 → cần theo dõi gia hạn" },
+    xang_e5ron92:   { value: 21330, updated: "23/06/2026", source: "BCT 11/6 · Forecast 25/6", note: "E5RON92 kỳ 11/6: 21.330đ · KỲ 25/6 forecast: giảm thêm ~430-630đ → ~20.700-20.900đ · Diesel kỳ 11/6: 25.870đ → kỳ 25/6 dự báo giảm 1.200-1.700đ → ~24.200-24.600đ · Đỉnh Diesel 3/4: 44.788đ → giảm −42%" },
+    ky_tiep:        { value: "KỲ 25/6 (2 ngày nữa · SAP DIEN RA): Brent avg 15 ngày ~$82-85 (tu $91 kỳ 11/6) · GIAM DU BAO: E10 RON95 -360-560d → ~21.500-21.700d · E5RON92 -430-630d → ~20.700-20.900d · Diesel -1.200-1.700d → ~24.200-24.600d · Quỹ BÔXD: tiếp tục TRÍCH LẬP mạnh (Brent giảm → giá xăng giảm → dư địa trích lập lớn)", updated: "23/06/2026", source: "BCT 11/6/2026", note: "Lưu ý: mức giảm tính theo MOPS Singapore 15-day avg, không phải Brent spot · Nếu Brent avg thấp hơn $80: giảm mạnh hơn → RON95 có thể về ~21.000-21.500đ" },
+    booxd_status:   { value: "Kỳ 11/6: TRÍCH LẬP TRỞ LẠI (100đ/lít xăng SH · 200đ/lít diesel) · Kỳ 25/6: TIẾP TỤC TRÍCH LẬP MẠNH (Brent $76.68 → xăng giảm → dư địa trích lập tăng) · Dự kiến trích 300-500đ/lít xăng · Quỹ BÔXD dần được bổ sung sau T3-T5 chi mạnh", updated: "23/06/2026", source: "BCT 11/6/2026", note: "Brent $76.68 vs kỳ 11/6 ($91) → giảm thêm $15 → xăng giảm thêm → Quỹ có thể trích lập 300-500đ/lít kỳ 25/6 thay vì 100đ · Tích lũy BÔXD là tín hiệu tốt cho CPI trung hạn" },
   },
 
   ppp_war: {
@@ -250,8 +250,8 @@ const D = {
   cpi_trans: {
     sensitivity:   { value: "Brent $76.68 → Xăng 25/6: GIAM 5.000-7.000d/lit (lon nhat tu xung dot) · CPI T6: -0.8-1.2% direct (xang chiem 3.6% gio CPI) · Vong 2: logistics + thuc pham T7-T8 -0.2-0.4% · Tong CPI T6: 4.0-4.5% (duoi MT 4.5% LAN DAU TU T3/2026!)", updated: "23/06/2026", source: "UOB calibrated", note: "+0.3-0.4% per +$10 Brent (UOB calibrated, van ap dung) · Hien tai: Brent -$30 vs T5 avg $107 → xang giam ~$30x0.4=$12 → ~3.500-6.000d/lit" },
     brent_avg_t3:  { value: "T6/2026 avg: ~$79-82 · WTI avg T6: ~$74-77 · T7/2026 forecast: $70-78 (Goldman/EIA post-deal) · T8-Q4: $65-72 (full normalization) · Iran 60-day license · 80M bbl Hormuz supply", updated: "23/06/2026", source: "axios/pbs/npr", note: "T6 avg (dau thang cao $93-95, cuoi thang giam $76-77) → avg ~$80 · T5 avg $104-108 (cu) da loi thoi hoan toan" },
-    cpi_impact_t5: { value: "T6/2026 FORECAST: 4.0-4.5% YoY (DUOI MT 4.5% LAN DAU!) · Xang 25/6 -5-7k d = tac dong -0.8-1.2% direct · T7/2026: 3.0-3.5% (tiep tuc giam · Brent $70-78 + Hormuz supply surge) · T8: co the <3.0% neu Brent ve $65-70 · NHNN: CPI T6 < 4.5% → room ha LS OMO T8 CHAC CHAN", updated: "23/06/2026", source: "Tính toán", note: "T5/2026 actual: 5.6% (da qua, co so de so sanh) · CPI T6: 4.0-4.5% = giam ~1.1-1.6% voi T5 · Toc do giam nhanh nhat tu dau 2026" },
-    chain:         { value: "Brent $76.68 (23/6 · giam tu $126 dinh T4 -39%) → Xang 25/6: giam 5-7k d/lit (forecast MANH NHAT) → CPI T6: 4.0-4.5% (DUOI MT lan dau!) → CPI T7: 3.0-3.5% → NHNN ha LS OMO 25-50bps (T8/2026) → TT2 giam 1-1.5% (T8-T9) → TT1 Big4 giam 0.3-0.5% (lag 4-8 tuan) → Q4/2026 TT1: 6.0-6.5%", updated: "23/06/2026", source: "Nội bộ", note: "" },
+    cpi_impact_t5: { value: "T6/2026 FORECAST: 4.0-4.5% YoY (DUOI MT 4.5% LAN DAU!) · Xang 25/6 -400-560d RON95 / -1.200-1.700d Diesel → tac dong CPI -0.3-0.5% direct · T7/2026: 3.0-3.5% (tiep tuc giam · Brent $70-78 + Hormuz supply surge) · T8: co the <3.0% neu Brent ve $65-70 · NHNN: CPI T6 < 4.5% → room ha LS OMO T8 CHAC CHAN", updated: "23/06/2026", source: "Tính toán", note: "T5/2026 actual: 5.6% (da qua, co so de so sanh) · CPI T6: 4.0-4.5% = giam ~1.1-1.6% voi T5 · Toc do giam nhanh nhat tu dau 2026" },
+    chain:         { value: "Brent $76.68 (23/6 · giam tu $126 dinh T4 -39%) → Xang 25/6: giam 360-560d (RON95) va 1.200-1.700d (Diesel) (forecast MANH NHAT) → CPI T6: 4.0-4.5% (DUOI MT lan dau!) → CPI T7: 3.0-3.5% → NHNN ha LS OMO 25-50bps (T8/2026) → TT2 giam 1-1.5% (T8-T9) → TT1 Big4 giam 0.3-0.5% (lag 4-8 tuan) → Q4/2026 TT1: 6.0-6.5%", updated: "23/06/2026", source: "Nội bộ", note: "" },
   },
 
   gold: {
@@ -329,7 +329,7 @@ const D = {
     hp_rotterdam: { value: "SCFI tang 40-60% YTD · Tuyen Hormuz/Vinh Ba Tu: gan dong hoan toan · Tuyen vong Hao Vong: +12-15 ngay · Cang VN: hub trung chuyen tang (GMD, PHP) · Normalization: mat nhieu thang du deal", updated: "17/05/2026", source: "Freightos/Drewry", note: "Cước HP→Rotterdam: ~$3.000–4.000/FEU · Giảm từ $4.000–5.500 sau ceasefire" },
     vs_2025:      { value: "vs 2025: cuoc tang 40-60% · Container $5.000-8.000/TEU (tuyen A-Au) · Diesel +57% YoY · IEA: energy shock lon nhat lich su · Cang VN: trung chuyen tang manh do tau tranh Hormuz", updated: "17/05/2026", source: "Drewry", note: "Cước so 2025: +15–25% · Xu hướng giảm dần sau ceasefire" },
     route:        { value: "Hormuz >90% dong: Chau A→chau Au buoc vong Hao Vong (+12-15 ngay, +$1.500-2.000/container) · VN hub trung chuyen · 30 tau qua Hormuz 13/5 (TQ + trung lap) nhung chua phuc hoi chinh thuc", updated: "17/05/2026", source: "Quan sát", note: "~50–70 tàu/ngày qua Hormuz từ <5 · Islamabad deal → 80%+ quay về trong 1 tuần" },
-    cpi_impact:   { value: "Brent avg T6 ~$80 (giam tu $107 T5): xang giam -5-7k d/lit → CPI T6 -0.8-1.2% direct · T7: tiep tuc giam theo Brent $70-78 · Logistics/thuc pham: giam theo · NHNN: room ha LS OMO T8 (CPI T6 <4.5%)", updated: "23/06/2026", source: "Nội bộ", note: "CPI impact: -0.8-1.2% T6 (tu xang) · Logistics: -0.1-0.2% T7-T8 · Net vs T5 5.6%: giam manh ~1.5-2.0%" },
+    cpi_impact:   { value: "Brent avg T6 ~$80 (giam tu $107 T5): xang giam -400-560d RON95 (-1.200-1.700d Diesel) → CPI T6 -0.3-0.5% direct · T7: tiep tuc giam theo Brent $70-78 · Logistics/thuc pham: giam theo · NHNN: room ha LS OMO T8 (CPI T6 <4.5%)", updated: "23/06/2026", source: "Nội bộ", note: "CPI impact: -0.8-1.2% T6 (tu xang) · Logistics: -0.1-0.2% T7-T8 · Net vs T5 5.6%: giam manh ~1.5-2.0%" },
     houthi:       { value: "Houthi Red Sea: van active · Ket hop Hormuz = double choke · Cuoc A-Au cuc cao · VN cargo tang · Normalization ca hai diem nghen mat nhieu thang sau deal", updated: "17/05/2026", source: "Reuters", note: "Houthi: dừng tấn công sau ceasefire · Bab el-Mandeb: tàu có thể đi nhưng còn rủi ro" },
   },
 
@@ -386,7 +386,7 @@ const D = {
     chain_a_m2:     { value: "Brent giảm → CPI hạ → NHNN room bơm → M2 tăng → tín dụng phục hồi Q2", updated: "17/05/2026", source: "Chain A hạ nhiệt", note: "" },
     chain_b_tax:    { value: "Kỳ thuế T6 (30/6) = điểm theo dõi tiếp theo → spike TT2 khoảng tháng 6", updated: "17/05/2026", source: "Chain B", note: "" },
     chain_c_freight:{ value: "Brent $95 + Hormuz mở → Cước giảm → CPI T5-T6 hạ → NHNN có room hỗ trợ", updated: "17/05/2026", source: "Chain C hạ nhiệt", note: "" },
-    net_signal:     { value: "23/6: Brent THUNG \$77 → \$76.68 (war premium \$3.68 = gần zero) · WTI \$73.67 · Gold ban thao -2% → \$4.090 (Silver -5%) · Deutsche Bank ha gold -22% · US Treasury: cap phep 60 ngay Iran ban dau · Hormuz flows tang (>30M bbl/tuan) · FX: VCB 26.092/26.442 on dinh · EMP +338d on dinh · DXY firm (hawkish Fed positioning) · CPI T6 sap ra cuoi thang (du bao: 4.5-5.0%) · Xang ky 25/6 (Brent \$76.68 → giam MANH 5-7k d/lit)", updated: "23/06/2026", source: "Changelog" },
+    net_signal:     { value: "23/6: Brent THUNG \$77 → \$76.68 (war premium \$3.68 = gần zero) · WTI \$73.67 · Gold ban thao -2% → \$4.090 (Silver -5%) · Deutsche Bank ha gold -22% · US Treasury: cap phep 60 ngay Iran ban dau · Hormuz flows tang (>30M bbl/tuan) · FX: VCB 26.092/26.442 on dinh · EMP +338d on dinh · DXY firm (hawkish Fed positioning) · CPI T6 sap ra cuoi thang (du bao: 4.5-5.0%) · Xang ky 25/6 (Brent \$76.68 → giam ~400-560d RON95 / ~1.200-1.700d Diesel)", updated: "23/06/2026", source: "Changelog" },
     v321_changes: { value: "v3.21 · 14/04 ⚠️ CẬP NHẬT: Hormuz phong tỏa đang thực thi · Ngừng bắn tạm thời 2T · Iran liên hệ Trump · EMP 549đ · Brent 99–103 · Chợ đen 26.860/26.910 · Confluence 9,0/10 · KB-D 63%", updated: "14/04/2026", source: "Changelog" },
     v320_changes: { value: "v3.20 · 13/04 🚨 ĐẢO CHIỀU: Islamabad talks thất bại · Trump phong tỏa Hormuz · WTI +9,3%→>$105 · Brent bật mạnh · KB-D trở lại · VCB giảm LS 24T: 6,5%→6%/năm · Chợ đen 26.800/26.830 · Scorecard API key guide", updated: "21/04/2026", source: "Changelog", note: "" },
     roadmap: [
@@ -511,7 +511,7 @@ const D = {
   },
 
   signals: {
-    tuan_nay:        { value: "23/06 v3.76: Brent \$76.68 (war premium \$3.68 · GIAN VE ZERO) · WTI \$73.67 · Gold ban thao -2% → \$4.090 · Silver -5% · Deutsche Bank ha gold du bao -22% · US Treasury 60-day Iran oil license · Hormuz flows >30M bbl/tuan · EMP +338d on dinh · VCB 26.092/26.442 · XANG KY 25/6: Brent \$76.68 → giam MANH (du bao 5-7k d/lit) · CPI T6 cuoi thang · NHNN: room ha LS OMO T8 ngay cang ro", updated: "23/06/2026", source: "tổng hợp", note: "Tuần cực nóng — KB-D xác nhận" },
+    tuan_nay:        { value: "23/06 v3.76: Brent \$76.68 (war premium \$3.68 · GIAN VE ZERO) · WTI \$73.67 · Gold ban thao -2% → \$4.090 · Silver -5% · Deutsche Bank ha gold du bao -22% · US Treasury 60-day Iran oil license · Hormuz flows >30M bbl/tuan · EMP +338d on dinh · VCB 26.092/26.442 · XANG KY 25/6: Brent \$76.68 → giam du bao ~400-560d RON95 / ~1.200-1.700d Diesel (MOPS 15d avg ~$83) · CPI T6 cuoi thang · NHNN: room ha LS OMO T8 ngay cang ro", updated: "23/06/2026", source: "tổng hợp", note: "Tuần cực nóng — KB-D xác nhận" },
     trump_watch:     { value: "7/6: Trump chinh sua MOU (uranium + Hormuz) · Dam phan 'orderly and constructive' · Trump: 'khong nen voi vang, phai chinh xac' · Brent $92 (-1.8%) · WTI $87.59 · Dow 50.902 (+0.5%) · Nikkei all-time high · EMP -14d · Deal chinh thuc: du kien 8-10/6 · US-Vietnam trade: 1 dieu khoan lam nhieu nuoc lo", updated: "07/06/2026", source: "CNBC/Reuters/Fox", note: "Hegseth dập lửa: ceasefire label vẫn giữ — Mỹ không muốn leo thang công khai" },
     q2_du_bao_cpi:   { value: "CPI T5/2026: +5,6% YoY (+0,29% MoM chinh thuc) · Nhom Giao thong T5: +12,5% YoY (ky luc do dau) · Binh quan 5T: +4,31% · Lam phat co ban T5: +4,67% · 5T: +4,04% · T6 se ha khi xang 1/6 giam (RON95 24.150d -20% tu dinh)", updated: "17/05/2026", source: "tính toán", note: "CPI T4 đã 5.46% — NHNN không thể nới lỏng" },
     q2_du_bao_ls:    { value: "TT1 hien tai: Big4 7,8-8% · Big TMCP 8-8,5% · NH nho 9-10% · TT08/2026 giam LDR Big4 → ha nhiet Q3 · Du bao: TT1 Big4 ve 7,0-7,5% Q3 neu Brent <$100 + CPI ha", updated: "17/05/2026", source: "tính toán", note: "CDR draft thắt hơn LDR — xem chi tiết section LDR" },
@@ -526,7 +526,7 @@ const D = {
     fed_signal:   { value: "Post-FOMC (22/6): Fed HOLD 3.50-3.75% (17/6) NHUNG dot plot RAT HAWKISH · 9/19 TV du bao TANG LS 2026 (Reuter 17/6: 9/19, TTXVN: 9/19) · PCE forecast: 3.6% (tu 2.7%) · DXY cao nhat tu 5/2025 · UST 10Y ~4.4-4.5% · 70% thi truong: Fed tang truoc T9 · Goldman: 'path to avoid hikes narrow' · Warsh: lap 5 task force review Fed · Tac dong len VN: EMP dao chieu +338d · Gap CCS: Fed hawkish → LS USD tang → gap giam direct", updated: "22/06/2026", source: "Fed/CNBC", note: "Market pricing ≤1 cut 2026 (vs 2 lần dot plot)" },
     tariff_status:{ value: "My-Trung: Dinh chien Busan gia han · My-Viet: CO DIEU KHOAN LAM NHIEU NUOC LO NGAI (6/6) · Chi tiet chua ro · Iran deal sap den → chien tranh thuong mai se duoc quan tam lai · VN rui ro: thuoc dan tu Trung Quoc qua VN bi siet", updated: "07/06/2026", source: "Reuters", note: "VN: nhập siêu 7.11 tỷ 4T — 94% tư liệu SX" },
     vector:       { value: "DEAL IMMINENT (7/6): Trump chinh sua MOU (finalize) · Brent $92 WTI $87.59 · Toan cau risk-on (Nikkei ATH, S&P 7.594) · EMP -14d → sap ve 0 · KB-B 55% DOMINANT · Deal chinh thuc 8-10/6? · Sau deal: Brent $80-90 (Goldman) · CPI VN T6 se ha → NHNN co room Q3", updated: "07/06/2026", source: "Reuters/Al Jazeera", note: "Cả 2 bên leo thang để có vị thế mặc cả tốt hơn — pattern trước deal" },
-    watch_next:   { value: "XANG 25/6 (QUAN TRONG): Brent \$76.68 → xang ky nay giam 5-7k d/lit (lon nhat tu khi xung dot) · CPI T6 cuoi thang: du bao 4.0-4.5% (xuong duoi muc tieu 4.5% lan dau!) · Gold: test nguong \$4.000 (Citi target) sau dot ban thao? · Brent: co the ve \$70-72 khi Hormuz mo hoan toan va 80M bbl Iran supply vao TT · NHNN: CPI T6 <4.5% → room ha LS OMO T8 chac chan hon", updated: "23/06/2026", source: "tổng hợp", note: "Hajj deadline ~20/5 = pressure mềm cho deal" },
+    watch_next:   { value: "XANG 25/6 (QUAN TRONG): Brent \$76.68 → xang ky nay: RON95 giam ~400-560d, Diesel giam ~1.200-1.700d (MOPS avg 15d ~$83) · CPI T6 cuoi thang: du bao 4.0-4.5% (xuong duoi muc tieu 4.5% lan dau!) · Gold: test nguong \$4.000 (Citi target) sau dot ban thao? · Brent: co the ve \$70-72 khi Hormuz mo hoan toan va 80M bbl Iran supply vao TT · NHNN: CPI T6 <4.5% → room ha LS OMO T8 chac chan hon", updated: "23/06/2026", source: "tổng hợp", note: "Hajj deadline ~20/5 = pressure mềm cho deal" },
   },
 
   review: {
@@ -885,7 +885,7 @@ document.getElementById('panel-cpi-trans').innerHTML=`
   <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px">
     <div style="background:rgba(15,110,86,.1);border-radius:3px;padding:6px 8px;border-left:2px solid var(--ok)">
       <div style="color:var(--ok);font-weight:600">T6 (25/6)</div>
-      <div style="color:var(--dim2)">Xăng giảm 5-7k đ/lít</div>
+      <div style="color:var(--dim2)">Xăng kỳ 25/6: RON95 −400-560đ</div>
       <div style="color:var(--ok)">CPI T6: 4.0-4.5%</div>
     </div>
     <div style="background:rgba(15,110,86,.1);border-radius:3px;padding:6px 8px;border-left:2px solid var(--ok)">
