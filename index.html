@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.81 | 25/06/2026</title>
+<title>VN Macro Dashboard v3.82 | 25/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.81",
+    version: "3.82",
     date: "25/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -1021,31 +1021,130 @@ document.getElementById('panel-omo').innerHTML=`
     </span>
   </div>
   <div style="margin-top:12px;padding:8px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:3px">
-    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 5 TÍN HIỆU THEO DÕI — TT1 ĐÃ ĐỈNH, KHI NÀO GIẢM & TỐC ĐỘ NÀO (cập nhật 25/6)</div>
-    <div style="margin-bottom:8px;padding:6px 10px;background:rgba(59,130,246,.08);border-radius:3px;font-size:11px">
-      <span style="color:var(--blue)">⚡ Cập nhật 25/6:</span> <span style="color:var(--dim2)">TT1 ĐÃ ĐẠT ĐỈNH (T6/2026) → Bộ tín hiệu được tái thiết kế cho giai đoạn <strong style="color:var(--ok)">TT1 ĐANG GIẢM</strong>. Bỏ 3 signal cũ (O/N&lt;3%, TT08, M2/TD) do không thực tế hoặc đã fulfilled. Thay bằng 5 signal action-based cho Q3-Q4/2026.</span>
+    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 25/6</div>
+
+    <!-- HEADER: Framework thay đổi -->
+    <div style="margin-bottom:10px;padding:7px 12px;background:rgba(59,130,246,.07);border-left:3px solid var(--blue);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
+      <span style="color:var(--blue);font-weight:600">📐 Framework mới (Q3/2026):</span> TT1 đã đỉnh T6 → chuyển sang theo dõi <strong style="color:var(--ok)">tốc độ & điều kiện giảm</strong>.
+      Bộ cũ (O/N &lt;3%, TT08, M2/TD) không còn phù hợp → thay bằng 3 tầng chỉ tiêu action-based.
     </div>
-    <table class="tbl" style="font-size:11px">
-      <thead><tr><th>#</th><th>Tín hiệu — Giai đoạn TT1 GIẢM (Q3-Q4/2026)</th><th>Trạng thái 25/6</th></tr></thead>
-      <tbody>
-        <tr style="background:rgba(239,68,68,.04)"><td>①</td><td><strong>NHNN chính thức hạ LS OMO ≥25bps</strong> → Điều kiện tiên quyết để TT1 giảm · Catalyst trực tiếp nhất</td><td class="y">⏳ CHƯA · Điều kiện: CPI T6 &lt;4,5% (đang tốt) + Fed không tăng trước T8 · Dự kiến: T8/2026</td></tr>
-        <tr><td>②</td><td><strong>CPI 2 tháng liên tiếp ≤4,0%</strong> (T6+T7 thực tế) → Xác nhận xu hướng, không chỉ 1 tháng đột biến</td><td class="y">⏳ CPI T6 forecast: 3,5-4,0% (SAP ĐẠT) · T7 cần xác nhận · Brent $73.74 → rất khả quan</td></tr>
-        <tr><td>③</td><td><strong>TT2 O/N ổn định &lt;6% trong ≥2 tuần</strong> (không spike đầu tuần/kỳ thuế) → Thanh khoản hệ thống thực sự cải thiện</td><td class="r">❌ O/N dao động 6,6-9,5% · Spike mỗi đầu tuần · LDR 114% duy trì áp lực · Cần LDR về &lt;110%</td></tr>
-        <tr><td>④</td><td><strong>ĐTC giải ngân ≥40% kế hoạch</strong> (T7-T8 mùa vụ) → Outside money thực sự cải thiện D → LDR↓ → room TT1 giảm</td><td class="y">⏳ 5T: ~17-18% · Cần tăng tốc gấp đôi T7-T8 · Mỗi 100k tỷ ≈ LDR -2,5% · Catalyst lớn nếu đạt</td></tr>
-        <tr><td>⑤</td><td><strong>FTSE VN upgrade 21/9</strong> (FPI vào → D↑ → LDR↓ → VND mạnh) HOẶC <strong>NHNN mua &gt;1 tỷ USD/tháng</strong> bổ sung dự trữ → outside money quy mô lớn</td><td class="y">⏳ 21/9: ~3 tháng nữa · Khả năng cao hơn bao giờ hết · NHNN mua FX: cần EMP ổn định (&lt;+200đ)</td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px">
-      <div style="background:rgba(15,110,86,.08);border-radius:3px;padding:7px 10px;border-left:2px solid var(--ok)">
-        <div style="color:var(--ok);font-weight:600;margin-bottom:3px">📌 Kết luận 25/6: 0,5/5 XANH</div>
-        <div style="color:var(--dim2)">TT1 đỉnh T6 ✓ · Chờ NHNN action T8 · Signal #1 là key catalyst · #2 gần đạt · #3 khó nhất (LDR 114%)</div>
+
+    <!-- TẦNG 1: ĐIỀU KIỆN TIÊN QUYẾT -->
+    <div style="margin-bottom:8px">
+      <div style="font-size:10px;letter-spacing:1.5px;color:var(--amber);font-weight:600;margin-bottom:5px;padding:3px 8px;background:rgba(245,158,11,.08);border-radius:2px;display:inline-block">
+        TẦNG 1 — ĐIỀU KIỆN TIÊN QUYẾT (cần đủ cả 3 để NHNN hành động)
       </div>
-      <div style="background:rgba(59,130,246,.06);border-radius:3px;padding:7px 10px;border-left:2px solid var(--blue)">
-        <div style="color:var(--blue);font-weight:600;margin-bottom:3px">🎯 Dự báo TT1 Q3-Q4</div>
-        <div style="color:var(--dim2)">Nếu #1+#2 xanh T8: TT1 Big4 về <strong>6,5-7,0%</strong> cuối Q3 · Nếu Fed tăng LS: trì hoãn sang Q4 → <strong>6,0-6,5%</strong></div>
+      <table class="tbl" style="font-size:11px">
+        <thead><tr><th style="width:32px">#</th><th>Chỉ tiêu</th><th style="width:42px">Ngưỡng</th><th>Trạng thái 25/6</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:var(--ok)">A1</td>
+            <td><strong>CPI ≤4,0%</strong> trong ≥2 tháng liên tiếp · Không phải dự báo — phải là số thực tế GSO</td>
+            <td class="g" style="text-align:center;font-weight:700">&lt;4,0%</td>
+            <td class="y">⏳ T6 forecast: 3,5-4,0% (SAP ĐẠT) · T7 cần xác nhận · Brent $73.74 rất hỗ trợ · Xăng 25/6 giảm lần 5</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--ok)">A2</td>
+            <td><strong>Fed không tăng LS</strong> trong kỳ họp gần nhất · DXY &lt;103 · EMP ổn định (&lt;+300đ)</td>
+            <td class="y" style="text-align:center;font-weight:700">&lt;103</td>
+            <td class="y">⚠️ Fed HOLD (17/6) ✓ · DXY 101.58 (cao) · 60% khả năng Fed tăng trước T10 · EMP +223đ (ổn định, giảm từ +338đ)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--ok)">A3</td>
+            <td><strong>TT2 O/N &lt;6% ổn định</strong> ≥2 tuần (không spike đầu tuần/kỳ thuế) · Signal thanh khoản hệ thống thực sự tốt</td>
+            <td class="r" style="text-align:center;font-weight:700">&lt;6%</td>
+            <td class="r">❌ Còn 6,6-9,5% · Spike mỗi đầu tuần/kỳ thuế · LDR 114% duy trì áp lực · Cần LDR về &lt;110%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TẦNG 2: CATALYST THÚC ĐẨY -->
+    <div style="margin-bottom:8px">
+      <div style="font-size:10px;letter-spacing:1.5px;color:var(--blue);font-weight:600;margin-bottom:5px;padding:3px 8px;background:rgba(59,130,246,.08);border-radius:2px;display:inline-block">
+        TẦNG 2 — CATALYST THÚC ĐẨY (càng nhiều xanh → TT1 giảm càng nhanh)
+      </div>
+      <table class="tbl" style="font-size:11px">
+        <thead><tr><th style="width:32px">#</th><th>Chỉ tiêu</th><th style="width:42px">Mục tiêu</th><th>Trạng thái 25/6</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:var(--blue)">B1</td>
+            <td><strong>NHNN hạ LS OMO ≥25bps</strong> · Gate signal quan trọng nhất · TT2 giảm 2-4T sau · TT1 giảm 4-8T sau</td>
+            <td class="y" style="text-align:center;font-weight:700">≥25bps</td>
+            <td class="y">⏳ Chưa · Dự kiến T8/2026 · Điều kiện: A1+A2 đủ · Đây là trigger chính cho toàn bộ chuỗi giảm TT1</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--blue)">B2</td>
+            <td><strong>ĐTC giải ngân ≥40% kế hoạch</strong> (T7-T8 mùa vụ) · Outside money → D↑ → LDR↓ → room NH giảm HĐ · Mỗi 100k tỷ = LDR -2,5%</td>
+            <td class="y" style="text-align:center;font-weight:700">≥40%</td>
+            <td class="y">⏳ 5T: ~17-18% · Cần tăng gấp đôi T7-T8 · Lịch sử: T7-T8 luôn là 2 tháng cao nhất · Theo dõi hàng tuần</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--blue)">B3</td>
+            <td><strong>FTSE VN upgrade 21/9</strong> → FPI vào &gt;1 tỷ USD · D↑ → LDR↓ · VND mạnh → NHNN có room hơn · 1 lần duy nhất nhưng quy mô lớn</td>
+            <td class="y" style="text-align:center;font-weight:700">21/9</td>
+            <td class="y">⏳ ~88 ngày nữa · Khả năng cao nhất từ trước tới nay · Chuẩn bị: room ngoại, TTCK &gt;1.300, thanh khoản cải thiện</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TẦNG 3: KẾT QUẢ DỰ BÁO -->
+    <div style="margin-bottom:8px">
+      <div style="font-size:10px;letter-spacing:1.5px;color:var(--ok);font-weight:600;margin-bottom:5px;padding:3px 8px;background:rgba(15,110,86,.08);border-radius:2px;display:inline-block">
+        TẦNG 3 — KẾT QUẢ DỰ BÁO TT1 THEO KỊCH BẢN
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px">
+        <div style="background:rgba(15,110,86,.08);border-radius:3px;padding:8px 10px;border-top:2px solid var(--ok)">
+          <div style="color:var(--ok);font-weight:700;margin-bottom:4px">✅ KB Cơ sở (55%)</div>
+          <div style="color:var(--dim2);line-height:1.8">
+            A1+A2 xanh T7 → B1 hạ T8<br>
+            TT2 giảm T8-T9<br>
+            TT1 Big4 giảm T9-T10<br>
+            <strong style="color:var(--ok)">Q4: 6,0-6,5%</strong>
+          </div>
+        </div>
+        <div style="background:rgba(245,158,11,.06);border-radius:3px;padding:8px 10px;border-top:2px solid var(--amber)">
+          <div style="color:var(--amber);font-weight:700;margin-bottom:4px">⚠️ KB Trì hoãn (30%)</div>
+          <div style="color:var(--dim2);line-height:1.8">
+            Fed tăng T10 → DXY &gt;103<br>
+            NHNN giữ LS đến T10-T11<br>
+            TT1 giảm chậm T11-T12<br>
+            <strong style="color:var(--amber)">Q4: 7,0-7,5%</strong>
+          </div>
+        </div>
+        <div style="background:rgba(59,130,246,.06);border-radius:3px;padding:8px 10px;border-top:2px solid var(--blue)">
+          <div style="color:var(--blue);font-weight:700;margin-bottom:4px">🚀 KB Tích cực (15%)</div>
+          <div style="color:var(--dim2);line-height:1.8">
+            FTSE 21/9 + B1 T8 + B2 mạnh<br>
+            TT2 về 5% T8 · TT1 giảm T9<br>
+            VND mạnh, LDR về &lt;110%<br>
+            <strong style="color:var(--blue)">Q4: 5,5-6,0%</strong>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <!-- SCORE + TIMELINE -->
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px;font-size:11px;margin-top:6px">
+      <div style="background:rgba(0,0,0,.2);border-radius:3px;padding:8px 10px">
+        <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📊 Score 25/6</div>
+        <div style="color:var(--dim2);line-height:2">
+          Tầng 1: 0,5/3 ⚠️<br>
+          Tầng 2: 0/3 ⏳<br>
+          <span style="color:var(--ok)">→ Mục tiêu: T1≥2/3 + B1 xanh</span>
+        </div>
+      </div>
+      <div style="background:rgba(0,0,0,.2);border-radius:3px;padding:8px 10px">
+        <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📅 Timeline kỳ vọng</div>
+        <div style="color:var(--dim2);line-height:2">
+          <span style="color:var(--ok)">T7: CPI T6 official (GSO) → A1 xác nhận</span><br>
+          <span style="color:var(--ok)">T8: NHNN họp LS → B1 (hạ 25-50bps?)</span><br>
+          <span style="color:var(--blue)">21/9: FTSE evaluation → B3 wildcard</span><br>
+          <span style="color:var(--amber)">T10: FOMC (risk: Fed tăng → trì hoãn)</span>
+        </div>
+      </div>
+    </div>
 `;
 
 // IV. TT1 & CPI
