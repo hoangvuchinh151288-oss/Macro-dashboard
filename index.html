@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.84 | 26/06/2026</title>
+<title>VN Macro Dashboard v3.85 | 29/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,22 +184,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.84",
-    date: "26/06/2026",
+    version: "3.85",
+    date: "29/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
 
   fx: {
-    nhnn_tc:       { value: 25192, updated: "26/06/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
-    nhnn_tran:     { value: 26456, updated: "26/06/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
+    nhnn_tc:       { value: 25201, updated: "29/06/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
+    nhnn_tran:     { value: 26461, updated: "29/06/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
     nhnn_san:      { value: 23882, updated: "07/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
-    vcb_mua:       { value: 26106, updated: "26/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB 12/4: mua 26.100 / bán 26.360 · Giảm 13đ vs 10/4 · ACB: 26.150/26.360 · Tiếp tục xu hướng giảm sau ceasefire" },
-    vcb_ban:       { value: 26456, updated: "26/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
-    vcb_tienmat:   { value: 26106, updated: "26/06/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
+    vcb_mua:       { value: 26084, updated: "29/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB 12/4: mua 26.100 / bán 26.360 · Giảm 13đ vs 10/4 · ACB: 26.150/26.360 · Tiếp tục xu hướng giảm sau ceasefire" },
+    vcb_ban:       { value: 26454, updated: "29/06/2026", source: "tygiausd.org/VCB 12/4", note: "VCB bán 12/4: 26.360 · EMP = 26.788−26.360 = 428đ (giảm từ 599đ 10/4) · UOB Q2: 26.100 · Xu hướng về 26.100 Q2" },
+    vcb_tienmat:   { value: 26084, updated: "29/06/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
     tb33nh:        { value: "~26.131-26.391 (VCB · BIDV · TCB · ACB dong thuan · VCB tang 10d mua)", updated: "21/05/2026", source: "webgia.com 12/4", note: "TB 33 NH 12/4: ~26.100–26.360 · ACB: 26.150/26.360 · Sacombank mua cao nhất: 26.220 · SCB bán thấp nhất: 26.350" },
-    tg_tu_do_mua:  { value: "26.600", updated: "26/06/2026", source: "tygiausd.org 10/6", note: "Chợ đen mua 10/6: 26.340 · EMP INVERTED: Chợ đen MUA (26.340) thấp hơn VCB MUA (26.100) +240d NHƯNG thấp hơn VCB BÁN (26.410) -70d · Người có USD muốn bán nhưng ít người mua" },
-    tg_tu_do_ban:  { value: "26.640", updated: "26/06/2026", source: "tygiausd.org 10/6", note: "Chợ đen bán 10/6: 26.360 · EMP INVERTED: 26.360-26.410 = -50d · Lần đầu tiên chợ đen rẻ hơn VCB · US tái không kích Iran 10-11/6 nhưng EMP vẫn âm (thin market)" },
-    spread_emp:    { value: "DUONG +184d (26/6 · giam tu +223d · on dinh) · Cho den 26.600/26.640 vs VCB 26.456 · CME Fed T9: 69.1% tang LS (nhay vot tu 29.1%!) · DXY 101.7 · Xang ky 25/6: RON95 19.916d (DUOI 20.000d LAN DAU!) → CPI T6-T7 giam manh → he tro VND trung han", updated: "26/06/2026", source: "tính toán 13/4", note: "10/6 INVERTED -50d: Chợ đen BÁN (26.360) < VCB BÁN (26.410) = -50d · Lần đầu tiên trong lịch sử · Nguyên nhân: deal Iran + thin market + USD vào NH · Hành trình: 549d (đỉnh T3) → +27d (29/5) → -50d (10/6) · US tái không kích 10-11/6 nhưng EMP vẫn âm" },
+    tg_tu_do_mua:  { value: "26.830", updated: "29/06/2026", source: "tygiausd.org 10/6", note: "Chợ đen mua 10/6: 26.340 · EMP INVERTED: Chợ đen MUA (26.340) thấp hơn VCB MUA (26.100) +240d NHƯNG thấp hơn VCB BÁN (26.410) -70d · Người có USD muốn bán nhưng ít người mua" },
+    tg_tu_do_ban:  { value: "26.870", updated: "29/06/2026", source: "tygiausd.org 10/6", note: "Chợ đen bán 10/6: 26.360 · EMP INVERTED: 26.360-26.410 = -50d · Lần đầu tiên chợ đen rẻ hơn VCB · US tái không kích Iran 10-11/6 nhưng EMP vẫn âm (thin market)" },
+    spread_emp:    { value: "DUONG +416d (29/6 sang 09h · TANG MANH tu +184d → +416d qua cuoi tuan = +232d!) · Cho den 26.830/26.870 vs VCB 26.454 · Nguyen nhan: USD manh cuoi tuan (PCE My T5: 4.1%) + MSCI giu nguyen VN (khong nang cap) + TT2 spike dau tuan · DXY duy tri cao 13 thang · NHNN bom rong lai sau 3 tuan hut ròng", updated: "29/06/2026", source: "tính toán 13/4", note: "10/6 INVERTED -50d: Chợ đen BÁN (26.360) < VCB BÁN (26.410) = -50d · Lần đầu tiên trong lịch sử · Nguyên nhân: deal Iran + thin market + USD vào NH · Hành trình: 549d (đỉnh T3) → +27d (29/5) → -50d (10/6) · US tái không kích 10-11/6 nhưng EMP vẫn âm" },
     forecast_mua:  { value: "26.000-26.300 (KB-B deal → DXY yeu → VND manh) · 26.300-26.500 (KB-C stalemate hien tai) · VNDIRECT: 27.100 cuoi nam neu khong co deal · EMP hien tai 27d → pricing deal gan", updated: "29/05/2026", source: "Nội bộ", note: "Dự báo mua Q2: 25.800–26.100 · UOB Q2 VCB bán: 26.100" },
     forecast_ban:  { value: "VNDIRECT du bao LNH: 27.100 cuoi 2026 (ap luc con lon) · Hien tai: VCB ban 26.393 | EMP 27d → thi truong tin deal · Neu deal: ve 25.800-26.100 trong T6-T7", updated: "29/05/2026", source: "Nội bộ", note: "Dự báo bán Q2: 26.100–26.400 · Ceasefire + DXY yếu = VND hưởng lợi" },
     uob_q2:        { value: "VNDIRECT T5/2026: Ty gia LNH cuoi 2026 len 27.100d/USD · cuoi 2027: 27.778d/USD · Ap luc tu nhap sieu 7,11 ty + lam phat + USD du manh · CPI binh quan 2026: 5,4% (muc cao nhat CTCK) · Brent cao → xang tang → CPI kho kiem soat · NHNN kho ha LS khi CPI vuot 4,5%", updated: "29/05/2026", source: "UOB Research", note: "UOB Q2/2026: 26.100 · Q3: 26.000 · Q4: 25.900 · [v3.18 FIX: 26400→26100]" },
@@ -220,7 +220,7 @@ const D = {
   },
 
   oil: {
-    brent:          { value: "$75.26 (26/6 sang · bounce +$1.52 sau crash $73.74) · WTI $71.45 (+$1.60) · Phuc hoi ky thuat sau 5 phien giam · CME Fed T9: 69.1% tang LS → USD manh → oil headwind · Brent $70-75 la vung tich luy moi", updated: "26/06/2026", source: "CNBC/Reuters 25/4", note: "Brent 25/4: $101-105 · ceasefire gia han nhung Iran bat MSC Francesca · Witkoff+Kushner Pakistan 25/4 · IEA: largest energy threat in history · Goldman Q2:$90 base" },
+    brent:          { value: "$75.09 (29/6 open · on dinh vung $73-76) · GOLDMAN SACHS CAT Q4: $80 (tu $90) · Goldman moi: Persian Gulf exports ve pre-war levels CUOI THANG 7 (sớm hơn 1 thang du bao cu) · ≥20 tau dau da qua Hormuz tu khi deal · Saudi tankers huong Ras Tanura terminal · Iraq de doa bo OPEC neu khong tang quota", updated: "29/06/2026", source: "CNBC/Reuters 25/4", note: "Brent 25/4: $101-105 · ceasefire gia han nhung Iran bat MSC Francesca · Witkoff+Kushner Pakistan 25/4 · IEA: largest energy threat in history · Goldman Q2:$90 base" },
     wti:            { value: "$70.34 (24/6 close · -$2.87 / -3.9%) · WTI open 25/6: ~$69-70 · WTI pre-war base: ~$63-67 → con ~$3-7 war premium residual", updated: "25/06/2026", source: "CNBC 25/4", note: "WTI 25/4: ~$92-94 · ceasefire gia han nhung Iran bat MSC Francesca · Strait van dong cua hieu qua · IEA: largest energy threat in history" },
     spread_futures: { value: "Backwardation: spot $107 > futures $102-104 (market: shortage hien tai > tuong lai) · IEA: den T10 moi binh thuong du deal T6 · Contango khi deal xay ra", updated: "17/05/2026", source: "Ước tính", note: "Backwardation 10/4: ~$10–15 · Jun WTI ~$82–85 vs May ~$94–96" },
     iea_release:    { value: "IEA T5/2026: undersupply nghiem trong den T10 du xung dot ket thuc T6 · Cruise flow giam 4M bbl/ngay T3-T4 · Khuyen nghi IEA Emergency Release: chua duoc kich hoat", updated: "17/05/2026", source: "Reuters/IEA", note: "Còn ~250M thùng dự trữ để dùng · Đủ 3–4 tuần thêm" },
@@ -255,9 +255,9 @@ const D = {
   },
 
   gold: {
-    tg_usd: { value: "$4.035/oz (26/6 sang · bounce $37 tu DAY $3.998 ngay 25/6 · DA PHA NGUONG $4.000 LAN DAU!) · SJC 25/6: 143.2-146.2M (-800k) · Chenh lech TG+SJC: ~19M/luong · DXY 101.7 → gold chiu ap luc kep", updated: "26/06/2026", source: "kitco/litefinance 12/6", note: "Vang TG 12/6: ~$4.210/oz · Giam $240/oz vs 5/6 ($4.450) · NFP T5: 172k (double) + US CPI 4.2% + DXY vuot 100 = ba luc nhan chim vang · Quy doi VCB 26.410: ~134 trieu/luong (VN) · Chenh SJC vs QT: ~7-9 trieu/luong · Canh bao: FOMC 16-17/6 Warsh hawkish → vang co the tiep tuc giam" },
+    tg_usd: { value: "~\$4.020-4.050/oz (29/6 sang · giam nhe tu ~\$4.050 cuoi tuan) · SJC 29/6 sang: duoi 148M/luong (tu 148.5M toi 27/6) · SJC bán ra: ~146.2M · Gold range: \$3.998-\$4.050 (cuoi tuan · bo nguong \$4.000 va bounce) · PCE 4.1% softer → USD giam nhe → gold on dinh", updated: "29/06/2026", source: "kitco/litefinance 12/6", note: "Vang TG 12/6: ~$4.210/oz · Giam $240/oz vs 5/6 ($4.450) · NFP T5: 172k (double) + US CPI 4.2% + DXY vuot 100 = ba luc nhan chim vang · Quy doi VCB 26.410: ~134 trieu/luong (VN) · Chenh SJC vs QT: ~7-9 trieu/luong · Canh bao: FOMC 16-17/6 Warsh hawkish → vang co the tiep tuc giam" },
     sjc_mua: { value: "~143.200.000", updated: "26/06/2026", source: "SJC/DOJI/PNJ 10/6", note: "SJC mua 10/6: 136,3 triệu/lượng (GIAM 18,7 trieu/luong vs 5/6 · BTMC: 138,8 trieu) · Giam 4 phien lien tiep · NFP 172k + DXY 100 + US CPI 4,2% · Tu dinh ~169 (12/4) → 136 (-19.5%) tuần trước · Vàng nhẫn mua: 169,1 triệu · Cao hơn TG ~21,6 triệu/lượng" },
-    sjc_ban: { value: "~146.200.000", updated: "26/06/2026", source: "SJC/DOJI/PNJ/BTMC 10/6", note: "SJC ban 10/6: 141,3 trieu/luong (BTMC: 143,8 trieu · Spread 5 trieu) · Giam 15,7 trieu vs 5/6 (157→141) · Premium vs the gioi: ~7-9 trieu/luong · Du bao: FOMC 16-17/6 Warsh → vang co the tiep tuc giam triệu · Người mua lỗ 5,1 triệu/lượng sau 1 tuần · Vàng nhẫn bán: 172,1 triệu" },
+    sjc_ban: { value: "~146.200.000", updated: "29/06/2026", source: "SJC/DOJI/PNJ/BTMC 10/6", note: "SJC ban 10/6: 141,3 trieu/luong (BTMC: 143,8 trieu · Spread 5 trieu) · Giam 15,7 trieu vs 5/6 (157→141) · Premium vs the gioi: ~7-9 trieu/luong · Du bao: FOMC 16-17/6 Warsh → vang co the tiep tuc giam triệu · Người mua lỗ 5,1 triệu/lượng sau 1 tuần · Vàng nhẫn bán: 172,1 triệu" },
   },
 
   yield_curve: {
@@ -310,7 +310,7 @@ const D = {
     t1_2026:     { value: 2.53, updated: "10/06/2026", source: "Cục Thống kê", note: "CPI T1/2026: +2,53% YoY · Ổn định · Trước xung đột 28/2 · Nhóm GT: +0,3% · Lạm phát cơ bản: +3,6%" },
     t2_2026:     { value: "T2: ~3,0% | T3: 4,65% | T4: 5,46% | T5: 5,6% (chinh thuc 3/6) · Nhom GT T5: +12,5% YoY (ky luc do dau) · Lam phat co ban T5: 4,67%", updated: "12/06/2026", source: "GSO/Cục TK 3/6", note: "CPI T2: ~3,0% · T3: 4,65% (chinh thuc đỉnh 5 năm) · T4: 5,46% · T5: 5,6% (+0,29% MoM) · 3 tháng liên tiếp vượt mục tiêu 4,5%" },
     bq_2t:       { value: "4,31% · BQ 5T/2026 (chinh thuc) · Lam phat co ban 5T: 4,04%", updated: "12/06/2026", source: "GSO 3/6/2026", note: "BQ 5T/2026: +4,31% YoY · Lam phat co ban 5T: +4,04% · T5 rieng le: 5,6% (manh nhat tu 1/2020) · Nhom GT binh quan 5T: +10,4%" },
-    t3_forecast: { value: "T5: 5.6% chinh thuc · Ky 25/6 XONG: RON95 19.916d (duoi 20.000d!) · E5RON92 19.359d · Diesel 21.866d · CPI T6 du bao: 3.0-3.5% (manh hon du bao · RON95 giam 10.199d=-33.9% tu dinh!) · CPI T7: 2.0-2.5% (rat xa duoi MT 4.5%!) · NHNN ha LS OMO T8: CHAC CHAN NHAT TU DAU NAM 2026 · Signal A1 sap XANH", updated: "26/06/2026", source: "Cục Thống kê 4/4/2026", note: "CPI T3/2026 CHÍNH THỨC: +4,65% YoY (đỉnh 5 năm) · +1,23% MoM · CPI T4 tiếp tục cao" },
+    t3_forecast: { value: "T5: 5.6% chinh thuc · BO TC 3 KB LAM PHAT 2026: thap nhat 3%, trung binh 4.5%, cao nhat 5.5% · NHUNG voi RON95 19.916d + Brent $75 → CPI T6 du bao: 3.0-3.5% (duoi KB thap nhat cua BoTC!) · T7: 2.5-3.0% · NHNN room ha LS T8: CANG CHAC CHAN · Neu KBNN mo van → TT2 ha nhanh → hieu luc NHNN tang", updated: "29/06/2026", source: "Cục Thống kê 4/4/2026", note: "CPI T3/2026 CHÍNH THỨC: +4,65% YoY (đỉnh 5 năm) · +1,23% MoM · CPI T4 tiếp tục cao" },
     muc_tieu:    { value: 4.5, updated: "17/05/2026", source: "QH/CP", note: "Mục tiêu 4,5%/năm (2026) · T3: 4,65% > MT · T4: 5,46% > MT · T5: 5,6% > MT · 3 tháng liên tiếp vượt mục tiêu · T6: 4,8-5,2% (du bao · xang giam nhieu) · NHNN khong the ha LS khi CPI con cao" },
   },
 
@@ -348,7 +348,7 @@ const D = {
   nsnn: {
     thu_2t:     { value: "Thu NSNN 4T: tich cuc theo da phuc hoi · Chi: tang do DTC + luong co so 2,53 trieu tu 1/7/2026 · Boi chi trong kiem soat · JICA ODA: 39,3 ty Yen ha tang mien nui phia Bac", updated: "17/05/2026", source: "Kho bạc NN", note: "Thu NSNN Q1/2026: ~750 nghìn tỷ · Thặng dư 299,3 nghìn tỷ" },
     chi_2t:     { value: "Chi DTC: ~144.000T/1,1 trieu ty (13% · cham) · Luong co so tang 1/7: them ap luc chi thuong xuyen · JICA ODA: 39,3 ty Yen · Bien dong NVL (Brent $107) lam cham giai ngan", updated: "17/05/2026", source: "Kho bạc NN", note: "Chi NSNN Q1/2026: ~450 nghìn tỷ · Chi tăng >23% YoY" },
-    dong_kbnn:  { value: "TT08/2026 (15/5): 20% KBNN ky han duoc tinh vao mau so LDR · Big4 LDR giam 1,1-1,5% · VCB/BID/CTG huong loi truc tiep · Tong room mo them ~130-150k ty · TT26 (CDR day du) van chua ban hanh", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "Thặng dư NSNN Q1/2026 CHÍNH THỨC: +299,3 nghìn tỷ" },
+    dong_kbnn:  { value: "CHINH PHU YEU CAU NHNN: nghien cuu dung tien gui KBNN tang thanh khoan NH (29/6 · SUY KIEN LON NHAT TUAN!) · Tien KBNN hien dang bam vao tai khoan NHNN (~1.000 ngan ty theo BSC) → neu duoc chuyen sang ngan hang TM: D tang manh → LDR giam nhanh → TT2 ha → Signal A3 co the XANH · Ket hop voi TT08 (LDR): 2 outside money catalysts quan trong nhat 2026", updated: "29/06/2026", source: "Cục Thống kê 4/4/2026", note: "Theo BSC uoc: KBNN tien mat ~1.000 ngan ty. Neu 50% duoc dung (500k ty) → LDR he thong giam 500/8.000 ≈ -6.25%! → LDR ve ~107-108% → TT2 on dinh → NHNN room ha LS. Day la 'outside money' quan trong nhat co the xay ra trong Q3" },
     co_che:     { value: "Thu>>Chi → ~290k tỷ đọng KBNN → rút khỏi M2 → siết TK TT2 → LS LNH cao T1-T3. Đảo chiều khi ĐTC tăng tốc Q2", updated: "10/04/2026", source: "MV=PQ", note: "" },
   },
 
@@ -388,7 +388,7 @@ const D = {
     chain_a_m2:     { value: "Brent giảm → CPI hạ → NHNN room bơm → M2 tăng → tín dụng phục hồi Q2", updated: "17/05/2026", source: "Chain A hạ nhiệt", note: "" },
     chain_b_tax:    { value: "Kỳ thuế T6 (30/6) = điểm theo dõi tiếp theo → spike TT2 khoảng tháng 6", updated: "17/05/2026", source: "Chain B", note: "" },
     chain_c_freight:{ value: "Brent $95 + Hormuz mở → Cước giảm → CPI T5-T6 hạ → NHNN có room hỗ trợ", updated: "17/05/2026", source: "Chain C hạ nhiệt", note: "" },
-    net_signal:     { value: "26/6: RON95 19.916d (KY 25/6 DONE · DUOI 20.000d LAN DAU!) · Diesel 21.866d · CPI T6: 3.0-3.5% · T7: 2.0-2.5% · VCB 26.106/26.456 · EMP +184d · Brent $75.26 (bounce tu $73.74) · Gold $4.035 (da pha $4.000 roi bounce) · SJC 143.2-146.2M · CME Fed T9: 69.1% tang LS · DXY 101.7 · BoTC: de xuat gia han 3T thue uu dai xang · Signal A1 sap XANH · NHNN ha LS T8: CHAC CHAN", updated: "26/06/2026", source: "Changelog" },
+    net_signal:     { value: "29/6: EMP VOT +416d (tu +184d = +232d qua cuoi tuan!) · Cho den 26.870 (MSCI khong upgrade VN + PCE My 4.1%) · TC NHNN 25.201 · VCB 26.084/26.454 · Goldman cat Q4 Brent $80 (tu $90) · Persian Gulf pre-war cuoi T7 · CHINH PHU: KBNN thanh khoan = outside money lon nhat 2026 · TT2 6.2% spike → NHNN bom rong · CME T9: 62% (giam tu 69%) · MSCI giu nguyen VN · SJC <148M · CPI T6 sap ra → A1 gan XANH", updated: "29/06/2026", source: "Changelog" },
     v321_changes: { value: "v3.21 · 14/04 ⚠️ CẬP NHẬT: Hormuz phong tỏa đang thực thi · Ngừng bắn tạm thời 2T · Iran liên hệ Trump · EMP 549đ · Brent 99–103 · Chợ đen 26.860/26.910 · Confluence 9,0/10 · KB-D 63%", updated: "14/04/2026", source: "Changelog" },
     v320_changes: { value: "v3.20 · 13/04 🚨 ĐẢO CHIỀU: Islamabad talks thất bại · Trump phong tỏa Hormuz · WTI +9,3%→>$105 · Brent bật mạnh · KB-D trở lại · VCB giảm LS 24T: 6,5%→6%/năm · Chợ đen 26.800/26.830 · Scorecard API key guide", updated: "21/04/2026", source: "Changelog", note: "" },
     roadmap: [
@@ -513,7 +513,7 @@ const D = {
   },
 
   signals: {
-    tuan_nay:        { value: "26/06 v3.83: RON95 KY 25/6: 19.916d (DUOI 20.000d!) · E5RON92 19.359d · Diesel 21.866d (-51% tu dinh) · Brent $75.26 bounce · Gold $4.035 (pha $4.000 roi bounce) · SJC 143.2-146.2M · EMP +184d · VCB 26.106/26.456 · CME Fed T9: 69.1% (tu 29.1%!) · DXY 101.7 · BoTC: de xuat gia han 3T thue · CPI T6: 3-3.5% · Signal A1 sap XANH · NHNN ha LS T8 chac chan nhat", updated: "26/06/2026", source: "tổng hợp", note: "Tuần cực nóng — KB-D xác nhận" },
+    tuan_nay:        { value: "29/06 v3.85: EMP +416d (VOT tu +184d qua cuoi tuan · MSCI khong upgrade) · VCB 26.084/26.454 · Cho den 26.870 · TC 25.201 · TT2 6.2% spike dau tuan · NHNN bom rong lai · CHINH PHU: KBNN mo van = outside money DAI LON · Goldman cat Q4 Brent $80 · Persian Gulf pre-war cuoi T7 · PCE My 4.1% (softer) · CME T9: 62% (giam) · CPI T6 cuoi thang (<3.5%) · MSCI giu nguyen VN · FTSE 21/9 van con co hoi", updated: "29/06/2026", source: "tổng hợp", note: "Tuần cực nóng — KB-D xác nhận" },
     trump_watch:     { value: "7/6: Trump chinh sua MOU (uranium + Hormuz) · Dam phan 'orderly and constructive' · Trump: 'khong nen voi vang, phai chinh xac' · Brent $92 (-1.8%) · WTI $87.59 · Dow 50.902 (+0.5%) · Nikkei all-time high · EMP -14d · Deal chinh thuc: du kien 8-10/6 · US-Vietnam trade: 1 dieu khoan lam nhieu nuoc lo", updated: "07/06/2026", source: "CNBC/Reuters/Fox", note: "Hegseth dập lửa: ceasefire label vẫn giữ — Mỹ không muốn leo thang công khai" },
     q2_du_bao_cpi:   { value: "CPI T5/2026: +5,6% YoY (+0,29% MoM chinh thuc) · Nhom Giao thong T5: +12,5% YoY (ky luc do dau) · Binh quan 5T: +4,31% · Lam phat co ban T5: +4,67% · 5T: +4,04% · T6 se ha khi xang 1/6 giam (RON95 24.150d -20% tu dinh)", updated: "17/05/2026", source: "tính toán", note: "CPI T4 đã 5.46% — NHNN không thể nới lỏng" },
     q2_du_bao_ls:    { value: "TT1 hien tai: Big4 7,8-8% · Big TMCP 8-8,5% · NH nho 9-10% · TT08/2026 giam LDR Big4 → ha nhiet Q3 · Du bao: TT1 Big4 ve 7,0-7,5% Q3 neu Brent <$100 + CPI ha", updated: "17/05/2026", source: "tính toán", note: "CDR draft thắt hơn LDR — xem chi tiết section LDR" },
@@ -525,10 +525,10 @@ const D = {
     market_risk:  { value: "TICH CUC (7/6): Trump chinh sua MOU → deal khi · Brent $92 · WTI $87.59 · Dow/S&P/Nikkei all-time high · EMP -14d gan ve 0 · Risk-on toan cau · CPI VN T5 cao nhat tu 2020 (con rui ro NHNN) · Bob Parker: Brent $90-100 2 thang (infrastructure) · US-Vietnam trade agreement: co dieu khoan dang lo", updated: "07/06/2026", source: "Reuters/OilPrice", note: "Stocks: Dow -557pts · S&P -0.41% · Energy sector +0.6% (duy nhất xanh)" },
     hormuz_plan:  { value: "Project Freedom: tam dung sau deal signal · 2 tau My transit thanh cong · 30 tau qua Hormuz 13/5 (TQ + trung lap) · Deal 14-point chua ky · Rezaei doi boi thuong · IEA: undersupply den T10", updated: "17/05/2026", source: "CENTCOM", note: "Limited scope — không giải quyết Hormuz shipping crisis hoàn toàn" },
     oil_action:   { value: "Hien tai: Brent $107-108 · TQ mua dau My (Trump-Xi) · OPEC+ +188k bpd T6 (symbolic) · IEA Emergency Release: chua kich hoat · Trump: khong can Hormuz mo (roi phu nhan) · SPR: giu lam don bay", updated: "17/05/2026", source: "tổng hợp", note: "SPR không khai thác do cần leverage đàm phán" },
-    fed_signal:   { value: "CME FedWatch 25/6 NHAY VOT: T7: 36.3% tang (tu 8.5%) · T9: 69.1% tang (tu 29.1%!) · Boi: FOMC dot plot 17/6 hawkish + DXY 101.7 + market repricing · Tuy nhien: Brent $73-75 + RON95 19.916d → US CPI co the ha → Fed co the less hawkish cac thang toi · NHNN: CPI VN giam nhanh → co the ha LS VND truoc khi Fed tang → Gap CCS giam ca 2 phia", updated: "26/06/2026", source: "Fed/CNBC", note: "Market pricing ≤1 cut 2026 (vs 2 lần dot plot)" },
+    fed_signal:   { value: "PCE My T5/2026: 4.1% (thap hon ky vong · thich mat da tang cua USD) · CME FedWatch 29/6: Fed tang T7: ~30% (giam tu 36.3%) · T9: ~62.1% (giam tu 69.1%) · Interpretation: Fed LESS hawkish hon du bao sau PCE mem hon · VN: CPI T6 se ra cuoi thang → neu <4.5% → NHNN room ha LS T8 ngay cang chac chan hơn", updated: "29/06/2026", source: "Fed/CNBC", note: "Market pricing ≤1 cut 2026 (vs 2 lần dot plot)" },
     tariff_status:{ value: "My-Trung: Dinh chien Busan gia han · My-Viet: CO DIEU KHOAN LAM NHIEU NUOC LO NGAI (6/6) · Chi tiet chua ro · Iran deal sap den → chien tranh thuong mai se duoc quan tam lai · VN rui ro: thuoc dan tu Trung Quoc qua VN bi siet", updated: "07/06/2026", source: "Reuters", note: "VN: nhập siêu 7.11 tỷ 4T — 94% tư liệu SX" },
     vector:       { value: "DEAL IMMINENT (7/6): Trump chinh sua MOU (finalize) · Brent $92 WTI $87.59 · Toan cau risk-on (Nikkei ATH, S&P 7.594) · EMP -14d → sap ve 0 · KB-B 55% DOMINANT · Deal chinh thuc 8-10/6? · Sau deal: Brent $80-90 (Goldman) · CPI VN T6 se ha → NHNN co room Q3", updated: "07/06/2026", source: "Reuters/Al Jazeera", note: "Cả 2 bên leo thang để có vị thế mặc cả tốt hơn — pattern trước deal" },
-    watch_next:   { value: "XANG 25/6 (QUAN TRONG): Brent \$76.68 → xang ky nay: RON95 giam ~400-560d, Diesel giam ~1.200-1.700d (MOPS avg 15d ~$83) · CPI T6 cuoi thang: du bao 4.0-4.5% (xuong duoi muc tieu 4.5% lan dau!) · Gold: test nguong \$4.000 (Citi target) sau dot ban thao? · Brent: co the ve \$70-72 khi Hormuz mo hoan toan va 80M bbl Iran supply vao TT · NHNN: CPI T6 <4.5% → room ha LS OMO T8 chac chan hon", updated: "23/06/2026", source: "tổng hợp", note: "Hajj deadline ~20/5 = pressure mềm cho deal" },
+    watch_next:   { value: "CPI T6 cuoi thang (KEY: <4.5%? xac nhan A1 XANH · la nen tang de NHNN ha LS T8) · NHNN quyet dinh KBNN thanh khoan (neu ra nghi quyet chinh thuc: outside money lon nhat 2026) · Xang ky tiep ~9/7 (Brent $75 → giam tiep?) · Goldman Q3/Q4 revision: Persian Gulf exports pre-war cuoi T7 · MSCI khong upgrade VN (da xay ra) nhung FTSE 21/9 van con co hoi · CME Fed T7 (28/7): 30% kha nang tang (theo doi data My)", updated: "29/06/2026", source: "tổng hợp", note: "Hajj deadline ~20/5 = pressure mềm cho deal" },
   },
 
   review: {
@@ -1050,7 +1050,7 @@ document.getElementById('panel-omo').innerHTML=`
             <td style="font-weight:700;color:var(--ok)">A1</td>
             <td><strong>CPI ≤4,0%</strong> trong ≥2 tháng liên tiếp · Không phải dự báo — phải là số thực tế GSO</td>
             <td class="g" style="text-align:center;font-weight:700">&lt;4,0%</td>
-            <td class="g">🟢 SAP XANH: RON95 19.916đ (kỳ 25/6 DONE) → CPI T6: 3,0-3,5% ✓ · CPI T7: 2,0-2,5% ✓ · 2 tháng liên tiếp &lt;4% rất khả quan · A1 gần ĐẠT!</td>
+            <td class="g">🟢 SAP XANH CHAC CHAN: RON95 19.916đ · CPI T6 cuoi thang ≈ 3,0-3,5% (Bộ TC KB thấp cũng 3%) · T7: 2,5-3,0% · A1 = ĐẠT trong T7 · PCE Mỹ 4,1% softer → Fed bớt hawkish → A2 cũng cải thiện</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--ok)">A2</td>
@@ -1086,7 +1086,7 @@ document.getElementById('panel-omo').innerHTML=`
             <td style="font-weight:700;color:var(--blue)">B2</td>
             <td><strong>ĐTC giải ngân ≥40% kế hoạch</strong> (T7-T8 mùa vụ) · Outside money → D↑ → LDR↓ → room NH giảm HĐ · Mỗi 100k tỷ = LDR -2,5%</td>
             <td class="y" style="text-align:center;font-weight:700">≥40%</td>
-            <td class="y">⏳ 5T: ~17-18% · Cần tăng gấp đôi T7-T8 · Lịch sử: T7-T8 luôn là 2 tháng cao nhất · Theo dõi hàng tuần</td>
+            <td class="y">⏳ 5T: ~17-18% + CATALYST MỚI: CP yêu cầu NHNN dùng tiền KBNN → nếu thực hiện: D↑ lớn → LDR↓ nhanh · Tháng 7-8 mùa vụ cao nhất · Theo dõi NQ/TT NHNN</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B3</td>
@@ -1139,7 +1139,7 @@ document.getElementById('panel-omo').innerHTML=`
       <div style="background:rgba(0,0,0,.2);border-radius:3px;padding:8px 10px">
         <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📊 Score 25/6</div>
         <div style="color:var(--dim2);line-height:2">
-          Tầng 1: 1,5/3 (A1 sắp xanh)<br>
+          Tầng 1: 2/3 (A1 gần XANH CHẮC · A2 cải thiện)<br>
           Tầng 2: 0/3 ⏳<br>
           <span style="color:var(--ok)">→ Mục tiêu: T1≥2/3 + B1 xanh</span>
         </div>
