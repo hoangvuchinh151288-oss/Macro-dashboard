@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.83 | 26/06/2026</title>
+<title>VN Macro Dashboard v3.84 | 26/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.83",
+    version: "3.84",
     date: "26/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -285,7 +285,7 @@ const D = {
     luu_hanh_truoc: { value: "OMO đỉnh T5: ~272.000 tỷ (sau bơm ròng 89.632T tuần 20-27/4) · TT08/2026 (15/5): thêm 130-150k tỷ room Big4 · T6: OMO ~325-327k tỷ · Spike TT2 11% (2/6) → NHNN FX Swap 1 tỷ USD (1/6) bơm thêm 23.932 tỷ", updated: "12/06/2026", source: "cafef/vietstock 12/6", note: "OMO T6: ~325-327k tỷ lưu hành · NHNN duy trì bơm để giữ TT2 6.6-7% · FX Swap 1 tỷ USD = outside money thực sự" },
     trang_thai:     { value: "15/6 DEAL COMPLETE: Trump 'Now Complete' · KY 19/6 SWITZERLAND · UN Guterres ung ho · G7 Evian 15/6: Hormuz reopening · 3/5 tin hieu TT1 peak xanh · Brent $87 (<$90 ✓ · Signal #5 XANH) · CPI pathway: T7: 3.5-4% → NHNN ha LS T8 → TT1 Q4: 6.0-6.5% · EMP -59d se dao chieu tuan toi · Stock futures tang manh", updated: "15/06/2026", source: "12/6 tổng hợp", note: "TT2 O/N: 6.6-7% (spike 11% ngày 2/6 → NHNN can thiệp) · OMO 325-327k tỷ · LDR 114% · Re-escalation Iran 10-11/6 tạo áp lực mới" },
     ls_omo:         { value: 4.5, updated: "12/06/2026", source: "NHNN 12/6", note: "LS OMO: 4,5%/năm · NHNN giữ nguyên · CPI 5,6% + LDR 114% = không thể hạ · Khi KB-B deal + CPI <4,5%: có thể hạ 25-50bps T8 FIX: 4.5→4.0] · NHNN chỉ đạo NH giảm thương mại" },
-    co_che:         { value: "LDR→CDR THAY THẾ (Dự thảo TT mới vs TT22): (1) CDR loại KBNN không kỳ hạn (0%) và chỉ tính 80% KBNN kỳ hạn → D NHỎ HƠN → CDR CAO HƠN LDR → NH bị THẮT hơn không phải nới. (2) C (tử số) thêm trái phiếu DN → CDR tăng thêm. (3) C được trừ vốn CSH → giảm CDR một phần. (4) TẠM THỜI: TT22 vẫn hiệu lực đến khi TT mới ban hành. Tác động ròng: CDR > LDR hiện tại → TT1 KHÔNG hạ nhiệt từ quy định này", updated: "28/04/2026", source: "danviet/giadinh", note: "" },
+    co_che:         { value: "INSIDE MONEY (NH thương mại tạo): TD +3.18% YTD → ~445.000 tỷ ròng/5T · OUTSIDE MONEY (từ ngoài vào): ĐTC 185k tỷ + FDI $7.4 tỷ≈193k tỷ + NHNN mua FX ≈ ~550k tỷ/5T · NHƯNG: phân bổ không đều → một số NH có LDR 120%+ trong khi hệ thống 114%", updated: "26/06/2026", source: "danviet/giadinh", note: "" },
     rang_buoc_cau_truc: { value: "CDR vs LDR: Dự thảo TT mới thay LDR bằng CDR. KBNN kỳ hạn: 80% vào D (vs 100% theo TT22 từ 2026) → D giảm → CDR tăng. KBNN không kỳ hạn: 0% (bị loại hoàn toàn). Vốn CSH trừ khỏi C → bù một phần. Tác động ròng: NH bị THẮT hơn TT22. LCR/NSFR (Basel III) thay tỷ lệ chi trả từ 1/1/2028. LDR vẫn 85% max nhưng cách tính khác.", updated: "17/05/2026", source: "Phân tích", note: "🔴 3 ràng buộc: (1) Ổn định tỷ giá (2) LDR ~100% (3) Forward USD. Khi 3 ràng buộc chưa tháo → LS là trạng thái cân bằng mới đến ít nhất Q3/2026" },
     alert:          { value: "⚠️ Kỳ thuế T6 (30/6) → spike LS O/N tiếp theo · LNH O/N 3,88% hạ nhiệt (21/4)", updated: "17/05/2026", source: "Lịch thuế", note: "" },
   },
@@ -334,13 +334,15 @@ const D = {
   },
 
   m2: {
-    yoy_2025:  { value: "M2 T3/2026: +1,04% YTD (den 24/3) · Tin dung: +3,18% YTD → mat can doi M2/TD · TT08/2026 (15/5): Big4 room mo → M2 se tang nhanh hon trong T5-T6 · DTC giai ngan la key catalyst", updated: "17/05/2026", source: "NHNN/GSO", note: "M2 YoY 2025: +13,5% · 2026 target: ~14-15% · Q1 tín dụng +2,65%" },
-    abs_2025:  { value: "~14 trieu ty (tong du no toan he thong uoc 2026) · Big4 chiem ~50% · LDR trung vi 108.9% (truoc TT08/2026) · Du bao: LDR giam ve 106-107% sau TT08", updated: "17/05/2026", source: "NHNN ước tính", note: "M2 cuối 2025: ~20.000 nghìn tỷ · Q1/2026 tín dụng 19,08 triệu tỷ" },
-    multiplier:{ value: "~5,5-6,0x (so nhan tien M2/M0) · Thap vi LDR cao · TT08/2026 + DTC giai ngan se nang so nhan nay len Q3 · NHNN bom rong 89,632 ty = tin hieu tich cuc", updated: "17/05/2026", source: "NHNN tính toán", note: "Money multiplier: ~4,3 · LDR 100% = multiplier cao" },
-    tin_dung:  { value: "TD T1/2026: +3,18% YTD Q1 · HĐ +0,44% YTD · M2 +1,04% YTD · Mismatch: TD >> HĐ >> M2 → LDR 114%", updated: "12/06/2026", source: "VCBS/Thanhnien", note: "Tốc độ tín dụng: T1 +3.18% là cao nhất đầu năm so với nhiều năm · Nguy cơ LDR tiếp tục tăng H2" },
+    yoy_2025:  { value: "TD 5T/2026: +3.18% YTD vs HĐ +0.6% → NET INSIDE MONEY CREATION +2.58% · Engine tạo tiền chính trong nền kinh tế (không phải NHNN) · LDR 114% = biểu hiện của credit creation vượt deposit growth", updated: "26/06/2026", source: "NHNN/GSO", note: "M2 YoY 2025: +13,5% · 2026 target: ~14-15% · Q1 tín dụng +2,65%" },
+    abs_2025:  { value: "~14.000.000 tỷ tổng dư nợ hệ thống (≈130% GDP · Inside money = tiền do NH TẠO RA qua bút toán cho vay) · Tốc độ tạo mới: +3.18% YTD (~445.000 tỷ ròng/5T) · Tốc độ hủy (trả nợ+NPL): ước -1.5% → NET creation ~+1.68%/tháng", updated: "26/06/2026", source: "NHNN/GSO", note: "Inside money ≠ tiền NHNN bơm. NH tạo tiền bằng bút toán kép: Tài sản (+cho vay) / Nợ (+tiền gửi) cùng lúc → bảng cân đối nền kinh tế phình ra" },
+    multiplier:{ value: "❌ KHÁI NIỆM LỖI THỜI (Bank of England 2014 bác bỏ chính thức) · Thực tế: NH cho vay TRƯỚC, tìm dự trữ SAU (ngược lý thuyết cũ) · NHTW kiểm soát GIÁ tiền (lãi suất) chứ không kiểm soát SỐ LƯỢNG M2 trực tiếp", updated: "26/06/2026", source: "Bank of England 2014", note: "Nhân tố thực sự giới hạn credit creation: (1) CAR/Basel vốn (2) Cầu tín dụng (3) NPL — không phải dự trữ bắt buộc" },
+    tin_dung:  { value: "CAR Big4: ~10-11% (min Basel 8% · floor còn 2-3%) · NPL hệ thống: ~2.5-3% chính thức (~5-7% ẩn) · Ý nghĩa: CAR = giới hạn THỰC SỰ tạo tín dụng; NPL tăng 1% = HỦY ~140.000 tỷ inside money", updated: "26/06/2026", source: "NHNN/WB Q1/2026", note: "NH không thể tạo tiền vô hạn vì: (1) CAR về 8% → buộc giảm cho vay → money contracts (2) NPL tăng → xóa nợ → money destroyed (3) Cầu tín dụng yếu → không tạo được" },
     co_che:    { value: "NHNN hút ròng M0 → M2 kiểm soát · tín dụng +2,65% YTD T3. M2 Q1/2026 CHƯA CÓ chính thức (công bố theo quý, có cuối T4)", updated: "10/04/2026", source: "MV=PQ", note: "" },
     irp_link:  { value: "M2 tăng ~12–14% YoY vs GDP ~8–10% → áp lực VND dài hạn", updated: "10/04/2026", source: "PPP/IRP proxy", note: "" },
-    data_limit:{ value: "⚠️ NHNN chỉ công bố M2 theo QUÝ — không có số tháng. Q1/2026 sẽ có cuối T4", updated: "10/04/2026", source: "Phân tích cấu trúc", note: "" },
+    data_limit:{ value: "⚠️ NHNN chỉ công bố M2 theo QUÝ (không real-time) · Q1/2026 là số liệu chính thức gần nhất · Tuy nhiên: TD (proxy tốt hơn M2) được cập nhật thường xuyên → dùng TD growth làm leading indicator tốt hơn M2 YoY", updated: "26/06/2026", source: "Phân tích cấu trúc", note: "" },
+    outside_money_flow: { value: "5T/2026: ĐTC 185k tỷ + FDI $7.4 tỷ≈193k tỷ + NHNN mua FX ≈50k tỷ = ~428k tỷ · vs Inside money net ~445k tỷ · Thâm hụt ~17k tỷ → LDR tiếp tục tăng · ĐTC cần 40%+ để đảo ngược", updated: "26/06/2026", source: "NHNN/MPI", note: "Outside money: D↑ mà không tăng credit → LDR giảm THỰC CHẤT. OMO không phải outside money!" },
+    net_money_flow:    { value: "Net Outside - Inside: ~428k - 445k = -17k tỷ (thâm hụt nhỏ → LDR tiếp tục tăng) · Cần ĐTC thêm 200k tỷ H2 để đảo chiều", updated: "26/06/2026", source: "Tính toán", note: "Net>0: LDR giảm tự nhiên. Net<0 (hiện nay): LDR tăng dù OMO bơm mạnh" }
   },
 
   nsnn: {
@@ -584,7 +586,7 @@ const D = {
 <div class="sec"><span class="sec-n">II-c</span> Xăng Dầu VN & Quỹ BÔXD</div>
 <div class="card" id="panel-xang"></div>
 
-<div class="sec"><span class="sec-n">III</span> TT2 Liên Ngân Hàng · Yield Curve · GAP IRP · OMO <span class="theory">IRP · MV=PQ</span></div>
+<div class="sec"><span class="sec-n">III</span> TT2 & OMO · LDR Cấu Trúc <span class="theory">IRP · MV=PQ</span></div>
 <div class="g3">
   <div class="card" style="grid-column:span 2"><div class="ctitle">YIELD CURVE TT2 & GAP IRP <span class="theory">IRP</span></div><div id="panel-yc"></div></div>
   <div class="card"><div class="ctitle">NGHIỆP VỤ THỊ TRƯỜNG MỞ (OMO) <span class="theory">MV=PQ</span></div><div id="panel-omo"></div></div>
@@ -605,6 +607,7 @@ const D = {
 <div class="sec"><span class="sec-n">VI</span> M2 · Số Nhân Tiền Tệ · NSNN → LS LNH · ĐTC <span class="theory">MV=PQ</span></div>
 <div class="g3">
   <div class="card"><div class="ctitle">M2 & SỐ NHÂN TIỀN TỆ <span class="theory">MV=PQ</span></div><div id="panel-m2"></div></div>
+  <div class="card"><div class="card-t"><span class="sec-n">III-b</span> TIỀN NỘI SINH — CƠ CHẾ TẠO TIỀN THỰC TẾ <span class="theory">Endogenous Money · Bank of England 2014</span></div><div id="panel-endogenous"></div></div>
   <div class="card"><div class="ctitle">NSNN → M2 → LS LNH <span class="theory">MV=PQ Mechanism</span></div><div id="panel-nsnn"></div></div>
   <div class="card"><div class="ctitle">ĐẦU TƯ CÔNG 2026 <span class="theory">MV=PQ</span></div><div id="panel-dtc"></div></div>
 </div>
@@ -940,7 +943,13 @@ document.getElementById('panel-yc').innerHTML=`
   ${drow('TPCP 10 năm',v(D.yield_curve.tpcp_10y)+'%/năm','','HNX')}`;
 
 document.getElementById('panel-omo').innerHTML=`
-  <div style="margin-bottom:10px;padding:8px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);border-left:3px solid var(--amber);border-radius:3px"><strong style="color:var(--amber)">🏗️ RỦI RO CẤU TRÚC DÀI HẠN:</strong> <span style="color:var(--dim2)">LDR hệ thống 114% (cao nhất 2026) không phụ thuộc Iran/Fed — chỉ giải quyết được qua outside money (ĐTC giải ngân + NHNN mua USD). Theo dõi panel này song song với Fed làm 2 trục chính thay cho Iran.</span></div>
+  <div style="margin-bottom:8px;padding:8px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);border-left:3px solid var(--amber);border-radius:3px">
+    <strong style="color:var(--amber)">🏗️ RỦI RO CẤU TRÚC DÀI HẠN:</strong> <span style="color:var(--dim2)">LDR 114% không phụ thuộc Iran/Fed — chỉ giải quyết qua outside money thực sự (ĐTC + NHNN mua USD).</span>
+  </div>
+  <div style="margin-bottom:10px;padding:7px 12px;background:rgba(139,92,246,.07);border-left:2px solid var(--purple,#a78bfa);border-radius:0 3px 3px 0;font-size:11px">
+    <strong style="color:var(--purple,#a78bfa)">⚠️ OMO = QUẢN LÝ DỰ TRỮ (Reserve Management) — KHÔNG tạo tiền mới:</strong>
+    <span style="color:var(--dim2)"> NHNN bơm OMO chỉ dịch chuyển <em>thành phần</em> bảng cân đối NH (dự trữ ↑, nợ NHNN ↑) — không làm tổng bảng cân đối nền kinh tế tăng. So sánh: ĐTC giải ngân 100k tỷ → tiền từ KBNN ra dân → dân gửi NH → D↑ → LDR↓ THỰC CHẤT. OMO 100k tỷ → chỉ giúp NH có thanh khoản trong ngày, không cải thiện LDR.</span>
+  </div>
   ${drow('OMO lưu hành (mới nhất)',fmt(v(D.omo.luu_hanh_moi))+' tỷ','y',u(D.omo.luu_hanh_moi)+' · '+n(D.omo.luu_hanh_moi))}
   ${drow('OMO lưu hành (trước đó)',fmt(v(D.omo.luu_hanh_truoc))+' tỷ','d',u(D.omo.luu_hanh_truoc))}
   ${drow('Trạng thái',v(D.omo.trang_thai),'g',u(D.omo.trang_thai))}
@@ -1227,12 +1236,168 @@ document.getElementById('panel-freight').innerHTML=`
 
 // VI. M2 & NSNN
 document.getElementById('panel-m2').innerHTML=`
-  ${drow('M2 YoY 2025','+'+v(D.m2.yoy_2025)+'%','r',n(D.m2.yoy_2025))}
-  ${drow('M2 tuyệt đối',v(D.m2.abs_2025)+' nghìn tỷ','y',u(D.m2.abs_2025))}
-  ${drow('Money Multiplier',v(D.m2.multiplier)+'×','p',n(D.m2.multiplier))}
-  ${drow('Tín dụng Q1',v(D.m2.tin_dung),'b',n(D.m2.tin_dung))}
-  <div class="co co-p" style="margin-top:8px"><strong>MV=PQ:</strong> ${v(D.m2.co_che)}</div>
-  <div class="co co-y" style="margin-top:6px"><strong>Data limit:</strong> ${v(D.m2.data_limit)}</div>`;
+  <!-- HEADER: Cơ chế tạo tiền nội sinh -->
+  <div style="margin-bottom:10px;padding:8px 12px;background:rgba(139,92,246,.08);border-left:3px solid var(--purple,#a78bfa);border-radius:0 3px 3px 0;font-size:11px">
+    <strong style="color:var(--purple,#a78bfa)">🏦 Tiền Nội Sinh (Endogenous Money):</strong>
+    <span style="color:var(--dim2)"> Phần lớn tiền trong nền kinh tế do <strong>NH thương mại tạo ra</strong> qua bút toán cho vay — không phải NHTW bơm ra. NHTW kiểm soát <strong>GIÁ</strong> (lãi suất), không kiểm soát <strong>SỐ LƯỢNG</strong> trực tiếp (Bank of England 2014).</span>
+  </div>
+
+  <!-- ROW 1: Inside Money flow -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+    <div style="background:rgba(239,68,68,.06);border-radius:3px;padding:8px 10px;border-left:2px solid var(--red)">
+      <div style="font-size:10px;color:var(--red);font-weight:600;margin-bottom:3px;letter-spacing:1px">INSIDE MONEY — NH TẠO RA</div>
+      <div style="font-size:13px;color:var(--red);font-weight:700">TD +3,18% YTD</div>
+      <div style="font-size:10px;color:var(--dim2);line-height:1.7;margin-top:3px">≈ +445.000 tỷ ròng/5T<br>Qua bút toán: Cho vay ↑ = Tiền gửi ↑ (đồng thời)<br>Giới hạn: CAR ~10-11% · NPL ~2.5-3%</div>
+    </div>
+    <div style="background:rgba(15,110,86,.06);border-radius:3px;padding:8px 10px;border-left:2px solid var(--ok)">
+      <div style="font-size:10px;color:var(--ok);font-weight:600;margin-bottom:3px;letter-spacing:1px">OUTSIDE MONEY — TỪ NGOÀI VÀO</div>
+      <div style="font-size:13px;color:var(--ok);font-weight:700">~428.000 tỷ/5T</div>
+      <div style="font-size:10px;color:var(--dim2);line-height:1.7;margin-top:3px">ĐTC: 185k tỷ · FDI: 193k tỷ · NHNN mua FX: ~50k tỷ<br>D↑ mà không tăng credit → LDR↓ THỰC CHẤT<br>OMO <em>không</em> phải outside money!</div>
+    </div>
+  </div>
+
+  <!-- NET FLOW + LDR CONNECTION -->
+  <div style="background:rgba(0,0,0,.2);border-radius:3px;padding:8px 10px;margin-bottom:8px;font-size:11px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div><span style="color:var(--dim2)">Net =</span> <span style="color:var(--red)">Inside 445k</span> <span style="color:var(--dim2)"> - </span><span style="color:var(--ok)">Outside 428k</span> <span style="color:var(--dim2)">=</span> <span style="color:var(--red);font-weight:700">THÂM HỤT ~17k tỷ</span></div>
+      <div style="color:var(--amber)">→ LDR 114% tiếp tục tăng</div>
+    </div>
+    <div style="color:var(--dim2);margin-top:4px;font-size:10px">
+      ĐTC cần tăng thêm ~200.000 tỷ trong H2 để Net > 0 → LDR giảm tự nhiên. Mỗi 100k tỷ ĐTC ≈ LDR -2,5%
+    </div>
+  </div>
+
+  <!-- ROW 2: CAR + NPL + Giới hạn thực -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;font-size:11px">
+    <div style="background:rgba(59,130,246,.06);border-radius:3px;padding:7px 8px">
+      <div style="color:var(--blue);font-weight:600;font-size:10px;margin-bottom:3px">CAR Big4</div>
+      <div style="color:var(--ok);font-size:14px;font-weight:700">~10-11%</div>
+      <div style="color:var(--dim2);font-size:10px">Min Basel: 8%<br>Còn room 2-3%</div>
+    </div>
+    <div style="background:rgba(239,68,68,.06);border-radius:3px;padding:7px 8px">
+      <div style="color:var(--red);font-weight:600;font-size:10px;margin-bottom:3px">NPL Hệ Thống</div>
+      <div style="color:var(--amber);font-size:14px;font-weight:700">~2,5-3%</div>
+      <div style="color:var(--dim2);font-size:10px">Ẩn: ~5-7%<br>+1% NPL = hủy 140k tỷ</div>
+    </div>
+    <div style="background:rgba(245,158,11,.06);border-radius:3px;padding:7px 8px">
+      <div style="color:var(--amber);font-weight:600;font-size:10px;margin-bottom:3px">Money Multiplier</div>
+      <div style="color:var(--red);font-size:12px;font-weight:700">❌ Lỗi thời</div>
+      <div style="color:var(--dim2);font-size:10px">BoE 2014 bác bỏ<br>NH vay trước, dự trữ sau</div>
+    </div>
+  </div>
+
+  <!-- SEQUENCE DIAGRAM -->
+  <div style="font-size:10px;color:var(--dim2);background:rgba(0,0,0,.15);border-radius:3px;padding:7px 10px">
+    <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📐 Chuỗi nhân quả THỰC TẾ (ngược lý thuyết cũ):</div>
+    <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;line-height:2">
+      <span style="background:rgba(239,68,68,.15);padding:1px 6px;border-radius:2px;color:var(--red)">NH quyết định cho vay</span>
+      <span>→</span>
+      <span style="background:rgba(139,92,246,.15);padding:1px 6px;border-radius:2px">Tạo tiền gửi mới (đồng thời)</span>
+      <span>→</span>
+      <span style="background:rgba(59,130,246,.15);padding:1px 6px;border-radius:2px">Tìm dự trữ SAU</span>
+      <span>→</span>
+      <span style="background:rgba(15,110,86,.15);padding:1px 6px;border-radius:2px;color:var(--ok)">NHNN cấp qua OMO (nếu thiếu)</span>
+    </div>
+    <div style="margin-top:4px;color:var(--dim2)">⚠️ Data: NHNN chỉ công bố M2 theo quý. Dùng TD growth làm proxy real-time tốt hơn.</div>
+  </div>`;
+
+// III-b: Tiền Nội Sinh
+document.getElementById('panel-endogenous').innerHTML=`
+  <!-- Sơ đồ cơ chế tạo tiền thực tế -->
+  <div style="font-size:11px;margin-bottom:10px">
+    <div style="color:var(--yellow);font-weight:600;margin-bottom:8px;font-size:12px">🔄 Bút Toán Kép — Tiền Được Tạo Ra Như Thế Nào:</div>
+    
+    <!-- Bước 1: NH quyết định cho vay -->
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:6px;margin-bottom:8px;align-items:start">
+      <div style="background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:10px">1</div>
+      <div>
+        <div style="color:var(--blue);font-weight:600">Ngân hàng quyết định cho vay (không cần tiền gửi trước)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;font-size:10px">
+          <div style="background:rgba(15,110,86,.08);border:1px solid rgba(15,110,86,.3);border-radius:3px;padding:5px 8px">
+            <div style="color:var(--ok);font-weight:600;margin-bottom:2px">TÀI SẢN (Assets) ↑</div>
+            <div style="color:var(--dim2)">+ Dư nợ cho vay: 100M</div>
+          </div>
+          <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:3px;padding:5px 8px">
+            <div style="color:var(--red);font-weight:600;margin-bottom:2px">NỢ PHẢI TRẢ (Liabilities) ↑</div>
+            <div style="color:var(--dim2)">+ Tiền gửi KH: 100M</div>
+          </div>
+        </div>
+        <div style="color:var(--amber);margin-top:3px;font-size:10px">→ Bút toán ghi ĐỒNG THỜI cả 2 phía. Tiền gửi và khoản vay ra đời cùng lúc!</div>
+      </div>
+    </div>
+
+    <!-- Bước 2: Tiền gửi mới chi tiêu -->
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:6px;margin-bottom:8px;align-items:start">
+      <div style="background:var(--ok);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:10px">2</div>
+      <div>
+        <div style="color:var(--ok);font-weight:600">KH sử dụng tiền → chuyển sang NH khác hoặc chi tiêu</div>
+        <div style="color:var(--dim2);margin-top:2px;font-size:10px">Tiền gửi mới được tạo ra (100M) đi vào lưu thông, tạo cầu trong nền kinh tế. GDP có thể tăng.</div>
+      </div>
+    </div>
+
+    <!-- Bước 3: NH tìm dự trữ SAU -->
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:6px;margin-bottom:8px;align-items:start">
+      <div style="background:var(--amber);color:#000;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:10px">3</div>
+      <div>
+        <div style="color:var(--amber);font-weight:600">NH tìm dự trữ SAU khi cho vay (không phải trước)</div>
+        <div style="color:var(--dim2);margin-top:2px;font-size:10px">Nếu thiếu dự trữ → vay trên TT2 (TT2 O/N tăng) → NHNN bơm OMO. Đây là lý do TT2 spike khi TD tăng mạnh.</div>
+        <div style="color:var(--purple,#a78bfa);margin-top:2px;font-size:10px">→ VN hiện tại: LDR 114% = TD tăng nhanh hơn HĐ → NH liên tục thiếu dự trữ → TT2 O/N 6.6-9.5%</div>
+      </div>
+    </div>
+
+    <!-- Bước 4: Tiền bị hủy -->
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:6px;margin-bottom:10px;align-items:start">
+      <div style="background:var(--red);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:10px">4</div>
+      <div>
+        <div style="color:var(--red);font-weight:600">KH trả nợ → Tiền bị HỦY (ngược chiều tạo ra)</div>
+        <div style="color:var(--dim2);margin-top:2px;font-size:10px">Trả nợ gốc 100M → Dư nợ -100M / Tiền gửi -100M → M2 GIẢM. NPL xóa nợ = tiền cũng bị hủy.</div>
+        <div style="color:var(--red);margin-top:2px;font-size:10px">→ Gross credit creation - Repayment/Writeoff = NET M2 change (đây mới là số quan trọng)</div>
+      </div>
+    </div>
+
+    <!-- Đối chiếu lý thuyết cũ vs thực tế -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div style="background:rgba(239,68,68,.06);border-radius:3px;padding:8px;border-top:2px solid var(--red)">
+        <div style="color:var(--red);font-weight:600;margin-bottom:5px;font-size:10px">❌ LÝ THUYẾT CŨ (Lỗi thời)</div>
+        <div style="color:var(--dim2);font-size:10px;line-height:1.8">
+          NHNN bơm M0<br>
+          ↓ Dự trữ → NH nhân lên<br>
+          ↓ Tiền gửi → Cho vay<br>
+          <span style="color:var(--red)">Nhân tố giới hạn: Dự trữ bắt buộc</span>
+        </div>
+      </div>
+      <div style="background:rgba(15,110,86,.06);border-radius:3px;padding:8px;border-top:2px solid var(--ok)">
+        <div style="color:var(--ok);font-weight:600;margin-bottom:5px;font-size:10px">✅ THỰC TẾ (Bank of England 2014)</div>
+        <div style="color:var(--dim2);font-size:10px;line-height:1.8">
+          NH quyết định cho vay<br>
+          ↓ Tạo tiền gửi đồng thời<br>
+          ↓ Tìm dự trữ sau (NHNN cấp)<br>
+          <span style="color:var(--ok)">Nhân tố giới hạn: CAR + NPL + Cầu TD</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Hệ lụy Thực Tiễn cho VN -->
+    <div style="background:rgba(0,0,0,.15);border-radius:3px;padding:8px 10px">
+      <div style="color:var(--yellow);font-weight:600;margin-bottom:5px">📌 3 Hệ Lụy Thực Tiễn Cho VN 2026:</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:10px">
+        <div style="padding:5px;background:rgba(59,130,246,.06);border-radius:2px;border-left:2px solid var(--blue)">
+          <div style="color:var(--blue);font-weight:600;margin-bottom:2px">LDR 114%</div>
+          <div style="color:var(--dim2)">TD tăng nhanh hơn HĐ = Inside > Outside. OMO không cứu được — cần ĐTC thực sự.</div>
+        </div>
+        <div style="padding:5px;background:rgba(245,158,11,.06);border-radius:2px;border-left:2px solid var(--amber)">
+          <div style="color:var(--amber);font-weight:600;margin-bottom:2px">TT2 Spike</div>
+          <div style="color:var(--dim2)">NH cho vay trước → thiếu dự trữ → vay TT2 spike → NHNN bơm OMO. Pattern lặp mỗi tuần.</div>
+        </div>
+        <div style="padding:5px;background:rgba(15,110,86,.06);border-radius:2px;border-left:2px solid var(--ok)">
+          <div style="color:var(--ok);font-weight:600;margin-bottom:2px">QE Không Lạm Phát</div>
+          <div style="color:var(--dim2)">Fed QE 2008-15: bơm dự trữ nhưng NH không cho vay → M2 không tăng → không lạm phát.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+
 document.getElementById('panel-nsnn').innerHTML=`
   ${drow('Thu NSNN Q1',v(D.nsnn.thu_2t)+' nghìn tỷ','g',u(D.nsnn.thu_2t))}
   ${drow('Chi NSNN Q1',v(D.nsnn.chi_2t)+' nghìn tỷ','r',u(D.nsnn.chi_2t))}
