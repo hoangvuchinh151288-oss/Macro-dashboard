@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.91 | 29/06/2026</title>
+<title>VN Macro Dashboard v3.92 | 29/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.91",
+    version: "3.92",
     date: "29/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -355,8 +355,8 @@ const D = {
 
   dtc: {
     ke_hoach_2026:{ value: "DTC 2026: ke hoach 1,1 trieu ty (ky luc) · Giai ngan 4T: ~13% (cham) · Can dat 40-50% tu T5-T8 · Rui ro: bien dong NVL do Hormuz lam cham · DTC la nguon bom VND duy nhat du lon trong 2026", updated: "17/05/2026", source: "Chính phủ", note: "Kế hoạch ĐTC 2026: ~800–900 nghìn tỷ · Chỉ thị 12/CT-TTg 3/4" },
-    giai_ngan_2t: { value: "OUTSIDE MONEY MODEL: ~144k ty/1.100k ty ke hoach (13% 4T/2026) · Moi 100k ty giai ngan → D tang 100k ty → LDR giam 0.60% (voi D = C/LDR = 12.281k ty) · De giai phong LDR ve 108%: can giai ngan them 480k ty → phai dat 44% ke hoach chi trong H2 · T7-T8 la cao diem mua vu: lich su luon dat 30-35% ke hoach trong 2 thang nay", updated: "29/06/2026", source: "Bộ Tài chính/MBS", note: "Giải ngân 2T/2026: 55,7 nghìn tỷ (+24,4% YoY) = 5,5% KH năm" },
-    du_bao_q2:    { value: "OUTSIDE MONEY MODEL (D = C/LDR = 12.281k ty): 100k ty DTC → D tang 100k ty → LDR giam 100/12.281 = 0.81% · Can giai ngan 490k ty H2 de LDR ve 110% (tu 114%) · Leakage: ước tinh ~20% DTC giai ngan khong vao D ngay → effective delta ~0.65%/100k ty · T7-T8 mua vu cao diem → co the giai ngan 30-40% ke hoach trong 2 thang · FTSE 21/9 neu thanh cong: FPI ~$1-2 ty = 26-52k ty = LDR -0.21-0.42%", updated: "29/06/2026", source: "Ước tính", note: "D = Deposits (HĐ he thong) = C / LDR = 14.000k / 1.14 = 12.281k ty. KHONG phai 8.000k (nham voi M0 hoac so cu). LDR delta = dC/D = 100k/12.281k = 0.81%. Leakage: mot phan DTC giai ngan qua mua sam hang nhap khau → D khong tang toan bo → effective multiplier < 1" },
+    giai_ngan_2t: { value: "OUTSIDE MONEY MODEL (D=16.570k ty chinh thuc NHNN T3/2026): ~144k ty/1.100k ty ke hoach (13% 4T/2026) · Moi 100k ty giai ngan → LDR giam ~0.71% (tu D=16.570k, C=19.700k) · QUAN TRONG: De LDR ve 108% can D tang 1.671k ty = 151,9% TOAN BO ke hoach DTC nam 2026 (1.100k ty) → KHONG KHA THI chi bang DTC trong 1 nam · Ve 110%: can 121,7% ke hoach · Ket luan model: DTC chi co the LAM CHAM toc do tang LDR, khong the don phuong dua LDR ve duoi 110% trong 2026", updated: "29/06/2026", source: "Bộ Tài chính/MBS", note: "Giải ngân 2T/2026: 55,7 nghìn tỷ (+24,4% YoY) = 5,5% KH năm" },
+    du_bao_q2:    { value: "OUTSIDE MONEY MODEL (D=16.570k ty, C=19.700k ty - NHNN official): 100k ty DTC → LDR giam ~0.71% (chua tru leakage) · SUA SO LIEU: LDR hien 118,9% (khong phai 114% truoc day) → ve 110% can D tang 1.339k ty = 121,7% TOAN BO ke hoach DTC 2026 → KHONG KHA THI trong 1 nam · Leakage ~20% (nhap khau, tiet kiem ngoai te) → effective delta thuc te ~0.57%/100k ty · FTSE 21/9 neu thanh cong: FPI $1-2 ty = 26-52k ty = LDR -0.11-0.22% (nho hon ước truoc do D-base lon hon)", updated: "29/06/2026", source: "Ước tính", note: "D = Deposits chinh thuc NHNN T3/2026 = Dan cu 10.560k + TCKT 6.010k = 16.570k ty (KHONG con la uoc tinh C/LDR nua, da co data thuc). C = Tin dung 19.700k ty (29/5/2026 NHNN, +5,71% YTD). LDR thuc = 19.700/16.570 = 118,9%. LDR delta = dC/D = 100k/16.570k = 0,60-0,71% (tuy thoi diem tinh). Leakage: mot phan DTC giai ngan qua mua sam hang nhap khau → D khong tang toan bo → effective multiplier < 1" },
     tpcp:         { value: "~50.000", updated: "10/04/2026", source: "Kho bạc NN", note: "TPCP phát hành Q1/2026: ~50.000 tỷ · LS 10Y ~4,05%" },
   },
 
