@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v3.93 | 29/06/2026</title>
+<title>VN Macro Dashboard v3.94 | 30/06/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "3.93",
+    version: "3.94",
     date: "29/06/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -206,8 +206,8 @@ const D = {
     nhnn_kyhan:    { value: "26.750", updated: "17/05/2026", source: "Vietstock/Maybank", note: "Forward NHNN 180 ngày: ~26.750 (giảm từ 26.850 trước ceasefire)" },
     forward_usd: {
       gia_ban:     { value: "~26.750", updated: "17/05/2026", source: "NHNN", note: "Forward tham chiếu 10/4: ~26.750 vs 26.850 trước ceasefire" },
-      co_che_rut:  { value: "Ceasefire → Hormuz mở → Brent giảm → CPI giảm → LS TT1 giảm", updated: "17/05/2026", source: "Phân tích cấu trúc", note: "" },
-      tac_dong_tt2:{ value: "TT2 hạ nhiệt · O/N về 4–4,5%", updated: "17/05/2026", source: "Phân tích", note: "O/N về 4–4,5% từ đỉnh 8,8% · Kỳ thuế T3 qua · Ceasefire giảm risk premium" },
+      co_che_rut:  { value: "CATALYST MOI XAC MINH (28/6/2026, CafeF): Tu 1/7/2026, NHNN cho phep nang ty le su dung von ngan han cho vay trung-dai han tu 30% len 40% → mo rong dư dia cho vay BDS/ha tang/SXKD co the them ca trieu ty dong → tac dong: TANG kha nang tao tin dung (nguoc voi muc tieu giam LDR!) · Day la catalyst RIENG BIET voi B1 (NHNN ha OMO) - co the lam LDR TANG THEM neu cau tin dung manh", updated: "30/06/2026", source: "CafeF (28/6/2026)", note: "Day la thay doi quy dinh ve ty le von ngan han/cho vay trung-dai han (khac LDR L/D), nhung co tac dong gian tiep len kha nang mo rong tin dung he thong"},
+      tac_dong_tt2:{ value: "TT2 O/N 30/6: theo dot du lieu CafeF 27-30/6 cho thay phan hoa manh giua cac nhom NH · TT08+TT moi (30%→40% von ngan han) hieu luc 1/7 co the lam TT2 bien dong manh hon ngan han khi NH dieu chinh chien luoc von", updated: "30/06/2026", source: "Phân tích (cập nhật theo TT mới 1/7)", note: "Theo doi sat 1-2 tuan dau T7 khi quy dinh moi co hieu luc - co the co bien dong TT2 bat thuong"},
       tac_dong_tt1:{ value: "MODEL TRUYEN DAN (29/6): NHNN ha LS OMO (expectation T8) → TT2 O/N giam (1-2 tuan lag) → Chi phi von NH giam → NH co the ha HĐ (bao ve NIM) HOAC ha TT1 (tang canh tranh cho vay) → tuy thuoc vao LDR: LDR 114% = NH can huy dong → ap luc giu HĐ cao → TT1 giam CHAM HON TT2 · Quantify: moi 25bps OMO cat → TT1 giam 15-20bps (0.6-0.8 transmission ratio) sau 4-8 tuan", updated: "29/06/2026", source: "Phân tích 12/6", note: "T6: Big4 7.8-8%, tư nhân lớn 8-8.5%, tư nhân vừa 8.5-9%. Cả 3 nhóm giữ nguyên vì LDR 114% + CPI 5.6% · Big4 −0,3–0,5% tuần này · LDR 100% = ràng buộc" },
       diem_dao_han:{ value: "Q3/2026 (T7-T8) · NHNN USD swap 1 tỷ USD (1/6, 14 ngày) đã đáo hạn 15/6 · EMP -50đ → áp lực đảo chiều giảm", updated: "12/06/2026", source: "Tính toán", note: "NHNN mở USD swap 1 tỷ (1/6) để bơm 23.932 tỷ VND → TT2 từ 11% về 6.6% trong 48h · Đáo hạn 15/6" },
       ket_luan:    { value: "SIGNAL SCORE (29/6 model): A1: CPI sap dat (RON95 19.916d → T6 ~3.0-3.5%) · A2: PCE 4.1% softer → CME giam tu 69%→62% T9 (cai thien nhe) · A3: TT2 6.2% (chua dat <6% on dinh) · B1: NHNN chua ha OMO (key catalyst) · B2: DTC 17-18% (chua dat 40%) · B3: FTSE 21/9 (88 ngay nua) · Score: 1.5/6 signals XANH · Trigger du kien: CPI T6 (cuoi T6) → B1 T8 → TT1 Q4 6.0-6.5%", updated: "29/06/2026", source: "Phân tích", note: "Các catalyst Q3: (1) Deal Iran ký → Brent <$90 → CPI T6 <4.5% → NHNN hạ LS → TT1 giảm sau 1-2T (2) FTSE upgrade 21/9" },
@@ -293,7 +293,7 @@ const D = {
   rates_tt1: {
     tran_ngan_han: { value: 4.75, updated: "10/04/2026", source: "NHNN QĐ", note: "Trần <6T: Big4 đều 4,75% online" },
     big4_6_12t:    { value: "Niêm yết ≤6% (quy định) · Thực tế: 7,8-8% (VIP 7,5-7,8%) · T6: CHƯA HẠ · CPI 5,6%+LDR 114% → NHNN không hạ LS tái cấp vốn · Điều kiện hạ: Brent <$90 + CPI <4,5%", updated: "12/06/2026", source: "cafef/markettimes 12/6", note: "⚠️ HAI MỨC LÃI SUẤT: (1) NIÊM YẾT công khai ≤6%/năm (áp lực SBV — VCB/BIDV/VietinBank/Agribank tuân thủ từ 13/4) · (2) THỰC TẾ huy động >6T: 7,8–8%/năm (các NH phải cạnh tranh do LDR ~100% chưa cải thiện · thanh khoản chưa được xử lý cơ bản) · Chênh lệch niêm yết vs thực tế = dấu hiệu thanh khoản thực sự căng" },
-    tn_lon_6_12t:  { value: "MB/VPBank/TCB/ACB: 8,0-8,5% · T6/2026: DUY TRI do CPI 5,6%+LDR 114% · Chưa hạ dù TT08 · Điều kiện ha: NHNN hạ LS → 1-2 tháng sau", updated: "12/06/2026", source: "Khảo sát 12/6", note: "Big TMCP (MB/VPBank/ACB/Techcombank): 8% (6T-12T) · VPBank 6T: 6,9%→ 12T: 7,1% · MB 12T: 6,5-7,5% · Xu hướng: BẮT ĐẦU ổn định, chưa giảm" },
+    tn_lon_6_12t:  { value: "XAC MINH 30/6 (CafeF, lai suat tai quay): MB 12T=6,2% · ACB 12T=5,4% · VPBank 12T=6,1% (THAP HON 8,0-8,5% da ghi truoc - SAI) · LAI SUAT ONLINE/uu dai (CafeF tin tuc 27-28/6): ACB dan dau 7,3%/nam 12T (27/6) · 6 NH niem yet >=7%/nam 12T (28/6) · Big4 on dinh 6,8%/nam · Phan biet: tai quay (thap) vs online+uu dai (cao hon 1-1.5%)", updated: "30/06/2026", source: "CafeF (du lieu chinh thuc tai quay + tin tuc khao sat online)", note: "CafeF la nguon co the verify: https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn. Du lieu cap nhat hang ngay, co bang chi tiet tung NH theo ky han" },
     tn_vua_6_12t:  { value: "LPB/SeAB/ABBank: 8,5-9% · T6: giữ cao · LDR tư nhân vừa >115% · CPI 5,6% → không thể hạ · TT08 không tác động nhóm này", updated: "12/06/2026", source: "Khảo sát 12/6", note: "NH tư nhân nhỏ/vừa: PVcomBank 10% · OceanBank/PGBank/HDBank: 9-9,5% · BacABank 7,25% (6T) · Tư nhân buộc giữ cao để cạnh tranh thanh khoản" },
     tn_12t_dinh:   { value: "9,5-10 · PVcomBank/BaovietBank cao nhat · Ap luc thanh khoan · Can theo doi chat", updated: "09/06/2026", source: "Khảo sát 28/4", note: "Đỉnh LS 12T: PVcomBank 10% · OceanBank 7,2% (quầy) · Cake by VPBank online 7,4% · BAC A BANK 7,25% (6T) · ĐỈnh chưa qua → không có dấu hiệu giảm Q2/2026" },
     nhan_xet:      { value: "DEAL COMPLETE (15/6): 5 tin hieu TT1 peak: #1 BOM rong ✓ · #2 TT08 ✓ (con han che) · #3 M2/TD van thap ❌ · #4 DTC van cham ⏳ · #5 Brent <$90 → SAP XANH (Brent $87 → $80) · TONG: 2.5→3/5 → TT1 DINH T6 · Giam T9-T10/2026 · KB-B/A deal → NHNN ha LS T8", updated: "15/06/2026", source: "cafef/markettimes 13/4", note: "VCB giảm 24T: 6,5%→6% hiệu lực 13/4 · Tất cả kỳ hạn VCB ≤6%/năm · NHƯNG: Islamabad thất bại + dầu >$105 → áp lực CPI tăng trở lại → NHNN phải cân nhắc kỹ · LDR ~100% vẫn ràng buộc cứng" },
