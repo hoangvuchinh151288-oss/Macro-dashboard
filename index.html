@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v4.07 | 13/07/2026</title>
+<title>VN Macro Dashboard v4.08 | 13/07/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.07",
+    version: "4.08",
     date: "13/07/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -321,6 +321,9 @@ const D = {
     xk_2t:        { value: "XK 6T/2026: 266,52 ty USD (+21% YoY) · 29 mat hang >1 ty USD (92,1% tong KN) · My la thi truong lon nhat: 86,5 ty", updated: "13/07/2026", source: "Cục Thống kê 4/4/2026", note: "GSO 3/7 + BCT hop bao 7/7" },
     nk_2t:        { value: "NK 6T/2026: 283,17 ty USD (+33,4% YoY!) · Tu lieu san xuat 94,1% (may moc 56% · nguyen nhien lieu 38,1%) · Tieu dung chi 5,9%", updated: "13/07/2026", source: "Cục Thống kê 4/4/2026", note: "GSO 3/7 · NK tang gap 1.6x XK = cau dau vao SX mo rong manh" },
     can_can_2t:   { value: "NHAP SIEU 6T: -16,65 ty USD (cung ky 2025: XUAT sieu +7,95 ty — DAO CHIEU 24,6 ty!) · T6 rieng: -2,64 ty · Noi dia: -24,95 ty · FDI (ke ca dau tho): +8,3 ty", updated: "13/07/2026", source: "GSO 3/7 + BCT hop bao 7/7", note: "GSO 3/7 · BCT 7/7: van trong tam kiem soat nho FDI + dich vu + kieu hoi" },
+    fx_flow_vs_trade: { value: "GOODS FLOW ≠ CASH FLOW (framework 13/7, insight nguoi dung - banker): Nhap sieu -16,65 ty (hai quan) NHUNG EMP AM -10d → cau USD THUC yeu hon so lieu hai quan rat nhieu · 5 co che cat dut lien ket: (1) Netting noi bo FDI (con nhap tu me + xuat cho me → treasury Singapore/HK chi settle phan net) (2) Xuat khong thu tien ve (de offshore/can tru payables) (3) TRADE CREDIT: nhap tra cham 3-6-12T → outflow bi HOAN (4) In-kind FDI: nhap may moc = gop von, zero outflow (5) Transfer pricing lam meo gia tri · FDI chiem ~70% XNK → phan lon la intra-company", updated: "13/07/2026", source: "[MODEL] Framework INFLOW/OUTFLOW · field-check nguoi dung (TTQT ngan hang) + E&O am truyen thong trong BOP NHNN", note: "He qua: EMP la bien REVEALED DEMAND (#1 driver) · trade balance chi la bien dan bao TRE · Khong dung nhap sieu hai quan lam driver tuc thoi cua ty gia" },
+    deferred_demand:  { value: "RUI RO DON TOA Q4/2026-Q1/2027: Phan nhap sieu Q2 tai tro bang trade credit/UPAS LC (3-6-12T) = cau USD DOI VE TUONG LAI · Nhap sieu T6 rieng -2,64 ty → dao han thanh toan roi vao Q4/26-Q1/27 · Du bao: EMP + ty gia cang dan CUOI Q4 du nhap sieu hang thang khi do co the da cai thien — do tre 3-6 thang · Song ty gia neu co se DEN TRE HON va DOC HON kich ban tuyen tinh", updated: "13/07/2026", source: "[DERIVED] Trade credit mechanism · khong co data ky han LC cong khai — proxy: theo doi EMP acceleration tu T10", note: "Kiem chung: neu EMP bat dau tang deu tu T10-T11 ma khong co catalyst moi (Fed/dau) → deferred demand hypothesis DUNG" },
+    flow_proxies:     { value: "4 PROXY doc NET FLOW (thay the trade balance don tuyen): (1) EMP - tan suat NGAY, revealed demand cho den (2) Pace nang TC NHNN - TUAN (nang nhanh = NHNN thay ap luc flow) (3) Du tru ngoai hoi - QUY (ban ra = outflow thang inflow) (4) E&O trong BOP - QUY (am lon = dong tien roi VN khong qua kenh chinh thuc)", updated: "13/07/2026", source: "[MODEL] Framework quan sat gian tiep", note: "Checklist hang ngay chi can (1)+(2) · (3)+(4) cap nhat theo cong bo NHNN quy" },
     tong_xnk_2t:  { value: "Tong KN XNK 6T: 549,69 ty USD (+27,1% YoY) · Q2 rieng: XK 143,6 ty (+22,7%) · NK 156,6 ty (+39,1%)", updated: "13/07/2026", source: "Cục Thống kê 4/4/2026", note: "GSO 3/7" },
     fdi_giai_ngan:{ value: "5,41 ty USD Q1 (+9,1% YoY) · 4T: tong FDI vao 18,24 ty (+32%) · Singapore→Han→TQ→Nhat · Canh bao: My-Trung hoa giai co the giam FDI dich chuyen vao VN", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "FDI thực hiện Q1/2026: 5,41 tỷ USD (+9,1% YoY) · Cao nhất Q1 trong 5 năm" },
     fdi_dang_ky:  { value: "15,2 ty USD Q1 (+42,9% · Luat Dau tu 2025) · 4T: 18,24 ty (+32%) · Khach QT 4T: 8,79 trieu (ky luc) · Rui ro dai han: My-Trung giai chien tranh thuong mai → FDI vao VN cham lai", updated: "17/05/2026", source: "Cục Thống kê 4/4/2026", note: "FDI đăng ký Q1/2026: 15,20 tỷ USD (+42,9% YoY)" },
@@ -1257,7 +1260,14 @@ document.getElementById('panel-bop').innerHTML=`
     ${mbox('FDI đăng ký Q1',fmt(v(D.bop.fdi_dang_ky),2)+' tỷ',n(D.bop.fdi_dang_ky),'y')}
     ${mbox('Kiều hối 2025',v(D.bop.kieu_hoi_2025)+' tỷ USD',n(D.bop.kieu_hoi_2025),'')}
     ${mbox('DTNH',fmt(v(D.bop.du_tru))+' tỷ USD',n(D.bop.du_tru),'g')}
-  </div>`;
+  </div>
+  <div style="margin-top:10px;padding:8px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:3px">
+    <div style="font-size:11px;font-weight:700;color:var(--yellow);margin-bottom:4px">⚡ GOODS FLOW ≠ CASH FLOW (framework 13/7)</div>
+    <div style="font-size:11px;line-height:1.5">${v(D.bop.fx_flow_vs_trade)}</div>
+  </div>
+  ${drow('Deferred demand (dồn toa)', short(v(D.bop.deferred_demand)), 'r', n(D.bop.deferred_demand).substring(0,90), u(D.bop.deferred_demand))}
+  ${drow('4 proxy đọc net flow', short(v(D.bop.flow_proxies)), 'b', '', u(D.bop.flow_proxies))}
+`;
 document.getElementById('panel-freight').innerHTML=`
   ${drow('Cước HP→Rotterdam',v(D.freight.hp_rotterdam),'r',n(D.freight.hp_rotterdam))}
   ${drow('So với 2025',v(D.freight.vs_2025),'y',n(D.freight.vs_2025))}
