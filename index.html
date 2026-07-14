@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v4.05 | 13/07/2026</title>
+<title>VN Macro Dashboard v4.06 | 13/07/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.05",
+    version: "4.06",
     date: "13/07/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -765,15 +765,32 @@ const empLbl=empInverted?'🔵 INVERTED':emp>1500?'🔴🔴 EXTREME':emp>1000?'�
 
 // FIX JS #5: KPI strip — kb_now truncated
 const kbShort=v(D.hormuz.kb_now).split('·')[0].trim();
-document.getElementById('kpi-strip').innerHTML=`
-  <div class="kpi"><div class="kpi-lbl">NHNN TC</div><div class="kpi-val y">${fmt(v(D.fx.nhnn_tc))}</div><div class="kpi-sub">${u(D.fx.nhnn_tc)}</div></div>
-  <div class="kpi"><div class="kpi-lbl">VCB Bán ra</div><div class="kpi-val r">${fmt(v(D.fx.vcb_ban))}</div><div class="kpi-sub">${u(D.fx.vcb_ban)}</div></div>
-  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val ${empInverted?'b':'r'}" style="${empInverted?'font-size:15px;':''}">${empInverted?'INV '+emp+'đ ↓':short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${empInverted?'🔵 INVERTED · Chợ đen BÁN < VCB BÁN':v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
-  <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">$${short(v(D.oil.brent).replace(/^\$/,''))}/thùng</div><div class="kpi-sub">${u(D.oil.brent)}</div></div>
-  <div class="kpi"><div class="kpi-lbl">LS đỉnh 12T</div><div class="kpi-val r">${short(v(D.rates_tt1.tn_12t_dinh))}%/năm</div><div class="kpi-sub">Tư nhân · giảm dần T4</div></div>
-  <div class="kpi"><div class="kpi-lbl">KB Dominant</div><div class="kpi-val r">KB-D 50%</div><div class="kpi-sub">Escalation · Hormuz đóng · Brent $80-95</div></div>
-  <div class="kpi"><div class="kpi-lbl">Kịch bản Hormuz</div><div class="kpi-val y">${kbShort}</div><div class="kpi-sub">${v(D.hormuz.tau_ngay)} tàu/ngày</div></div>
-  <div class="kpi"><div class="kpi-lbl">Fed Rate</div><div class="kpi-val b">${v(D.fed.rate_range)}%</div><div class="kpi-sub">HOLD · họp ${v(D.fed.meeting_now)}</div></div>`;
+document.getElementById('kpi-strip').innerHTML=(()=>{ 
+  // [v4.06] KPI extractors: số ngắn thay vì narrative dài bị cắt cụt
+  const numFrom = (s, re_) => { const m = String(s).match(re_); return m ? m[0] : null; };
+  // EMP: dùng biến emp đã parse sẵn ở trên (hỗ trợ cả âm)
+  const empStr2 = String(v(D.fx.spread_emp));
+  const empNeg = /AM NHAT|EMP am|-\d+d/i.test(empStr2) && !empInverted;
+  const empNegNum = empStr2.match(/\(?-(\d+)[đd]/);
+  const empDisplay = empInverted ? 'INV '+emp+'đ ↓' : empNeg && empNegNum ? '−'+empNegNum[1]+'đ' : '+'+emp+'đ';
+  const empClass = empInverted ? 'b' : (empNeg ? 'g' : (emp>300?'r':emp>150?'y':'g'));
+  const empSub = empNeg ? 'Chợ đen DƯỚI VCB · chưa phản ánh Brent $79' : 'Chợ đen − VCB bán';
+  // Brent: extract $XX.XX
+  const brentNum = numFrom(v(D.oil.brent), /\$[\d.]+/) || '—';
+  // LS HĐV: NHNN avg 6.01% (thay cho LS đỉnh 12T stale từ T4)
+  // Hormuz: extract trạng thái ngắn
+  const hormuzAll = String(v(D.oil.brent))+String(v(D.fx.spread_emp))+String(v(D.hormuz.kb_now));
+  const hormuzStatus = /Hormuz.{0,30}(dong|DONG)|until further notice|dong Hormuz/i.test(hormuzAll) ? 'ĐÓNG' : short(kbShort).substring(0,12);
+  return `
+  <div class="kpi"><div class="kpi-lbl">NHNN TC</div><div class="kpi-val y">${fmt(v(D.fx.nhnn_tc))}</div><div class="kpi-sub">Trần ±5%: ${fmt(v(D.fx.nhnn_tran))}</div></div>
+  <div class="kpi"><div class="kpi-lbl">VCB Bán ra</div><div class="kpi-val r">${fmt(v(D.fx.vcb_ban))}</div><div class="kpi-sub">${Math.round(v(D.fx.vcb_ban)/v(D.fx.nhnn_tran)*1000)/10}% trần · ${u(D.fx.vcb_ban)}</div></div>
+  <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val ${empClass}">${empDisplay}</div><div class="kpi-sub">${empSub}</div></div>
+  <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">${brentNum}</div><div class="kpi-sub">Hormuz đóng · +10% tuần · kỳ xăng 17/7</div></div>
+  <div class="kpi"><div class="kpi-lbl">LS HĐV bình quân</div><div class="kpi-val y">6,01%</div><div class="kpi-sub">NHNN 20/4 · deal lớn tới 8% · COF 3,6-3,9%</div></div>
+  <div class="kpi"><div class="kpi-lbl">KB Dominant</div><div class="kpi-val r">KB-D 50%</div><div class="kpi-sub">Escalation · Brent Q3 $80-95</div></div>
+  <div class="kpi"><div class="kpi-lbl">Hormuz</div><div class="kpi-val r">${hormuzStatus}</div><div class="kpi-sub">until further notice · 3 tàu bị tấn công</div></div>
+  <div class="kpi"><div class="kpi-lbl">Fed Rate</div><div class="kpi-val b">${v(D.fed.rate_range)}%</div><div class="kpi-sub">Dot plot 3.8% · US10Y 4,59% · CPI Mỹ 14/7</div></div>`;
+})();
 
 // I. FX
 document.getElementById('fx-ts').textContent=`VCB: ${u(D.fx.vcb_mua)} · TC: ${u(D.fx.nhnn_tc)}`;
