@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v4.04 | 13/07/2026</title>
+<title>VN Macro Dashboard v4.05 | 13/07/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.04",
+    version: "4.05",
     date: "13/07/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -514,6 +514,14 @@ const D = {
     vector:       { value: "DEAL IMMINENT (7/6): Trump chinh sua MOU (finalize) · Brent $92 WTI $87.59 · Toan cau risk-on (Nikkei ATH, S&P 7.594) · EMP -14d → sap ve 0 · KB-B 55% DOMINANT · Deal chinh thuc 8-10/6? · Sau deal: Brent $80-90 (Goldman) · CPI VN T6 se ha → NHNN co room Q3", updated: "07/06/2026", source: "Reuters/Al Jazeera", note: "Cả 2 bên leo thang để có vị thế mặc cả tốt hơn — pattern trước deal" },
     watch_next:   { value: "CPI T6 cuoi thang (KEY: <4.5%? xac nhan A1 XANH · la nen tang de NHNN ha LS T8) · NHNN quyet dinh KBNN thanh khoan (neu ra nghi quyet chinh thuc: outside money lon nhat 2026) · Xang ky tiep ~9/7 (Brent $75 → giam tiep?) · Goldman Q3/Q4 revision: Persian Gulf exports pre-war cuoi T7 · MSCI khong upgrade VN (da xay ra) nhung FTSE 21/9 van con co hoi · CME Fed T7 (28/7): 30% kha nang tang (theo doi data My)", updated: "29/06/2026", source: "[MIXED] Tổng hợp nhiều nguồn", note: "Hajj deadline ~20/5 = pressure mềm cho deal" },
   },
+  trump_tracker: {
+    us10y:        { value: "4.59", updated: "13/07/2026", source: "TradingEconomics 13/7 (7-week high)", note: "VUOT NGUONG CANH BAO 4.5% cua model! · Oil surge → inflation fears → yields tang · Waller (13/7): may need to TIGHTEN · Warsh dieu tran Quoc hoi 14-15/7 · Model: >=4.8% = pain threshold Trump nhuong bo" },
+    cnh_usd:      { value: "N/A", updated: "13/07/2026", source: "[CAN VERIFY] chua co nguon xac minh 13/7", note: "Model: CNH <=6.70 = deal signal (TQ nhuong bo tien te) · >6.95 = tra dua · Cap nhat khi co nguon" },
+    gas_price_us: { value: "N/A", updated: "13/07/2026", source: "[CAN VERIFY] AAA national average — chua search", note: "Gas price la chi so chinh tri quan trong truoc midterm · Oil surge 8-13/7 se day gas len trong 2-3 tuan" },
+    midterm_countdown: { value: "113", updated: "13/07/2026", source: "[DERIVED] Bau cu giua ky My 3/11/2026", note: "113 ngay tu 13/7 · Cang gan midterm: ap luc giam gas price + tranh recession cang lon → deal incentive tang" },
+    deal_window:  { value: "DONG DAN: ceasefire over 8/7 · Qatar delegation van o Tehran (wildcard) · Cang gan midterm 3/11 cang kho quay lai ban dam phan cong khai", updated: "13/07/2026", source: "[DERIVED] Phan tich su kien 8-13/7", note: "KB-D 50% dominant · Deal truoc midterm chi ~20-25%" },
+    bessent_vs_navarro: { value: "PHE HAWK THANG THE sau 8/7: Trump tuyen bo ceasefire over · thu hoi oil license · strikes lan 4 · Phe deal (Bessent) im lang tu 8/7", updated: "13/07/2026", source: "[DERIVED] Tong hop tin 8-13/7", note: "Theo doi phat ngon Bessent/Treasury — neu xuat hien tro lai = deal signal som" }
+  },
 
   review: {
     roadmap:       { value: "v3.45 · 17/05 · Toan dien nhat: 166 fields audit · 95% cap nhat · TT08/2026 co hieu luc · Trump-Xi Bac Kinh ket thuc · EMP 3d lich su · Brent +8% tuan · CPI My nong", updated: "17/05/2026", note: "Changelog từ v3.4 đến v3.38" },
@@ -763,7 +771,7 @@ document.getElementById('kpi-strip').innerHTML=`
   <div class="kpi"><div class="kpi-lbl">EMP Spread</div><div class="kpi-val ${empInverted?'b':'r'}" style="${empInverted?'font-size:15px;':''}">${empInverted?'INV '+emp+'đ ↓':short(v(D.fx.spread_emp))}</div><div class="kpi-sub">${empInverted?'🔵 INVERTED · Chợ đen BÁN < VCB BÁN':v(D.fx.spread_emp).split('·')[0].trim()}</div></div>
   <div class="kpi"><div class="kpi-lbl">Brent Crude</div><div class="kpi-val y">$${short(v(D.oil.brent).replace(/^\$/,''))}/thùng</div><div class="kpi-sub">${u(D.oil.brent)}</div></div>
   <div class="kpi"><div class="kpi-lbl">LS đỉnh 12T</div><div class="kpi-val r">${short(v(D.rates_tt1.tn_12t_dinh))}%/năm</div><div class="kpi-sub">Tư nhân · giảm dần T4</div></div>
-  <div class="kpi"><div class="kpi-lbl">Confluence Score</div><div class="kpi-val r">${v(D.confluence.score_total)}/10</div><div class="kpi-sub">Deal finalize · Brent $92 · EMP -14đ</div></div>
+  <div class="kpi"><div class="kpi-lbl">KB Dominant</div><div class="kpi-val r">KB-D 50%</div><div class="kpi-sub">Escalation · Hormuz đóng · Brent $80-95</div></div>
   <div class="kpi"><div class="kpi-lbl">Kịch bản Hormuz</div><div class="kpi-val y">${kbShort}</div><div class="kpi-sub">${v(D.hormuz.tau_ngay)} tàu/ngày</div></div>
   <div class="kpi"><div class="kpi-lbl">Fed Rate</div><div class="kpi-val b">${v(D.fed.rate_range)}%</div><div class="kpi-sub">HOLD · họp ${v(D.fed.meeting_now)}</div></div>`;
 
@@ -1525,9 +1533,17 @@ document.getElementById('panel-changelog').innerHTML=`
        D.review.v315_changes,D.review.v316_changes,D.review.v317_changes,
        D.review.v318_changes].filter(Boolean).map(r=>`<div>📋 ${v(r)}</div>`).join('')}
   </div>`;
-document.getElementById('panel-roadmap').innerHTML=D.review.roadmap.map(r=>
-  `<div class="rm-item"><div class="rm-status">${r.status}</div><div class="rm-text">${r.item}</div></div>`
-).join('');
+// [v4.05] roadmap render fixed: data đổi từ array sang object ở v3.45 nhưng render không đổi theo → chết ngầm từ đó
+(function(){
+  const rm = D.review && D.review.roadmap;
+  const el = document.getElementById('panel-roadmap');
+  if(!el) return;
+  if(Array.isArray(rm)){
+    el.innerHTML = rm.map(r=>`<div class="rm-item"><div class="rm-status">${r.status}</div><div class="rm-text">${r.item}</div></div>`).join('');
+  } else if(rm && rm.value){
+    el.innerHTML = `<div class="rm-item"><div class="rm-text">${rm.value}</div></div><div style="font-size:10px;color:var(--dim);margin-top:6px">${rm.note||''} · updated ${rm.updated||''}</div>`;
+  } else { el.innerHTML = '<div style="color:var(--dim)">Không có dữ liệu roadmap</div>'; }
+})();
 
 // XIII. CHECKLIST — daysSince() đã fix
 const fl={daily:'fd',weekly:'fw',monthly:'fm',quarterly:'fq',adhoc:'fa'};
