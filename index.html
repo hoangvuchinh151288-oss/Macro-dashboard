@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VN Macro Dashboard v4.15 | 20/07/2026</title>
+<title>VN Macro Dashboard v4.16 | 20/07/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.15",
+    version: "4.16",
     date: "20/07/2026",
     note: "19/6 v3.73: TÁI CẤU TRÚC - Deal Iran ký chính thức Bürgenstock Switzerland, xung đột về cơ bản kết thúc, panel Iran chuyển sang theo dõi tối thiểu · Fed/FOMC dot plot nâng lên thành driver vĩ mô chính · LDR 114% cấu trúc dài hạn được nhấn mạnh song song · Hoàn tất staleness audit 97 fields",
   },
@@ -353,6 +353,10 @@ const D = {
       liquidity_paradox: { value: "NGHICH LY TRUNG TAM (model moi 20/7): USD THUA CUC BO (EMP -50d · NHNN khong ban du tru) NHUNG VND KHAN HIEM HE THONG (C/D 120,5% · thoa thuan 8-9% · TPCP 10Y 4,53% cao nhat 3 nam) — KHONG mau thuan ma la 2 MAT CUA CUNG 1 CO CHE · Moi noi: XK 266,5 ty USD tao GDP +8,39% NHUNG phan tien khong ve VN thi KHONG TAO DEPOSIT · Goods flow tao TANG TRUONG · cash flow moi tao THANH KHOAN · Kinh te tang truong bang dong hang trong khi he thong NH doi dong tien — cung mot goc re: tien nam o treasury Singapore/HK thay vi tai khoan NH trong nuoc", updated: "20/07/2026", source: "[MODEL] Liquidity Paradox — phat trien tu Flow Framework (insight nguoi dung)", note: "Model giai thich DONG THOI ca ty gia lan thanh khoan bang 1 co che duy nhat · Ket noi 4 model: Flow Framework (BOP) + Endogenous Money (BoE 2014) + C/D Macro + 4 tang HDV" },
       leakage_3van:     { value: "3 VAN XA THANH KHOAN (tai sao TD +7,41% tao tien gui nhung C/D VAN cang): VAN 1 - Nhap khau NOI DIA tra tien that: khoi trong nuoc nhap sieu -24,95 ty USD → VND that rut khoi he thong de mua USD (phan tra cham → deferred demand Q4) · VAN 2 - Tich tru NGOAI he thong: cash/M2 11,52% CAO NHAT 3 NAM · dan cu giu tien mat + vang (SJC 146-148M) + USD → tien roi vong quay deposit · VAN 3 - KBNN HUT RONG (so 6T chinh thuc): VAO 1.748k ty (thu NSNN 1.565,4k = 62% du toan + TPCP 182,6k) vs RA 357k ty DTC (35,5%) → chenh lech khong lo dong tai KBNN, rut khoi M2 · Thu vuot tien do (62%) trong khi chi dau tu cham (35,5%) la goc re", updated: "20/07/2026", source: "[MODEL] 3 kenh leakage · data: GSO (nhap sieu noi dia) + NHNN (cash/M2) + TradingEconomics/HNX (TPCP) + Bo Tai chinh (DTC)", note: "NGHICH LY TAI KHOA: DTC duoc ky vong CUU thanh khoan H2 nhung HIEN TAI la LUC HUT (phat hanh > giai ngan) · Van 3 dao chieu khi giai ngan T8-T9 tang toc = van kha thi nhat" },
       paradox_implication: { value: "HAM Y: Ty gia on dinh la ON DINH RONG — khong phai vi dong tien khoe ma vi dong tien KHONG CHAY · Thanh khoan VND chi cai thien khi 1 trong 3 van dao chieu: (a) DTC giai ngan that H2 (con 645k ty = 64,5% KH) — KHA THI NHAT (b) tien FDI hoi huong nhieu hon — kho tru khi co chinh sach (c) dan cu giam tich tru — can CPI xuong + niem tin · Du bao: NIM ngan hang bi nen it nhat het Q3 (COF len theo thoa thuan 8-9% · lai vay bi ghim theo chi dao) · canh tranh huy dong chua ha nhiet truoc khi DTC ngam · DN BDS/xay lap tiep tuc kho du chi so vi mo dep", updated: "20/07/2026", source: "[DERIVED] Suy ra tu Liquidity Paradox + 3 van xa", note: "Ket noi bao cao lai suat 6-12 thang: cua so de tho Q1-Q2/2027 chinh vi cau truc nay · Kiem chung van 1: EMP acceleration tu T10 · van 3: ty le giai ngan DTC hang thang" },
+      pledgeability_test: { value: "PLEDGEABILITY MODEL (Holmstrom-Tirole 1998/2011 · them 20/7): Thanh khoan he thong bi chan tren boi phan gia tri tai san CO THE CAM CO duoc, khong phai boi chat luong tin dung thuan tuy · O VN rang buoc la THIEU THI TRUONG: NHNN chi nhan GTCG (TPCP, tin phieu NHNN) lam TSBD OMO · KHONG co RMBS/ABS · VAMC la cong cu xu ly no khong phai kenh tao thanh khoan → TOAN BO so cho vay du tot hay xau DEU KHONG phai nguon thanh khoan · He qua: NH Viet tao thanh khoan nhieu hon tren moi dong tai san so voi thuoc do Berger-Bouwman (vay mua nha o My la BAN thanh khoan vi chung khoan hoa duoc · o VN la KEM thanh khoan hoan toan) → mong manh hon", updated: "20/07/2026", source: "[MODEL] Holmstrom-Tirole pledgeability · Berger-Bouwman 2009 (trong so ±0,5 doi xung 2 ve · phan loai theo de/chi phi/thoi gian ban duoc, KHONG phai NPL) · Diamond-Rajan 2001/2005 · Acharya-Mora 2015", note: "PHAN BIET QUAN TRONG: Imbierowicz-Rauch 2014 KHONG chung minh tin dung gay ra thanh khoan — ho tim thay KHONG co quan he tuong ho co y nghia kinh te, chi ket luan ca 2 rui ro RIENG LE deu tang PD · Paper dung cho luan diem chat luong→thanh khoan la Diamond-Rajan va Acharya-Mora" },
+      carry_tpcp_cof:     { value: "CARRY AM — chi bao 1: TPCP 10Y thu cap 4,53% · LS trung thau so cap T6 4,25% · vs COF bien (thoa thuan 6-12T) 8,3-9,1% → CARRY AM 350-450bps · He qua: NH xay dem thanh khoan (HQLA) = tu bao mon NIM → khong ai muon mua → phien dau thau T6 goi 68.000 ty CHI TRUNG 34,4% · Vong luan quan: khong co dem thanh khoan → he thong mong manh → canh tranh huy dong → COF cao → carry cang am → cang khong xay duoc dem", updated: "20/07/2026", source: "[DERIVED] TPCP: KBNN/TradingEconomics · COF: khao sat thoa thuan T7 (ThoiBaoTaiChinh/TienPhong/VnExpress)", note: "Chi bao theo doi hang tuan cung tpcp_10y · Dao chieu khi: (a) LS huy dong ha ve <6% hoac (b) loi suat TPCP len >6% · Hien tai ca 2 deu chua xay ra → carry am keo dai het Q3" },
+      npl_rate_spread:    { value: "CHI BAO 2 — Chenh lech LS huy dong giua nhom NH (proxy thi truong dinh gia rui ro tung to chuc): Nhom tai co cau/yeu: 8,8-9,1% (GPBank <1 ty → 5-10 ty) · HDBank 9,05%/6T · Nhom lon: 6,8-7,3% → CHENH 200-230bps · Doc theo Acharya-Mora 2015: NH co tai san yeu DUA TANG LS huy dong de giu von thay vi lam nguoi cung cap thanh khoan — dung bức tranh VN hien nay · NPL he thong: cong bo 2,5-3% · uoc tinh an 5-7%", updated: "20/07/2026", source: "[MIXED] LS: khao sat bao chi T7 · NPL: NHNN cong bo + uoc tinh thi truong", note: "TEST THUC NGHIEM DE XUAT: chay tuong quan cheo NPL cong bo vs LS huy dong thoa thuan cua 15-20 NH niem yet theo quy · He so duong manh = luan diem chat luong tai san thang o TANG VI MO · Chua co nghien cuu nao o VN lam — co the cong bo duoc" },
+      obligability_ratio: { value: "CHI BAO 3 — Ty le tai san du dieu kien cam co OMO / tong tai san: TPCP toan he thong nam giu (uoc tu du no TPCP luu hanh) so voi tong TS he thong ~24-25 trieu ty → uoc tinh RAT THAP so voi chuan LCR Basel III · KBNN huy dong 6T chi 182.561 ty (36,5% KH 500k) va ty le trung thau T6 34,4% → nguon cung GTCG moi vao he thong HAN CHE · Day la rang buoc CUNG: muon tang dem thanh khoan cung khong co du GTCG de mua", updated: "20/07/2026", source: "[ESTIMATE] Can so lieu chinh xac tu BCTC tung NH (muc 'Chung khoan dau tu san sang de ban' + 'giu den ngay dao han') — chua co nguon tong hop cong khai", note: "CAN CAI THIEN: neu lay duoc so TPCP tung NH nam giu tu BCTC quy → tinh duoc ty le chinh xac · Day la bien quan trong nhat khi Basel III LCR/NSFR duoc ap dung theo lo trinh CDR" },
   },
 
   nsnn: {
@@ -1354,6 +1358,15 @@ document.getElementById('panel-m2').innerHTML=`
     <div style="font-size:11px;line-height:1.5">${v(D.m2.leakage_3van)}</div>
   </div>
   ${drow('Hàm ý điều hành & NIM', short(v(D.m2.paradox_implication)), 'r', n(D.m2.paradox_implication).substring(0,100), u(D.m2.paradox_implication))}
+
+  <div style="margin-top:12px;padding:10px 12px;background:linear-gradient(135deg,rgba(139,92,246,.09),rgba(59,130,246,.06));border:1px solid rgba(139,92,246,.3);border-radius:4px">
+    <div style="font-size:12px;font-weight:700;color:#a78bfa;margin-bottom:5px">🔐 PLEDGEABILITY MODEL — thanh khoản bị chặn bởi tài sản cầm cố được</div>
+    <div style="font-size:11px;line-height:1.55">${v(D.m2.pledgeability_test)}</div>
+    <div style="font-size:10px;color:var(--dim);margin-top:6px;padding-top:5px;border-top:1px dotted rgba(255,255,255,.1)">${n(D.m2.pledgeability_test)}</div>
+  </div>
+  ${drow('① Carry TPCP vs COF', short(v(D.m2.carry_tpcp_cof)), 'r', n(D.m2.carry_tpcp_cof).substring(0,90), u(D.m2.carry_tpcp_cof))}
+  ${drow('② Chênh LS huy động theo nhóm NH', short(v(D.m2.npl_rate_spread)), 'y', n(D.m2.npl_rate_spread).substring(0,90), u(D.m2.npl_rate_spread))}
+  ${drow('③ Tỷ lệ TS cầm cố được OMO', short(v(D.m2.obligability_ratio)), 'b', n(D.m2.obligability_ratio).substring(0,90), u(D.m2.obligability_ratio))}
 `;
 
 // III-b: Tiền Nội Sinh
@@ -1978,8 +1991,8 @@ checkAutoTrigger();
 // FREQ map: tần suất cập nhật kỳ vọng cho từng field
 const FREQ_MAP = {
   daily: ['nhnn_tc','vcb_mua','vcb_ban','vcb_tienmat','nhnn_tran','tg_tu_do_mua','tg_tu_do_ban','spread_emp','brent','wti','tg_usd','dxy_index','sjc_mua','sjc_ban','net_signal','tuan_nay'],
-  weekly: ['tt2_on','omo_net','fed_signal','war_premium','trang_thai','nhan_xet','iran_policy','tau_ngay','freight_index','kba','kbb','kbc','kbd','a1','a2','a3','b1','b2','b3','forecast_mua','forecast_ban','du_bao_irp','irp_forward','risk_premium','gap_ccs'],
-  monthly: ['liquidity_paradox','leakage_3van','paradox_implication','t3_forecast','tin_dung','yoy_2025','abs_2025','cpi_yoy','core_cpi','dan_cu','tckt','cash_m2','xang_ron95','xang_e5ron92','booxd_status','ky_tiep','ca_4m','fdi_5m','kieu_hoi_2025','du_tru','nhap_sieu'],
+  weekly: ['carry_tpcp_cof','npl_rate_spread','tt2_on','omo_net','fed_signal','war_premium','trang_thai','nhan_xet','iran_policy','tau_ngay','freight_index','kba','kbb','kbc','kbd','a1','a2','a3','b1','b2','b3','forecast_mua','forecast_ban','du_bao_irp','irp_forward','risk_premium','gap_ccs'],
+  weekly_extra_placeholder: [], monthly: ['pledgeability_test','obligability_ratio','liquidity_paradox','leakage_3van','paradox_implication','t3_forecast','tin_dung','yoy_2025','abs_2025','cpi_yoy','core_cpi','dan_cu','tckt','cash_m2','xang_ron95','xang_e5ron92','booxd_status','ky_tiep','ca_4m','fdi_5m','kieu_hoi_2025','du_tru','nhap_sieu'],
   event: ['fomc','dot_plot','ky_t3','tb33nh','uob_q2','goldman_q1','goldman_q2'],
   static: ['co_che','multiplier','data_limit','tpcp','luat_thue','v34_changes','v35_changes','v311_changes','v312_changes','v313_changes','v314_changes','v315_changes','v316_changes','v317_changes','v318_changes','v320_changes','v321_changes']
 };
