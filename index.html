@@ -184,22 +184,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.20",
-    date: "27/07/2026",
-    note: "27/7 v4.20: RE-ASSESS panel MONITOR TT1 GIẢM + Gap CCS + forecast tỷ giá theo Fed T9 82,4%. Panel TT1: A2 chuyển từ ⚠️ sang ❌ (Fed T9 62,8%→82,4%), A3 lần đầu ✅ (TT2 O/N xác nhận <6% ổn định 2 tuần: 3,33-3,65%), B1 xấu thêm (OMO hút ròng tuần thứ 3 liên tiếp). Tái cân trọng số: Cơ sở 30%→20%, Trì hoãn 55%→65%, Tích cực giữ 15% — Q4 Trì hoãn nâng lên 8,0-8,5%+. Gap CCS: phát hiện Gap O/N gần bằng 0/âm lần đầu (TT2 3,33-3,65% vs Fed funds 3,5-3,75%) trong khi Gap TT1 vẫn rộng 4,5-5,5% do CDR — Gap KHÔNG đồng nhất theo kỳ hạn. Forecast tỷ giá nâng nhẹ: VCB bán Q3 26.500-26.700 (từ 26.450-26.650), Q4 26.700-26.950, EV cuối năm ~26.800-26.850 (từ 26.750), VND mất giá cả năm 3,8-4,2% (từ 3,5-3,8%).",
+    version: "4.21",
+    date: "28/07/2026",
+    note: "28/7 v4.21: TC NHNN LẬP ĐỈNH LỊCH SỬ 25.306 (+13đ), vượt đỉnh cũ 25.298 (T8/2025) — nhưng VCB/chợ đen gần như đi ngang, EMP -95đ ổn định (không mở rộng theo TC) — dấu hiệu NHNN chủ động điều chỉnh theo cơ cấu/kỳ vọng chứ không phải áp lực cầu USD thực tăng đột biến. Brent tiếp tục điều chỉnh giảm 5 phiên liên tiếp về $86,58 (-1,54%) sau khi Mỹ-Iran ngừng giao tranh, đàm phán Oman về Hormuz. Vàng biến động rất mạnh trong ngày: $4.088(21h 27/7)→$4.045(chốt 15:50 28/7) — SJC đảo chiều giảm 1,5tr sau khi tăng vọt đầu giờ sáng. FOMC họp chính thức 28-29/7 (Hold kỳ vọng), CME T9 hike prob quanh 80% (cross-check khớp với 82,4% đã ghi 27/7). Xăng: kỳ tiếp theo 30/7 (thứ Năm), chưa đến hạn.",
   },
 
   fx: {
-    nhnn_tc:       { value: 25293, updated: "27/07/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
-    nhnn_tran:     { value: 26558, updated: "27/07/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
+    nhnn_tc:       { value: 25306, updated: "28/07/2026", source: "NHNN/Vietstock 12/4", note: "NHNN TC 12/4: 25.105 (+3đ vs 9/4=25.102) · Trần 26.360 · Sàn 23.850 · DXY 98,44 khép tuần · UOB Q2: 26.100" },
+    nhnn_tran:     { value: 26571, updated: "28/07/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
     nhnn_san:      { value: 23882, updated: "07/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
-    vcb_mua:       { value: 26140, updated: "27/07/2026", source: "webgia.com/VCB 21/7", note: "VCB mua 27/7 8h30: 26.140 (tang 10d) · BIDV 26.130 khong doi" },
-    vcb_ban:       { value: 26520, updated: "27/07/2026", source: "webgia.com/VCB 21/7", note: "VCB ban 27/7 8h30: 26.520 (tang 10d) · 26520/26558=99,86% tran · OCB ban cao nhat 26.547" },
+    vcb_mua:       { value: 26135, updated: "28/07/2026", source: "webgia.com/VCB 21/7", note: "VCB mua 28/7: 26.135 (giam 5d) — nghich chieu voi TC NHNN dang tang manh" },
+    vcb_ban:       { value: 26515, updated: "28/07/2026", source: "webgia.com/VCB 21/7", note: "VCB ban 28/7: 26.515 (giam 5d) · TC NHNN 25.306 LAP DINH LICH SU (vuot dinh cu 25.298 thang 8/2025) · 26515/26571=99,79% tran · VCB dang di nguoc TC — phan ky dang chu y" },
     vcb_tienmat:   { value: 26072, updated: "13/07/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
     tb33nh:        { value: "~26.131-26.391 (VCB · BIDV · TCB · ACB dong thuan · VCB tang 10d mua)", updated: "21/05/2026", source: "webgia.com 12/4", note: "TB 33 NH 12/4: ~26.100–26.360 · ACB: 26.150/26.360 · Sacombank mua cao nhất: 26.220 · SCB bán thấp nhất: 26.350" },
-    tg_tu_do_mua:  { value: "26.400", updated: "27/07/2026", source: "tygiausd.org 10/6", note: "Cho den mua toi CN 26/7: 26.400 (tang 70d so phien truoc) · Dau tuan truoc (20/7) tung dat dinh tuan 26.510" },
-    tg_tu_do_ban:  { value: "26.420", updated: "27/07/2026", source: "tygiausd.org 10/6", note: "Cho den ban toi CN 26/7: 26.420 (tang 60d) · EMP = 26.420-26.520(VCB ban 27/7) = -100d · Luu y: so lieu khac thoi diem (cho den toi CN, VCB sang T2) nhung la cap nhat gan nhat co san" },
-    spread_emp:    { value: "VAN AM: -100d (uoc tinh 27/7, cho den toi CN 26.420 vs VCB ban sang 27/7 26.520) · Chuoi: -32d(21/7)->-120d(23/7)->-100d(27/7) · Am 4 tuan lien tiep nhung dang co dau hieu bot am nhe so dinh -120d", updated: "27/07/2026", source: "tính toán 13/4", note: "Cau USD thuc van yeu du Brent tung vot len $97-100+ giua tuan truoc khi roi manh ve $90 (27/7) — xac nhan flow framework: headline hang hoa quoc te KHONG chuyen thanh cau USD thuc noi dia" },
+    tg_tu_do_mua:  { value: "26.360", updated: "28/07/2026", source: "tygiausd.org 10/6", note: "Cho den mua 28/7 sang: 26.360 (giam 40d) · Nguon khac ghi 26.400 (chua thay doi) — chenh lech nho giua cac nguon" },
+    tg_tu_do_ban:  { value: "26.420", updated: "28/07/2026", source: "tygiausd.org 10/6", note: "Cho den ban 28/7 sang: 26.420 (di ngang so 27/7) · EMP = 26.420-26.515(VCB ban 28/7) = -95d — gan nhu khong doi cap nhat gan nhat co san" },
+    spread_emp:    { value: "AM ON DINH: -95d (28/7, gan nhu di ngang so -100d 27/7) · Chuoi 5 tuan am lien tiep: -32(21/7)->-120(23/7)->-100(27/7)->-95(28/7) · DANG CHU Y: TC NHNN vua lap DINH LICH SU 25.306 nhung VCB/cho den gan nhu khong phan ung — EMP KHONG mo rong theo dinh TC", updated: "28/07/2026", source: "tính toán 13/4", note: "Y nghia: dinh TC lan nay la NHNN CHU DONG dieu chinh theo ky vong/co cau, khong phai do ap luc cau USD thuc tang dot bien (EMP khong xac nhan) — khac voi cac dot TC tang truoc day thuong di kem EMP xau di" },
     forecast_mua:  { value: "Q3: 26.150-26.350 · Q4: 26.350-26.600 (mua thap hon ban ~380-400d theo spread VCB chuan, dieu chinh cung chieu voi forecast_ban) · Kich ban tich cuc (FTSE + Fed T9 hold bat ngo, ~15%): mua ve 26.000-26.200 cuoi nam", updated: "27/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney/NguoiQuanSat 12/6)", note: "Cung framework flow-adjusted voi forecast_ban, dieu chinh 27/7 theo Fed T9 82,4%" },
     forecast_ban:  { value: "FLOW-ADJUSTED FORECAST (27/7, cap nhat tu ban 13/7): Q3: 26.500-26.700 (NANG NHE so ban cu 26.450-26.650 — TC NHNN tang lien tuc nhieu phien 25.272->25.293, VCB ban da cham 26.520) · Q4: 26.700-26.950 voi DUOI RUI RO DOC VE CUOI QUY cang ro net hon — Fed T9 hike prob vot len 82,4% la chat xuc tac MOI cho duoi nay, cong voi deferred demand cu (LC tra cham Q2 dao han) · EV cuoi nam: ~26.800-26.850 (nang tu ~26.750) · VND mat gia ca nam: +3,8-4,2% (nang tu 3,5-3,8%) · Wildcard duong: FTSE 21/9 (keo ve 26.400-26.600) · Wildcard am: Iran leo thang lai (Houthi van tan cong Bien Do, chua ket thuc hoan toan)", updated: "27/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney 12/6)", note: "EMP van la driver #1 nhung dang BOT AM (-120d 23/7 -> -100d 27/7) — neu xu huong nay CHUYEN DUONG se la tin hieu manh nang forecast them nua. Nguoc lai neu EMP am tro lai du Fed hawkish hon, cung co them cho flow framework (headline quoc te khong chuyen thanh cau thuc noi dia)" },
     uob_q2:        { value: "VNDIRECT T5/2026: Ty gia LNH cuoi 2026 len 27.100d/USD · cuoi 2027: 27.778d/USD · Ap luc tu nhap sieu 7,11 ty + lam phat + USD du manh · CPI binh quan 2026: 5,4% (muc cao nhat CTCK) · Brent cao → xang tang → CPI kho kiem soat · NHNN kho ha LS khi CPI vuot 4,5%", updated: "29/05/2026", source: "UOB Research", note: "UOB Q2/2026: 26.100 · Q3: 26.000 · Q4: 25.900 · [v3.18 FIX: 26400→26100]" },
@@ -215,13 +215,13 @@ const D = {
   },
 
   dxy: {
-    value: { value: "101,19 (sang 27/7) · thap nhat tuan 100,78 (sang 20/7) · toi CN 26/7 dat 101,47", updated: "27/07/2026", source: "investing.com/vantage 8/6", note: "Nguon: VOV 27/7 · DXY di ngang trong bien do hep quanh 101 ca tuan, KHONG phan anh day du cu soc Fed Sept hike prob vot len 82,4%" },
+    value: { value: "101,26-101,51 (28/7, gan nhu di ngang) · USD hut hoi so voi EUR/JPY nhung van tru vung >101 truoc FOMC", updated: "28/07/2026", source: "investing.com/vantage 8/6", note: "Nguon: VOV/nongnghiepmoitruong 28/7" },
     note:  { value: "~100 · NFP T5 172k (double forecast) → DXY tang manh · US CPI 4,2% → Fed khong cat T6 · Kevin Warsh: hawkish vs Powell · FOMC 16-17/6: dot plot va SEP moi · Vang giam manh $4.450→$4.210 theo DXY tang", updated: "13/07/2026", source: "vantage/reuters 8-12/6", note: "" },
   },
 
   oil: {
-    brent:          { value: "$90,28 (27/7, TradingEconomics, GIAM MANH 8,23% so hom truoc) · Da co luc VUOT $97-100+ giua tuan truoc (24/7 mo cua $100,57) roi dieu chinh manh sau tin My dung tan cong Iran toi 24/7 (khong tuyen bo chinh thuc), Iran ngung tra dua, dam phan qua Oman ve Hormuz", updated: "27/07/2026", source: "CNBC/Reuters 25/4", note: "Da tang gan 40% trong thang do leo thang Hormuz roi lan sang Bien Do (Houthi tan cong Saudi Aramco tai Jizan, Yanbu cuoi tuan) · Dieu chinh giam nhung van +30,24% YoY, +22,15% trong 1 thang" },
-    wti:            { value: "$83,51 (27/7, TradingEconomics/Crude Oil, giam 7,69% so hom truoc)", updated: "27/07/2026", source: "CNBC 25/4", note: "Dong pha voi Brent trong ca 2 chieu leo thang va dieu chinh · Van +25,18% YoY" },
+    brent:          { value: "$86,58 (28/7, TradingEconomics, -1,54%) · Tiep tuc dieu chinh giam tu dinh $97-100+ (24/7) — da 5 phien lien tiep giam sau khi My-Iran ngung tan cong · Mot so nguon intraday (Investing.com) ghi nhan xuong toi $84,99-85,87", updated: "28/07/2026", source: "CNBC/Reuters 25/4", note: "Van +17,14% trong 1 thang, +20,79% YoY · Nguyen nhan on dinh tiep: dam phan Iran-Oman ve Hormuz cuoi tuan, CPC terminal (Nga) hoat dong tro lai" },
+    wti:            { value: "Chua tim duoc so rieng 28/7, tham chieu 27/7: $82,62 (TradingEconomics, -8,68%) · Nhieu kha nang tiep tuc giam nhe cung chieu Brent", updated: "28/07/2026", source: "CNBC 25/4", note: "CAN VERIFY: chua co so xac nhan rieng cho 28/7, dung tam so 27/7 lam tham chieu" },
     spread_futures: { value: "Contango nhe: spot $75.09 < futures Feb 2027 ~$80 (Goldman Q4 target) · Market pricing: supply normalization (Iran quay lai) → tương lai rẻ hơn hiện tại (contango) · Backwardation cu ($107>$102) la thoi chien tranh - khong con hieu luc · Contango = signal: thi truong KHONG expect supply shortage → Brent se on dinh hoac giam", updated: "29/06/2026", source: "[ESTIMATE] Ước tính — cần nguồn xác minh", note: "Model: Contango (futures > spot) = thi truong expect oversupply tuong lai. Backwardation (spot > futures) = shortage hien tai. Chuyen tu backwardation (thoi chien) sang contango (post-deal) = signal supply normalization da duoc pricing" },
     iea_release:    { value: "IEA post-deal (T6/2026): Supply surplus dang hinh thanh khi Hormuz reopen → IEA ha forecast undersupply · Goldman: Persian Gulf exports ve pre-war cuoi T7 (som hon 1 thang) · Iraq de doa bo OPEC neu khong tang quota · Supply balance: Iran +1M bbl/ngay + OPEC+ potential rebalance → net surplus T3/2026", updated: "29/06/2026", source: "Reuters/IEA", note: "Model supply/demand: Pre-war global demand ~102M bbl/ngay. Iran cut ~2M bbl/ngay (Hormuz). Post-deal: Iran +1M bbl quay lai + OPEC+ giu nguyen → supply >demand → downward price pressure" },
     hormuz_tau:     { value: "Post-deal (19/6+): ≥20 tau/ngay da qua Hormuz ke tu deal · Saudi tankers huong Ras Tanura restart · Goldman: exports ve pre-war cuoi T7 · IMO safety guarantees → tau chuyen di cong khai · Iraq: de doa bo OPEC → supply surge potential · UAE: 85% pre-war capacity → 60M bbl recently shipped", updated: "29/06/2026", source: "Reuters/VOV 21/4", note: "Observable proxy cho KB probability: so tau/ngay qua Hormuz. Pre-war: ~30-40 tau/ngay. Trong chien: ~5-10 tau/ngay (TQ+trung lap). Post-deal hien nay: 20+ tau/ngay → dang phuc hoi but chua day du" },
@@ -255,9 +255,9 @@ const D = {
   },
 
   gold: {
-    tg_usd: { value: "$4.090-4.104/oz (27/7, TradingEconomics +0,95%, cac nguon khac ghi nhan toi $4.104,30) · Buc pha sat $4.100 dau tuan sau khi cho tuan truoc phuc hoi tu day $4.030 (24/7)", updated: "27/07/2026", source: "kitco/litefinance 12/6", note: "Vang duoc ho tro boi loi suat TPCP My ha nhiet, nhung bi kim ham boi thi truong lao dong My van vung va ky vong Fed giu LS cao (Sept hike prob 82,4%) · Chot tuan truoc quanh $4.053" },
-    sjc_mua: { value: "139.000.000", updated: "27/07/2026", source: "SJC/DOJI/PNJ 10/6", note: "SJC mua 27/7: 139tr (tang 1,5tr dau tuan) · Da roi tu dinh 146-147,5tr (20-21/7) xuong day ~135tr (23-24/7) roi phuc hoi nhe" },
-    sjc_ban: { value: "143.000.000", updated: "27/07/2026", source: "SJC/DOJI/PNJ/BTMC 10/6", note: "SJC ban 27/7: 143tr (tang 1,5tr so cuoi tuan truoc) · Van thap hon dinh 146-147,5tr (20-21/7) · Bien dong manh ca tuan do vang TG dao chieu lien tuc theo tin Iran" },
+    tg_usd: { value: "$4.045,20/oz (chot 15:50 28/7, -1,07%) · Bien dong manh trong ngay: $4.088(21h 27/7)->$4.078(4h)->$4.065(7h)->$4.047(8h42)->$4.045(15:50) — xu huong giam dan deu suot ngay sau nhip hoi phuc ky thuat dem truoc", updated: "28/07/2026", source: "kitco/litefinance 12/6", note: "FOMC hop 28-29/7 (Hold ky vong) + CME T9 hike prob ~80% la tam diem chu y toan cau, kim ham da phuc hoi cua vang" },
+    sjc_mua: { value: "137.500.000", updated: "28/07/2026", source: "SJC/DOJI/PNJ 10/6", note: "SJC mua chot 15:50 28/7: 137,5tr (giam 1,5tr so hom qua) — dao chieu sau nhip tang dau gio sang theo vang TG" },
+    sjc_ban: { value: "141.500.000", updated: "28/07/2026", source: "SJC/DOJI/PNJ/BTMC 10/6", note: "SJC ban chot 15:50 28/7: 141,5tr (giam 1,5tr so hom qua 143tr) · Chenh lech vs vang TG quy doi: ~13,6tr/luong · Ca ngay bien dong 2 chieu manh: sang tang vot theo vang TG hoi phuc, chieu dao nguoc giam theo vang TG tiep tuc roi" },
   },
 
   yield_curve: {
@@ -400,13 +400,13 @@ const D = {
   // confluence section removed v4.04 — 25 fields gộp về signals + KB
 
   checklist: [
-    { id:"nhnn_tc",   label:"NHNN TC",              updated:"27/07/2026", source:"NHNN/VOV", frequency:"daily",   ok:true },
-    { id:"vcb",       label:"VCB mua/bán USD",       updated:"27/07/2026", source:"VCB.vn", frequency:"daily",   ok:true },
-    { id:"tg_tu_do",  label:"TG tự do",              updated:"27/07/2026", source:"tygiausd.org 27/4", frequency:"daily", ok:true },
-    { id:"dxy",       label:"DXY Index",             updated:"27/07/2026", source:"investing.com", frequency:"daily", ok:true },
-    { id:"brent",     label:"Brent crude",           updated:"27/07/2026", source:"CNBC/Reuters", frequency:"daily", ok:true },
-    { id:"wti",       label:"WTI crude",             updated:"27/07/2026", source:"CNBC", frequency:"daily",  ok:true },
-    { id:"gold",      label:"Vàng TG & SJC",         updated:"27/07/2026", source:"Vietstock/SJC 25/4", frequency:"daily", ok:true },
+    { id:"nhnn_tc",   label:"NHNN TC",              updated:"28/07/2026", source:"NHNN/VOV", frequency:"daily",   ok:true },
+    { id:"vcb",       label:"VCB mua/bán USD",       updated:"28/07/2026", source:"VCB.vn", frequency:"daily",   ok:true },
+    { id:"tg_tu_do",  label:"TG tự do",              updated:"28/07/2026", source:"tygiausd.org 27/4", frequency:"daily", ok:true },
+    { id:"dxy",       label:"DXY Index",             updated:"28/07/2026", source:"investing.com", frequency:"daily", ok:true },
+    { id:"brent",     label:"Brent crude",           updated:"28/07/2026", source:"CNBC/Reuters", frequency:"daily", ok:true },
+    { id:"wti",       label:"WTI crude",             updated:"28/07/2026", source:"CNBC", frequency:"daily",  ok:true },
+    { id:"gold",      label:"Vàng TG & SJC",         updated:"28/07/2026", source:"Vietstock/SJC 25/4", frequency:"daily", ok:true },
     { id:"xang",      label:"Giá xăng RON95",        updated:"27/07/2026", source:"Petrolimex 25/4", frequency:"adhoc", ok:true },
     { id:"omo",       label:"OMO NHNN (lưu hành)",   updated:"27/07/2026", source:"NHNN/Vietstock", frequency:"weekly", ok:true },
     { id:"hormuz",    label:"Hormuz flows (tàu/ngày)",updated:"10/06/2026", source:"CNBC/Reuters/Al Jazeera", frequency:"weekly", ok:true },
