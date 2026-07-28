@@ -184,9 +184,9 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.19",
+    version: "4.20",
     date: "27/07/2026",
-    note: "27/7 v4.19: TUẦN BIẾN ĐỘNG MẠNH — xăng kỳ 23/7 xác nhận chính thức +885đ (E10→21.435đ) · Brent/WTI leo thang cực mạnh giữa tuần (đỉnh $97-100+, 24/7) rồi ĐẢO CHIỀU giảm 8,2%/phiên về $90,28 (27/7) sau tin Mỹ dừng tấn công Iran, đàm phán qua Oman · CME Fed T9 hike prob VỌT LÊN 82,4% (từ 62,8% ngày 21/7) — thay đổi lớn cần re-assess A2/panel TT1 · TT2 O/N giảm sâu 3,33-3,65%, XÁC NHẬN dưới 6% ổn định 2+ tuần (A3 khả năng ĐẠT) nhưng OMO vẫn hút ròng tuần thứ 3 liên tiếp (26.352 tỷ) · TC NHNN tăng liên tục lên 25.293 · EMP -100đ (bớt âm từ -120đ) · Vàng TG/SJC biến động dữ dội cả tuần. ĐÃ CHẤM SCORECARD tuần 20-26/7: chỉ 1/6 (17%) — tệ nhất từ trước tới giờ do biến quốc tế breach đồng loạt cùng hướng trong giai đoạn leo thang; đã đặt 6 dự báo mới tuần 27/7-2/8 (FOMC, PCE, Brent, xăng, EMP, VCB) với range mở rộng theo bài học.",
+    note: "27/7 v4.20: RE-ASSESS panel MONITOR TT1 GIẢM + Gap CCS + forecast tỷ giá theo Fed T9 82,4%. Panel TT1: A2 chuyển từ ⚠️ sang ❌ (Fed T9 62,8%→82,4%), A3 lần đầu ✅ (TT2 O/N xác nhận <6% ổn định 2 tuần: 3,33-3,65%), B1 xấu thêm (OMO hút ròng tuần thứ 3 liên tiếp). Tái cân trọng số: Cơ sở 30%→20%, Trì hoãn 55%→65%, Tích cực giữ 15% — Q4 Trì hoãn nâng lên 8,0-8,5%+. Gap CCS: phát hiện Gap O/N gần bằng 0/âm lần đầu (TT2 3,33-3,65% vs Fed funds 3,5-3,75%) trong khi Gap TT1 vẫn rộng 4,5-5,5% do CDR — Gap KHÔNG đồng nhất theo kỳ hạn. Forecast tỷ giá nâng nhẹ: VCB bán Q3 26.500-26.700 (từ 26.450-26.650), Q4 26.700-26.950, EV cuối năm ~26.800-26.850 (từ 26.750), VND mất giá cả năm 3,8-4,2% (từ 3,5-3,8%).",
   },
 
   fx: {
@@ -200,8 +200,8 @@ const D = {
     tg_tu_do_mua:  { value: "26.400", updated: "27/07/2026", source: "tygiausd.org 10/6", note: "Cho den mua toi CN 26/7: 26.400 (tang 70d so phien truoc) · Dau tuan truoc (20/7) tung dat dinh tuan 26.510" },
     tg_tu_do_ban:  { value: "26.420", updated: "27/07/2026", source: "tygiausd.org 10/6", note: "Cho den ban toi CN 26/7: 26.420 (tang 60d) · EMP = 26.420-26.520(VCB ban 27/7) = -100d · Luu y: so lieu khac thoi diem (cho den toi CN, VCB sang T2) nhung la cap nhat gan nhat co san" },
     spread_emp:    { value: "VAN AM: -100d (uoc tinh 27/7, cho den toi CN 26.420 vs VCB ban sang 27/7 26.520) · Chuoi: -32d(21/7)->-120d(23/7)->-100d(27/7) · Am 4 tuan lien tiep nhung dang co dau hieu bot am nhe so dinh -120d", updated: "27/07/2026", source: "tính toán 13/4", note: "Cau USD thuc van yeu du Brent tung vot len $97-100+ giua tuan truoc khi roi manh ve $90 (27/7) — xac nhan flow framework: headline hang hoa quoc te KHONG chuyen thanh cau USD thuc noi dia" },
-    forecast_mua:  { value: "Q3: 26.050-26.250 · Q4: 26.250-26.500 (mua thap hon ban ~380-400d theo spread VCB chuan) · Kich ban tich cuc (FTSE + deal Iran, ~20-25%): mua ve 25.900-26.100 cuoi nam", updated: "13/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney/NguoiQuanSat 12/6)", note: "Cung framework flow-adjusted voi forecast_ban · Cap nhat khi: (1) EMP acceleration tu T10 → deferred demand confirm → nang range (2) FTSE 21/9 upgrade → ha range" },
-    forecast_ban:  { value: "FLOW-ADJUSTED FORECAST (13/7, framework moi): Q3: 26.450-26.650 (HA nhe so ban cu — EMP am cho thay cau USD thuc yeu, nhap sieu phan lon netting/tra cham) · Q4: 26.650-26.900 voi DUOI RUI RO DOC VE CUOI QUY (deferred demand: LC tra cham Q2 dao han + Fed hike tich luy) · Timing DOI: song ty gia den TRE hon (T11-T12) va DOC hon kich ban tuyen tinh · EV cuoi nam: ~26.750 · VND mat gia ca nam: +3,5-3,8% · Wildcard duong: FTSE 21/9 (keo ve 26.300-26.500) · Wildcard am: Brent >$95 keo dai", updated: "13/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney 12/6)", note: "Framework: EMP la driver #1 (revealed demand) · trade balance = bien dan bao TRE 3-6 thang · IRP v2 insight: voi LS VND thuc te 8,5%, forward = 26.406 → risk premium chi +54d = ty gia hien tai GAN FAIR VALUE, khong qua ban · Doi chieu UOB (12/6, truoc leo thang): Q3 26.500 Q4 26.400 — UOB chua tinh Iran 8/7 + deferred demand" },
+    forecast_mua:  { value: "Q3: 26.150-26.350 · Q4: 26.350-26.600 (mua thap hon ban ~380-400d theo spread VCB chuan, dieu chinh cung chieu voi forecast_ban) · Kich ban tich cuc (FTSE + Fed T9 hold bat ngo, ~15%): mua ve 26.000-26.200 cuoi nam", updated: "27/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney/NguoiQuanSat 12/6)", note: "Cung framework flow-adjusted voi forecast_ban, dieu chinh 27/7 theo Fed T9 82,4%" },
+    forecast_ban:  { value: "FLOW-ADJUSTED FORECAST (27/7, cap nhat tu ban 13/7): Q3: 26.500-26.700 (NANG NHE so ban cu 26.450-26.650 — TC NHNN tang lien tuc nhieu phien 25.272->25.293, VCB ban da cham 26.520) · Q4: 26.700-26.950 voi DUOI RUI RO DOC VE CUOI QUY cang ro net hon — Fed T9 hike prob vot len 82,4% la chat xuc tac MOI cho duoi nay, cong voi deferred demand cu (LC tra cham Q2 dao han) · EV cuoi nam: ~26.800-26.850 (nang tu ~26.750) · VND mat gia ca nam: +3,8-4,2% (nang tu 3,5-3,8%) · Wildcard duong: FTSE 21/9 (keo ve 26.400-26.600) · Wildcard am: Iran leo thang lai (Houthi van tan cong Bien Do, chua ket thuc hoan toan)", updated: "27/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney 12/6)", note: "EMP van la driver #1 nhung dang BOT AM (-120d 23/7 -> -100d 27/7) — neu xu huong nay CHUYEN DUONG se la tin hieu manh nang forecast them nua. Nguoc lai neu EMP am tro lai du Fed hawkish hon, cung co them cho flow framework (headline quoc te khong chuyen thanh cau thuc noi dia)" },
     uob_q2:        { value: "VNDIRECT T5/2026: Ty gia LNH cuoi 2026 len 27.100d/USD · cuoi 2027: 27.778d/USD · Ap luc tu nhap sieu 7,11 ty + lam phat + USD du manh · CPI binh quan 2026: 5,4% (muc cao nhat CTCK) · Brent cao → xang tang → CPI kho kiem soat · NHNN kho ha LS khi CPI vuot 4,5%", updated: "29/05/2026", source: "UOB Research", note: "UOB Q2/2026: 26.100 · Q3: 26.000 · Q4: 25.900 · [v3.18 FIX: 26400→26100]" },
     nhnn_kyhan:    { value: "26.750", updated: "17/05/2026", source: "Vietstock/Maybank", note: "Forward NHNN 180 ngày: ~26.750 (giảm từ 26.850 trước ceasefire)" },
     forward_usd: {
@@ -274,9 +274,9 @@ const D = {
   irp: {
     ls_vnd_tt2:  { value: "6,6–7,0", updated: "12/06/2026", source: "TT2/NHNN 12/6", note: "TT2 O/N VND 12/6: 6.6-7.0% (spike 11% ngày 2/6 → settled) · TT1 Big4: 7.0-7.5% · TT1 tư nhân: 8.0-8.5% · LDR 114% duy trì áp lực · IRP gap = TT2 O/N - Fed: ~3.1-3.5%; TT1-Fed: ~3.75-4.25%" },
     ls_usd_fed:  { value: "3,50–3,75", updated: "12/06/2026", source: "Fed/CME 12/6", note: "Kevin Warsh FOMC 16-17/6 (debut) · US CPI T5: 4.2% (mạnh nhất từ 4/2023 · cô bố 10/6) · NFP T5: 172k (double forecast 85k · 5/6) · CME: 0% cut T6 · Fed HOLD đến 2027 · DXY ~100" },
-    gap_vnd_usd: { value: "IRP MODEL (29/6): Gap CCS = LS VND TT1 (7.0-7.5%) - LS USD Fed funds (3.5-3.75%) = ~3.25-4.0% · IRP implication: gap nay phan anh ky vong VND depreciation ~3.5%/nam + liquidity premium + country risk · CME Fed T9: 62% tang LS → neu thuc hien: Fed funds +0.25% → Gap thu hep 0.25% tu phia USD · NHNN ha LS T8 (du bao): Gap thu hep 0.25-0.5% tu phia VND · Net: Gap se giam ca 2 phia → EMP diu lai trong Q4", updated: "29/06/2026", source: "Tính toán 12/6", note: "Gap CCS theo IRP: Forward USD/VND = Spot x (1 + LSVND)/(1 + LSUSD). Khi Gap giam: forward premium VND giam → swap rate giam → CCS cost giam → ngan hang it can hedge → EMP co xu huong on dinh hon. Moi quan he: Gap CCS <-> EMP la dong bien (cung chieu)" },
+    gap_vnd_usd: { value: "IRP RE-ASSESS 27/7 (tu ban 29/6): Gap CCS = LS VND TT1 thuc te (8,3-9,1%, da tang tu 7,0-7,5% cu) - Fed funds (3,5-3,75%) = ~4,55-5,55% (RONG HON du bao 29/6, khong thu hep) · DIEM MOI QUAN TRONG: o KY HAN O/N, Gap gan nhu BANG 0 hoac AM lan dau tien — TT2 O/N chi 3,33-3,65%/nam, THAP HON ca Fed funds 3,5-3,75% · CME Fed T9 VOT len 82,4% (tu 62,8% 21/7, 52,4% 16/7) — neu thuc hien: Gap O/N am ro ret hon, trong khi Gap TT1 (6-12T) van rong do CDR", updated: "27/07/2026", source: "Tính toán 12/6", note: "Phat hien moi 27/7: Gap CCS KHONG DONG NHAT theo ky han — O/N gan bang 0/am trong khi TT1 Gap van 4,5-5,5%. Day la bang chung truc tiep cho CDR headwind (NH bi buoc canh tranh TT1 doc lap voi thanh khoan he thong) — khong the dung 1 con so Gap duy nhat cho toan bo duong cong lai suat. EMP van AM (-100d) du Gap O/N gan bang 0 — cau USD thuc chua phan ung theo Fed repricing" },
     thuc_te:     { value: "EMP INVERTED −50đ · TT2 O/N 6,6-7% · DXY ~100 · VND ổn định dù tái leo thang Iran", updated: "12/06/2026", source: "12/6 quan sát", note: "EMP INVERTED: chợ đen bán (26.360) < VCB bán (26.410) = −50đ (lần đầu lịch sử) · DXY ~100 (NFP 172k + US CPI 4.2%) · US tái không kích Iran 10-11/6 → Brent $93-95 · KB-B 42% KB-D 22%" },
-    du_bao_irp:  { value: "IRP 2 PHIEN BAN (13/7): v1 dung NHNN avg 6,01%: forward 25.801 → risk premium +659d · v2 dung LS thoa thuan thuc 8,5%: forward 26.406 → risk premium chi +54d · INSIGHT: phan lon [risk premium] trong model cu thuc chat la CHENH LECH LAI SUAT THAT chua duoc do dung — ty gia hien tai GAN FAIR VALUE theo carry thuc te · Du dia mat gia them phu thuoc BIEN MOI (Fed/dau/deferred demand), khong phai hoi quy ve mean", updated: "13/07/2026", source: "IRP model", note: "Bai hoc model: IRP input phai la lai suat MA THI TRUONG THUC TRA (tang 3 thoa thuan), khong phai lai suat binh quan blended · Ket noi voi model 4 tang HDV: tang 3 (8,3-9,1%) chinh la input dung cho IRP" },
+    du_bao_irp:  { value: "IRP 2 PHIEN BAN (cap nhat 27/7 tu 13/7): v1 dung NHNN avg 6,01%: forward ~25.850 (uoc) → risk premium con lai · v2 dung LS thoa thuan thuc 8,3-9,1%: forward ~26.450-26.550 → risk premium THU HEP them so 13/7 (tu +54d) do LS VND thuc te da tang cao hon · INSIGHT MOI: voi Fed T9 hike prob 82,4%, phia USD cua IRP cung sap tang → forward se dich chuyen theo CA HAI phia (VND cao hon + USD cao hon) → tac dong len ty gia forward KHONG RO RANG mot chieu, can theo doi ca 2 chan", updated: "27/07/2026", source: "IRP model", note: "Bai hoc model: IRP forward la ket qua cua CA HAI chan lai suat, khong chi mot chieu VND. Khi ca hai cung tang (VND do CDR, USD do Fed), can phan tich CHENH LECH TOC DO tang cua 2 chan, khong chi huong" },
     note:        { value: "Spread DXY tham chiếu khác: theo dõi qua dxy_index field chính", updated: "19/06/2026", source: "[MIXED] Tổng hợp nhiều nguồn", note: "" },
   },
 
@@ -1069,13 +1069,13 @@ document.getElementById('panel-omo').innerHTML=`
     </span>
   </div>
   <div style="margin-top:12px;padding:8px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:3px">
-    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 23/7</div>
+    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 27/7</div>
 
     <!-- HEADER: Framework thay đổi -->
     <div style="margin-bottom:10px;padding:7px 12px;background:rgba(59,130,246,.07);border-left:3px solid var(--blue);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
       <span style="color:var(--blue);font-weight:600">📐 Framework mới (Q3/2026):</span> TT1 đã đỉnh T6 → chuyển sang theo dõi <strong style="color:var(--ok)">tốc độ & điều kiện giảm</strong>.
       Bộ cũ (O/N &lt;3%, TT08, M2/TD) không còn phù hợp → thay bằng 3 tầng chỉ tiêu action-based.
-      <strong style="color:var(--red)">Re-assess 23/7: xu hướng đảo ngược so 25/6 — B1 (trigger chính) đi NGƯỢC hướng, TT1 đang TĂNG chứ không giảm (ACB niêm yết 12T lên 7,8%).</strong>
+      <strong style="color:var(--red)">Re-assess 27/7: 2 LỰC ĐỐI NGHỊCH MẠNH — CME Fed T9 hike prob VỌT 62,8%→82,4% (xấu cho A2/B1) trong khi TT2 O/N XÁC NHẬN dưới 6% ổn định 2 tuần (tốt cho A3) lần đầu tiên. B1 (trigger chính) vẫn hút ròng tuần thứ 3 liên tiếp — Fed hawkish hơn càng làm NHNN khó có room hành động.</strong>
     </div>
 
     <!-- TẦNG 1: ĐIỀU KIỆN TIÊN QUYẾT -->
@@ -1084,25 +1084,25 @@ document.getElementById('panel-omo').innerHTML=`
         TẦNG 1 — ĐIỀU KIỆN TIÊN QUYẾT (cần đủ cả 3 để NHNN hành động)
       </div>
       <table class="tbl" style="font-size:11px">
-        <thead><tr><th style="width:32px">#</th><th>Chỉ tiêu</th><th style="width:42px">Ngưỡng</th><th>Trạng thái 23/7</th></tr></thead>
+        <thead><tr><th style="width:32px">#</th><th>Chỉ tiêu</th><th style="width:42px">Ngưỡng</th><th>Trạng thái 27/7</th></tr></thead>
         <tbody>
           <tr>
             <td style="font-weight:700;color:var(--ok)">A1</td>
             <td><strong>CPI ≤4,0%</strong> trong ≥2 tháng liên tiếp · Không phải dự báo — phải là số thực tế GSO</td>
             <td class="r" style="text-align:center;font-weight:700">&lt;4,0%</td>
-            <td class="r">❌ XẤU ĐI: CPI vẫn 4,69% YoY (GSO, chưa có số T7 — ra ~3/8) · Brent leo lên $94 (cách $100 chỉ ~6%) đe dọa đẩy nhóm giao thông tăng trở lại thay vì hạ · A1 hiện KHÓ ĐẠT hơn so với đánh giá 25/6, không phải gần hơn</td>
+            <td class="r">❌ Chưa đổi: CPI vẫn 4,69% YoY (GSO T7 ra ~3/8) · Brent đã đảo chiều giảm về $90,28 (27/7, từ đỉnh $97-100+ giữa tuần) — áp lực giao thông CPI giảm bớt so 23/7, nhưng chưa đủ để đổi trạng thái</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--ok)">A2</td>
             <td><strong>Fed không tăng LS</strong> trong kỳ họp gần nhất · DXY &lt;103 · EMP ổn định</td>
-            <td class="y" style="text-align:center;font-weight:700">&lt;103</td>
-            <td class="y">⚠️ Cải thiện nhẹ: DXY 101,1 (&lt;103 ✓) · Fed July hike prob rớt còn 16,6% (từ &gt;40%) → Hold ~83-85% gần chắc · NHƯNG Fed T9 vẫn treo 62,8% (không đổi) · EMP −120đ (âm sâu — cầu USD yếu, tốt cho ổn định VND)</td>
+            <td class="r" style="text-align:center;font-weight:700">&lt;103</td>
+            <td class="r">❌ XẤU ĐI RÕ RỆT: DXY 101,2 vẫn &lt;103 ✓ · EMP −100đ bớt âm nhẹ ✓ · NHƯNG <strong>CME Fed T9 hike prob VỌT lên 82,4%</strong> (từ 62,8% ngày 21/7, 52,4% ngày 16/7) — leo gần 30 điểm % trong 11 ngày do Iran leo thang + core PCE dai dẳng + AI boom · FOMC tuần này (28-29/7) vẫn kỳ vọng Hold (61,3%) nhưng xác suất hike đã leo 16,6%→36-39%</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--ok)">A3</td>
             <td><strong>TT2 O/N &lt;6% ổn định</strong> ≥2 tuần (không spike đầu tuần/kỳ thuế) · Signal thanh khoản hệ thống thực sự tốt</td>
-            <td class="y" style="text-align:center;font-weight:700">&lt;6%</td>
-            <td class="y">⚠️ TÍN HIỆU TỐT NHƯNG CHƯA XÁC NHẬN: 2 nguồn báo TT2 O/N tuần 6-10/7 đã về 4,3-5,2% (dưới ngưỡng 6% lần đầu tiên) — nhưng dữ liệu 2 nguồn mâu thuẫn nhau và mới 1 tuần, CHƯA đủ "ổn định ≥2 tuần" để confirm · Theo dõi tuần 20-24/7 để xác nhận</td>
+            <td class="g" style="text-align:center;font-weight:700">&lt;6%</td>
+            <td class="g">✅ XÁC NHẬN LẦN ĐẦU: TT2 O/N giảm sâu — 3,33% (22/7) → 3,65% (24/7), dưới ngưỡng 6% ổn định 2+ tuần liên tiếp (từ ~5,21% tuần 6-10/7) · Đáng chú ý: ở kỳ hạn O/N, Gap CCS với Fed funds (3,50-3,75%) đã GẦN BẰNG 0 hoặc ÂM — hiện tượng chưa từng thấy</td>
           </tr>
         </tbody>
       </table>
@@ -1114,68 +1114,68 @@ document.getElementById('panel-omo').innerHTML=`
         TẦNG 2 — CATALYST THÚC ĐẨY (càng nhiều xanh → TT1 giảm càng nhanh)
       </div>
       <table class="tbl" style="font-size:11px">
-        <thead><tr><th style="width:32px">#</th><th>Chỉ tiêu</th><th style="width:42px">Mục tiêu</th><th>Trạng thái 23/7</th></tr></thead>
+        <thead><tr><th style="width:32px">#</th><th>Chỉ tiêu</th><th style="width:42px">Mục tiêu</th><th>Trạng thái 27/7</th></tr></thead>
         <tbody>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B1</td>
             <td><strong>NHNN hạ LS OMO ≥25bps</strong> · Gate signal quan trọng nhất · TT2 giảm 2-4T sau · TT1 giảm 4-8T sau</td>
             <td class="r" style="text-align:center;font-weight:700">≥25bps</td>
-            <td class="r">❌ ĐẢO CHIỀU: tuần 13-17/7 NHNN HÚT RÒNG 21.259 tỷ — đi NGƯỢC hoàn toàn hướng "hạ LS, bơm thêm" kỳ vọng · LS OMO vẫn giữ 4,5% · Trigger chính của toàn bộ chuỗi giảm TT1 hiện KHÔNG có dấu hiệu kích hoạt trong T8 như dự kiến 25/6</td>
+            <td class="r">❌ XẤU THÊM: tuần 20-24/7 tiếp tục HÚT RÒNG 26.352 tỷ — <strong>TUẦN THỨ 3 LIÊN TIẾP</strong> (sau 21.259 tỷ tuần 13-17/7) · LS OMO vẫn giữ 4,5% · Fed T9 hike prob 82,4% càng làm NHNN khó có room hạ OMO — hai áp lực cộng dồn thay vì bù trừ</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B2</td>
             <td><strong>ĐTC giải ngân ≥40% kế hoạch</strong> (T7-T8 mùa vụ) · Outside money → D↑ → LDR↓ → room NH giảm HĐ</td>
             <td class="y" style="text-align:center;font-weight:700">≥40%</td>
-            <td class="y">⏳ Chưa có số cập nhật mới từ 25/6 (~17-18%) · T7-T8 là mùa vụ cao nhất, cần theo dõi số giải ngân tháng 7</td>
+            <td class="y">⏳ Chưa có số cập nhật mới (~17-18% tính đến 6T) · T7-T8 là mùa vụ cao nhất, cần theo dõi số giải ngân tháng 7</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B3</td>
             <td><strong>FTSE VN upgrade 21/9</strong> → FPI vào &gt;1 tỷ USD · D↑ → LDR↓ · VND mạnh → NHNN có room hơn</td>
             <td class="y" style="text-align:center;font-weight:700">21/9</td>
-            <td class="y">⏳ Còn ~60 ngày · Vẫn là catalyst nguyên vẹn duy nhất chưa bị xấu đi · Trở thành kịch bản đảo chiều khả dĩ nhất nếu B1 tiếp tục trễ</td>
+            <td class="y">⏳ Còn ~56 ngày · Vẫn là catalyst duy nhất chưa xấu đi, nhưng giờ phải "gánh" nhiều hơn vì cả A2 và B1 cùng xấu — áp lực dồn hết vào 1 sự kiện</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- HEADWIND MỚI: CDR + Brent -->
+    <!-- HEADWIND MỚI: CDR + Fed -->
     <div style="margin-bottom:8px;padding:7px 12px;background:rgba(239,68,68,.06);border-left:3px solid var(--red);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
-      <span style="color:var(--red);font-weight:600">⚠️ 2 lực cản MỚI (23/7, ngoài khung gốc 25/6):</span>
-      (1) <strong>CDR draft thay LDR</strong> — buộc NH (đặc biệt nhóm TMCP) cạnh tranh niêm yết TT1 để đáp ứng ràng buộc cơ cấu vốn ổn định, ĐỘC LẬP với hướng LS chính sách NHNN — cơ chế này đang xảy ra thực tế (ACB niêm yết 12T lên 7,8%, dẫn đầu công khai, dù NHNN chưa hề hạ LS).
-      (2) <strong>Brent $94, cách $100 chỉ ~6%</strong> — vừa đe dọa A1 (CPI nhóm giao thông), vừa khiến NHNN thận trọng hơn với nới lỏng. Cả hai đều KHÔNG có trong 3 tầng gốc, cần bổ sung theo dõi riêng.
+      <span style="color:var(--red);font-weight:600">⚠️ Lực cản đã đổi tính chất (27/7):</span>
+      (1) <strong>CDR draft thay LDR</strong> — vẫn nguyên vẹn, buộc NH cạnh tranh niêm yết TT1 độc lập với LS chính sách (ACB 12T vẫn 7,8%, không đổi từ 20/7).
+      (2) <strong>Fed T9 hike prob 82,4% THAY THẾ Brent làm lực cản chính</strong> — Brent đã đảo chiều giảm về $90,28 (từ đỉnh $97-100+), bớt đe dọa A1, NHƯNG Fed hawkish hơn giờ là lực cản mạnh hơn nhiều cho A2 VÀ gián tiếp cho B1 (NHNN dè dặt hạ LS khi Fed sắp tăng).
     </div>
 
     <!-- TẦNG 3: KẾT QUẢ DỰ BÁO -->
     <div style="margin-bottom:8px">
       <div style="font-size:10px;letter-spacing:1.5px;color:var(--ok);font-weight:600;margin-bottom:5px;padding:3px 8px;background:rgba(15,110,86,.08);border-radius:2px;display:inline-block">
-        TẦNG 3 — KẾT QUẢ DỰ BÁO TT1 THEO KỊCH BẢN (tái cân trọng số 23/7, định tính)
+        TẦNG 3 — KẾT QUẢ DỰ BÁO TT1 THEO KỊCH BẢN (tái cân trọng số 27/7, định tính)
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px">
         <div style="background:rgba(15,110,86,.08);border-radius:3px;padding:8px 10px;border-top:2px solid var(--ok)">
-          <div style="color:var(--ok);font-weight:700;margin-bottom:4px">✅ KB Cơ sở (30%, giảm từ 55%)</div>
+          <div style="color:var(--ok);font-weight:700;margin-bottom:4px">✅ KB Cơ sở (20%, giảm từ 30%)</div>
           <div style="color:var(--dim2);line-height:1.8">
-            A1+A2 xanh trễ hơn kỳ vọng → B1 hạ muộn nhất T9<br>
-            TT2 giảm T9-T10<br>
-            TT1 Big4 giảm T10-T11<br>
-            <strong style="color:var(--ok)">Q4: 6,5-7,0%</strong>
+            A2 khó xanh hơn do Fed T9 82,4%<br>
+            B1 hạ muộn nhất T10-T11 nếu có<br>
+            TT1 Big4 giảm T11-T12<br>
+            <strong style="color:var(--ok)">Q4: 7,0-7,5%</strong>
           </div>
         </div>
         <div style="background:rgba(245,158,11,.06);border-radius:3px;padding:8px 10px;border-top:2px solid var(--amber)">
-          <div style="color:var(--amber);font-weight:700;margin-bottom:4px">⚠️ KB Trì hoãn (55%, tăng từ 30%)</div>
+          <div style="color:var(--amber);font-weight:700;margin-bottom:4px">⚠️ KB Trì hoãn (65%, tăng từ 55%)</div>
           <div style="color:var(--dim2);line-height:1.8">
             B1 tiếp tục trễ · CDR draft ban hành chính thức<br>
-            Fed T9 hike (62,8%) → DXY &gt;103<br>
-            TT1 giữ hoặc tăng thêm đến hết T10<br>
-            <strong style="color:var(--amber)">Q4: 7,5-8,0%+</strong>
+            Fed T9 hike thực hiện (82,4%) → DXY &gt;103, Gap CCS thu hẹp<br>
+            TT1 giữ hoặc tăng thêm đến hết 2026<br>
+            <strong style="color:var(--amber)">Q4: 8,0-8,5%+</strong>
           </div>
         </div>
         <div style="background:rgba(59,130,246,.06);border-radius:3px;padding:8px 10px;border-top:2px solid var(--blue)">
           <div style="color:var(--blue);font-weight:700;margin-bottom:4px">🚀 KB Tích cực (15%, không đổi)</div>
           <div style="color:var(--dim2);line-height:1.8">
-            FTSE 21/9 thành công + Fed T9 hold<br>
-            TT2 xác nhận &lt;6% ổn định → B1 kích hoạt<br>
-            VND mạnh, LDR về &lt;110%<br>
-            <strong style="color:var(--blue)">Q4: 6,0-6,5%</strong>
+            FTSE 21/9 thành công BÙ ĐẮP Fed T9 hike<br>
+            TT2 &lt;6% ổn định đã xác nhận → B1 kích hoạt dù Fed hawkish<br>
+            VND mạnh nhờ dòng vốn FTSE, LDR về &lt;110%<br>
+            <strong style="color:var(--blue)">Q4: 6,5-7,0%</strong>
           </div>
         </div>
       </div>
@@ -1184,20 +1184,21 @@ document.getElementById('panel-omo').innerHTML=`
     <!-- SCORE + TIMELINE -->
     <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px;font-size:11px;margin-top:6px">
       <div style="background:rgba(0,0,0,.2);border-radius:3px;padding:8px 10px">
-        <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📊 Score 23/7</div>
+        <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📊 Score 27/7</div>
         <div style="color:var(--dim2);line-height:2">
-          Tầng 1: 0,5/3 (A1 xấu đi · A2 dùng dằng · A3 tín hiệu tốt chưa confirm)<br>
-          Tầng 2: 0/3, B1 ĐẢO CHIỀU xấu ⏳<br>
-          <span style="color:var(--red)">→ Điểm giảm rõ so 25/6 (2/3 → 0,5/3)</span>
+          Tầng 1: 1/3 (A1 vẫn đỏ · A2 XẤU HƠN đỏ rõ · A3 lần đầu XANH)<br>
+          Tầng 2: 0/3, B1 xấu thêm (3 tuần hút ròng) ⏳<br>
+          <span style="color:var(--red)">→ A3 bù được điểm nhưng A2 mất nhiều hơn — net XẤU ĐI so 23/7</span>
         </div>
       </div>
       <div style="background:rgba(0,0,0,.2);border-radius:3px;padding:8px 10px">
-        <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📅 Timeline kỳ vọng (cập nhật 23/7)</div>
+        <div style="color:var(--yellow);font-weight:600;margin-bottom:4px">📅 Timeline kỳ vọng (cập nhật 27/7)</div>
         <div style="color:var(--dim2);line-height:2">
-          <span style="color:var(--dim2)">~3/8: CPI T7 official (GSO) → xác nhận A1 có cải thiện không</span><br>
-          <span style="color:var(--amber)">T8: NHNN có hạ OMO? (đang hút ròng, xác suất giảm)</span><br>
-          <span style="color:var(--blue)">16-17/9: FOMC — xác suất hike 62,8%</span><br>
-          <span style="color:var(--blue)">21/9: FTSE evaluation → B3, kịch bản đảo chiều khả dĩ nhất</span>
+          <span style="color:var(--blue)">28-29/7 (TUẦN NÀY): FOMC — kỳ vọng Hold 61,3%, theo dõi statement cho tín hiệu T9</span><br>
+          <span style="color:var(--blue)">30/7: Core PCE T6 — dữ liệu vừa đẩy CME T9 lên 82,4%, số mới có thể xác nhận/đảo ngược</span><br>
+          <span style="color:var(--dim2)">~3/8: CPI T7 official (GSO) → xác nhận A1</span><br>
+          <span style="color:var(--red)">16-17/9: FOMC — xác suất hike ĐÃ 82,4%, rủi ro cao nhất nhiều tuần qua</span><br>
+          <span style="color:var(--blue)">21/9: FTSE evaluation → B3, giờ phải gánh vai trò đảo chiều nặng hơn</span>
         </div>
       </div>
     </div>
