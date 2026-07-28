@@ -274,7 +274,7 @@ const D = {
   irp: {
     ls_vnd_tt2:  { value: "6,6–7,0", updated: "12/06/2026", source: "TT2/NHNN 12/6", note: "TT2 O/N VND 12/6: 6.6-7.0% (spike 11% ngày 2/6 → settled) · TT1 Big4: 7.0-7.5% · TT1 tư nhân: 8.0-8.5% · LDR 114% duy trì áp lực · IRP gap = TT2 O/N - Fed: ~3.1-3.5%; TT1-Fed: ~3.75-4.25%" },
     ls_usd_fed:  { value: "3,50–3,75", updated: "12/06/2026", source: "Fed/CME 12/6", note: "Kevin Warsh FOMC 16-17/6 (debut) · US CPI T5: 4.2% (mạnh nhất từ 4/2023 · cô bố 10/6) · NFP T5: 172k (double forecast 85k · 5/6) · CME: 0% cut T6 · Fed HOLD đến 2027 · DXY ~100" },
-    gap_vnd_usd: { value: "IRP RE-ASSESS 27/7 (tu ban 29/6): Gap CCS = LS VND TT1 thuc te (8,3-9,1%, da tang tu 7,0-7,5% cu) - Fed funds (3,5-3,75%) = ~4,55-5,55% (RONG HON du bao 29/6, khong thu hep) · DIEM MOI QUAN TRONG: o KY HAN O/N, Gap gan nhu BANG 0 hoac AM lan dau tien — TT2 O/N chi 3,33-3,65%/nam, THAP HON ca Fed funds 3,5-3,75% · CME Fed T9 VOT len 82,4% (tu 62,8% 21/7, 52,4% 16/7) — neu thuc hien: Gap O/N am ro ret hon, trong khi Gap TT1 (6-12T) van rong do CDR", updated: "27/07/2026", source: "Tính toán 12/6", note: "Phat hien moi 27/7: Gap CCS KHONG DONG NHAT theo ky han — O/N gan bang 0/am trong khi TT1 Gap van 4,5-5,5%. Day la bang chung truc tiep cho CDR headwind (NH bi buoc canh tranh TT1 doc lap voi thanh khoan he thong) — khong the dung 1 con so Gap duy nhat cho toan bo duong cong lai suat. EMP van AM (-100d) du Gap O/N gan bang 0 — cau USD thuc chua phan ung theo Fed repricing" },
+    gap_vnd_usd: { value: "IRP RE-ASSESS 27/7 (tu ban 29/6): Gap CCS = LS VND TT1 thuc te (8,3-9,1%, da tang tu 7,0-7,5% cu) - Fed funds (3,5-3,75%) = ~4,55-5,55% (RONG HON du bao 29/6, khong thu hep) · DIEM MOI QUAN TRONG: o KY HAN O/N, Gap gan nhu BANG 0 hoac AM lan dau tien — TT2 O/N chi 3,33-3,65%/nam, THAP HON ca Fed funds 3,5-3,75% · CME Fed T9 VOT len 82,4% (tu 62,8% 21/7, 52,4% 16/7) — neu thuc hien: Gap O/N am ro ret hon, trong khi Gap TT1 (6-12T) van rong — NGUYEN NHAN CHUA XAC NHAN (xem note)", updated: "27/07/2026", source: "Tính toán 12/6", note: "Phat hien moi 27/7: Gap CCS KHONG DONG NHAT theo ky han — O/N gan bang 0/am trong khi TT1 Gap van 4,5-5,5%. SUA 27/7: truoc day gan nhan qua nay cho CDR la QUA CHAC CHAN. Thuc te: du thao CDR CHUA co hieu luc, khong buoc NH tuan thu ngay — TT1 tang dung luc du thao duoc ban toi CHI LA tuong quan thoi diem, khong co bang chung truc tiep (phat ngon NH, van ban chi dao) xac nhan nhan qua. 3 gia thuyet canh tranh chua phan biet duoc: (a) CDR anticipatory positioning (b) nhu cau von mua vu H2 thong thuong (c) canh tranh thi phan thuan tuy nhom TMCP. EMP van AM (-100d) du Gap O/N gan bang 0 — cau USD thuc chua phan ung theo Fed repricing" },
     thuc_te:     { value: "EMP INVERTED −50đ · TT2 O/N 6,6-7% · DXY ~100 · VND ổn định dù tái leo thang Iran", updated: "12/06/2026", source: "12/6 quan sát", note: "EMP INVERTED: chợ đen bán (26.360) < VCB bán (26.410) = −50đ (lần đầu lịch sử) · DXY ~100 (NFP 172k + US CPI 4.2%) · US tái không kích Iran 10-11/6 → Brent $93-95 · KB-B 42% KB-D 22%" },
     du_bao_irp:  { value: "IRP 2 PHIEN BAN (cap nhat 27/7 tu 13/7): v1 dung NHNN avg 6,01%: forward ~25.850 (uoc) → risk premium con lai · v2 dung LS thoa thuan thuc 8,3-9,1%: forward ~26.450-26.550 → risk premium THU HEP them so 13/7 (tu +54d) do LS VND thuc te da tang cao hon · INSIGHT MOI: voi Fed T9 hike prob 82,4%, phia USD cua IRP cung sap tang → forward se dich chuyen theo CA HAI phia (VND cao hon + USD cao hon) → tac dong len ty gia forward KHONG RO RANG mot chieu, can theo doi ca 2 chan", updated: "27/07/2026", source: "IRP model", note: "Bai hoc model: IRP forward la ket qua cua CA HAI chan lai suat, khong chi mot chieu VND. Khi ca hai cung tang (VND do CDR, USD do Fed), can phan tich CHENH LECH TOC DO tang cua 2 chan, khong chi huong" },
     note:        { value: "Spread DXY tham chiếu khác: theo dõi qua dxy_index field chính", updated: "19/06/2026", source: "[MIXED] Tổng hợp nhiều nguồn", note: "" },
@@ -1138,11 +1138,11 @@ document.getElementById('panel-omo').innerHTML=`
       </table>
     </div>
 
-    <!-- HEADWIND MỚI: CDR + Fed -->
+    <!-- HEADWIND MỚI: CDR (giả thuyết) + Fed (xác nhận) -->
     <div style="margin-bottom:8px;padding:7px 12px;background:rgba(239,68,68,.06);border-left:3px solid var(--red);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
-      <span style="color:var(--red);font-weight:600">⚠️ Lực cản đã đổi tính chất (27/7):</span>
-      (1) <strong>CDR draft thay LDR</strong> — vẫn nguyên vẹn, buộc NH cạnh tranh niêm yết TT1 độc lập với LS chính sách (ACB 12T vẫn 7,8%, không đổi từ 20/7).
-      (2) <strong>Fed T9 hike prob 82,4% THAY THẾ Brent làm lực cản chính</strong> — Brent đã đảo chiều giảm về $90,28 (từ đỉnh $97-100+), bớt đe dọa A1, NHƯNG Fed hawkish hơn giờ là lực cản mạnh hơn nhiều cho A2 VÀ gián tiếp cho B1 (NHNN dè dặt hạ LS khi Fed sắp tăng).
+      <span style="color:var(--red);font-weight:600">⚠️ Lực cản, phân biệt mức độ chắc chắn (27/7):</span>
+      (1) <strong>CDR draft — GIẢ THUYẾT dẫn đầu, CHƯA XÁC NHẬN nhân quả:</strong> dự thảo CDR chưa có hiệu lực, không bắt buộc NH tuân thủ ngay. TT1 tăng (ACB 12T 7,8%, không đổi từ 20/7) đúng lúc dự thảo được bàn tới CHỈ LÀ tương quan thời điểm, không có bằng chứng trực tiếp (phát ngôn NH, văn bản chỉ đạo) xác nhận đây là nguyên nhân. Giả thuyết cạnh tranh: (a) anticipatory positioning trước CDR (b) nhu cầu vốn mùa vụ H2 thông thường (c) cạnh tranh thị phần thuần túy giữa nhóm TMCP. Chưa phân biệt được giả thuyết nào đúng — cần theo dõi khi có dự thảo chính thức hoặc TT1 hạ nhiệt sau mùa cao điểm Q4 để loại trừ dần.
+      (2) <strong>Fed T9 hike prob 82,4% — ĐÃ XÁC NHẬN qua CME FedWatch, THAY THẾ Brent làm lực cản chính đo lường được</strong> — Brent đã đảo chiều giảm về $90,28 (từ đỉnh $97-100+), bớt đe dọa A1, NHƯNG Fed hawkish hơn giờ là lực cản mạnh hơn nhiều cho A2 VÀ gián tiếp cho B1 (NHNN dè dặt hạ LS khi Fed sắp tăng).
     </div>
 
     <!-- TẦNG 3: KẾT QUẢ DỰ BÁO -->
@@ -1163,7 +1163,7 @@ document.getElementById('panel-omo').innerHTML=`
         <div style="background:rgba(245,158,11,.06);border-radius:3px;padding:8px 10px;border-top:2px solid var(--amber)">
           <div style="color:var(--amber);font-weight:700;margin-bottom:4px">⚠️ KB Trì hoãn (65%, tăng từ 55%)</div>
           <div style="color:var(--dim2);line-height:1.8">
-            B1 tiếp tục trễ · CDR draft ban hành chính thức<br>
+            B1 tiếp tục trễ · TT1-TT2 tiếp tục lệch pha (CDR là giả thuyết dẫn đầu, chưa xác nhận)<br>
             Fed T9 hike thực hiện (82,4%) → DXY &gt;103, Gap CCS thu hẹp<br>
             TT1 giữ hoặc tăng thêm đến hết 2026<br>
             <strong style="color:var(--amber)">Q4: 8,0-8,5%+</strong>
