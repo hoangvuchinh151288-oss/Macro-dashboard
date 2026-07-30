@@ -184,9 +184,9 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.24",
+    version: "4.25",
     date: "30/07/2026",
-    note: "30/7 v4.24: ĐÍNH CHÍNH quan trọng — khung CDR/KBNN đã XÁC NHẬN có hiệu lực qua Thông tư 25/2026/TT-NHNN (ban hành 22/6, hiệu lực 1/7/2026), không còn là 'giả thuyết chưa xác nhận' như ghi sai hôm 27/7. Thông tư này tính 20% tiền gửi KBNN vào mẫu số huy động LDR, kèm cơ chế Thống đốc quyết định tỷ lệ khác không cần thông tư mới. MỚI: rumour interbank hôm nay về khả năng nâng tỷ lệ này lên 40% để hỗ trợ mục tiêu tăng trưởng GDP 2 con số — đã thêm làm catalyst B4 riêng trong panel MONITOR TT1 (tailwind tiềm năng, độc lập với B1/B2/B3, nhanh hơn vì không cần thông tư mới). Đã tách rõ 2 câu hỏi khác nhau: khung CDR có tồn tại (CÓ, xác nhận) vs CDR có phải nguyên nhân TT1 tăng (CHƯA xác nhận, vẫn 3 giả thuyết cạnh tranh).",
+    note: "30/7 v4.25 (cập nhật lần 2 trong ngày): NATURAL EXPERIMENT quan trọng cho B4/CDR — phát hiện mức 20% KBNN vào LDR đã CÓ HIỆU LỰC từ 15/5/2026 (Thông tư 08/2026), tức đã chạy 2,5 tháng trước khi Thông tư 25 (1/7) chỉ giữ nguyên mức này. Trong 2,5 tháng đó TT1 KHÔNG hề dịu (ACB niêm yết còn tăng 20/7, TC NHNN lập đỉnh lịch sử 28/7) — bằng chứng suy yếu giả thuyết (a) CDR anticipatory positioning, dịch trọng số sang (b) mùa vụ H2 và (c) cạnh tranh thị phần TMCP. Nguyên nhân khả dĩ: quy mô nới quá nhỏ (~112.600 tỷ so nhu cầu tín dụng 2 con số) và lệch nơi nhận (tập trung quốc doanh, TMCP đang căng lại ít hưởng). Đã HẠ kỳ vọng tác động của rumour B4 (20%→40%) — không còn coi là tailwind chắc chắn ngay cả khi xác nhận, vì liều gấp đôi cùng cách phân phối nhiều khả năng vẫn hạn chế.",
   },
 
   fx: {
@@ -1069,7 +1069,7 @@ document.getElementById('panel-omo').innerHTML=`
     </span>
   </div>
   <div style="margin-top:12px;padding:8px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:3px">
-    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 30/7</div>
+    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 30/7 (2 lần)</div>
 
     <!-- HEADER: Framework thay đổi -->
     <div style="margin-bottom:10px;padding:7px 12px;background:rgba(59,130,246,.07);border-left:3px solid var(--blue);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
@@ -1136,9 +1136,9 @@ document.getElementById('panel-omo').innerHTML=`
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B4</td>
-            <td><strong>[MỚI, RUMOUR] Nâng tỷ lệ KBNN trong LDR 20%→40%</strong> · D↑ trực tiếp (không qua OMO/giải ngân) → LDR/CDR↓ cơ học → giảm áp lực TT1</td>
-            <td class="y" style="text-align:center;font-weight:700">Chưa rõ</td>
-            <td class="y">⏳ RUMOUR interbank 30/7, chưa xác nhận chính thức · Thủ tục dễ hơn rumour thường (Thống đốc quyết định, không cần thông tư mới per Thông tư 25) · Nếu xảy ra: KBNN riêng 3 NH quốc doanh đã 563.035 tỷ (Q1/2026) — tác động D có thể rất lớn, NHANH hơn B1/B2/B3 vì không cần chờ dữ liệu/sự kiện thị trường</td>
+            <td><strong>[RUMOUR, KỲ VỌNG HẠ] Nâng tỷ lệ KBNN trong LDR 20%→40%</strong> · D↑ trực tiếp (không qua OMO/giải ngân) → LDR/CDR↓ cơ học → giảm áp lực TT1</td>
+            <td class="r" style="text-align:center;font-weight:700">Chưa rõ</td>
+            <td class="r">⏳ RUMOUR interbank 30/7, chưa xác nhận chính thức · <strong>BẰNG CHỨNG NGƯỢC quan trọng (natural experiment):</strong> mức 0%→20% đã CÓ HIỆU LỰC từ 15/5/2026 (Thông tư 08/2026) — tức đã chạy 2,5 tháng, nhưng TT1 KHÔNG hề dịu (ACB niêm yết còn tăng thêm 20/7, TC NHNN lập đỉnh lịch sử 28/7). Nếu liều đầu không thấy hiệu ứng, liều gấp đôi (40%) nhiều khả năng cũng hạn chế — trừ khi đi kèm thay đổi phân phối (hiện tập trung nhóm quốc doanh, TMCP ít hưởng) hoặc NHNN giảm hút ròng OMO song song · ĐÃ HẠ kỳ vọng tác động so với đánh giá ban đầu</td>
           </tr>
         </tbody>
       </table>
@@ -1147,8 +1147,8 @@ document.getElementById('panel-omo').innerHTML=`
     <!-- HEADWIND/TAILWIND: CDR (đính chính) + Fed (xác nhận) + B4 moi -->
     <div style="margin-bottom:8px;padding:7px 12px;background:rgba(239,68,68,.06);border-left:3px solid var(--red);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
       <span style="color:var(--red);font-weight:600">⚠️ Lực cản/hỗ trợ, phân biệt mức độ chắc chắn (30/7, ĐÍNH CHÍNH so 27/7):</span>
-      (1) <strong>Khung CDR/KBNN — ĐÃ XÁC NHẬN CÓ HIỆU LỰC (đính chính lỗi 27/7):</strong> Thông tư 25/2026/TT-NHNN (ban hành 22/6, hiệu lực 1/7/2026) đã CHÍNH THỨC thay Thông tư 22 — nâng trần vốn ngắn hạn cho vay trung-dài hạn (SFL) 30%→40% VÀ tính 20% tiền gửi kỳ hạn KBNN vào mẫu số huy động (D) khi tính LDR, kèm cơ chế Thống đốc được quyết định tỷ lệ khác "trong từng thời kỳ" thay 20% cố định. Đây là dữ liệu CỨNG, không còn là giả thuyết. Tuy nhiên nguyên nhân TT1 tăng (ACB 12T 7,8%) do CDR hay do mùa vụ/cạnh tranh thị phần VẪN CHƯA phân biệt được — chỉ riêng SỰ TỒN TẠI của khung CDR là xác nhận, còn NHÂN QUẢ với TT1 vẫn là giả thuyết.
-      (2) <strong>[MỚI 30/7, RUMOUR — chưa xác nhận] B4: tin đồn nâng tỷ lệ KBNN trong LDR từ 20%→40%</strong> — theo nguồn interbank hôm nay, mục tiêu hỗ trợ tăng trưởng GDP "2 con số" cuối năm. Về THỦ TỤC đáng tin hơn rumour thông thường vì Thông tư 25 đã cài sẵn cơ chế Thống đốc quyết định không cần thông tư mới/lấy ý kiến công khai. Nếu đúng: D tăng mạnh (KBNN tại riêng 3 NH quốc doanh đã 563.035 tỷ cuối Q1/2026) → LDR/CDR giảm cơ học → GIẢM áp lực TT1, ngược hướng với headwind CDR ở trên — đây là TAILWIND tiềm năng, không phải headwind, và KHÔNG phụ thuộc B1/B2 (không cần NHNN hạ OMO hay chờ giải ngân ĐTC).
+      (1) <strong>Khung CDR/KBNN — ĐÃ XÁC NHẬN CÓ HIỆU LỰC, nhưng GIẢ THUYẾT NHÂN QUẢ (a) VỪA BỊ SUY YẾU MẠNH (30/7):</strong> Thông tư 25/2026/TT-NHNN (hiệu lực 1/7/2026) đã CHÍNH THỨC thay Thông tư 22 — nâng SFL 30%→40% VÀ tính 20% tiền gửi kỳ hạn KBNN vào mẫu số huy động (D). Nhưng mức 20% này thực ra ĐÃ CÓ HIỆU LỰC TỪ 15/5/2026 (Thông tư 08/2026, Thông tư 25 chỉ giữ nguyên) — tức đã chạy được <strong>2,5 THÁNG</strong>. Đây là một natural experiment: nếu ràng buộc CDR/LDR thực sự là lực đẩy chính cho TT1 tăng (giả thuyết a — anticipatory positioning), nới ràng buộc đó 2,5 tháng phải để lại dấu vết cải thiện. KHÔNG thấy — ACB niêm yết còn tăng thêm (20/7), TC NHNN lập đỉnh lịch sử (28/7), thỏa thuận thực tế vẫn neo 8,3-9,1%. → Trọng số giả thuyết (a) HẠ, dịch sang (b) mùa vụ H2 và (c) cạnh tranh thị phần TMCP. Nguyên nhân khả dĩ: quy mô nới quá nhỏ (~112.600 tỷ so nhu cầu tín dụng 2 con số hàng triệu tỷ) VÀ lệch nơi nhận (tập trung nhóm quốc doanh vốn đã LS thấp, TMCP đang căng lại ít hưởng).
+      (2) <strong>[RUMOUR, KỲ VỌNG ĐÃ HẠ 30/7] B4: tin đồn nâng tỷ lệ KBNN trong LDR từ 20%→40%</strong> — theo nguồn interbank hôm nay, mục tiêu hỗ trợ tăng trưởng GDP "2 con số". Về THỦ TỤC đáng tin hơn rumour thường (Thống đốc quyết định, không cần thông tư mới). NHƯNG áp dụng bài học natural experiment ở mục (1): nếu liều 20% đầu không tạo hiệu ứng quan sát được, liều gấp đôi (40%) với CÙNG cách phân phối (lệch quốc doanh) và CÙNG bối cảnh OMO hút ròng song song nhiều khả năng cũng hạn chế — trừ khi đi kèm thay đổi phân phối hoặc NHNN giảm hút ròng OMO cùng lúc. Đã hạ kỳ vọng tác động, KHÔNG còn coi là tailwind chắc chắn dù rumour có xác nhận.
       (3) <strong>Fed T9 hike prob — 82,4% (27/7) → post-FOMC 29/7 mâu thuẫn 57% vs phản ứng yield diều hâu (10Y+5bp/30Y+9bp), CHƯA reconcile được</strong> — vẫn là lực cản đo lường được cho A2, dù con số cụ thể đang nhiễu.
     </div>
 
@@ -1177,11 +1177,11 @@ document.getElementById('panel-omo').innerHTML=`
           </div>
         </div>
         <div style="background:rgba(59,130,246,.06);border-radius:3px;padding:8px 10px;border-top:2px solid var(--blue)">
-          <div style="color:var(--blue);font-weight:700;margin-bottom:4px">🚀 KB Tích cực (15%, WILDCARD MỚI: B4 nếu xác nhận)</div>
+          <div style="color:var(--blue);font-weight:700;margin-bottom:4px">🚀 KB Tích cực (15%, B4 KHÔNG còn tính là wildcard tăng tốc)</div>
           <div style="color:var(--dim2);line-height:1.8">
             FTSE 21/9 thành công BÙ ĐẮP Fed T9 hike<br>
             TT2 &lt;6% ổn định đã xác nhận → B1 kích hoạt dù Fed hawkish<br>
-            <strong style="color:var(--blue)">HOẶC B4 (KBNN 20%→40%) xác nhận</strong> — không cần chờ B1/B2/B3, D tăng cơ học ngay<br>
+            <span style="color:var(--amber)">B4 (KBNN 20%→40%) — HẠ kỳ vọng 30/7: liều 20% chạy 2,5 tháng không thấy hiệu ứng, khó tin liều 40% sẽ khác nhiều nếu không đổi cách phân phối</span><br>
             VND mạnh nhờ dòng vốn FTSE, LDR về &lt;110%<br>
             <strong style="color:var(--blue)">Q4: 6,5-7,0%</strong>
           </div>
