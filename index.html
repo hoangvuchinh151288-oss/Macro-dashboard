@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.28",
+    version: "4.29",
     date: "31/07/2026",
     note: "31/7 v4.27: TC NHNN lập đỉnh lịch sử LẦN NỮA — 25.338 (+18đ), trong khi VCB/chợ đen lại giảm (chợ đen bán 26.280, giảm phiên thứ 4 liên tiếp) — phân kỳ kênh chính thức/tự do ngày càng rõ. Xăng kỳ 30/7 CÓ KẾT QUẢ: E10 +1.424đ→22.859đ (vượt mốc 22.000đ lần đầu), MOPS phản ánh giai đoạn Iran leo thang mạnh — scorecard MISS (breach biên trên +1.000đ, dir đúng). Core PCE Mỹ (T6): 3,3% YoY (giảm nhẹ từ 3,4% T5) — scorecard MISS (breach biên trên 2,9%, dir đúng nhưng giảm chậm hơn kỳ vọng). Q2 GDP Mỹ chậm lại còn 1,5%. Interim scorecard: EMP -200đ (xu hướng MISS), VCB 26.520 (xu hướng HIT), Brent trong range $82-100 (xu hướng HIT) — chờ chốt cuối tuần.",
   },
@@ -272,8 +272,7 @@ const D = {
   },
 
   irp: {
-    ls_vnd_tt2:  { value: "6,6–7,0", updated: "12/06/2026", source: "TT2/NHNN 12/6", note: "TT2 O/N VND 12/6: 6.6-7.0% (spike 11% ngày 2/6 → settled) · TT1 Big4: 7.0-7.5% · TT1 tư nhân: 8.0-8.5% · LDR 114% duy trì áp lực · IRP gap = TT2 O/N - Fed: ~3.1-3.5%; TT1-Fed: ~3.75-4.25%" },
-    ls_usd_fed:  { value: "3,50–3,75", updated: "12/06/2026", source: "Fed/CME 12/6", note: "Kevin Warsh FOMC 16-17/6 (debut) · US CPI T5: 4.2% (mạnh nhất từ 4/2023 · cô bố 10/6) · NFP T5: 172k (double forecast 85k · 5/6) · CME: 0% cut T6 · Fed HOLD đến 2027 · DXY ~100" },
+    ls_usd_fed:  { value: "3,50–3,75", updated: "29/07/2026", source: "FOMC chính thức 29/7", note: "FOMC 29/7: GIU NGUYEN 3,50-3,75% (thang thu 7 lien tiep) · Bo phieu 9-3, 3 phieu chong (Hammack/Kashkari/Logan) deu doi TANG · Khong forward guidance, khong SEP ky nay · Gia tri khong doi tu 12/6 nhung da XAC NHAN lai qua ky hop FOMC moi nhat" },
     gap_vnd_usd: { value: "IRP RE-ASSESS 31/7 (tu ban 30/7): Gap CCS TT1 = LS VND TT1 thuc te (8,3-9,1%) - Fed funds (3,5-3,75%, giu nguyen sau FOMC 29/7, vote 9-3) = ~4,55-5,55% (RONG, on dinh) · Gap CCS O/N = TT2 O/N VIRA 29/7 (1,3%) - Fed funds (3,5-3,75%) = AM MANH -2,2 den -2,45 diem % — muc am SAU NHAT tu truoc den nay, O/N da roi 3 phien lien tiep (2,5%->2,2%->1,3%) · [LUU Y: tach biet voi EMP -200d (30/7) la chenh lech TY GIA cho den vs VCB, don vi khac nhau, KHONG duoc gop chung] · RUMOUR B4 (KBNN 20%->40%) van CHUA xac nhan, da ha ky vong tac dong do lech ky han <=3 thang (xem tham so loi 30/7)", updated: "31/07/2026", source: "Tính toán 12/6, đính chính 27/7, 30/7 và 31/7", note: "DINH CHINH 30/7 (sua loi 27/7): khung CDR/KBNN DA XAC NHAN CO HIEU LUC qua Thong tu 25/2026/TT-NHNN (ban hanh 22/6, hieu luc 1/7/2026) — KHONG con la 'du thao chua hieu luc' nhu ghi sai hom 27/7. Thong tu nay da tinh 20% tien gui ky han KBNN vao mau so huy dong D, kem co che Thong doc duoc quyet dinh ty le khac 'trong tung thoi ky'. NHUNG nhan qua CDR->TT1 tang VAN CHUA xac nhan — day la 2 cau hoi khac nhau: (1) khung CDR co ton tai khong — CO, xac nhan (2) CDR co phai nguyen nhan TT1 tang khong — CHUA xac nhan, van 3 gia thuyet canh tranh. RUMOUR MOI: neu KBNN ratio len 40%, day la TAILWIND (D tang co hoc, LDR giam, giam ap luc TT1) — nguoc huong voi headwind, can phan biet ro 2 chieu tac dong khac nhau cua cung 1 khung phap ly" },
     thuc_te:     { value: "EMP INVERTED −50đ · TT2 O/N 6,6-7% · DXY ~100 · VND ổn định dù tái leo thang Iran", updated: "12/06/2026", source: "12/6 quan sát", note: "EMP INVERTED: chợ đen bán (26.360) < VCB bán (26.410) = −50đ (lần đầu lịch sử) · DXY ~100 (NFP 172k + US CPI 4.2%) · US tái không kích Iran 10-11/6 → Brent $93-95 · KB-B 42% KB-D 22%" },
     du_bao_irp:  { value: "IRP 2 PHIEN BAN (cap nhat 27/7 tu 13/7): v1 dung NHNN avg 6,01%: forward ~25.850 (uoc) → risk premium con lai · v2 dung LS thoa thuan thuc 8,3-9,1%: forward ~26.450-26.550 → risk premium THU HEP them so 13/7 (tu +54d) do LS VND thuc te da tang cao hon · INSIGHT MOI: voi Fed T9 hike prob 82,4%, phia USD cua IRP cung sap tang → forward se dich chuyen theo CA HAI phia (VND cao hon + USD cao hon) → tac dong len ty gia forward KHONG RO RANG mot chieu, can theo doi ca 2 chan", updated: "27/07/2026", source: "IRP model", note: "Bai hoc model: IRP forward la ket qua cua CA HAI chan lai suat, khong chi mot chieu VND. Khi ca hai cung tang (VND do CDR, USD do Fed), can phan tich CHENH LECH TOC DO tang cua 2 chan, khong chi huong" },
@@ -972,7 +971,7 @@ document.getElementById('panel-yc').innerHTML=`
     </div>
     <div>
       <div class="ctitle" style="border:none;padding-bottom:4px">GAP IRP VND–USD</div>
-      ${drow('LS TT2 O/N VND',v(D.irp.ls_vnd_tt2)+'%','y',u(D.irp.ls_vnd_tt2))}
+      ${drow('LS TT2 O/N VND',v(D.yield_curve.on),'y',u(D.yield_curve.on))}
       ${drow('Fed funds rate',v(D.irp.ls_usd_fed)+'%','b',u(D.irp.ls_usd_fed))}
       ${drow('GAP VND–USD','+'+v(D.irp.gap_vnd_usd)+'%','y','Theo IRP: VND nên ít mất giá')}
       ${drow('Thực tế',v(D.irp.thuc_te),'g',n(D.irp.thuc_te))}
