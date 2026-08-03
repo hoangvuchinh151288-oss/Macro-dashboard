@@ -184,13 +184,13 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.35",
-    date: "02/08/2026",
-    note: "2/8 v4.35: TC NHNN xác nhận mốc 12 TUẦN TĂNG LIÊN TIẾP (chốt 1/8, giữ 25.338 sang 2/8) — chuỗi tăng dài chưa từng thấy trong lịch sử theo dõi. Ngược chiều: VCB giảm về 26.080/26.490 (từ 26.150/26.530 ngày 31/7), chợ đen 26.280/26.380 — EMP xác nhận -110đ, bớt âm rõ so ước tính 31/7 (-190/-240đ). Vàng: SJC đi ngang cuối tuần 137/141tr (giảm 900k từ 30/7), thế giới chốt tuần ~$4.043/oz sau nhiều phiên biến động mạnh. DXY tiếp tục giảm còn 99,91. Brent cuối tuần không có phiên mới (thị trường đóng cửa T7-CN), giữ nguyên $87,84-88,46 (31/7).",
+    version: "4.36",
+    date: "03/08/2026",
+    note: "3/8 v4.36: 2 TIN LỚN — (1) CPI T7 CHÍNH THỨC công bố sáng nay: YoY 4,45% (giảm từ 4,69% T6), bình quân 7T +4,39%, lạm phát cơ bản bình quân +4,19% — xu hướng giảm rõ nhưng vẫn trên ngưỡng A1 4,0%. (2) B4 (tỷ lệ KBNN trong LDR) CHÍNH THỨC BAN HÀNH — 20%→50% (CAO HƠN rumour 40% trước đó) — không còn là tin đồn. Đồng thời NHNN ĐẢO CHIỀU OMO sang bơm ròng 12.323 tỷ (chấm dứt 3 tuần hút ròng), TT2 O/N rơi kỷ lục 0,66-0,7%/năm (thấp nhất nhiều năm). Đã cập nhật panel MONITOR TT1: B4 xác nhận 50%, B1 cải thiện (bơm ròng) nhưng chưa đủ điều kiện (LS OMO chưa hạ). TC NHNN giữ nguyên 25.338, xác nhận 12 tuần tăng liên tiếp sang ngày thứ 4.",
   },
 
   fx: {
-    nhnn_tc:       { value: 25338, updated: "02/08/2026", source: "NHNN/Vietstock 12/4", note: "TC NHNN giu nguyen 25.338 tu 1/8 sang 2/8 · MOC QUAN TRONG: chot tuan 1/8 danh dau TUAN TANG THU 12 LIEN TIEP, dinh lich su" },
+    nhnn_tc:       { value: 25338, updated: "02/08/2026", source: "NHNN/Vietstock 12/4", note: "TC NHNN 3/8: giu nguyen 25.338 (8h00) — ngay thu 4 lien tiep tai dinh, xac nhan 12 tuan tang lien tiep" },
     nhnn_tran:     { value: 26605, updated: "02/08/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
     nhnn_san:      { value: 23882, updated: "07/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
     vcb_mua:       { value: 26080, updated: "02/08/2026", source: "webgia.com/VCB 21/7", note: "VCB mua 1-2/8: 26.080 (giam tu 26.150 ngay 31/7, giu nguyen ca cuoi tuan)" },
@@ -204,7 +204,7 @@ const D = {
     forecast_ban:  { value: "FLOW-ADJUSTED FORECAST (27/7, cap nhat tu ban 13/7): Q3: 26.500-26.700 (NANG NHE so ban cu 26.450-26.650 — TC NHNN tang lien tuc nhieu phien 25.272->25.293, VCB ban da cham 26.520) · Q4: 26.700-26.950 voi DUOI RUI RO DOC VE CUOI QUY cang ro net hon — Fed T9 hike prob vot len 82,4% la chat xuc tac MOI cho duoi nay, cong voi deferred demand cu (LC tra cham Q2 dao han) · EV cuoi nam: ~26.800-26.850 (nang tu ~26.750) · VND mat gia ca nam: +3,8-4,2% (nang tu 3,5-3,8%) · Wildcard duong: FTSE 21/9 (keo ve 26.400-26.600) · Wildcard am: Iran leo thang lai (Houthi van tan cong Bien Do, chua ket thuc hoan toan)", updated: "27/07/2026", source: "UOB Research (Vietstock/CafeF/24HMoney 12/6)", note: "EMP van la driver #1 nhung dang BOT AM (-120d 23/7 -> -100d 27/7) — neu xu huong nay CHUYEN DUONG se la tin hieu manh nang forecast them nua. Nguoc lai neu EMP am tro lai du Fed hawkish hon, cung co them cho flow framework (headline quoc te khong chuyen thanh cau thuc noi dia)" },
     uob_q2:        { value: "VNDIRECT T5/2026: Ty gia LNH cuoi 2026 len 27.100d/USD · cuoi 2027: 27.778d/USD · Ap luc tu nhap sieu 7,11 ty + lam phat + USD du manh · CPI binh quan 2026: 5,4% (muc cao nhat CTCK) · Brent cao → xang tang → CPI kho kiem soat · NHNN kho ha LS khi CPI vuot 4,5%", updated: "29/05/2026", source: "UOB Research", note: "UOB Q2/2026: 26.100 · Q3: 26.000 · Q4: 25.900 · [v3.18 FIX: 26400→26100]" },
     forward_usd: {
-      co_che_rut:  { value: "CATALYST MOI 13/7 (VnExpress): NHNN DE XUAT THAY LDR BANG CDR (ty le du no cap tin dung tren huy dong von) + tung buoc ap dung chi tieu thanh khoan Basel III → buoc NH tang ty trong von on dinh tu tien gui khach hang, giam phu thuoc von thi truong (TT2/lien NH) · Y nghia model: neu CDR thay LDR, mau so co the doi dinh nghia → toan bo panel LDR can recalibrate khi co du thao chinh thuc · CATALYST CU (28/6): von ngan han cho vay trung-dai han 30%→40% tu 1/7", updated: "13/07/2026", source: "CafeF (28/6/2026)", note: "Theo doi du thao thong tu CDR — thay doi dinh nghia quan trong nhat voi LDR framework cua dashboard tu TT22/2019"},
+      co_che_rut:  { value: "[XAC NHAN CHINH THUC 3/8, KHONG CON LA RUMOUR] NHNN da CHINH THUC ban hanh quyet dinh nang ty le khau tru so du tien gui co ky han KBNN khi tinh LDR TU 20% LEN 50% (CAO HON CA muc rumour 40% truoc do) — thuc hien dung co che 'Thong doc tu quyet dinh khong can thong tu moi' da du bao trong Thong tu 25/2026", updated: "03/08/2026", source: "CafeF (28/6/2026)", note: "Baomoi/DoanhNhanVN/Dantri 3/8, trich VIRA+NHNN"},
       tac_dong_tt2:{ value: "TT2 O/N 30/6: theo dot du lieu CafeF 27-30/6 cho thay phan hoa manh giua cac nhom NH · TT08+TT moi (30%→40% von ngan han) hieu luc 1/7 co the lam TT2 bien dong manh hon ngan han khi NH dieu chinh chien luoc von", updated: "30/06/2026", source: "Phân tích (cập nhật theo TT mới 1/7)", note: "Theo doi sat 1-2 tuan dau T7 khi quy dinh moi co hieu luc - co the co bien dong TT2 bat thuong"},
       tac_dong_tt1:{ value: "PHO THONG DOC DOAN THAI SON (Hoi nghi so ket 6T, TienPhong 10/7): NHNN duy tri LAI SUAT DIEU HANH THAP ho tro tang truong → nghich ly chinh sach: LS dieu hanh thap NHUNG mat bang huy dong neo cao (8-9% thoa thuan) vi LDR cang + tin dung +7,41% chay nhanh hon huy dong · He qua: LS huy dong kho giam den cuoi nam, co the nhich tang o NH thieu von · LS cho vay kho giam theo (VnExpress: TPCP 8-9% lam floor cho phia tai san)", updated: "13/07/2026", source: "Phân tích 12/6", note: "Cap nhat 13/7 · Nguon: TienPhong/VnExpress · Signal B1 (NHNN ha LS OMO) van kha thi vi LS DIEU HANH khac LS HUY DONG — nhung truyen dan xuong TT1 se yeu khi cau von manh" },
       diem_dao_han:{ value: "Q3/2026 (T7-T8) · NHNN USD swap 1 tỷ USD (1/6, 14 ngày) đã đáo hạn 15/6 · EMP -50đ → áp lực đảo chiều giảm", updated: "12/06/2026", source: "[DERIVED] Tính toán từ model dashboard", note: "NHNN mở USD swap 1 tỷ (1/6) để bơm 23.932 tỷ VND → TT2 từ 11% về 6.6% trong 48h · Đáo hạn 15/6" },
@@ -259,7 +259,7 @@ const D = {
   },
 
   yield_curve: {
-    on:      { value: "1,3%", updated: "31/07/2026", source: "[PRIMARY qua trích dẫn] VIRA qua Dân Trí/VnExpress/ANTD 29-30/7", note: "TT2 O/N VIRA 29/7: 1,3%/nam — THAP NHAT HON 1 NAM QUA, giam sau: 2,5%(25/7)->2,2%(28/7)->1,3%(29/7), phien thu 2 lien tiep tao day moi · Cross-check CafeF (qua NHNN): 2,2% phien 28/7, khop VIRA" },
+    on:      { value: "0,7%", updated: "03/08/2026", source: "[PRIMARY qua trích dẫn] VIRA qua Dân Trí/VnExpress/ANTD 29-30/7", note: "TT2 O/N ROI KY LUC: 2,5%(25/7)->2,2%(28/7)->0,75%(30/7)->0,66-0,7%(hien tai) — THAP NHAT NHIEU NAM QUA, trung voi tuan NHNN dao chieu BOM RONG 12.323 ty (tu hut rong 3 tuan lien tiep)" },
     w1:      { value: "4,6%", updated: "31/07/2026", source: "[PRIMARY qua trích dẫn] VIRA qua VnExpress/ANTD 29/7", note: "TT2 1 tuan VIRA 29/7: 4,6%/nam (tang nhe tu 4,55% ngay 28/7) — lan dau co so xac nhan sau nhieu tuan [CAN VERIFY]" },
     w2:      { value: "5,7%", updated: "31/07/2026", source: "[PRIMARY qua trích dẫn] VIRA qua VnExpress/ANTD 29/7", note: "TT2 2 tuan VIRA 29/7: 5,7%/nam (tang tu 5,6% ngay 25/7, 5,3% ngay 28/7 — dao dong nhe)" },
     m1:      { value: "6,9%", updated: "31/07/2026", source: "[PRIMARY qua trích dẫn] VIRA qua VnExpress/ANTD 29/7", note: "TT2 1 thang VIRA 29/7: 6,9%/nam — GIAM tu 7,3% (25/7), giu nguyen so 28/7 · Trong khi O/N roi manh xuong 1,3%, 1 thang gan nhu di ngang → duong cong CANG DOC hon truoc (chenh O/N-1M nay la 5,6dpt, tu 4,8dpt hom 27/7)" },
@@ -278,7 +278,7 @@ const D = {
   },
 
   omo: {
-    luu_hanh_moi:   { value: "Tuan 20-24/7: NHNN HUT RONG 26.352 ty — TUAN THU 3 LIEN TIEP hut rong (bom moi 13.944 ty ky han 7-56 ngay LS 4,5%, dao han 40.296 ty) · OMO luu hanh con ~34.553 ty theo Vietstock — giam manh so bao cao tuan truoc (115.966 ty, 17/7), CHENH LECH CHUA RECONCILE duoc, co the khac phuong phap tinh hoac dao han tin phieu lon ngoai kenh cam co", updated: "27/07/2026", source: "vietstock.vn", note: "Nguon: Vietstock 27/7 · Xu huong hut rong keo dai sang tuan thu 3, cung co danh gia B1 (trigger NHNN ha LS OMO) tiep tuc XAU — chua co dau hieu dao chieu" },
+    luu_hanh_moi:   { value: "Tuan 27-31/7: NHNN DAO CHIEU BOM RONG 12.323 ty (sau 3 TUAN HUT RONG lien tiep truoc do) — bom moi 48.342 ty ky han 7-56 ngay LS 4,5%, dao han 36.019 ty · OMO luu hanh tang len ~172.530-230.034 ty (2 nguon chenh lech, chua reconcile) · Song song: TT2 O/N ROI KY LUC — 0,66-0,75%/nam (30/7-3/8), thap nhat NHIEU NAM qua", updated: "03/08/2026", source: "vietstock.vn", note: "VIRA/Vietstock/ThoiBaoNganHang/Dantri 3/8" },
     luu_hanh_truoc: { value: "OMO đỉnh T5: ~272.000 tỷ (sau bơm ròng 89.632T tuần 20-27/4) · TT08/2026 (15/5): thêm 130-150k tỷ room Big4 · T6: OMO ~325-327k tỷ · Spike TT2 11% (2/6) → NHNN FX Swap 1 tỷ USD (1/6) bơm thêm 23.932 tỷ", updated: "12/06/2026", source: "cafef/vietstock 12/6", note: "OMO T6: ~325-327k tỷ lưu hành · NHNN duy trì bơm để giữ TT2 6.6-7% · FX Swap 1 tỷ USD = outside money thực sự" },
     trang_thai:     { value: "15/6 DEAL COMPLETE: Trump 'Now Complete' · KY 19/6 SWITZERLAND · UN Guterres ung ho · G7 Evian 15/6: Hormuz reopening · 3/5 tin hieu TT1 peak xanh · Brent $87 (<$90 ✓ · Signal #5 XANH) · CPI pathway: T7: 3.5-4% → NHNN ha LS T8 → TT1 Q4: 6.0-6.5% · EMP -59d se dao chieu tuan toi · Stock futures tang manh", updated: "15/06/2026", source: "12/6 tổng hợp", note: "TT2 O/N: 6.6-7% (spike 11% ngày 2/6 → NHNN can thiệp) · OMO 325-327k tỷ · LDR 114% · Re-escalation Iran 10-11/6 tạo áp lực mới" },
     ls_omo:         { value: 4.5, updated: "12/06/2026", source: "NHNN 12/6", note: "LS OMO: 4,5%/năm · NHNN giữ nguyên · CPI 5,6% + LDR 114% = không thể hạ · Khi KB-B deal + CPI <4,5%: có thể hạ 25-50bps T8 FIX: 4.5→4.0] · NHNN chỉ đạo NH giảm thương mại" },
@@ -307,9 +307,9 @@ const D = {
     t1_2026:     { value: 2.53, updated: "10/06/2026", source: "Cục Thống kê", note: "CPI T1/2026: +2,53% YoY · Ổn định · Trước xung đột 28/2 · Nhóm GT: +0,3% · Lạm phát cơ bản: +3,6%" },
     t2_2026:     { value: "T2: ~3,0% | T3: 4,65% | T4: 5,46% | T5: 5,6% (chinh thuc 3/6) · Nhom GT T5: +12,5% YoY (ky luc do dau) · Lam phat co ban T5: 4,67%", updated: "12/06/2026", source: "GSO/Cục TK 3/6", note: "CPI T2: ~3,0% · T3: 4,65% (chinh thuc đỉnh 5 năm) · T4: 5,46% · T5: 5,6% (+0,29% MoM) · 3 tháng liên tiếp vượt mục tiêu 4,5%" },
     bq_2t:       { value: "4,31% · BQ 5T/2026 (chinh thuc) · Lam phat co ban 5T: 4,04%", updated: "12/06/2026", source: "GSO 3/6/2026", note: "BQ 5T/2026: +4,31% YoY · Lam phat co ban 5T: +4,04% · T5 rieng le: 5,6% (manh nhat tu 1/2020) · Nhom GT binh quan 5T: +10,4%" },
-    t3_forecast: { value: "T6/2026 GSO CHINH THUC (3/7): CPI T6 TANG 4.69% YoY (CAO HON FORECAST 3-3.5% cua model!) · MoM: GIAM 0.39% (xang giam -10.05% · diesel -10.63%) · CPI binh quan 6T: +4.38% YoY (sat muc tieu 4.5%) · Lam phat co ban T6: +4.50% YoY (TREN muc tieu!) · Cao nhat thang 6 va 6T trong 5 nam qua (GSO) · Signal A1 (CPI <=4%): KHONG DAT (4.69% > ca muc tieu 4.5%) → NHNN kho ha LS T8 hon du kien · T7 du bao: co the giam sau ky 3/7 (RON95 -788d) nhung lam phat co ban van cao", updated: "03/07/2026", source: "Cục Thống kê 4/4/2026", note: "CPI T3/2026 CHÍNH THỨC: +4,65% YoY (đỉnh 5 năm) · +1,23% MoM · CPI T4 tiếp tục cao" },
+    t3_forecast: { value: "CPI T7/2026 CHINH THUC (cong bo 3/8): MoM -0,12% (giam, do xang dau + thuc pham) · YoY 4,45% (giam tu 4,69% T6) · So T12/2025: +3,08% · BINH QUAN 7 THANG: +4,39% YoY", updated: "03/08/2026", source: "Cục Thống kê 4/4/2026", note: "Cuc Thong ke (Bo Tai chinh) 3/8" },
     muc_tieu:    { value: 4.5, updated: "17/05/2026", source: "QH/CP", note: "Mục tiêu 4,5%/năm (2026) · T3: 4,65% > MT · T4: 5,46% > MT · T5: 5,6% > MT · 3 tháng liên tiếp vượt mục tiêu · T6: 4,8-5,2% (du bao · xang giam nhieu) · NHNN khong the ha LS khi CPI con cao" },
-      core_cpi:     { value: "T6/2026: +4.50% YoY (GSO 3/7) · TREN muc tieu 4.5% · Loai tru xang+thuc pham → phan anh CAU KEO thuan", updated: "13/07/2026", source: "GSO/Cuc Thong ke (hop bao 3/7)", note: "KENH 2 cua CPI model v2: demand-pull · Lien ket: TD +7.41% YTD + GDP Q2 +8.39% → hot potato → core CPI cao · Day la kenh model cu BO SOT gay forecast sai T6" },
+      core_cpi:     { value: "Lam phat co ban T7/2026: MoM +0,33% · YoY 4,63% (tung thang) · BINH QUAN 7 THANG: +4,19% YoY (thap hon CPI binh quan 4,39% do da loai tru xang dau/gas/thuc pham bien dong manh)", updated: "03/08/2026", source: "GSO/Cuc Thong ke (hop bao 3/7)", note: "Cuc Thong ke 3/8" },
       base_effect:  { value: "T7/2025 nen: CPI bat dau tang tu nua cuoi 2025 → base T7-T12/2025 CAO DAN → YoY H2/2026 se HA NHIET dan du MoM di ngang · Nguoc voi H1 (nen thap → YoY cao)", updated: "13/07/2026", source: "[DERIVED] Tinh toan tu chuoi CPI GSO", note: "KENH 3 cua CPI model v2 · Cong thuc: YoY(T) = CPI(T)/CPI(T-12) − 1 · Bai hoc T6: chay MoM dynamics roi ap vao YoY ma khong tra base la SAI" },
       forecast_v2:  { value: "CPI T7 FORECAST (3 kenh, cap nhat 18/7): 4,5-4,9% YoY · Cost-push MANH LEN: ky 9/7 (~+875d, bo sot) + ky 16/7 (+547d xang, +1.584d DIESEL) = giao thong/van tai tang tro lai trong CPI T7 · DIESEL +1.584d la cu soc logistics (van tai hang hoa, nong nghiep) — lan toa gia thuc pham T8 · Demand-pull: core 4,5% chua ha · Base: keo xuong nhe", updated: "18/07/2026", source: "[DERIVED] CPI Model v2 (3 kenh, user approved 13/7)", note: "Model v2 kiem chung khi GSO cong bo ~3/8 · Neu ky 23-24/7 tang tiep 500-1.000d nhu DN du bao → can tren 4,9% co the cham 5%" },
   },
@@ -1066,7 +1066,7 @@ document.getElementById('panel-omo').innerHTML=`
     </span>
   </div>
   <div style="margin-top:12px;padding:8px 12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:3px">
-    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 30/7 (2 lần)</div>
+    <div style="font-size:11px;letter-spacing:1px;color:var(--yellow);margin-bottom:8px">🎯 MONITOR TT1 GIẢM — Q3/Q4 2026 · Cập nhật 3/8</div>
 
     <!-- HEADER: Framework thay đổi -->
     <div style="margin-bottom:10px;padding:7px 12px;background:rgba(59,130,246,.07);border-left:3px solid var(--blue);border-radius:0 3px 3px 0;font-size:11px;color:var(--dim2)">
@@ -1117,7 +1117,7 @@ document.getElementById('panel-omo').innerHTML=`
             <td style="font-weight:700;color:var(--blue)">B1</td>
             <td><strong>NHNN hạ LS OMO ≥25bps</strong> · Gate signal quan trọng nhất · TT2 giảm 2-4T sau · TT1 giảm 4-8T sau</td>
             <td class="r" style="text-align:center;font-weight:700">≥25bps</td>
-            <td class="r">❌ XẤU THÊM: tuần 20-24/7 tiếp tục HÚT RÒNG 26.352 tỷ — <strong>TUẦN THỨ 3 LIÊN TIẾP</strong> (sau 21.259 tỷ tuần 13-17/7) · LS OMO vẫn giữ 4,5% · Fed T9 hike prob 82,4% càng làm NHNN khó có room hạ OMO — hai áp lực cộng dồn thay vì bù trừ</td>
+            <td class="y">⚠️ CẢI THIỆN NHƯNG CHƯA ĐỦ: tuần 27-31/7 NHNN ĐẢO CHIỀU BƠM RÒNG 12.323 tỷ — chấm dứt chuỗi 3 tuần hút ròng (13-17/7, 20-24/7, tuần trước) · LS OMO vẫn giữ nguyên 4,5% (chưa hạ ≥25bps như điều kiện B1 yêu cầu) — đây là bơm THANH KHOẢN, không phải hạ LÃI SUẤT chính sách, nên CHƯA tính đủ điều kiện B1 xanh, nhưng là tín hiệu tích cực đầu tiên sau nhiều tuần</td>
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B2</td>
@@ -1133,9 +1133,9 @@ document.getElementById('panel-omo').innerHTML=`
           </tr>
           <tr>
             <td style="font-weight:700;color:var(--blue)">B4</td>
-            <td><strong>[RUMOUR, KỲ VỌNG HẠ] Nâng tỷ lệ KBNN trong LDR 20%→40%</strong> · D↑ trực tiếp (không qua OMO/giải ngân) → LDR/CDR↓ cơ học → giảm áp lực TT1</td>
-            <td class="r" style="text-align:center;font-weight:700">Chưa rõ</td>
-            <td class="r">⏳ RUMOUR interbank 30/7, chưa xác nhận chính thức · <strong>THAM SỐ LÕI (quy định có từ trước, không đổi theo %): tiền gửi KBNN chỉ được gửi kỳ hạn ≤3 tháng</strong> — trong khi áp lực TT1 tập trung ở 6-12 tháng (duration matching cho vay trung-dài hạn). Nâng tỷ lệ % chỉ cải thiện LDR trên sổ sách (stock ratio thô), KHÔNG giải quyết nhu cầu vốn ổn định dài hạn thực — lệch kỳ hạn là giới hạn cấu trúc, không tự hết khi % đủ lớn · Khớp với natural experiment: mức 0%→20% chạy từ 15/5/2026 (2,5 tháng) không thấy TT1 hạ nhiệt</td>
+            <td><strong>[XÁC NHẬN CHÍNH THỨC 3/8] Nâng tỷ lệ KBNN trong LDR 20%→50%</strong> — CAO HƠN CẢ rumour 40% (30/7) · D↑ trực tiếp → LDR/CDR↓ cơ học → giảm áp lực TT1</td>
+            <td class="r" style="text-align:center;font-weight:700">50%</td>
+            <td class="r">✅ ĐÃ BAN HÀNH (không còn rumour) · <strong>NHƯNG THAM SỐ LÕI VẪN GIỮ NGUYÊN: tiền gửi KBNN chỉ được gửi kỳ hạn ≤3 tháng</strong> — trong khi áp lực TT1 tập trung 6-12 tháng (duration matching). Nâng lên 50% (thay vì 40%) làm D tăng NHIỀU HƠN dự kiến, nhưng lệch kỳ hạn vẫn là giới hạn cấu trúc — cần theo dõi sát vài tuần tới xem liều 50% có đủ lớn để vượt qua giới hạn này hay vẫn như natural experiment cũ (mức 0%→20% chạy từ 15/5/2026 (2,5 tháng) không thấy TT1 hạ nhiệt</td>
           </tr>
         </tbody>
       </table>
