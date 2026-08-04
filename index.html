@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.37",
+    version: "4.38",
     date: "03/08/2026",
     note: "3/8 v4.36: 2 TIN LỚN — (1) CPI T7 CHÍNH THỨC công bố sáng nay: YoY 4,45% (giảm từ 4,69% T6), bình quân 7T +4,39%, lạm phát cơ bản bình quân +4,19% — xu hướng giảm rõ nhưng vẫn trên ngưỡng A1 4,0%. (2) B4 (tỷ lệ KBNN trong LDR) CHÍNH THỨC BAN HÀNH — 20%→50% (CAO HƠN rumour 40% trước đó) — không còn là tin đồn. Đồng thời NHNN ĐẢO CHIỀU OMO sang bơm ròng 12.323 tỷ (chấm dứt 3 tuần hút ròng), TT2 O/N rơi kỷ lục 0,66-0,7%/năm (thấp nhất nhiều năm). Đã cập nhật panel MONITOR TT1: B4 xác nhận 50%, B1 cải thiện (bơm ròng) nhưng chưa đủ điều kiện (LS OMO chưa hạ). TC NHNN giữ nguyên 25.338, xác nhận 12 tuần tăng liên tiếp sang ngày thứ 4.",
   },
@@ -372,11 +372,11 @@ const D = {
 
   tax_cal: {
     ky_t3:  { value: "31/03/2026", updated: "31/03/2026", source: "Luật thuế", note: "Đã qua · LS O/N spike 8,8% · Về bình thường" },
-    ky_t6:  { value: "30/06/2026", updated: "17/05/2026", source: "Luật thuế", note: "Kỳ tiếp theo · Spike LS TT2 tương tự · Cần theo dõi" },
-    ky_t9:  { value: "30/09/2026", updated: "17/05/2026", source: "Luật thuế", note: "Quyết toán Q3 · Spike LS tương tự" },
+    ky_t6:  { value: "30/06/2026", updated: "03/08/2026", source: "Luật thuế", note: "ĐÃ QUA. LS TT2 O/N có spike lệch sang đầu T7 (không đúng 30/6): tăng từ 3,90% (tuần 15-19/6) lên 4,26% (tuần 22-26/6), rồi vọt 5,21% (tuần 6-10/7). Sau đó hạ nhiệt mạnh: 2,5%(25/7)→2,2%(28/7)→0,66-0,7% hiện tại (kỷ lục nhiều năm) — spike chỉ tạm thời, không để lại dấu vết dài hạn" },
+    ky_t9:  { value: "30/09/2026", updated: "03/08/2026", source: "Luật thuế", note: "KỲ TIẾP THEO — còn ~58 ngày · Quyết toán Q3 · Theo pattern 2 kỳ trước (T3 spike 8,8%, T6 spike ~5,2%) nhiều khả năng có spike tương tự, nhưng thanh khoản hệ thống hiện RẤT dồi dào (TT2 O/N kỷ lục thấp 0,66-0,7%) nên spike lần này có thể nhẹ hơn" },
     ky_t12: { value: "31/12/2026", updated: "17/05/2026", source: "Luật thuế", note: "Quyết toán Q4 + Năm · Spike lớn nhất năm" },
-    hien_tai:{ value: "Đã qua kỳ T3 · Kỳ tiếp: T6/2026", updated: "17/05/2026", source: "[ESTIMATE] Quan sát thị trường — cần nguồn xác minh", note: "LS LNH đang hồi phục bình thường sau kỳ thuế" },
-    note:   { value: "Auto-watch: 15 ngày trước kỳ thuế (30/6, 30/9, 31/12) → tăng dự phòng thanh khoản", updated: "19/06/2026", source: "Khuyến nghị", note: "" },
+    hien_tai:{ value: "Đã qua CẢ kỳ T3 VÀ T6 · Kỳ tiếp: T9/2026 (30/9, còn ~58 ngày)", updated: "03/08/2026", source: "Xác nhận qua dữ liệu VIRA/Vietstock/NHNN 3/8", note: "TT2 O/N hiện 0,66-0,7% (kỷ lục thấp nhiều năm) — không còn dấu hiệu spike từ kỳ T6, thanh khoản hệ thống rất dồi dào nhờ OMO đảo chiều bơm ròng (12.323 tỷ tuần 27-31/7) + B4 KBNN 20%→50% vừa có hiệu lực" },
+    note:   { value: "Auto-watch: 15 ngày trước kỳ thuế (30/9, 31/12) → tăng dự phòng thanh khoản · Kỳ T9 là kỳ cần theo dõi tiếp theo, còn ~58 ngày", updated: "03/08/2026", source: "Khuyến nghị", note: "" },
   },
 
   risk_matrix: [
