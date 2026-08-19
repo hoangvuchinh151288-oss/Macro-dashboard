@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.59",
+    version: "4.60",
     date: "19/08/2026",
     note: "19/8 v4.56 (audit dashboard): Da sua 4 o mbox cung trong panel thue (Ky T3/T6/T9/T12 tung hien text tinh, khong doc field tax_cal.ky_tX) — mau thuan voi dong hien_tai da tung sua truoc do. Da audit toan dien 182 field: phat hien 27 field mo coi (dinh nghia nhung khong bao gio render) qua 7 domain (m2, fx, rates_tt1, omo, hormuz, dtc, ppp_war/irp) - xem chi tiet field-map.md. 4 field tax_cal da fix ngay, 23 field con lai can quyet dinh: xoa hay refactor panel de dung. (bổ sung sau khi tìm ra báo cáo OMO còn thiếu): XÁC NHẬN ĐẦY ĐỦ tuần 10-14/8 — NHNN hút ròng 11.593 tỷ (bơm mới 38.258 tỷ, chỉ bằng nửa tuần trước; đáo hạn 49.850 tỷ), lưu hành cuối tuần 185.664 tỷ — ĐÚNG dự đoán đã đặt (HIT). TT2 O/N refine chính xác hơn: đáy 0,5%(30/7, kỷ lục >2 năm) → 5,72%(cuối T7) → 6,3%(đỉnh 3/8) → 4,38%(hiện tại, xác nhận). MỞ RỘNG danh sách NH giảm LS huy động: LPBank, VPBank, SeABank, Nam A Bank VÀ LẦN ĐẦU CÓ BIDV (Big4!) — diễn ra đồng thời NHNN hút ròng, xác nhận thanh khoản ngắn hạn bớt căng, nhưng nguồn chính thức lưu ý CHƯA THỂ khẳng định xu hướng giảm bền vững. T7 tổng thể: NHNN hút ròng gần 72.900 tỷ.",
   },
@@ -278,7 +278,7 @@ const D = {
     ls_omo:         { value: 4.5, updated: "12/06/2026", source: "NHNN 12/6", note: "LS OMO: 4,5%/năm · NHNN giữ nguyên · CPI 5,6% + LDR 114% = không thể hạ · Khi KB-B deal + CPI <4,5%: có thể hạ 25-50bps T8 FIX: 4.5→4.0] · NHNN chỉ đạo NH giảm thương mại" },
     co_che:         { value: "CO CHE TAI KHOA → LS LNH (cap nhat 6T): Thu 62% du toan >> chi DTC 35,5% → tien dong KBNN → rut khoi M2 → siet thanh khoan TT2 → gop phan day LS LNH va TPCP so cap len (LS trung thau T5 4,09% → T6 4,25%) · DAO CHIEU khi: DTC tang toc H2 (muc tieu Q3 vuot trung binh) + KBNN gui ky han tai NHTM theo TT08", updated: "20/07/2026", source: "danviet/giadinh", note: "Cap nhat tu ban 10/4 (da qua han 100 ngay) · Kiem chung: theo doi ty le giai ngan DTC hang thang + LS trung thau TPCP" },
     
-    alert:          { value: "⚠️ Kỳ thuế T6 (30/6) → spike LS O/N tiếp theo · LNH O/N 3,88% hạ nhiệt (21/4)", updated: "17/05/2026", source: "Lịch thuế", note: "" },
+    
   },
 
   rates_tt1: {
