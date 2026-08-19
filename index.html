@@ -184,9 +184,9 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.55",
-    date: "17/08/2026",
-    note: "17/8 v4.55 (bổ sung sau khi tìm ra báo cáo OMO còn thiếu): XÁC NHẬN ĐẦY ĐỦ tuần 10-14/8 — NHNN hút ròng 11.593 tỷ (bơm mới 38.258 tỷ, chỉ bằng nửa tuần trước; đáo hạn 49.850 tỷ), lưu hành cuối tuần 185.664 tỷ — ĐÚNG dự đoán đã đặt (HIT). TT2 O/N refine chính xác hơn: đáy 0,5%(30/7, kỷ lục >2 năm) → 5,72%(cuối T7) → 6,3%(đỉnh 3/8) → 4,38%(hiện tại, xác nhận). MỞ RỘNG danh sách NH giảm LS huy động: LPBank, VPBank, SeABank, Nam A Bank VÀ LẦN ĐẦU CÓ BIDV (Big4!) — diễn ra đồng thời NHNN hút ròng, xác nhận thanh khoản ngắn hạn bớt căng, nhưng nguồn chính thức lưu ý CHƯA THỂ khẳng định xu hướng giảm bền vững. T7 tổng thể: NHNN hút ròng gần 72.900 tỷ.",
+    version: "4.56",
+    date: "19/08/2026",
+    note: "19/8 v4.56 (audit dashboard): Da sua 4 o mbox cung trong panel thue (Ky T3/T6/T9/T12 tung hien text tinh, khong doc field tax_cal.ky_tX) — mau thuan voi dong hien_tai da tung sua truoc do. Da audit toan dien 182 field: phat hien 27 field mo coi (dinh nghia nhung khong bao gio render) qua 7 domain (m2, fx, rates_tt1, omo, hormuz, dtc, ppp_war/irp) - xem chi tiet field-map.md. 4 field tax_cal da fix ngay, 23 field con lai can quyet dinh: xoa hay refactor panel de dung. (bổ sung sau khi tìm ra báo cáo OMO còn thiếu): XÁC NHẬN ĐẦY ĐỦ tuần 10-14/8 — NHNN hút ròng 11.593 tỷ (bơm mới 38.258 tỷ, chỉ bằng nửa tuần trước; đáo hạn 49.850 tỷ), lưu hành cuối tuần 185.664 tỷ — ĐÚNG dự đoán đã đặt (HIT). TT2 O/N refine chính xác hơn: đáy 0,5%(30/7, kỷ lục >2 năm) → 5,72%(cuối T7) → 6,3%(đỉnh 3/8) → 4,38%(hiện tại, xác nhận). MỞ RỘNG danh sách NH giảm LS huy động: LPBank, VPBank, SeABank, Nam A Bank VÀ LẦN ĐẦU CÓ BIDV (Big4!) — diễn ra đồng thời NHNN hút ròng, xác nhận thanh khoản ngắn hạn bớt căng, nhưng nguồn chính thức lưu ý CHƯA THỂ khẳng định xu hướng giảm bền vững. T7 tổng thể: NHNN hút ròng gần 72.900 tỷ.",
   },
 
   fx: {
@@ -1499,9 +1499,9 @@ document.getElementById('panel-dtc').innerHTML=`
 document.getElementById('panel-tax').innerHTML=`
   <div class="g4" style="gap:8px;margin-bottom:10px">
     ${mbox('Kỳ T3 (ĐÃ QUA)','31/03','Spike 8,8% đã qua','d')}
-    ${mbox('Kỳ T6','30/06','⚠ THEO DÕI · Spike TT2 dự kiến','y')}
-    ${mbox('Kỳ T9','30/09','Quyết toán Q3','y')}
-    ${mbox('Kỳ T12','31/12','Spike lớn nhất năm','r')}
+    ${mbox('Kỳ T6 (ĐÃ QUA)','30/06','Spike lệch sang đầu T7, đã hạ nhiệt','d')}
+    ${mbox('Kỳ T9 (SẮP TỚI)','30/09','Quyết toán Q3 · còn ~44 ngày','y')}
+    ${mbox('Kỳ T12','31/12','Spike lớn nhất năm · còn ~137 ngày','r')}
   </div>
   <div class="co co-y"><strong>Hiện tại:</strong> ${v(D.tax_cal.hien_tai)}</div>
   <div class="co co-b" style="margin-top:6px"><strong>Khuyến nghị:</strong> ${v(D.tax_cal.note)}</div>`;
