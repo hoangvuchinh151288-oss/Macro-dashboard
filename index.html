@@ -184,17 +184,17 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.72",
+    version: "4.73",
     date: "19/08/2026",
     note: "19/8 v4.61: TC NHNN LẬP KỶ LỤC MỚI 25.598 (+18đ) nhưng VCB GIẢM MẠNH -40đ về 25.990/26.370 — phân kỳ TC vs NHTM tiếp tục rõ nét, EMP -370đ (vẫn trong vùng ổn định -280/-470đ suốt tuần). BRENT VỌT LÊN $91,28 — tăng 4 phiên liên tiếp, CAO NHẤT 3 TUẦN, vượt lại mốc $90: nguy cơ gián đoạn Hormuz + 2 hãng vận tải biển lớn Trung Quốc đã NGỪNG đưa tàu chở dầu qua Hormuz và Bab el-Mandeb. WTI $85,31. Kỳ vọng Fed đảo chiều rõ: Reuters khảo sát cho thấy phần lớn chuyên gia dự báo Fed GIỮ NGUYÊN lãi suất đến cuối năm, thị trường định giá ~65% khả năng giữ nguyên T9 (giảm mạnh so xác suất tăng 44,4% hồi 9/8) — do lạm phát Mỹ T7 yếu, việc làm giảm bất ngờ, doanh số bán lẻ kém. Xăng dầu kỳ 20/8 (mai): dự báo có thể giảm tiếp nhưng chưa chắc do Brent vừa tăng mạnh.",
   },
 
   fx: {
-    nhnn_tc:       { value: 25590, updated: "21/08/2026", source: "[OFFICIAL] NHNN qua QDND/Baoquocte/DNHN 21/8", note: "TC NHNN 21/8: 25.590 (GIAM 8d) — dao chieu giam nhe sau khi lap dinh 25.598 hom 19/8 · Xac nhan qua 3+ nguon doc lap" },
+    nhnn_tc:       { value: 25615, updated: "25/08/2026", source: "[OFFICIAL] NHNN qua techz/DNHN 25/8", note: "TC NHNN 25/8: 25.615 (+15d) — DINH MOI. Chuoi gan day: 25.598(19/8) -> 25.590(21/8) -> 25.600(22/8) -> 25.615(25/8), tang tro lai sau nhip dieu chinh ngan 14-16/8" },
     nhnn_tran:     { value: 26675, updated: "12/08/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
     nhnn_san:      { value: 23882, updated: "07/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
-    vcb_mua:       { value: 25920, updated: "21/08/2026", source: "[OFFICIAL] VCB qua VOH/vietnambiz 21/8", note: "VCB mua CK 21/8: 25.920 (mua tien mat 25.890) — GIAM MANH, USD mat toi 90d so phien truoc" },
-    vcb_ban:       { value: 26300, updated: "21/08/2026", source: "[OFFICIAL] VCB qua VOH/vietnambiz 21/8", note: "VCB ban 21/8: 26.300 · Thanh Nien: 'tu dau T8 den nay gia USD tai cac NH lien tuc giam, dang RE HON so dau nam'" },
+    vcb_mua:       { value: 25900, updated: "25/08/2026", source: "[OFFICIAL] VCB 25/8", note: "VCB mua 25/8: ~25.900" },
+    vcb_ban:       { value: 26330, updated: "25/08/2026", source: "[OFFICIAL] VCB qua nguoiduatin 25/8", note: "VCB ban 25/8: 26.330 (24/8: 26.310) · 26330/26896(tran moi theo TC 25.615) = 97,9% tran — con dua dia" },
     vcb_tienmat:   { value: 26072, updated: "13/07/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
     tb33nh:        { value: "~26.131-26.391 (VCB · BIDV · TCB · ACB dong thuan · VCB tang 10d mua)", updated: "21/05/2026", source: "webgia.com 12/4", note: "TB 33 NH 12/4: ~26.100–26.360 · ACB: 26.150/26.360 · Sacombank mua cao nhất: 26.220 · SCB bán thấp nhất: 26.350" },
     tg_tu_do_mua:  { value: "25.950", updated: "19/08/2026", source: "tygiausd.org 16/8", note: "Cho den mua 19/8: ~25.950 (bat tang tro lai sau nhieu ngay giam sau)" },
@@ -247,9 +247,9 @@ const D = {
   },
 
   gold: {
-    tg_usd: { value: "$4.370-4.490/oz (19-20/8) · TANG VOT hon 3,5% phien My toi 19/8, co luc sat $4.490 — USD suy yeu + loi suat TPCP My giam manh kich hoat dong tien quay lai kim loai quy", updated: "20/08/2026", source: "24h.com.vn/giavang.org 19-20/8", note: "Bien dong RAT MANH ca tuan: 4.343(9/8) -> giam sau -> 4.370 -> vot sat 4.490(19/8 toi)" },
-    sjc_mua: { value: "143.000.000", updated: "20/08/2026", source: "giavang.org/SJC 20/8 15h20", note: "SJC mua 20/8: 143,0tr (tang manh tu 141,3tr ngay 13/8)" },
-    sjc_ban: { value: "146.000.000", updated: "20/08/2026", source: "giavang.org/SJC 20/8 15h20", note: "SJC ban 20/8: 146,0tr (DINH LICH SU MOI, tu 145,5tr ngay 13/8) · Vang nhan SJC 9999: 142,5/145,5tr · LUU Y bien dong manh trong tuan: 19/8 tung giam 1,6tr xuong 142,7tr roi bat tang lai" },
+    tg_usd: { value: "$4.673,3/oz (4h00 25/8, +70,5 USD trong ngay) · Trong phien co luc len 4.697 roi ve 4.668 · CAO NHAT HON 3 THANG", updated: "25/08/2026", source: "[MARKET] nguoiduatin/Thanh Nien 25/8", note: "TANG MANH LIEN TUC: 4.343(9/8) -> 4.604(23/8) -> 4.673(25/8) = +330 USD (+7,6%) trong 2 tuan · Dong luc: USD suy yeu (DXY xuong day 3 thang), luc mua ky thuat, dong tien dich chuyen khoi trai phieu sang tai san phong ve lam phat · Du bao Kuptsikevich: co the huong 4.800 USD · Can trong: loi suat TPCP My dai han van cao la yeu to kim ham" },
+    sjc_mua: { value: "147.600.000", updated: "25/08/2026", source: "[MARKET] SJC/giavang.org 25/8 11h05", note: "SJC mua 25/8: 147,6tr (+600k) — DINH LICH SU MOI" },
+    sjc_ban: { value: "150.600.000", updated: "25/08/2026", source: "[MARKET] SJC/giavang.org 25/8 11h05", note: "SJC ban 25/8: 150,6tr (+600k) — VUOT MOC 150 TRIEU LAN DAU · Vang nhan mot so thuong hieu tang toi 2,5tr/luong, co noi cham 155tr · ⚠️ HIEN TUONG DANG CHU Y: chenh SJC vs vang TG quy doi THU HEP MANH con ~2,2-2,7tr (tu 5,66tr hom 9/8) — chuyen gia ly giai do cung-cau thay doi, khong con canh xep hang mua vang nhu dau nam. Day la tin hieu TICH CUC (phan bu rui ro giam)" },
   },
 
   yield_curve: {
@@ -370,10 +370,10 @@ const D = {
   tax_cal: {
     ky_t3:  { value: "31/03/2026", updated: "31/03/2026", source: "Luật thuế", note: "Đã qua · LS O/N spike 8,8% · Về bình thường" },
     ky_t6:  { value: "30/06/2026", updated: "03/08/2026", source: "Luật thuế", note: "ĐÃ QUA. LS TT2 O/N có spike lệch sang đầu T7 (không đúng 30/6): tăng từ 3,90% (tuần 15-19/6) lên 4,26% (tuần 22-26/6), rồi vọt 5,21% (tuần 6-10/7). Sau đó hạ nhiệt mạnh: 2,5%(25/7)→2,2%(28/7)→0,66-0,7% hiện tại (kỷ lục nhiều năm) — spike chỉ tạm thời, không để lại dấu vết dài hạn" },
-    ky_t9:  { value: "30/09/2026", updated: "03/08/2026", source: "Luật thuế", note: "KỲ TIẾP THEO — còn ~58 ngày · Quyết toán Q3 · Theo pattern 2 kỳ trước (T3 spike 8,8%, T6 spike ~5,2%) nhiều khả năng có spike tương tự, nhưng thanh khoản hệ thống hiện RẤT dồi dào (TT2 O/N kỷ lục thấp 0,66-0,7%) nên spike lần này có thể nhẹ hơn" },
+    ky_t9:  { value: "30/09/2026", updated: "25/08/2026", source: "Luật thuế", note: "KỲ TIẾP THEO — còn ~36 ngày (tính 25/8) · Quyết toán Q3 · Pattern 2 kỳ trước: T3 spike O/N 8,8%, T6 spike ~5,2% (lệch sang đầu T7) · Bối cảnh khác biệt lần này: TT2 O/N hiện chỉ 3,01% và kỳ thuế T8 (20-25/8) VỪA QUA MÀ KHÔNG gây spike (O/N còn giảm 1,90đpt) → thanh khoản ngắn hạn dồi dào hơn hẳn các kỳ trước, spike kỳ T9 có thể nhẹ hơn dự kiến" },
     ky_t12: { value: "31/12/2026", updated: "17/05/2026", source: "Luật thuế", note: "Quyết toán Q4 + Năm · Spike lớn nhất năm" },
-    hien_tai:{ value: "Đã qua CẢ kỳ T3 VÀ T6 · Kỳ tiếp: T9/2026 (30/9, còn ~58 ngày)", updated: "03/08/2026", source: "Xác nhận qua dữ liệu VIRA/Vietstock/NHNN 3/8", note: "TT2 O/N hiện 0,66-0,7% (kỷ lục thấp nhiều năm) — không còn dấu hiệu spike từ kỳ T6, thanh khoản hệ thống rất dồi dào nhờ OMO đảo chiều bơm ròng (12.323 tỷ tuần 27-31/7) + B4 KBNN 20%→50% vừa có hiệu lực" },
-    note:   { value: "Auto-watch: 15 ngày trước kỳ thuế (30/9, 31/12) → tăng dự phòng thanh khoản · Kỳ T9 là kỳ cần theo dõi tiếp theo, còn ~58 ngày", updated: "03/08/2026", source: "Khuyến nghị", note: "" },
+    hien_tai:{ value: "Đã qua CẢ kỳ T3 VÀ T6 · Kỳ tiếp: T9/2026 (30/9) — CÒN ~36 NGÀY (cập nhật 25/8, trước ghi '~58 ngày' tính từ 3/8 đã lạc hậu)", updated: "25/08/2026", source: "Luật thuế + tính lại 25/8", note: "TT2 O/N hiện 3,01% (chốt 20/8) — thanh khoản ngắn hạn dồi dào, KHÔNG còn dấu hiệu căng từ kỳ thuế tháng 8 (20-25/8 vừa qua mà O/N vẫn giảm 1,90đpt). Kỳ quyết toán Q3 (30/9) là điểm trũng lớn tiếp theo cần canh · ⚠️ LƯU Ý QUY TRÌNH: field dạng đếm ngược (còn ~X ngày) PHẢI tính lại mỗi lần cập nhật, không để nguyên số cũ" },
+    note:   { value: "Auto-watch: 15 ngày trước kỳ thuế (30/9, 31/12) → tăng dự phòng thanh khoản · Kỳ T9 còn ~36 ngày (tính 25/8) — mốc canh bắt đầu ~15/9", updated: "25/08/2026", source: "Khuyến nghị", note: "" },
   },
 
   risk_matrix: [
