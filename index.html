@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.79",
+    version: "4.80",
     date: "19/08/2026",
     note: "19/8 v4.61: TC NHNN LẬP KỶ LỤC MỚI 25.598 (+18đ) nhưng VCB GIẢM MẠNH -40đ về 25.990/26.370 — phân kỳ TC vs NHTM tiếp tục rõ nét, EMP -370đ (vẫn trong vùng ổn định -280/-470đ suốt tuần). BRENT VỌT LÊN $91,28 — tăng 4 phiên liên tiếp, CAO NHẤT 3 TUẦN, vượt lại mốc $90: nguy cơ gián đoạn Hormuz + 2 hãng vận tải biển lớn Trung Quốc đã NGỪNG đưa tàu chở dầu qua Hormuz và Bab el-Mandeb. WTI $85,31. Kỳ vọng Fed đảo chiều rõ: Reuters khảo sát cho thấy phần lớn chuyên gia dự báo Fed GIỮ NGUYÊN lãi suất đến cuối năm, thị trường định giá ~65% khả năng giữ nguyên T9 (giảm mạnh so xác suất tăng 44,4% hồi 9/8) — do lạm phát Mỹ T7 yếu, việc làm giảm bất ngờ, doanh số bán lẻ kém. Xăng dầu kỳ 20/8 (mai): dự báo có thể giảm tiếp nhưng chưa chắc do Brent vừa tăng mạnh.",
   },
@@ -233,8 +233,8 @@ const D = {
 
   ppp_war: {
     base_brent:  { value: 73, updated: "12/06/2026", source: "reuters/cnbc/EIA", note: "Pre-war Brent Feb 2026: $68-73 (avg ~$70) · Su dung $73 lam base · Before US-Israeli strikes 28/2 · Brent dinh xung dot: $126.41 (30/4)" },
-    war_premium: { value: "CAP NHAT 25/8 (thay ban 16/7 da mau thuan voi khung KB): Brent hien ~$92 (24/8) vs base pre-war $73 → war premium = ($92-$73)/$53 = ~+35,8% · Chuoi gan day: $79(5/8, day thang) -> $91,65(20/8, dinh 4 tuan) -> $93(21/8) -> ~$92(24/8, giam sau tin Bessent trung phat Iran) · ⚠️ SUA MAU THUAN: ban cu ghi 'KB-D (50%) dang materialize' — SAI, khung KB da viet lai 31/7 voi KB-D chi 20%, KB-B 45% la base case. Thuc te dang dien ra dung KB-B (xung dot keo dai kieu chu ky), KHONG phai KB-D (leo thang toan dien)", updated: "25/08/2026", source: "[MARKET] TradingEconomics 24/8 + tinh toan model", note: "Yeu to MOI 24/8: Bo truong Tai chinh My Bessent cong bo trung phat 'khac nghiet nhat lich su' nham co lap Iran — it nhat 1 dinh che tai chinh lon co the bi trung phat, Trung Quoc KHONG ngoai le · Tac dong 2 chieu: co the that chat nguon cung Iran (tang gia) NHUNG cung co the ep Iran nhuong bo (giam gia) → thi truong dang chot loi, Brent giam tu $93 ve $92" },
-    iea_offset:  { value: "~5–8 (IEA+SPR dang can dan)", updated: "12/06/2026", source: "IEA/EIA Jun9", note: "IEA offset: ~$5-8/thung (giam tu $8-12) · Tong da giai phong ~300M+ thung · Con ~180-200M thung buffer · EIA: emergency release chua duoc kich hoat het cong suat" },
+    war_premium: { value: "19", updated: "25/08/2026", source: "[MARKET] TradingEconomics 24/8 + tinh toan model", note: "War premium = Brent thuc ($92, 24/8) − base pre-war ($73) = $19/thung = +35,8% so peak $53 (30/4) · Chuoi gan day: $79(5/8, day thang) → $91,65(20/8, dinh 4 tuan) → $93,01(21/8, cao nhat tu 24/7) → ~$92(24/8, giam sau tin Bessent trung phat Iran) · ⚠️ DA SUA MAU THUAN: ban 16/7 ghi 'KB-D (50%) dang materialize' — SAI, khung KB viet lai 31/7: KB-D chi 20%, KB-B 45% la base case. Thuc te dang dien ra dung KB-B (xung dot keo dai kieu chu ky), khong phai KB-D (leo thang toan dien) · Yeu to moi 24/8: Bessent cong bo trung phat 'khac nghiet nhat lich su' co lap Iran — tac dong 2 chieu (that chat nguon cung = tang gia, nhung ep Iran nhuong bo = giam gia)" },
+    iea_offset:  { value: "5–8", updated: "25/08/2026", source: "[MARKET] EIA/IEA", note: "IEA offset: ~$5-8/thung (giam tu $8-12) · Tong da giai phong ~300M+ thung · Con ~180-200M thung buffer · EIA: emergency release chua duoc kich hoat het cong suat · ⚠️ SUA 25/8: value truoc chua ca text mo ta '(IEA+SPR dang can dan)' nen template noi thanh '−$~5–8 (IEA+SPR...)' — nay chi giu dang so" },
     fair_brent:  { value: "80–85", updated: "25/08/2026", source: "[DERIVED] OPEC+ fiscal breakeven model", note: "OPEC+ FISCAL BREAKEVEN MODEL: Saudi breakeven $80-85/thung (can de can bang ngan sach nha nuoc) · UAE ~$65 · Iraq ~$70 · OPEC+ se defend gia bang cat san xuat khi Brent <$70-75 · ⚠️ SUA LOI TINH TOAN 25/8: value truoc luu CHUOI VAN BAN bat dau bang chu ('OPEC+ FISCAL...') nen parseFloat() khong tinh duoc → panel hien loi 'Premium so fair: khong xac dinh'. Nay doi ve dang so '80–85' de template tinh duoc, chi tiet chuyen vao note" },
     note:        { value: "DXY ~100,4 (sau FOMC hawkish 17/6) · USD mạnh trở lại sau dot plot 9/18 TV dự báo tăng LS", updated: "19/06/2026", source: "[MIXED] Tổng hợp nhiều nguồn", note: "" },
   },
@@ -908,7 +908,7 @@ document.getElementById('panel-hormuz-flows').innerHTML=`
   const premHi=Math.max(0,_sf(bRaw[1]||bRaw[0])-_sf(fRaw[0]));
   document.getElementById('panel-ppp-war').innerHTML=`
     ${drow('Base Brent (pre-war)','$'+v(D.ppp_war.base_brent),'d',u(D.ppp_war.base_brent))}
-    ${drow('War Premium','$'+v(D.ppp_war.war_premium),'r','Giảm từ peak $53 (30/4) về $20-22 (12/6) · '+u(D.ppp_war.war_premium))}
+    ${drow('War Premium','$'+v(D.ppp_war.war_premium),'r','So peak $53 (30/4): +35,8% · '+u(D.ppp_war.war_premium))}
     ${drow('IEA offset','−$'+v(D.ppp_war.iea_offset),'b',n(D.ppp_war.iea_offset))}
     ${drow('Fair value Brent','$'+v(D.ppp_war.fair_brent),'y',n(D.ppp_war.fair_brent))}
     ${drow('Brent thực tế','$'+v(D.oil.brent),'r',`Premium so fair: ~$${fmt(premLo,0)}–$${fmt(premHi,0)}/thùng (midpoint ~$${fmt(bMid-fMid,1)})`)}
