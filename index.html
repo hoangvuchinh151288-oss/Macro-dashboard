@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "4.87",
+    version: "4.88",
     date: "19/08/2026",
     note: "19/8 v4.61: TC NHNN LẬP KỶ LỤC MỚI 25.598 (+18đ) nhưng VCB GIẢM MẠNH -40đ về 25.990/26.370 — phân kỳ TC vs NHTM tiếp tục rõ nét, EMP -370đ (vẫn trong vùng ổn định -280/-470đ suốt tuần). BRENT VỌT LÊN $91,28 — tăng 4 phiên liên tiếp, CAO NHẤT 3 TUẦN, vượt lại mốc $90: nguy cơ gián đoạn Hormuz + 2 hãng vận tải biển lớn Trung Quốc đã NGỪNG đưa tàu chở dầu qua Hormuz và Bab el-Mandeb. WTI $85,31. Kỳ vọng Fed đảo chiều rõ: Reuters khảo sát cho thấy phần lớn chuyên gia dự báo Fed GIỮ NGUYÊN lãi suất đến cuối năm, thị trường định giá ~65% khả năng giữ nguyên T9 (giảm mạnh so xác suất tăng 44,4% hồi 9/8) — do lạm phát Mỹ T7 yếu, việc làm giảm bất ngờ, doanh số bán lẻ kém. Xăng dầu kỳ 20/8 (mai): dự báo có thể giảm tiếp nhưng chưa chắc do Brent vừa tăng mạnh.",
   },
@@ -828,7 +828,8 @@ document.getElementById('fx-bottom').innerHTML=`
     Bid–Ask VCB: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.vcb_mua))}đ</strong>
     &nbsp;·&nbsp; Spread TC↔VCBbán: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.nhnn_tc))}đ</strong>
     &nbsp;·&nbsp; UOB Q2 target: <strong class="b">${fmt(v(D.fx.uob_q2))}</strong>
-  </div>`;
+  </div>
+  <div class="co co-y" style="margin-top:8px;font-size:11px;line-height:1.6"><strong>Diễn biến TC NHNN:</strong> ${n(D.fx.nhnn_tc)}</div>`;
 
 // EMP vars computed above (moved before kpi-strip)
 document.getElementById('fx-tudo').innerHTML=`
