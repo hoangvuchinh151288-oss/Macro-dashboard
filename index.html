@@ -184,15 +184,16 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "5.20",
+    version: "5.21",
     date: "03/09/2026",
     note: "3/9 v5.14: BO PANEL HORMUZ FLOWS TRACKER — panel nay da 2 LAN gay loi mau thuan noi bo (ghi '>=20 tau/ngay' trong khi panel Brent ghi '6 tau'), du lieu Kpler cap nhat rat cham (so moi nhat 19/8), va thong tin cot loi (Hormuz van dong, 40% muc 2025) DA CO trong kb_now va note cua Brent → panel rieng chi tao them cho de lech nhau · CHUYEN panel du bao gia dau sang Q4/2026-Q1/2027 (truoc la Q2-Q3/2026 da qua), sua mo ta KB cho khop thuc te (KB-B khong con la 'Hormuz mo dan 4-8 tuan' ma la 'xung dot chu ky, Hormuz van dong') · BRENT $95,25-95,82 (3/9) sau cu nhay +8%/3 phien do My tan cong dao trong Hormuz 31/8, Iran tra dua vao UAE/Jordan · Da them PANEL GIA DINH NEN (XI-B) theo doi 6 gia dinh voi nguong vo cu the · BANG CHAM DIEM THEO KHUNG: cau truc 75% vs CPI 3 kenh 27%",
   },
 
   fx: {
-    nhnn_tc:       { value: 25615, updated: "03/09/2026", source: "[OFFICIAL] NHNN/VCB qua Thuonggia/Baoquocte/SKĐS 3/9", note: "TC NHNN 3/9: 25.615 (+5d so 28/8, sau ky nghi le 2/9) · Tran 26.896 · San 24.334" },
-    nhnn_tran:     { value: 26675, updated: "12/08/2026", source: "NHNN tính toán", note: "Trần 12/4: 25.105 × 1,05 = 26.360 · VCB bán 26.360 = đúng trần · NHNN chưa nới thêm" },
-    nhnn_san:      { value: 23882, updated: "07/06/2026", source: "NHNN tính toán", note: "Sàn 12/4: 25.105 × 0,95 = 23.850" },
+    nhnn_tc:       { value: 25605, updated: "04/09/2026", source: "[PRIMARY] NHNN — sbv.gov.vn/vi/tỷ-giá (FETCH TRUC TIEP, xac nhan 4/9)", note: "⭐ SO GOC NHNN 4/9: TC = 25.605 VND/USD · Van ban 368/TB-NHNN ngay 4/9 · GIAM 5d so 3/9 (25.610) · Chuoi: 25.598(19/8) → 25.615(25/8) → 25.610(3/9) → 25.605(4/9) — DI NGANG, chuoi tang da chung han" },
+    nhnn_tran:     { value: 26885, updated: "04/09/2026", source: "[PRIMARY] NHNN — sbv.gov.vn/vi/tỷ-giá (FETCH TRUC TIEP, xac nhan 4/9)", note: "Tran +5% = 25.605 × 1,05 = 26.885 · VCB ban hien 26.270 = 97,7% tran, con du dia" },
+    tg_cucqlnh: { value: "USD 24.375 mua / 26.835 ban (4/9) — TY GIA THAM KHAO tai Cuc Quan ly ngoai hoi", updated: "04/09/2026", source: "[PRIMARY] NHNN — sbv.gov.vn/vi/tỷ-giá (FETCH TRUC TIEP)", note: "⭐ NGUON GOC MOI (4/9): NHNN cong bo ty gia tham khao cua Cuc QLNH cho 7 ngoai te · USD 24.375/26.835 · EUR 28.286/31.264 · JPY 156/173 · GBP 32.914/36.378 · CHF 30.114/33.284 · AUD 17.525/19.369 · CAD 17.639/19.495 · Y NGHIA: bien do mua-ban RAT RONG (USD chenh 2.460d = 9,6%) vi day la ty gia GIAO DICH cua Cuc QLNH voi TCTD, KHONG phai ty gia thi truong — dung de tham chieu bien do can thiep, KHONG dung thay VCB · Trang nay CON co ty gia tinh cheo 27 ngoai te de xac dinh tri gia tinh thue (ap dung 3-9/9), huu ich neu can tinh thue XNK" },
+    nhnn_san:      { value: 24325, updated: "04/09/2026", source: "[PRIMARY] NHNN — sbv.gov.vn/vi/tỷ-giá (FETCH TRUC TIEP, xac nhan 4/9)", note: "San -5% = 25.605 × 0,95 = 24.325" },
     vcb_mua:       { value: 25860, updated: "03/09/2026", source: "[OFFICIAL] NHNN/VCB qua Thuonggia/Baoquocte/SKĐS 3/9", note: "VCB mua 3/9: 25.860 (tien mat 25.850, chuyen khoan 25.880-25.890 tuy nguon)" },
     vcb_ban:       { value: 26270, updated: "03/09/2026", source: "[OFFICIAL] NHNN/VCB qua Thuonggia/Baoquocte/SKĐS 3/9", note: "VCB ban 3/9: 26.270 (+10d) · BIDV 26.270 · ACB 26.250 · Techcombank 26.275-26.357 (cao nhat) · VietinBank 26.255" },
     vcb_tienmat:   { value: 26072, updated: "13/07/2026", source: "VCB 12/4", note: "VCB tiền mặt 12/4: 26.100 · Spread mua-bán = 260đ" },
@@ -881,7 +882,8 @@ document.getElementById('fx-bottom').innerHTML=`
     &nbsp;·&nbsp; Spread TC↔VCBbán: <strong class="y">${fmt(v(D.fx.vcb_ban)-v(D.fx.nhnn_tc))}đ</strong>
     &nbsp;·&nbsp; UOB Q2 target: <strong class="b">${fmt(v(D.fx.uob_q2))}</strong>
   </div>
-  <div class="co co-y" style="margin-top:8px;font-size:11px;line-height:1.6"><strong>Diễn biến TC NHNN:</strong> ${n(D.fx.nhnn_tc)}</div>`;
+  <div class="co co-y" style="margin-top:8px;font-size:11px;line-height:1.6"><strong>Diễn biến TC NHNN:</strong> ${n(D.fx.nhnn_tc)}</div>
+  <div class="co co-b" style="margin-top:6px;font-size:11px;line-height:1.6"><strong>🏛️ Tỷ giá tham khảo Cục QLNH:</strong> ${v(D.fx.tg_cucqlnh)}<br><span style="color:var(--dim2);font-size:10px">${n(D.fx.tg_cucqlnh)}</span></div>`;
 
 // EMP vars computed above (moved before kpi-strip)
 document.getElementById('fx-tudo').innerHTML=`
