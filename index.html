@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "5.12",
+    version: "5.13",
     date: "19/08/2026",
     note: "19/8 v4.61: TC NHNN LẬP KỶ LỤC MỚI 25.598 (+18đ) nhưng VCB GIẢM MẠNH -40đ về 25.990/26.370 — phân kỳ TC vs NHTM tiếp tục rõ nét, EMP -370đ (vẫn trong vùng ổn định -280/-470đ suốt tuần). BRENT VỌT LÊN $91,28 — tăng 4 phiên liên tiếp, CAO NHẤT 3 TUẦN, vượt lại mốc $90: nguy cơ gián đoạn Hormuz + 2 hãng vận tải biển lớn Trung Quốc đã NGỪNG đưa tàu chở dầu qua Hormuz và Bab el-Mandeb. WTI $85,31. Kỳ vọng Fed đảo chiều rõ: Reuters khảo sát cho thấy phần lớn chuyên gia dự báo Fed GIỮ NGUYÊN lãi suất đến cuối năm, thị trường định giá ~65% khả năng giữ nguyên T9 (giảm mạnh so xác suất tăng 44,4% hồi 9/8) — do lạm phát Mỹ T7 yếu, việc làm giảm bất ngờ, doanh số bán lẻ kém. Xăng dầu kỳ 20/8 (mai): dự báo có thể giảm tiếp nhưng chưa chắc do Brent vừa tăng mạnh.",
   },
@@ -642,6 +642,8 @@ const D = {
 
 <div class="sec"><span class="sec-n">XI</span> Tín Hiệu Tuần · Dự Báo Q3/2026</div>
 <div class="card" id="panel-signals"></div>
+<div class="sec"><span class="sec-n">XI-B</span> Giả Định Nền · Cảnh Báo Vỡ Sớm</div>
+<div class="card" id="panel-assumptions"></div>
 
 <div class="sec"><span class="sec-n">XII</span> Review & Roadmap 2026</div>
 <div class="g2">
@@ -724,6 +726,49 @@ const D = {
 </div>
 
 <script>
+// ═══ ASSUMPTIONS (3/9/2026) — GIA DINH NEN cua cac du bao dang chay ═══
+// Ly do: bang cham diem cho thay CPI 3 kenh chi 27% KHONG phai do model sai,
+// ma do GIA DINH DAU VAO sai (Brent du bao $65-72 vs thuc te $92-96).
+// Bang nay giup phat hien gia dinh VO SOM thay vi cho den ky cham diem.
+const ASSUMPTIONS = [
+  { id: 'fed_t9', gt: 'Fed tang 25bp thang 9/2026',
+    duBaoPhuThuoc: 'Toan bo du bao ty gia Q4 (TC 25.700-25.950, VCB 26.400-26.700)',
+    nguongVo: 'Fed GIU NGUYEN tai FOMC 16-17/9 ma khong giai thich thuyet phuc',
+    kiemTra: 'field fed.prob_hold — neu xac suat tang < 40% keo dai 1 tuan',
+    trangThai: 'CHO', mocKiemChung: '16-17/09/2026',
+    hienTai: 'Xac suat 58-60,4% (sau Jackson Hole 28/8)' },
+  { id: 'brent_san', gt: 'Brent KHONG sup ve vung $60-70',
+    duBaoPhuThuoc: 'TT1 khong giam (CPI khong ha manh) · 3 forecast mat bang moi',
+    nguongVo: 'Brent < $80 lien tuc 2 tuan',
+    kiemTra: 'field oil.brent',
+    trangThai: 'DUNG', mocKiemChung: 'lien tuc',
+    hienTai: '$95,25-95,82 (3/9) — CACH XA nguong vo' },
+  { id: 'hormuz_dong', gt: 'Hormuz CHUA mo lai binh thuong',
+    duBaoPhuThuoc: 'Khung KB-B 45% base case · war premium · du bao Brent',
+    nguongVo: 'Luu luong qua Hormuz > 70% muc 2025',
+    kiemTra: 'field oil.hormuz_tau (Kpler)',
+    trangThai: 'DUNG', mocKiemChung: 'hang tuan',
+    hienTai: '40% muc 2025, transits 73/tuan (Kpler 19/8)' },
+  { id: 'wf_san', gt: 'WF (trai phieu NH) giu >= 7,5%',
+    duBaoPhuThuoc: 'San chi phi von cho TT1 · forecast (2) mat bang moi',
+    nguongVo: 'Co dot phat hanh TMCP duoi 7,5%',
+    kiemTra: 'HNX/CBIS — cbonds.hnx.vn',
+    trangThai: 'DUNG', mocKiemChung: 'hang thang',
+    hienTai: 'VIB 9,0% (3 nam, 11/8) · HDBank 8,5-9,0% · VCB 7,9-8,0%' },
+  { id: 'nfa_mong', gt: 'Du tru ngoai hoi VAN mong (<3 thang nhap khau)',
+    duBaoPhuThuoc: 'Tran ngoai hoi khoa du dia noi long · du bao TT1 khong giam',
+    nguongVo: 'NHNN mua rong lon, du tru > 110 ty USD',
+    kiemTra: 'field bop.du_tru / m2.nfa_dtnh',
+    trangThai: 'DUNG', mocKiemChung: 'theo quy',
+    hienTai: '87,6 ty USD, duoi 2 thang nhap khau (Fitch 6/8)' },
+  { id: 'room_con', gt: 'Room tin dung CHUA bi xoa bo',
+    duBaoPhuThuoc: 'Gia dinh NH chay room truoc 31/12 → Q4 la mua cao diem',
+    nguongVo: 'NHNN cong bo bo room chinh thuc',
+    kiemTra: 'field m2.room_tindung',
+    trangThai: 'DUNG', mocKiemChung: 'hang thang',
+    hienTai: 'Chua bo ve danh nghia, dang noi thuc chat (CV 4551, mien room 18 du an)' }
+];
+
 // ═══ GLOBAL ERROR HANDLER (v4.03) ═══
 window.addEventListener('error', function(ev){
   try {
@@ -1636,6 +1681,37 @@ document.getElementById('panel-signals').innerHTML=`
   <div class="co co-r" style="margin-top:8px"><strong>⭐ DỰ BÁO Q4/2026 – Q1/2027 (đặt 31/8):</strong> ${v(D.signals.q4_q1_forecast)}</div>
   <div style="color:var(--dim2);font-size:10px;margin-top:6px;line-height:1.65">${n(D.signals.q4_q1_forecast)}</div>`;
 
+// XI-B. BANG THEO DOI GIA DINH NEN
+document.getElementById('panel-assumptions').innerHTML = (()=>{
+  const badge = (t) => t==='DUNG' ? '<span style="color:var(--ok);font-weight:700">✅ ĐANG ĐÚNG</span>'
+                     : t==='VO'  ? '<span style="color:var(--red);font-weight:700">❌ ĐÃ VỠ</span>'
+                     : '<span style="color:var(--amber);font-weight:700">⏳ CHỜ</span>';
+  const rows = ASSUMPTIONS.map(a => `
+    <tr>
+      <td style="font-weight:600;color:var(--blue)">${a.gt}</td>
+      <td>${badge(a.trangThai)}</td>
+      <td style="font-size:10px;color:var(--dim2)">${a.hienTai}</td>
+      <td style="font-size:10px;color:var(--red)">${a.nguongVo}</td>
+      <td style="font-size:10px;color:var(--dim2)">${a.duBaoPhuThuoc}</td>
+      <td style="font-size:10px">${a.mocKiemChung}</td>
+    </tr>`).join('');
+  const nVo = ASSUMPTIONS.filter(a=>a.trangThai==='VO').length;
+  const nCho = ASSUMPTIONS.filter(a=>a.trangThai==='CHO').length;
+  return `
+  <div style="margin-bottom:8px;padding:8px 12px;background:rgba(59,130,246,.08);border-left:3px solid var(--blue);border-radius:0 3px 3px 0;font-size:11px">
+    <strong style="color:var(--blue)">🎯 GIẢ ĐỊNH NỀN — vì sao cần theo dõi:</strong>
+    <span style="color:var(--dim2)"> Bảng chấm điểm cho thấy CPI 3 kênh chỉ đạt 27% <strong>không phải do model sai</strong> (dự báo CPI T7 lệch chỉ 0,05đpt) mà do <strong>giả định đầu vào sai</strong> — Brent dự báo $65-72 vs thực tế $92-96. Bảng này phát hiện giả định vỡ SỚM thay vì chờ đến kỳ chấm điểm.</span>
+  </div>
+  <div style="font-size:11px;margin-bottom:6px">
+    Tổng ${ASSUMPTIONS.length} giả định · <span style="color:var(--ok)">${ASSUMPTIONS.length-nVo-nCho} đang đúng</span>
+    · <span style="color:var(--amber)">${nCho} chờ</span> · <span style="color:var(--red)">${nVo} đã vỡ</span>
+  </div>
+  <table class="tbl" style="font-size:11px">
+    <thead><tr><th>Giả định</th><th>Trạng thái</th><th>Hiện tại</th><th>Ngưỡng VỠ</th><th>Dự báo phụ thuộc</th><th>Mốc</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+})();
+
 // FIX BUG #2: XII Changelog — thêm v316, v317, v318
 document.getElementById('panel-changelog').innerHTML=`
   <div class="mono" style="font-size:12px;line-height:2;color:var(--dim2)">
@@ -2052,6 +2128,11 @@ checkAutoTrigger();
 // ═══ TIER MAP (2/9/2026) — phan tang field theo TAN SUAT BAT BUOC cap nhat ═══
 // Ly do: 176 field deu "binh dang" -> khong co uu tien -> field quan trong bi bo quen
 // Script check_all.py kiem theo TIER nay, khong theo tu khoa (bit vung mu)
+
+
+
+
+
 const TIER_MAP = {
   CORE: {  // nguong 2 ngay — bien dong hang ngay, quyet dinh nhan dinh
     days: 2,
