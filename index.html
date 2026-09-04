@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "5.23",
+    version: "5.24",
     date: "03/09/2026",
     note: "3/9 v5.14: BO PANEL HORMUZ FLOWS TRACKER — panel nay da 2 LAN gay loi mau thuan noi bo (ghi '>=20 tau/ngay' trong khi panel Brent ghi '6 tau'), du lieu Kpler cap nhat rat cham (so moi nhat 19/8), va thong tin cot loi (Hormuz van dong, 40% muc 2025) DA CO trong kb_now va note cua Brent → panel rieng chi tao them cho de lech nhau · CHUYEN panel du bao gia dau sang Q4/2026-Q1/2027 (truoc la Q2-Q3/2026 da qua), sua mo ta KB cho khop thuc te (KB-B khong con la 'Hormuz mo dan 4-8 tuan' ma la 'xung dot chu ky, Hormuz van dong') · BRENT $95,25-95,82 (3/9) sau cu nhay +8%/3 phien do My tan cong dao trong Hormuz 31/8, Iran tra dua vao UAE/Jordan · Da them PANEL GIA DINH NEN (XI-B) theo doi 6 gia dinh voi nguong vo cu the · BANG CHAM DIEM THEO KHUNG: cau truc 75% vs CPI 3 kenh 27%",
   },
@@ -301,10 +301,10 @@ const D = {
   cpi: {
     t1_2026:     { value: 2.53, updated: "10/06/2026", source: "Cục Thống kê", note: "CPI T1/2026: +2,53% YoY · Ổn định · Trước xung đột 28/2 · Nhóm GT: +0,3% · Lạm phát cơ bản: +3,6%" },
     t2_2026:     { value: "T2: ~3,0% | T3: 4,65% | T4: 5,46% | T5: 5,6% (chinh thuc 3/6) · Nhom GT T5: +12,5% YoY (ky luc do dau) · Lam phat co ban T5: 4,67%", updated: "12/06/2026", source: "GSO/Cục TK 3/6", note: "CPI T2: ~3,0% · T3: 4,65% (chinh thuc đỉnh 5 năm) · T4: 5,46% · T5: 5,6% (+0,29% MoM) · 3 tháng liên tiếp vượt mục tiêu 4,5%" },
-    bq_2t:       { value: "4,39 (BQ 7T/2026) · Lam phat co ban BQ 7T: 4,19", updated: "25/08/2026", source: "[OFFICIAL] Cuc Thong ke 3/8", note: "Cap nhat tu so cu 4,31% (BQ 5T) · CPI T7 rieng thang: 4,45% YoY (giam tu 4,69% T6) · Xu huong giam ro nhung BQ 7T (4,39%) VAN cao hon nguong A1 (4,0%) — Signal A1 chua dat" },
-    t3_forecast: { value: "CPI T7/2026 CHINH THUC (cong bo 3/8): MoM -0,12% (giam, do xang dau + thuc pham) · YoY 4,45% (giam tu 4,69% T6) · So T12/2025: +3,08% · BINH QUAN 7 THANG: +4,39% YoY", updated: "03/08/2026", source: "Cục Thống kê (Bộ Tài chính) 3/8", note: "Cuc Thong ke (Bo Tai chinh) 3/8" },
+    bq_2t:       { value: "4,45", updated: "05/09/2026", source: "[OFFICIAL] Cuc Thong ke (Bo Tai chinh) cong bo 3/9", note: "BQ 8T/2026: CPI +4,45% · Lam phat co ban BQ 8T: +4,24% (thap hon CPI 0,21dpt) · Lam phat co ban T8 rieng: +0,11% MoM, +4,55% YoY · So sanh cung ky 2025: CPI 8T chi tang 3,25% → nam nay CAO HON 1,2dpt · Dong gop lon nhat vao CPI 8T: nha o-dien nuoc-chat dot-VLXD +6,71% (lam CPI chung tang 1,52dpt)" },
+    t3_forecast: { value: "⭐ CPI T8/2026 (cong bo 3/9): +0,47% MoM · +4,89% YoY — TANG TRO LAI sau 2 thang giam lien tiep (T6 4,69% → T7 4,45% → T8 4,89%) · +3,57% so T12/2025", updated: "05/09/2026", source: "[OFFICIAL] Cuc Thong ke (Bo Tai chinh) cong bo 3/9", note: "⚠️ NGUONG CANH BAO DA VO: dashboard tung dat 'neu CPI T8 >4,7% → rui ro vuot muc tieu ca nam, phai sua du bao Q4' — THUC TE 4,89%, VUOT nguong · NGUYEN NHAN CHINH XAC NHU DU BAO: nhom GIAO THONG +4,09% MoM, dong gop +0,41 diem % vao CPI chung — do ky xang 20/8 tang manh (E5 +598d, E10 +549d, diesel +1.310d) · 10/11 nhom hang tang gia, chi nhom an uong giam 0,03% · Giao duc +0,47% (hoc phi nam hoc moi) · XAC NHAN co che truyen dan Brent→MOPS→xang→CPI voi do tre ~1 thang" },
     muc_tieu:    { value: 4.5, updated: "25/08/2026", source: "[OFFICIAL] QH/CP", note: "Muc tieu 4,5%/nam (2026) · DIEN BIEN THUC TE: T3 4,65% > MT · T4 5,46% > MT · T5 5,6% > MT · T6 4,69% > MT · T7 4,45% < MT (LAN DAU trong nam duoi muc tieu!) · BQ 7T: 4,39% — cung duoi 4,5% · ⚠️ NHUNG: xang dao chieu tang manh ky 20/8 (+549d E10, +1.310d diesel) + Brent $92 → rui ro CPI T8 bat tang tro lai, chua the ket luan da kiem soat" },
-      core_cpi:     { value: "Lam phat co ban T7/2026: MoM +0,33% · YoY 4,63% (tung thang) · BINH QUAN 7 THANG: +4,19% YoY (thap hon CPI binh quan 4,39% do da loai tru xang dau/gas/thuc pham bien dong manh)", updated: "03/08/2026", source: "GSO/Cuc Thong ke (hop bao 3/7)", note: "Cuc Thong ke 3/8" },
+      core_cpi:     { value: "4,24", updated: "05/09/2026", source: "[OFFICIAL] Cuc Thong ke (Bo Tai chinh) cong bo 3/9", note: "Lam phat co ban BQ 8T/2026: 4,24% — THAP HON CPI chung (4,45%) 0,21dpt · Rieng T8: +0,11% MoM, +4,55% YoY · Y NGHIA: chenh lech CPI-core thu hep dan (truoc day core thap hon nhieu) → ap luc gia dang lan tu nhom bien dong (xang, thuc pham) sang nhom co ban" },
       base_effect:  { value: "HIEU UNG NEN — KIEM DINH den T7/2026: du bao (13/7) rang 'nen T7-T12/2025 cao dan → YoY H2/2026 se ha nhiet' DA DUNG mot phan: CPI YoY giam lien tuc 5,6%(T5) → 4,69%(T6) → 4,45%(T7) · NHUNG can than trong cho T8-T9: xang DAO CHIEU TANG manh ky 20/8 (E5 +598d, E10 +549d, diesel +1.310d) + Brent dinh $96,92 (21/8) roi ve $88,24 (25/8) → co the lam CPI T8 bat tang tro lai bat chap hieu ung nen thuan loi", updated: "31/08/2026", source: "[DERIVED] Doi chieu du bao 13/7 voi thuc te den T7", note: "Bai hoc: hieu ung nen la LUC THUAN nhung KHONG THANG duoc cu soc gia dau moi. Can theo doi CPI T8 (cong bo ~3/9) de xac nhan" },
       forecast_v2:  { value: "⚠️ DU BAO CPI T7 DA CO KET QUA — DOI CHIEU: du bao (18/7) 4,5-4,9% YoY · THUC TE 4,45% → SAI BIEN DUOI 0,05dpt, gan nhu trung nhung LECH VE PHIA THAP · Danh gia 3 kenh: cost-push DUNG HUONG (xang ky 9/7 va 16/7 co day CPI len) nhung MUC DO THAP HON du kien · CPI T8 (cong bo ~3/9): CHUA CO SO — theo doi tac dong ky xang 20/8 (E5 +598d, E10 +549d, DIESEL +1.310d)", updated: "03/09/2026", source: "[OFFICIAL] Cuc Thong ke (T7) + du bao model 18/7", note: "BAI HOC: model 3 kenh cho ket qua SAT (lech 0,05dpt) khi gia dinh dau vao dung. Khac han cac du bao dua tren gia dinh 'post-deal' (Brent $65-72 vs thuc te $92, lech $25) · CHO CPI T8: ky 20/8 tang manh HON nhieu so ky 9/7 va 16/7, dac biet diesel +1.310d — theo co che truyen dan (do tre 1-2 thang) co the day CPI T8-T9 tang tro lai · NGUONG THEO DOI: neu CPI T8 >4,7% → rui ro CPI ca nam vuot muc tieu 4,5%, phai sua du bao Q4" },
   },
@@ -763,6 +763,12 @@ const ASSUMPTIONS = [
     kiemTra: 'field bop.du_tru / m2.nfa_dtnh',
     trangThai: 'DUNG', mocKiemChung: 'theo quy',
     hienTai: '87,6 ty USD, duoi 2 thang nhap khau (Fitch 6/8)' },
+  { id: 'cpi_ha', gt: 'CPI ha nhiet ve duoi muc tieu 4,5%',
+    duBaoPhuThuoc: 'Du bao TT1 co the giam Q1/2027 · gia dinh NHNN co du dia noi long',
+    nguongVo: 'CPI thang > 4,7% YoY',
+    kiemTra: 'field cpi.t3_forecast — cong bo ngay 3 hang thang',
+    trangThai: 'VO', mocKiemChung: 'hang thang',
+    hienTai: '⚠️ DA VO 3/9: CPI T8 = 4,89% YoY (vuot nguong 4,7%), tang tro lai sau 2 thang giam. Nguyen nhan: giao thong +4,09% do xang ky 20/8' },
   { id: 'room_con', gt: 'Room tin dung CHUA bi xoa bo',
     duBaoPhuThuoc: 'Gia dinh NH chay room truoc 31/12 → Q4 la mua cao diem',
     nguongVo: 'NHNN cong bo bo room chinh thuc',
@@ -1313,10 +1319,10 @@ document.getElementById('panel-tt1').innerHTML=`
 document.getElementById('panel-cpi').innerHTML=`
   <div class="g3" style="gap:6px;margin-bottom:10px">
     ${mbox('CPI T1/2026',fmt(v(D.cpi.t1_2026),2)+'%','YoY','y')}
-    ${mbox('CPI T2-T5/2026',v(D.cpi.t2_2026),'YoY thực tế','y')}
-    ${mbox('BQ 5T/2026',v(D.cpi.bq_2t)+'%','YoY CHÍNH THỨC','y')}
-    ${mbox('CPI T3/2026',v(D.cpi.t3_forecast),'YoY CHÍNH THỨC đỉnh 5 năm','r')}
-    ${mbox('Mục tiêu',fmt(v(D.cpi.muc_tieu))+'%/năm',n(D.cpi.muc_tieu),'r')}
+    ${mbox('CPI T2–T5/2026 (lịch sử)',v(D.cpi.t2_2026),'YoY thực tế','y')}
+    ${mbox(`BQ ${u(D.cpi.bq_2t)}`,v(D.cpi.bq_2t)+'%','Bình quân lũy kế · CHÍNH THỨC','y')}
+    ${mbox(`CPI mới nhất (${u(D.cpi.t3_forecast)})`,v(D.cpi.t3_forecast),'Số công bố gần nhất','r')}
+    ${mbox('Mục tiêu 2026',fmt(v(D.cpi.muc_tieu),1)+'%/năm',n(D.cpi.muc_tieu),'r')}
   </div>
   ${drow('Core CPI (kênh cầu kéo)', short(v(D.cpi.core_cpi)), 'r', n(D.cpi.core_cpi).substring(0,80), u(D.cpi.core_cpi))}
   ${drow('Base effect (kênh 3)', short(v(D.cpi.base_effect)), 'y', '', u(D.cpi.base_effect))}
