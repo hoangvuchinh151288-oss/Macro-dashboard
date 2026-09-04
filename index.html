@@ -184,7 +184,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "5.21",
+    version: "5.22",
     date: "03/09/2026",
     note: "3/9 v5.14: BO PANEL HORMUZ FLOWS TRACKER — panel nay da 2 LAN gay loi mau thuan noi bo (ghi '>=20 tau/ngay' trong khi panel Brent ghi '6 tau'), du lieu Kpler cap nhat rat cham (so moi nhat 19/8), va thong tin cot loi (Hormuz van dong, 40% muc 2025) DA CO trong kb_now va note cua Brent → panel rieng chi tao them cho de lech nhau · CHUYEN panel du bao gia dau sang Q4/2026-Q1/2027 (truoc la Q2-Q3/2026 da qua), sua mo ta KB cho khop thuc te (KB-B khong con la 'Hormuz mo dan 4-8 tuan' ma la 'xung dot chu ky, Hormuz van dong') · BRENT $95,25-95,82 (3/9) sau cu nhay +8%/3 phien do My tan cong dao trong Hormuz 31/8, Iran tra dua vao UAE/Jordan · Da them PANEL GIA DINH NEN (XI-B) theo doi 6 gia dinh voi nguong vo cu the · BANG CHAM DIEM THEO KHUNG: cau truc 75% vs CPI 3 kenh 27%",
   },
@@ -320,7 +320,8 @@ const D = {
     fdi_giai_ngan:{ value: "15,20 ty USD (7T/2026, +11,8% YoY) — CAO NHAT 7 THANG TRONG 5 NAM QUA · 82,6% (12,55 ty USD) giai ngan truc tiep vao nha may che bien che tao · Quy doi VND (ty gia ~26.000): ~395.000 TY — GAP DOI so uoc tinh cu dashboard dung (~193.000 ty, so 5T)", updated: "25/08/2026", source: "[OFFICIAL] Cuc Thong ke (Bo Tai chinh) 3/8, so den 31/7", note: "QUAN TRONG CHO MODEL OUTSIDE MONEY: day la nguon outside money thu 2 (sau DTC). Nhung LUU Y theo khung 9B: FDI cung KHONG phai outside money thuan — DN FDI vay von luu dong trong nuoc, va mot phan loi nhuan chuyen ve nuoc ngoai (giam NFA). Can he so chiet khau tuong tu DTC" },
     fdi_dang_ky:  { value: "38,06 ty USD (7T/2026, +58% YoY) — CAO NHAT 5 NAM · Cap moi: 2.429 du an, 21,05 ty USD (gap 2,1 LAN cung ky, du so du an chi +7,8% → quy mo BQ moi du an tang manh) · Gop von/mua co phan: 1.815 luot, 6,58 ty USD (+61,6%) · Doi tac dan dau: Singapore 7,5 ty (>1/3 von cap moi), Han Quoc 5,61 ty, Hong Kong 2,91 ty, Trung Quoc 1,73 ty", updated: "25/08/2026", source: "[OFFICIAL] Cuc Thong ke (Bo Tai chinh) 3/8, so den 31/7", note: "Nganh: che bien che tao 11,58 ty (55% von cap moi), san xuat/phan phoi dien-khi-nuoc 3,13 ty (~15%) · Boi canh chinh sach: Nghi quyet 10-NQ/TW (8/6/2026) dat muc tieu 2025-2030 thu hut 200-300 ty USD dang ky, giai ngan 150-200 ty USD · LUU Y phan biet DANG KY (cam ket) vs GIAI NGAN (tien thuc vao) — chi giai ngan moi la outside money" },
     kieu_hoi_2025:{ value: "~20", updated: "10/04/2026", source: "NHNN ước tính", note: "Kiều hối 2025: ~20 tỷ USD · 2026 ước ~22 tỷ" },
-    du_tru:       { value: "87,6", updated: "25/08/2026", source: "[OFFICIAL] NHNN (du thao sua NĐ50/2014) 18/6 + Fitch 6/8", note: "SUA MAU THUAN 25/8: so cu '~95-100 ty USD' (10/4, uoc Q1) MAU THUAN truc tiep voi field nfa_dtnh (87,6 ty, so NHNN cong bo 18/6) — CUNG MOT SU THAT, 2 SO KHAC NHAU · So dung: 87,6 TY USD · Fitch (6/8): DUOI 2 THANG NHAP KHAU, duoi nguong IMF (3 thang) · M2/FX >940% vs nguong an toan <400% · Xem chi tiet o nfa_dtnh (panel-m2)" },
+    bop_q1: { value: "⭐ CAN CAN THANH TOAN Q1/2026 (so goc NHNN, trieu USD): A. VANG LAI +2.716 · B. VON 0 · C. TAI CHINH +893 · D. LOI VA SAI SOT -4.687 · E. TONG THE -1.078 (THAM HUT) · F. Du tru va hang muc lien quan +1.078", updated: "04/09/2026", source: "[PRIMARY] NHNN — sbv.gov.vn/vi/can-can-thanh-toan-quoc-te (FETCH TRUC TIEP)", note: "⚠️ 3 PHAT HIEN QUAN TRONG: (1) LOI VA SAI SOT -4.687 trieu USD — LON GAP 4,3 LAN can can tong the (-1.078). Day chinh la PROXY thu 4 trong khung Flow Framework (models.md muc 6): E&O am lon = dong von ra KHONG ghi nhan duoc, khop voi co che 'xuat khong thu tien ve' va 'trade credit' (2) CHI TIET VANG LAI: hang hoa rong +2.434 · dich vu rong -1.674 · thu nhap dau tu rong -1.231 (chi 2.525 > thu 1.294, phan anh chuyen loi nhuan FDI ve nuoc) · chuyen giao vang lai rong +3.187 (kieu hoi) (3) DAU TU: FDI rong +4.180 (vao VN 4.340) NHUNG dau tu gian tiep rong -1.399 (RUT RONG 1.413 khoi VN) va dau tu khac rong -1.888 — trong do TIEN VA TIEN GUI -2.898 voi DAN CU -2.340 la khoan lon nhat → dan cu dua tien ra nuoc ngoai · VAY NGAN HAN rut von 6.688, tra goc -5.774 (rong +914) — quy mo vay ngan han LON, khop luan diem trade credit" },
+    du_tru:       { value: "87,6", updated: "04/09/2026", source: "[PRIMARY] NHNN — sbv.gov.vn/vi/can-can-thanh-toan-quoc-te (FETCH TRUC TIEP)", note: "⭐ BOP Q1/2026 SO GOC NHNN (trieu USD): Tai san du tru +1.078 (tang du tru trong quy) · Can can TONG THE -1.078 (THAM HUT) · Tin dung/vay IMF: 0 · LUU Y: BOP cho biet THAY DOI du tru trong quy, KHONG cho muc TUYET DOI — muc 87,6 ty USD la so NHNN cong bo rieng 18/6 qua du thao NĐ50 · Fitch (6/8): duoi 2 thang nhap khau, M2/FX >940%" },
   },
 
   freight: {
@@ -1330,6 +1331,8 @@ document.getElementById('panel-bop').innerHTML=`
     ${mbox('Cán cân TM 7T','NHẬP SIÊU '+fmt(Math.abs(canCan),2)+' tỷ',u(D.bop.can_can_2t),canCls)}
     ${mbox('Tổng XNK 7T',fmt(v(D.bop.tong_xnk_2t),1)+' tỷ USD',n(D.bop.tong_xnk_2t),'y')}
   </div>
+  <div class="co co-b" style="margin-bottom:8px;font-size:11px"><strong>🏛️ BOP Q1/2026 (nguồn gốc NHNN):</strong> ${v(D.bop.bop_q1)}</div>
+  <div style="color:var(--dim2);font-size:10px;margin-bottom:8px;line-height:1.6">${n(D.bop.bop_q1)}</div>
   <div class="g4" style="gap:6px">
     ${mbox('FDI giải ngân 7T',fmt(v(D.bop.fdi_giai_ngan),2)+' tỷ',n(D.bop.fdi_giai_ngan),'g')}
     ${mbox('FDI đăng ký Q1',fmt(v(D.bop.fdi_dang_ky),2)+' tỷ',n(D.bop.fdi_dang_ky),'y')}
