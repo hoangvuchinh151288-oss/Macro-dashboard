@@ -184,9 +184,9 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 const D = {
   meta: {
-    version: "5.13",
-    date: "19/08/2026",
-    note: "19/8 v4.61: TC NHNN LẬP KỶ LỤC MỚI 25.598 (+18đ) nhưng VCB GIẢM MẠNH -40đ về 25.990/26.370 — phân kỳ TC vs NHTM tiếp tục rõ nét, EMP -370đ (vẫn trong vùng ổn định -280/-470đ suốt tuần). BRENT VỌT LÊN $91,28 — tăng 4 phiên liên tiếp, CAO NHẤT 3 TUẦN, vượt lại mốc $90: nguy cơ gián đoạn Hormuz + 2 hãng vận tải biển lớn Trung Quốc đã NGỪNG đưa tàu chở dầu qua Hormuz và Bab el-Mandeb. WTI $85,31. Kỳ vọng Fed đảo chiều rõ: Reuters khảo sát cho thấy phần lớn chuyên gia dự báo Fed GIỮ NGUYÊN lãi suất đến cuối năm, thị trường định giá ~65% khả năng giữ nguyên T9 (giảm mạnh so xác suất tăng 44,4% hồi 9/8) — do lạm phát Mỹ T7 yếu, việc làm giảm bất ngờ, doanh số bán lẻ kém. Xăng dầu kỳ 20/8 (mai): dự báo có thể giảm tiếp nhưng chưa chắc do Brent vừa tăng mạnh.",
+    version: "5.15",
+    date: "03/09/2026",
+    note: "3/9 v5.14: BO PANEL HORMUZ FLOWS TRACKER — panel nay da 2 LAN gay loi mau thuan noi bo (ghi '>=20 tau/ngay' trong khi panel Brent ghi '6 tau'), du lieu Kpler cap nhat rat cham (so moi nhat 19/8), va thong tin cot loi (Hormuz van dong, 40% muc 2025) DA CO trong kb_now va note cua Brent → panel rieng chi tao them cho de lech nhau · CHUYEN panel du bao gia dau sang Q4/2026-Q1/2027 (truoc la Q2-Q3/2026 da qua), sua mo ta KB cho khop thuc te (KB-B khong con la 'Hormuz mo dan 4-8 tuan' ma la 'xung dot chu ky, Hormuz van dong') · BRENT $95,25-95,82 (3/9) sau cu nhay +8%/3 phien do My tan cong dao trong Hormuz 31/8, Iran tra dua vao UAE/Jordan · Da them PANEL GIA DINH NEN (XI-B) theo doi 6 gia dinh voi nguong vo cu the · BANG CHAM DIEM THEO KHUNG: cau truc 75% vs CPI 3 kenh 27%",
   },
 
   fx: {
@@ -218,10 +218,10 @@ const D = {
     iea_release:    { value: "SUA 25/8 — ban cu (T6) ghi 'post-deal, supply surplus khi Hormuz reopen, exports ve pre-war cuoi T7' DA SAI HOAN TOAN: Hormuz VAN DONG, Kpler (19/8) ghi nhan luu luong chi 40% muc 2025 · EIA (12/8) dao chieu nhan dinh: KHONG ky vong san luong Trung Dong ve muc tien xung dot den DAU 2027 · IEA offset hien ~$5-8/thung (giam tu $8-12), da giai phong ~300M+ thung, con ~180-200M buffer", updated: "25/08/2026", source: "[MARKET] EIA 12/8 + Kpler 19/8", note: "Day la field thu 7 trong cum 'post-deal' — cum nay gio da soat het" },
     hormuz_tau:     { value: "SUA LOI 25/8 — so cu (29/6) ghi '>=20 tau/ngay post-deal' DA HOAN TOAN LAC HAU va MAU THUAN voi chinh panel Brent · THUC TE theo Kpler (19/8): MoU 60 ngay Iran-My DA HET HAN ma Hormuz VAN DONG · Luu luong hien chi ~40% MUC 2025 · Trong 60 ngay MoU: 374 trieu thung ra khoi Vinh = 6,1 trieu thung/ngay (van thap hon nhieu pre-war ~13 trieu thung/ngay) · Transits tuan gan nhat: 73 (giam tu 91) — muc CRITICAL · Nghich ly Kpler chi ro: Iran ket thuc cua so 60 ngay voi luong xuat khau THAP HON ca trong thoi chien", updated: "25/08/2026", source: "[PRIMARY] Kpler 19-20/8 + Al Jazeera + global-energy-flow", note: "Ngay het han MoU: Tehran tuyen bo MoU vo hieu do My vi pham, ap GIAY PHEP QUA CANH BAT BUOC + PHI MOI TRUONG HANG HAI · Washington bac bo, giu nguyen ho tong + phong toa · EIA (12/8): KHONG ky vong san luong Trung Dong ve muc tien xung dot den DAU 2027, du bao Brent TB $87/thung nam 2026 · ⚠️ BAI HOC: field nay tung mau thuan truc tiep voi panel Brent (1 cho ghi >=20 tau/ngay, cho kia ghi 6 tau/ngay) — khi cap nhat so lieu Hormuz PHAI soat ca 2 noi" },
     goldman_q1:     { value: "⚠️ DU BAO CU (23/6) DA SAI: Goldman Q3/2026 revised $72-78 · THUC TE Q3 (den 25/8): Brent dao dong $79-93, TB ~$85-88 — CAO HON du bao ~$10-15/thung · Nguyen nhan sai: gia dinh post-deal normalization, thuc te MoU sup do", updated: "25/08/2026", source: "[HISTORICAL] Goldman 23/6 — giu de doi chieu", note: "Giu nguyen du bao goc de kiem dinh. Bai hoc: cac du bao T6 deu neo vao kich ban deal thanh cong, khong co kich ban du phong" },
-    price_path_kba: { value: "Q3: $76-84 · Q4: $68-78", updated: "31/07/2026", source: "Đánh giá lại 31/7 từ diễn biến Bloomberg/CNN/CBS/TradingEconomics", note: "KB-A (12%) Đàm phán thành công, ceasefire bền vững — Hormuz traffic về mức bình thường, thỏa thuận toàn diện thay MOU đã sụp đổ. Điều kiện: đột phá thực chất từ Oman-Iran + Qatar/Pakistan mediation, khác hẳn 3 lần thất bại trước (T4, T6, T7)" },
-    price_path_kbb: { value: "Q3: $84-93 · Q4: $80-90", updated: "31/07/2026", source: "Đánh giá lại 31/7 — khớp spot hiện tại $87-88", note: "KB-B (45%, BASE CASE) Xung đột cường độ thấp kéo dài, chu kỳ tạm dừng-tái nổ súng lặp lại quanh mức hiện tại. Đây là dải giá bao trùm quanh spot 31/7 ($87,84 TradingEconomics), phản ánh biến động cao nhưng không có đột phá theo hướng nào" },
-    price_path_kbc: { value: "Q3: $87-96 · Q4: $84-94", updated: "31/07/2026", source: "Đánh giá lại 31/7", note: "KB-C (25%) Đình trệ, giữ nguyên cường độ — không leo thang thêm (CENTCOM chưa kích hoạt 20% mục tiêu còn lại) nhưng cũng không hạ nhiệt. Giá neo cao hơn KB-B do rủi ro phần bù (risk premium) không giảm" },
-    price_path_kbd: { value: "Q3: $96-115 · Q4: $92-110", updated: "31/07/2026", source: "Đánh giá lại 31/7", note: "KB-D (20%, tăng mạnh từ 3% cũ) Leo thang toàn diện — Mỹ thực hiện nốt chiến dịch Epic Fury còn lại, Houthi mở mặt trận Biển Đỏ đồng thời, nguy cơ lan Israel-Lebanon. Xác suất tăng vì đã một phần hiện thực hóa: tên lửa IRGC vào căn cứ Mỹ + Mỹ tấn công trả đũa Iraq/Iran trong tuần 28-31/7" },
+    price_path_kba: { value: "Q4/26: $72-82 · Q1/27: $68-78", updated: "03/09/2026", source: "Deal that su — Hormuz mo lai binh thuong", note: "KB-A (12%) Dam phan thanh cong, Hormuz mo lai >70% muc 2025, san luong Trung Dong hoi phuc · ⚠️ XAC SUAT THAP: MoU da sup do 4 LAN (T4, T6, T7, T8-T9), My chuyen sang vu khi trung phat thay dam phan · Neu xay ra: gia ve gan muc pre-war $73, war premium ve ~0" },
+    price_path_kbb: { value: "Q4/26: $88-100 · Q1/27: $85-98", updated: "03/09/2026", source: "Xung dot chu ky — Hormuz VAN DONG", note: "KB-B (45%, BASE CASE) Xung dot cuong do thap keo dai, chu ky 'cang thang → tam lang → tai no sung' lap lai · ⚠️ DA SUA MO TA 3/9: ban cu ghi 'Hormuz mo dan (4-8 tuan)' — SAI HOAN TOAN, Hormuz VAN DONG sau 6 thang, luu luong chi 40% muc 2025 · DAI GIA NANG LEN tu (Q3 $84-93) len (Q4 $88-100) vi: Brent hien $95,8 da VUOT dai cu, EIA du bao TB $87/nam 2026 va KHONG ky vong san luong Trung Dong ve muc tien xung dot den DAU 2027 · Moc lich su: dinh $105 (23/7), $118 (cuoi Q1/26)" },
+    price_path_kbc: { value: "Q4/26: $95-110 · Q1/27: $92-108", updated: "03/09/2026", source: "Dinh tre keo dai — trung phat phan tac dung", note: "KB-C (25%) Trung phat 'khac nghiet nhat lich su' (Bessent 24/8) gay hieu ung nguoc: Iran cang cung ran, dong hoan toan Hormuz thay vi han che · Hoac Bab el-Mandeb bi phong toa them (EIA da canh bao moi de doa voi xuat khau Saudi) · Khi do nguon cung Trung Dong giam sau hon nua" },
+    price_path_kbd: { value: "Q4/26: $110-135 · Q1/27: $105-130", updated: "03/09/2026", source: "Leo thang toan dien — chien dich quan su lon", note: "KB-D (20%) My kich hoat 20% muc tieu Epic Fury con lai, hoac tan cong ha tang nang luong quy mo lon · Iran tra dua vao co so dau khi Vung Vinh · ⚠️ CAN THEO DOI: dien bien 31/8-3/9 (My tan cong dao Hormuz, Iran ban drone vao UAE/Jordan) la TIN HIEU CANH BAO nhung Trump tuyen bo 'ngan han' → chua du de nang KB-D" },
     brent_baseline: { value: "$87,84 (31/7, TradingEconomics, +22,74% trong thang) · Hanh trinh day du: $73 pre-war (Feb 2026) → $126 peak (T4/2026, chien tranh no ra) → $75 (29/6, sau MOU Burgenstock ky 19/6) → SUP DO 3 LAN: ceasefire T4 vo trong vai gio, MOU T6 vo sau ~3 tuan, tam dung 27/7 roi tai no sung 28-31/7 → $87,84 hien tai, DA XOA SACH toan bo phan giam gia tu MOU thang 6", updated: "31/07/2026", source: "TradingEconomics/CNN/Bloomberg 31/7", note: "SUA LOI PHAN TICH 29/6: du bao cu 'Brent ve gan fair value $73 + premium $2, xu huong binh thuong hoa' hoan toan SAI — thi truong danh gia thap kha nang MOU sup do lan 3. Bai hoc: khi 1 thoa thuan da that bai 2 lan lien tiep (T4, T6), xac suat lan thu 3 thanh cong PHAI duoc chiet khau manh, khong duoc coi mac dinh la 'binh thuong hoa dang dien ra'" },
     eia_q3_base:    { value: "⚠️ DU BAO CU (23/6) DA SAI: EIA Q3 post-deal revised $75-80 · THUC TE Q3: $79-93 · EIA DA TU CAP NHAT (12/8): du bao Brent TB $87/thung nam 2026, san luong Trung Dong khong ve muc tien xung dot den dau 2027", updated: "25/08/2026", source: "[HISTORICAL] EIA 23/6 vs EIA 12/8 (ban moi)", note: "Ngay chinh EIA cung da nang du bao manh: tu $75-80 (T6, gia dinh post-deal) len $87 TB ca nam (T8, sau khi MoU sup do)" },
     goldman_q2:     { value: "⚠️ DU BAO CU (23/6) DA SAI HUONG: Goldman Q4/2026 revised $65-70 (tu $90 truoc do) · THUC TE den 25/8: Brent $88,24 (FRED/EIA), dinh $96,92 ngay 21/8 · EIA (12/8) du bao TB $87/thung ca nam 2026 — nguoc han xu huong giam ma Goldman du kien", updated: "25/08/2026", source: "[HISTORICAL] Goldman 23/6 — giu de doi chieu", note: "EIA (12/8) con nhan dinh: san luong Trung Dong KHONG ve muc tien xung dot den DAU 2027 → kich ban $65-70 cang xa thuc te" },
@@ -585,8 +585,7 @@ const D = {
 <div class="sec"><span class="sec-n">II</span> Oil Market Monitor — Brent · Hormuz · PPP War Premium <span class="theory">PPP · BOP</span></div>
 <div class="g3">
   <div class="card"><div class="ctitle">BRENT/WTI SPOT & FUTURES</div><div id="panel-oil"></div></div>
-  <div class="card"><div class="ctitle">DỰ BÁO GIÁ DẦU Q2–Q3/2026 THEO KỊCH BẢN <span class="theory">PPP · KB</span></div><div id="panel-oil-path"></div></div>
-  <div class="card"><div class="ctitle">HORMUZ FLOWS TRACKER <span class="new-t">MarineTraffic</span></div><div id="panel-hormuz-flows"></div></div>
+  <div class="card"><div class="ctitle">DỰ BÁO GIÁ DẦU Q4/2026 – Q1/2027 THEO KỊCH BẢN <span class="theory">PPP · KB</span></div><div id="panel-oil-path"></div></div>
   <div class="card"><div class="ctitle">PPP WAR PREMIUM CALCULATOR <span class="theory">PPP</span></div><div id="panel-ppp-war"></div></div>
 </div>
 
@@ -911,14 +910,22 @@ document.getElementById('panel-oil').innerHTML=`
   ${drow('Goldman Q4/2026',v(D.oil.goldman_q2),'g',n(D.oil.goldman_q2))}`;
 
 // FIX JS #3: renderOilPath — dùng var màu đúng
+// KB_DESC — mo ta kich ban, SUA O DAY la doi het nhan (tranh hardcode rai rac)
+const KB_DESC = {
+  A: 'Deal thật sự — Hormuz mở lại bình thường',
+  B: 'Xung đột chu kỳ — Hormuz VẪN ĐÓNG',
+  C: 'Đình trệ kéo dài — trừng phạt phản tác dụng',
+  D: 'Leo thang toàn diện — chiến dịch quân sự lớn'
+};
+
 function renderOilPath(){
   const el=document.getElementById('panel-oil-path');
   if(!el)return;
   const kbs=[
-    {label:`KB-A (${v(D.hormuz.kba)}) · Deal hoàn tất 15/6`,cls:'g',value:v(D.oil.price_path_kba),note:n(D.oil.price_path_kba)},
-    {label:`KB-B (${v(D.hormuz.kbb)}) · Hormuz mở dần (4-8 tuần)`,cls:'y',value:v(D.oil.price_path_kbb),note:n(D.oil.price_path_kbb)},
-    {label:`KB-C (${v(D.hormuz.kbc)}) · Ceasefire vỡ`,cls:'r',value:v(D.oil.price_path_kbc),note:n(D.oil.price_path_kbc)},
-    {label:`KB-D (${v(D.hormuz.kbd)}) · Leo thang mới`,cls:'r',value:v(D.oil.price_path_kbd),note:n(D.oil.price_path_kbd)},
+    {label:`KB-A (${v(D.hormuz.kba)}) · ${KB_DESC.A}`,cls:'g',value:v(D.oil.price_path_kba),note:n(D.oil.price_path_kba)},
+    {label:`KB-B (${v(D.hormuz.kbb)}) · ${KB_DESC.B}`,cls:'y',value:v(D.oil.price_path_kbb),note:n(D.oil.price_path_kbb)},
+    {label:`KB-C (${v(D.hormuz.kbc)}) · ${KB_DESC.C}`,cls:'r',value:v(D.oil.price_path_kbc),note:n(D.oil.price_path_kbc)},
+    {label:`KB-D (${v(D.hormuz.kbd)}) · ${KB_DESC.D}`,cls:'r',value:v(D.oil.price_path_kbd),note:n(D.oil.price_path_kbd)},
   ];
   const refs=[
     {label:'Pre-war base (Feb 2026)',cls:'d',value:v(D.oil.brent_baseline),note:n(D.oil.brent_baseline)},
@@ -926,7 +933,7 @@ function renderOilPath(){
     {label:'Goldman Q3-Q4 (revised)',cls:'b',value:v(D.oil.goldman_q2),note:n(D.oil.goldman_q2)},
   ];
   let html=`<div style="margin-bottom:8px;font-size:11px;color:var(--dim)">Nguồn: Goldman · IEA · EIA STEO · Macquarie · ${D.meta.date}</div>`;
-  html+=`<table class="tbl" style="margin-bottom:8px"><thead><tr><th>Kịch bản</th><th>Brent Q3 / Q4 2026</th></tr></thead><tbody>`;
+  html+=`<table class="tbl" style="margin-bottom:8px"><thead><tr><th>Kịch bản</th><th>Brent Q4/2026 – Q1/2027</th></tr></thead><tbody>`;
   kbs.forEach(k=>{html+=`<tr><td class="${k.cls}" style="font-size:11px">${k.label}</td><td class="${k.cls}" style="font-weight:600">${k.value}</td></tr>`;});
   html+=`</tbody></table>`;
   kbs.forEach(k=>{html+=`<div style="margin-bottom:5px"><span class="${k.cls}" style="font-size:11px;font-weight:600">${k.label}:</span> <span style="font-size:11px;color:var(--dim2)">${k.note}</span></div>`;});
@@ -936,20 +943,7 @@ function renderOilPath(){
 }
 renderOilPath();
 
-document.getElementById('panel-hormuz-flows').innerHTML=`
-  ${drow('Tàu qua Hormuz/ngày',v(D.oil.hormuz_tau)+' tàu','r',u(D.oil.hormuz_tau)+' · '+n(D.oil.hormuz_tau))}
-  ${drow('Kịch bản hiện tại',v(D.hormuz.kb_now),'y',n(D.hormuz.kb_now))}
-  ${drow('Chuỗi thời gian xung đột',v(D.hormuz.tau_ngay),'d',n(D.hormuz.tau_ngay))}
-    <table class="tbl" style="margin-top:8px">
-    <thead><tr><th>Tháng</th><th>Tóm tắt</th><th>Flows</th><th>KB</th></tr></thead>
-    <tbody>
-      <tr><td class="d" style="font-weight:600;color:var(--red)">T3/2026</td><td class="d">Hormuz đóng (28/2) · Brent đỉnh $119,50 (9/3) · IEA 400M bbl release · Goldman: Hormuz mở T4 · Iran cho tàu Ấn Độ cuối T3</td><td class="r">~2–6<br><small>tàu/ngày</small></td><td class="r">KB-D</td></tr>
-      <tr><td class="d" style="font-weight:600;color:var(--amber)">T4/2026</td><td class="d">Ceasefire 8/4 → mở có ĐK → 20 tàu/ngày (18/4 đỉnh) → đóng lại 19/4 · Brent đỉnh $126,41 (30/4) · Iran bắt MSC Francesca · Trump HỦY talks 26/4</td><td class="y">~1–20<br><small>(dao động)</small></td><td class="y">KB-C/D</td></tr>
-      <tr><td class="d" style="font-weight:600;color:var(--amber)">T5/2026</td><td class="d">Iran tấn công UAE 4/5 (KB-D!) · Brent −19% T5 (tệ nhất từ Covid) · TQ+trung lập: 30 tàu/ngày · Deal optimism → MOU mostly agreed 29/5 · Brent về $92</td><td class="y">~13–30<br><small>TQ+trung lập</small></td><td class="y">KB-B/C</td></tr>
-      <tr><td class="d" style="font-weight:600;color:var(--red)">T6/2026</td><td class="d">Iran cắt kênh (1/6) → Brent +7% · Iran đồng ý no-nuclear (3/6) · Trump chỉnh MOU uranium+Hormuz (5-9/6) · US TÁI KHÔNG KÍCH (10-11/6) → Brent $93-95 · EMP VN −50đ INVERTED</td><td class="r">~13-30<br><small>vẫn hạn chế</small></td><td class="r">KB-B/D<br><small>42%/22%</small></td></tr>
-    </tbody>
-  </table>
-  <div class="co co-r" style="margin-top:8px"><strong>✅ 19/6 DEAL KÝ CHÍNH THỨC:</strong> Switzerland, Bürgenstock · Hormuz reopening · Brent &lt;$80 · UN+G7 ủng hộ · Theo dõi tối thiểu — chỉ cập nhật khi có biến động lớn (Israel-Lebanon, vi phạm 60 ngày đàm phán)</div>`;
+
 
 // FIX JS #4: PPP Premium — dùng midpoint
 (function(){
