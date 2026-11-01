@@ -1,0 +1,52 @@
+name: Cap nhat field CORE
+
+on:
+  schedule:
+    # 01:17 UTC = 08:17 ICT hang ngay. Dung phut le de tranh gio cao diem cua runner.
+    - cron: '17 1 * * *'
+  workflow_dispatch:        # cho phep bam chay tay tu tab Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-core
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Lay du lieu CORE
+        id: fetch
+        run: python3 tools/fetch_core.py | tee /tmp/fetch.log
+
+      - name: Kiem tra truoc khi commit
+        run: python3 tools/check_all.py
+
+      - name: Commit neu co thay doi
+        run: |
+          git config user.name  "macro-dashboard-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data.js tools/last_run.json; then
+            echo "Khong co thay doi, bo qua commit."
+            exit 0
+          fi
+          SUM=$(python3 -c "import json;print(json.load(open('tools/last_run.json'))['summary'])")
+          git add data.js tools/last_run.json
+          git commit -m "auto: cap nhat field CORE ($SUM)"
+          git push
+
+      - name: Bao cao
+        if: always()
+        run: cat tools/last_run.json 2>/dev/null || echo "chua co bao cao"
