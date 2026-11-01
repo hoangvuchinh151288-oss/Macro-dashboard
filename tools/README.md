@@ -1,15 +1,28 @@
 # tools/check_all.py
 
-Bộ kiểm tra bắt buộc chạy trước khi push `index.html`.
+Bộ kiểm tra bắt buộc chạy trước khi push.
 
 ```bash
-python3 tools/check_all.py                 # từ gốc repo
-python3 tools/check_all.py /đường/dẫn/index.html
+python3 tools/check_all.py                 # chạy được từ bất kỳ cwd nào
+python3 tools/check_all.py /đường/dẫn/repo
 ```
 
 Exit `0` = đủ điều kiện push. Exit `1` = có FAIL, **không được push**. Exit `2` = không tìm thấy file.
 
-## Sáu lớp kiểm tra
+## Cấu trúc repo
+
+Từ **v5.82 (01/11/2026)** dữ liệu tách khỏi render:
+
+| File | Nội dung |
+|---|---|
+| `data.js` | `const D = {...}` — toàn bộ dữ liệu, 186 KB |
+| `index.html` | chỉ còn render, 140 KB (trước khi tách: 326 KB một file) |
+
+`index.html` nạp `<script src="data.js">` trước script render. `const D` khai báo ở top-level của classic script nên script sau nhìn thấy được.
+
+Lý do tách: cập nhật trước đây là phẫu thuật regex trên file 326 KB, `git diff` không đọc được, và dữ liệu lẫn trong code render thì không tự động hoá được.
+
+## Bảy lớp kiểm tra
 
 | # | Kiểm tra | Bắt được gì |
 |---|---|---|
@@ -18,7 +31,8 @@ Exit `0` = đủ điều kiện push. Exit `1` = có FAIL, **không được pus
 | 3 | **NaN / undefined** | Giá trị rò rỉ ra HTML hiển thị |
 | 4 | **Kiểu dữ liệu** | Chuỗi văn xuôi nhồi vào field lẽ ra là số (danh sách `NUMFIELDS`) |
 | 5 | **Tier age** | Field quá ngưỡng tuổi của tier theo `TIER_MAP`. Quá hạn CORE = FAIL, các tier khác = WARN |
-| 6 | **Mâu thuẫn chéo** | Một chỉ tiêu được nhắc ở nhiều field với giá trị khác nhau — tức một nơi đã cập nhật, nơi kia chưa |
+| 5b | **Nguồn của CORE** | Field CORE dùng `[PRESS]`. Nguồn tổng hợp đã từng ghi sai lãi suất Big4 6,60–6,80% trong khi VCB thực tế 3,00/5,40 |
+| 6 | **Mâu thuẫn chéo** | Một chỉ tiêu được nhắc ở nhiều field với giá trị khác nhau — tức một nơi đã cập nhật, nơi kia chưa. Hiện đối chiếu **11 chỉ tiêu** |
 
 ## Ghi chú thiết kế
 
