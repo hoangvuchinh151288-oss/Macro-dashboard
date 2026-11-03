@@ -101,24 +101,69 @@ def stooq(sym, host='stooq.com'):
     return float(cols[6])
 
 
+def fred(series):
+    """FRED (Fed St. Louis) CSV cong khai, khong can API key, than thien voi CI.
+    Tra ve (gia_tri, ngay_du_lieu). LUU Y: FRED tre vai ngay so thi truong —
+    ham tra ve ca ngay de ghi vao note, KHONG duoc trinh bay nhu gia hien tai."""
+    csv = get('https://fred.stlouisfed.org/graph/fredgraph.csv?id=%s' % series)
+    rows = [r.strip() for r in csv.strip().splitlines() if r.strip()]
+    for r in reversed(rows[1:]):
+        parts = r.split(',')
+        if len(parts) >= 2 and parts[-1] not in ('.', '', 'NA'):
+            return float(parts[-1]), parts[0]
+    raise ValueError('FRED %s: khong co gia tri hop le' % series)
+
+
+def stooq_dl(sym, host='stooq.com'):
+    """Duong dan tai CSV lich su cua stooq, khac duong dan quote nhanh da bi 404."""
+    csv = get('https://%s/q/d/l/?s=%s&i=d' % (host, sym))
+    rows = [r.strip() for r in csv.strip().splitlines() if r.strip()]
+    if len(rows) < 2:
+        raise ValueError('stooq_dl %s tra ve rong: %s' % (sym, csv[:80]))
+    cols = rows[-1].split(',')
+    if len(cols) < 5:
+        raise ValueError('stooq_dl %s dong cuoi la: %s' % (sym, rows[-1][:80]))
+    return float(cols[4])
+
+
+def yahoo2(sym):
+    """query2 thay cho query1 — doi khi gioi han toc do khac."""
+    u = 'https://query2.finance.yahoo.com/v8/finance/chart/%s?interval=1d&range=5d' % sym
+    j = json.loads(get(u))
+    res = (j.get('chart') or {}).get('result') or []
+    if not res: raise ValueError('yahoo2 %s: khong co result' % sym)
+    r0 = res[0]
+    closes = [c for c in (r0['indicators']['quote'][0].get('close') or []) if c is not None]
+    if closes: return float(closes[-1])
+    mp = (r0.get('meta') or {}).get('regularMarketPrice')
+    if mp is None: raise ValueError('yahoo2 %s: khong co gia' % sym)
+    return float(mp)
+
+
 # Moi field co MOT CHUOI nguon du phong. Thu lan luot, cai nao duoc thi dung,
 # va ghi lai nguon nao da dung de lan sau biet nguon nao on dinh.
 # (ten_field): [ (ten_nguon, ham), ... ], min, max, so chu so thap phan
 SOURCES = {
-    'fx.vcb_mua':  ([('VCB XML', lambda: src_vcb()[0])],                     20000, 32000, 0),
-    'fx.vcb_ban':  ([('VCB XML', lambda: src_vcb()[1])],                     20000, 32000, 0),
-    'oil.brent':   ([('yahoo BZ=F',  lambda: yahoo('BZ%3DF')),
-                     ('stooq cb.f',  lambda: stooq('cb.f')),
-                     ('stooq.pl cb.f', lambda: stooq('cb.f', 'stooq.pl'))],     30,   250, 2),
-    'oil.wti':     ([('yahoo CL=F',  lambda: yahoo('CL%3DF')),
-                     ('stooq cl.f',  lambda: stooq('cl.f')),
-                     ('stooq.pl cl.f', lambda: stooq('cl.f', 'stooq.pl'))],     25,   240, 2),
-    'gold.tg_usd': ([('yahoo GC=F',  lambda: yahoo('GC%3DF')),
-                     ('stooq xauusd', lambda: stooq('xauusd')),
-                     ('stooq.pl xauusd', lambda: stooq('xauusd', 'stooq.pl'))], 1500, 9000, 2),
-    'dxy.value':   ([('yahoo DX-Y.NYB', lambda: yahoo('DX-Y.NYB')),
-                     ('yahoo DX=F',  lambda: yahoo('DX%3DF')),
-                     ('stooq dx.f',  lambda: stooq('dx.f'))],                   80,   130, 2),
+    'fx.vcb_mua':  ([('VCB XML', lambda: src_vcb()[0])],                        20000, 32000, 0),
+    'fx.vcb_ban':  ([('VCB XML', lambda: src_vcb()[1])],                        20000, 32000, 0),
+    'oil.brent':   ([('FRED DCOILBRENTEU', lambda: fred('DCOILBRENTEU')[0]),
+                     ('stooq_dl cb.f',     lambda: stooq_dl('cb.f')),
+                     ('yahoo2 BZ=F',       lambda: yahoo2('BZ%3DF')),
+                     ('yahoo BZ=F',        lambda: yahoo('BZ%3DF'))],              30,   250, 2),
+    'oil.wti':     ([('FRED DCOILWTICO',   lambda: fred('DCOILWTICO')[0]),
+                     ('stooq_dl cl.f',     lambda: stooq_dl('cl.f')),
+                     ('yahoo2 CL=F',       lambda: yahoo2('CL%3DF')),
+                     ('yahoo CL=F',        lambda: yahoo('CL%3DF'))],              25,   240, 2),
+    'gold.tg_usd': ([('stooq_dl xauusd',   lambda: stooq_dl('xauusd')),
+                     ('yahoo2 GC=F',       lambda: yahoo2('GC%3DF')),
+                     ('yahoo GC=F',        lambda: yahoo('GC%3DF'))],            1500,  9000, 2),
+    # ⚠️ DXY KHONG CO NGUON FRED. Chuoi DTWEXBGS cua FRED la "broad dollar index"
+    # goc Jan-2006=100, hien quanh 121 — KHAC HAN DXY (~102, ro 6 dong tien).
+    # Bien hop ly [80,130] se KHONG chan duoc so 121 nen se ghi nham chi so khac
+    # vao field DXY. Vi vay thu hep bien ve [90,115] va tuyet doi khong them FRED.
+    'dxy.value':   ([('yahoo2 DX-Y.NYB',   lambda: yahoo2('DX-Y.NYB')),
+                     ('stooq_dl dx.f',     lambda: stooq_dl('dx.f')),
+                     ('yahoo DX-Y.NYB',    lambda: yahoo('DX-Y.NYB'))],            90,   115, 2),
 }
 
 
