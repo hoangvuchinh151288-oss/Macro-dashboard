@@ -1,0 +1,54 @@
+{
+  "run_at_ict": "2026-11-03 09:49:19",
+  "ok": {
+    "fx.vcb_mua": {
+      "old": 25590.0,
+      "new": 25590.0,
+      "src": "VCB XML"
+    },
+    "fx.vcb_ban": {
+      "old": 25970.0,
+      "new": 25970.0,
+      "src": "VCB XML"
+    }
+  },
+  "skipped": {
+    "oil.brent": "TAT CA NGUON DEU LOI",
+    "oil.wti": "TAT CA NGUON DEU LOI",
+    "gold.tg_usd": "TAT CA NGUON DEU LOI",
+    "dxy.value": "TAT CA NGUON DEU LOI"
+  },
+  "written": [
+    "fx.vcb_mua",
+    "fx.vcb_ban"
+  ],
+  "source_tried": {
+    "fx.vcb_mua": [
+      "VCB XML: OK"
+    ],
+    "fx.vcb_ban": [
+      "VCB XML: OK"
+    ],
+    "oil.brent": [
+      "yahoo BZ=F: HTTPError HTTP Error 429: Too Many Requests",
+      "stooq cb.f: HTTPError HTTP Error 404: Not Found",
+      "stooq.pl cb.f: HTTPError HTTP Error 404: Not Found"
+    ],
+    "oil.wti": [
+      "yahoo CL=F: HTTPError HTTP Error 429: Too Many Requests",
+      "stooq cl.f: HTTPError HTTP Error 404: Not Found",
+      "stooq.pl cl.f: HTTPError HTTP Error 404: Not Found"
+    ],
+    "gold.tg_usd": [
+      "yahoo GC=F: HTTPError HTTP Error 429: Too Many Requests",
+      "stooq xauusd: HTTPError HTTP Error 404: Not Found",
+      "stooq.pl xauusd: HTTPError HTTP Error 404: Not Found"
+    ],
+    "dxy.value": [
+      "yahoo DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo DX=F: HTTPError HTTP Error 429: Too Many Requests",
+      "stooq dx.f: HTTPError HTTP Error 404: Not Found"
+    ]
+  },
+  "summary": "2 ghi / 4 bo qua"
+}
