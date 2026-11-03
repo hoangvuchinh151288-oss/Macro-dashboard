@@ -1,5 +1,5 @@
 {
-  "run_at_ict": "2026-11-03 09:49:19",
+  "run_at_ict": "2026-11-03 09:53:24",
   "ok": {
     "fx.vcb_mua": {
       "old": 25590.0,
@@ -30,24 +30,26 @@
       "VCB XML: OK"
     ],
     "oil.brent": [
-      "yahoo BZ=F: HTTPError HTTP Error 429: Too Many Requests",
-      "stooq cb.f: HTTPError HTTP Error 404: Not Found",
-      "stooq.pl cb.f: HTTPError HTTP Error 404: Not Found"
+      "FRED DCOILBRENTEU: TimeoutError The read operation timed out",
+      "stooq_dl cb.f: ValueError stooq_dl cb.f dong cuoi la: </script></body></html>",
+      "yahoo2 BZ=F: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo BZ=F: HTTPError HTTP Error 429: Too Many Requests"
     ],
     "oil.wti": [
-      "yahoo CL=F: HTTPError HTTP Error 429: Too Many Requests",
-      "stooq cl.f: HTTPError HTTP Error 404: Not Found",
-      "stooq.pl cl.f: HTTPError HTTP Error 404: Not Found"
+      "FRED DCOILWTICO: TimeoutError The read operation timed out",
+      "stooq_dl cl.f: ValueError stooq_dl cl.f dong cuoi la: </script></body></html>",
+      "yahoo2 CL=F: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo CL=F: HTTPError HTTP Error 429: Too Many Requests"
     ],
     "gold.tg_usd": [
-      "yahoo GC=F: HTTPError HTTP Error 429: Too Many Requests",
-      "stooq xauusd: HTTPError HTTP Error 404: Not Found",
-      "stooq.pl xauusd: HTTPError HTTP Error 404: Not Found"
+      "stooq_dl xauusd: ValueError stooq_dl xauusd dong cuoi la: </script></body></html>",
+      "yahoo2 GC=F: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo GC=F: HTTPError HTTP Error 429: Too Many Requests"
     ],
     "dxy.value": [
-      "yahoo DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests",
-      "yahoo DX=F: HTTPError HTTP Error 429: Too Many Requests",
-      "stooq dx.f: HTTPError HTTP Error 404: Not Found"
+      "yahoo2 DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests",
+      "stooq_dl dx.f: ValueError stooq_dl dx.f dong cuoi la: </script></body></html>",
+      "yahoo DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests"
     ]
   },
   "summary": "2 ghi / 4 bo qua"
