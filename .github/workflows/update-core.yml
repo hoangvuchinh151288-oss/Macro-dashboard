@@ -38,12 +38,16 @@ jobs:
         run: |
           git config user.name  "macro-dashboard-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- data.js tools/last_run.json; then
+          # LUU Y: phai git add TRUOC roi moi kiem tra diff --cached.
+          # Run #1 (02/11) khong commit duoc vi `git diff --quiet` KHONG thay file
+          # chua duoc theo doi: tools/last_run.json con untracked nen diff rong,
+          # script thoat som va bao cao khong bao gio vao duoc repo.
+          git add data.js tools/last_run.json
+          if git diff --cached --quiet; then
             echo "Khong co thay doi, bo qua commit."
             exit 0
           fi
           SUM=$(python3 -c "import json;print(json.load(open('tools/last_run.json'))['summary'])")
-          git add data.js tools/last_run.json
           git commit -m "auto: cap nhat field CORE ($SUM)"
           git push
 
