@@ -104,14 +104,19 @@ def stooq(sym, host='stooq.com'):
 def fred(series):
     """FRED (Fed St. Louis) CSV cong khai, khong can API key, than thien voi CI.
     Tra ve (gia_tri, ngay_du_lieu). LUU Y: FRED tre vai ngay so thi truong —
-    ham tra ve ca ngay de ghi vao note, KHONG duoc trinh bay nhu gia hien tai."""
-    csv = get('https://fred.stlouisfed.org/graph/fredgraph.csv?id=%s' % series)
+    ham tra ve ca ngay de ghi vao note, KHONG duoc trinh bay nhu gia hien tai.
+
+    Run #3 bi TimeoutError: chuoi DCOILBRENTEU co du lieu tu 1987, tai ca chuoi
+    qua lau. Sua: them tham so cosd de chi lay 45 ngay gan nhat, va nang timeout."""
+    cosd = (TODAY - datetime.timedelta(days=45)).strftime('%Y-%m-%d')
+    csv = get('https://fred.stlouisfed.org/graph/fredgraph.csv?id=%s&cosd=%s' % (series, cosd),
+              timeout=45)
     rows = [r.strip() for r in csv.strip().splitlines() if r.strip()]
     for r in reversed(rows[1:]):
         parts = r.split(',')
         if len(parts) >= 2 and parts[-1] not in ('.', '', 'NA'):
             return float(parts[-1]), parts[0]
-    raise ValueError('FRED %s: khong co gia tri hop le' % series)
+    raise ValueError('FRED %s: khong co gia tri hop le trong 45 ngay' % series)
 
 
 def stooq_dl(sym, host='stooq.com'):
