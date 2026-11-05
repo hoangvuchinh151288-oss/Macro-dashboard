@@ -44,8 +44,10 @@ Lý do tách: cập nhật trước đây là phẫu thuật regex trên file 32
 
 Lớp 6 bỏ qua value chứa các dấu hiệu bản ghi lịch sử có chủ đích: `→`, `Chuỗi:`, `DU BAO CU`, `DA LAC HAU`, `giu lai de DOI CHIEU`, `SO CU`. Khi cố tình lưu số cũ để đối chiếu, dùng một trong các cụm này để không bị cảnh báo giả.
 
+**Lớp 6 cũng bỏ qua value của đường cong khác**: `USD LIEN NGAN HANG`, `DUONG CONG USD`. Đường cong USD liên ngân hàng dùng đúng nhãn kỳ hạn như VND (`O/N`, `1M`), nên không có nhãn phân biệt thì lớp 6 báo mâu thuẫn giả. Gặp ngày 05/11: `irp.thuc_te` ghi `USD ... O/N 3,85` bị báo lệch với `yield_curve.on = 3,70`. **Khi thêm field nhắc kỳ hạn của một đường cong không phải VND, phải có nhãn `USD` trong value.**
+
 ## Khi thêm field mới
 
 - Field lẽ ra là số → thêm tên vào `NUMFIELDS` (lớp 4).
-- Field cần theo dõi độ tươi → thêm vào `TIER_MAP` trong `index.html`. **Field không nằm trong `TIER_MAP` sẽ không bao giờ bị kiểm tra tuổi** — đây là nguồn điểm mù đã gặp nhiều lần.
+- Field cần theo dõi độ tươi → thêm vào `TIER_MAP` trong `index.html`. **Field không nằm trong `TIER_MAP` sẽ không bao giờ bị kiểm tra tuổi** — đây là nguồn điểm mù đã gặp nhiều lần. Ví dụ đã làm đúng: `omo.fx_swap_182d` (thêm 05/11) được đăng ký ngay vào `WEEKLY`.
 - Chỉ tiêu hay bị nhắc lại ở nhiều panel → thêm vào `CANON` (lớp 6).

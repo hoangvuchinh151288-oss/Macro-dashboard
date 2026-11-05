@@ -162,7 +162,13 @@ CANON = [
     ('US 10Y',     'trump_tracker', 'us10y',    r'US 10Y[^0-9]{0,12}(\d[,.]\d{2})'),
 ]
 # Bo qua value la ban ghi lich su co chu dich: chuoi mui ten, du bao cu giu de doi chieu.
-HIST = ('→', 'DU BAO CU', 'DA LAC HAU', 'giu lai de DOI CHIEU', 'Chuoi:', 'SO CU', 'GHI NHAN MISS')
+# Dau hieu value KHONG phai so cua chi tieu dang doi chieu, nen bo qua:
+#   - ban ghi lich su co chu dinh (→, Chuoi:, SO CU, DU BAO CU...)
+#   - value cua DUONG CONG KHAC: USD lien ngan hang cung co nhan 'O/N', '1M' nhu VND.
+#     Gap 05/11: irp.thuc_te ghi 'USD ... O/N 3,85' bi bao mau thuan voi yield_curve.on 3,70.
+#     Khi them field nhac ky han cua mot duong cong khac, phai co nhan 'USD' trong value.
+HIST = ('→', 'DU BAO CU', 'DA LAC HAU', 'giu lai de DOI CHIEU', 'Chuoi:', 'SO CU', 'GHI NHAN MISS',
+        'USD LIEN NGAN HANG', 'DUONG CONG USD')
 allvals = [v for v in re.findall(r'value:\s*"((?:[^"\\]|\\.)*)"', data)
            if not any(h in v for h in HIST)]
 for label, dom, fn, pat in CANON:
