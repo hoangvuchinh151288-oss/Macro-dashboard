@@ -1,26 +1,31 @@
 {
-  "run_at_ict": "2026-11-04 14:33:40",
+  "run_at_ict": "2026-11-05 14:56:48",
   "ok": {
     "fx.vcb_mua": {
-      "old": 25560.0,
-      "new": 25550.0,
+      "old": 25550.0,
+      "new": 25490.0,
       "src": "VCB XML"
     },
     "fx.vcb_ban": {
-      "old": 25940.0,
-      "new": 25930.0,
+      "old": 25930.0,
+      "new": 25870.0,
       "src": "VCB XML"
+    },
+    "gold.tg_usd": {
+      "old": 3947.7,
+      "new": 4129.7998046875,
+      "src": "yahoo GC=F"
     }
   },
   "skipped": {
     "oil.brent": "TAT CA NGUON DEU LOI",
     "oil.wti": "TAT CA NGUON DEU LOI",
-    "gold.tg_usd": "TAT CA NGUON DEU LOI",
     "dxy.value": "TAT CA NGUON DEU LOI"
   },
   "written": [
     "fx.vcb_mua",
-    "fx.vcb_ban"
+    "fx.vcb_ban",
+    "gold.tg_usd"
   ],
   "source_tried": {
     "fx.vcb_mua": [
@@ -44,7 +49,7 @@
     "gold.tg_usd": [
       "stooq_dl xauusd: ValueError stooq_dl xauusd dong cuoi la: </script></body></html>",
       "yahoo2 GC=F: HTTPError HTTP Error 429: Too Many Requests",
-      "yahoo GC=F: HTTPError HTTP Error 429: Too Many Requests"
+      "yahoo GC=F: OK"
     ],
     "dxy.value": [
       "yahoo2 DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests",
@@ -52,5 +57,5 @@
       "yahoo DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests"
     ]
   },
-  "summary": "2 ghi / 4 bo qua"
+  "summary": "3 ghi / 3 bo qua"
 }
