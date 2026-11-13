@@ -1,44 +1,56 @@
 {
-  "run_at_ict": "2026-11-13 10:03:02",
-  "ok": {},
+  "run_at_ict": "2026-11-13 15:05:54",
+  "ok": {
+    "fx.vcb_mua": {
+      "old": 25490.0,
+      "new": 25480.0,
+      "src": "VCB XML"
+    },
+    "fx.vcb_ban": {
+      "old": 25870.0,
+      "new": 25860.0,
+      "src": "VCB XML"
+    }
+  },
   "skipped": {
-    "fx.vcb_mua": "TAT CA NGUON DEU LOI",
-    "fx.vcb_ban": "TAT CA NGUON DEU LOI",
     "oil.brent": "TAT CA NGUON DEU LOI",
     "oil.wti": "TAT CA NGUON DEU LOI",
     "gold.tg_usd": "TAT CA NGUON DEU LOI",
     "dxy.value": "TAT CA NGUON DEU LOI"
   },
-  "written": [],
+  "written": [
+    "fx.vcb_mua",
+    "fx.vcb_ban"
+  ],
   "source_tried": {
     "fx.vcb_mua": [
-      "VCB XML: URLError <urlopen error Tunnel connection failed: 403 Forbidden>"
+      "VCB XML: OK"
     ],
     "fx.vcb_ban": [
-      "VCB XML: URLError <urlopen error Tunnel connection failed: 403 Forbidden>"
+      "VCB XML: OK"
     ],
     "oil.brent": [
-      "FRED DCOILBRENTEU: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "stooq_dl cb.f: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo2 BZ=F: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo BZ=F: URLError <urlopen error Tunnel connection failed: 403 Forbidden>"
+      "FRED DCOILBRENTEU: TimeoutError The read operation timed out",
+      "stooq_dl cb.f: ValueError stooq_dl cb.f dong cuoi la: </script></body></html>",
+      "yahoo2 BZ=F: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo BZ=F: HTTPError HTTP Error 429: Too Many Requests"
     ],
     "oil.wti": [
-      "FRED DCOILWTICO: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "stooq_dl cl.f: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo2 CL=F: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo CL=F: URLError <urlopen error Tunnel connection failed: 403 Forbidden>"
+      "FRED DCOILWTICO: TimeoutError The read operation timed out",
+      "stooq_dl cl.f: ValueError stooq_dl cl.f dong cuoi la: </script></body></html>",
+      "yahoo2 CL=F: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo CL=F: HTTPError HTTP Error 429: Too Many Requests"
     ],
     "gold.tg_usd": [
-      "stooq_dl xauusd: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo2 GC=F: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo GC=F: URLError <urlopen error Tunnel connection failed: 403 Forbidden>"
+      "stooq_dl xauusd: ValueError stooq_dl xauusd dong cuoi la: </script></body></html>",
+      "yahoo2 GC=F: HTTPError HTTP Error 429: Too Many Requests",
+      "yahoo GC=F: HTTPError HTTP Error 429: Too Many Requests"
     ],
     "dxy.value": [
-      "yahoo2 DX-Y.NYB: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "stooq_dl dx.f: URLError <urlopen error Tunnel connection failed: 403 Forbidden>",
-      "yahoo DX-Y.NYB: URLError <urlopen error Tunnel connection failed: 403 Forbidden>"
+      "yahoo2 DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests",
+      "stooq_dl dx.f: ValueError stooq_dl dx.f dong cuoi la: </script></body></html>",
+      "yahoo DX-Y.NYB: HTTPError HTTP Error 429: Too Many Requests"
     ]
   },
-  "summary": "0 ghi / 6 bo qua"
+  "summary": "2 ghi / 4 bo qua"
 }
