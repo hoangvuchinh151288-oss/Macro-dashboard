@@ -678,6 +678,11 @@ document.getElementById('panel-omo').innerHTML=`
   ${drow('OMO lưu hành (trước đó)',fmt(v(D.omo.luu_hanh_truoc))+' tỷ','d',u(D.omo.luu_hanh_truoc))}
   ${drow('Trạng thái',v(D.omo.trang_thai),'g',u(D.omo.trang_thai))}
   ${drow('LS OMO',v(D.omo.ls_omo)+'%/năm','b',n(D.omo.ls_omo))}
+  ${drow('⭐ Test "bơm đủ"',v(D.omo.bom_du_test),'y',u(D.omo.bom_du_test)+' · '+n(D.omo.bom_du_test))}
+  ${drow('Gap swap thị trường',v(D.omo.gap_swap_mkt),'b',u(D.omo.gap_swap_mkt)+' · '+n(D.omo.gap_swap_mkt))}
+  ${drow('Hoán đổi NT 182 ngày',v(D.omo.fx_swap_182d),'g',u(D.omo.fx_swap_182d)+' · '+n(D.omo.fx_swap_182d))}
+  ${drow('⭐ Mua NT giao ngay 25.500',v(D.omo.mua_spot_25500),'g',u(D.omo.mua_spot_25500)+' · '+n(D.omo.mua_spot_25500))}
+  ${drow('Trạng thái USD 26 NH (Q3)',v(D.omo.trangthai_usd_q3),'y',u(D.omo.trangthai_usd_q3)+' · '+n(D.omo.trangthai_usd_q3))}
   <div class="co co-y" style="margin-top:8px"><strong>Cơ chế MV=PQ:</strong> ${v(D.omo.co_che)}</div>
   <div style="margin-top:10px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.25);border-left:3px solid var(--blue);border-radius:3px;padding:10px 12px;font-size:12px">
     <strong style="color:var(--blue)">🔗 CƠ CHẾ TRUYỀN DẪN Q3/Q4 — Hai kịch bản</strong>

@@ -49,5 +49,6 @@ Lớp 6 bỏ qua value chứa các dấu hiệu bản ghi lịch sử có chủ 
 ## Khi thêm field mới
 
 - Field lẽ ra là số → thêm tên vào `NUMFIELDS` (lớp 4).
+- **Field mới phải thêm `drow(...)` vào panel trong `index.html`, KHÔNG chỉ thêm vào `TIER_MAP`.** `TIER_MAP` chỉ bật kiểm tra tuổi; nó **không** làm field hiện trên trang. Gặp 13/11: bốn field thêm trong một tuần (`gap_swap_mkt`, `bom_du_test`, `mua_spot_25500`, `trangthai_usd_q3`) đều có trong `data.js` và qua đủ 7 lớp kiểm tra, nhưng **không hiện trên dashboard** vì panel `omo` render bằng danh sách `drow` cố định. Bảy lớp kiểm tra không bắt được lỗi này — chỉ render check bằng Chromium mới thấy. **Sau khi thêm field, luôn mở trang và tìm chuỗi trong `value` để xác nhận nó hiện.**
 - Field cần theo dõi độ tươi → thêm vào `TIER_MAP` trong `index.html`. **Field không nằm trong `TIER_MAP` sẽ không bao giờ bị kiểm tra tuổi** — đây là nguồn điểm mù đã gặp nhiều lần. Ví dụ đã làm đúng: `omo.fx_swap_182d` (thêm 05/11) được đăng ký ngay vào `WEEKLY`.
 - Chỉ tiêu hay bị nhắc lại ở nhiều panel → thêm vào `CANON` (lớp 6).
