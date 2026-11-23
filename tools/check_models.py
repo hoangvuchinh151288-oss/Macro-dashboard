@@ -186,14 +186,27 @@ def main():
     # ------------------------------------------------------------------ field
     bo = sorted(f for f in fields if f not in duoc_goi)
     giu = sorted(f for f in fields if f in duoc_goi)
-    chua_tier = sorted(f for f in giu if f not in tier_map)
-    chua_render = sorted(f for f in giu if ("D." + f) not in html)
+    # Chi input/output moi vao TIER_MAP; tham_so, lich_su, doi_chieu co y khong
+    # bi kiem tuoi nen vang mat o day la dung, khong phai thieu sot.
+    can_tier = set()
+    for mo in reg["models"].values():
+        can_tier.update(mo.get("input", []))
+        can_tier.update(mo.get("output", []))
+    chua_tier = sorted(f for f in giu if f in can_tier and f not in tier_map)
     tier_mo = sorted(f for f in tier_map if f not in fields)
+    # Field khong co drow rieng van hien qua LUOI AN TOAN (tools/gen_registry.py
+    # sinh danh sach nay vao index.html). Chung van hien, chi la chua co cho dung.
+    ml = re.search(r"const FIELD_CHUA_RENDER\s*=\s*\[(.*?)\];", html, re.S)
+    qua_luoi = set(re.findall(r"['\"]([a-z_0-9]+\.[a-z_0-9]+)['\"]", ml.group(1))) if ml else set()
+    chua_render = sorted(f for f in giu
+                         if ("D." + f) not in html and f not in qua_luoi)
+    luoi = sorted(f for f in giu if f in qua_luoi)
 
     print("-" * 72)
     print("FIELD   giu %d / bo %d  (tong %d)" % (len(giu), len(bo), len(fields)))
     print("        giu nhung chua co trong TIER_MAP : %d" % len(chua_tier))
     print("        giu nhung chua render tren trang : %d" % len(chua_render))
+    print("        hien qua LUOI AN TOAN (chua co cho): %d" % len(luoi))
     print("        muc TIER_MAP tro vao field da xoa: %d" % len(tier_mo))
 
     if bo:
@@ -213,6 +226,10 @@ def main():
         print("\nFIELD DUOC MO HINH GOI NHUNG KHONG HIEN TREN TRANG:")
         for f in chua_render:
             print("  %s" % f)
+    if luoi:
+        print("\nFIELD HIEN QUA LUOI AN TOAN (van thay duoc, nhung chua co cho dung):")
+        for f in luoi:
+            print("  %s" % f)
     if tier_mo:
         print("\nMUC TIER_MAP TRO VAO FIELD DA XOA (can don):")
         for f in tier_mo:
@@ -224,6 +241,7 @@ def main():
         "bo": bo,
         "giu_chua_tier": chua_tier,
         "giu_chua_render": chua_render,
+        "giu_qua_luoi_an_toan": luoi,
         "tier_map_mo_coi": tier_mo,
     }
     out = os.path.join(repo, "tools", "models_report.json")

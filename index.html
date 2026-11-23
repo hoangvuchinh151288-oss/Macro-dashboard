@@ -277,6 +277,10 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="sec"><span class="sec-n">XII</span> Review & Roadmap 2026</div>
 <div class="g2">
   <div class="card">
+  <div class="ct">🕸️ LƯỚI AN TOÀN RENDER <span class="mono" style="font-size:10px;color:var(--dim)">field mô hình có gọi nhưng chưa có chỗ trong panel</span></div>
+  <div id="panel-luoi-antoan"></div>
+</div>
+  <div class="card">
   <div class="ct">🔄 DATA FRESHNESS AUDIT <span class="mono" style="font-size:10px;color:var(--dim)">tự động quét mỗi lần load</span></div>
   <div id="panel-freshness"><span style="color:var(--dim)">Đang quét...</span></div>
 </div>
@@ -1824,6 +1828,39 @@ checkAutoTrigger();
 })();
 
 
+// ═══ LƯỚI AN TOÀN RENDER ═══
+// Field được một mô hình trong tools/models.json gọi tên nhưng không panel nào vẽ.
+// Trước đây những field này nằm im trong data.js, qua đủ bảy lớp kiểm tra mà
+// không ai nhìn thấy (gặp 13/11: bốn field khuất một tuần). Giờ chúng rơi xuống
+// đây. Thẻ này trống khi mọi field đã có chỗ đúng — trống là trạng thái mong muốn.
+// ═══ AUTO-GEN tu tools/models.json — KHONG SUA TAY ═══
+const FIELD_CHUA_RENDER = [
+  'hormuz.tau_ngay',
+  'irp.reer_canhbao',
+  'm2.co_che',
+  'rates_tt1.cv9608',
+  'rates_tt1.cv9736',
+  'rates_tt1.lc_noidia',
+  'rates_tt1.nm_1_3t',
+  'rates_tt1.nm_3_6t',
+  'rates_tt1.vpbank_0611',
+  'transmission.chuoi',
+  'transmission.he_so',
+];
+// ═══ /AUTO-GEN ═══
+(()=>{
+  const el=document.getElementById('panel-luoi-antoan');
+  if(!el)return;
+  const co=FIELD_CHUA_RENDER.map(p=>{
+    const[g,f]=p.split('.');const o=D?.[g]?.[f];
+    return o?{p,o}:null;
+  }).filter(Boolean);
+  if(!co.length){el.closest('.card').style.display='none';return;}
+  el.innerHTML=co.map(({p,o})=>
+    drow(p,v(o),'y',u(o)+(n(o)?' · '+n(o):''))
+  ).join('');
+})();
+
 // ═══ DATA FRESHNESS AUDIT (v4.03) ═══
 // FREQ map: tần suất cập nhật kỳ vọng cho từng field
 
@@ -1838,34 +1875,40 @@ checkAutoTrigger();
 const TIER_MAP = {
   CORE: {  // nguong 2 ngay — bien dong hang ngay, quyet dinh nhan dinh
     days: 2,
-    fields: ['fx.nhnn_tc','fx.vcb_mua','fx.vcb_ban','fx.tg_tu_do_mua','fx.tg_tu_do_ban','fx.spread_emp',
-             'dxy.value','oil.brent','oil.wti','yield_curve.on','gold.tg_usd','gold.sjc_ban']
+    fields: ['fx.spread_emp','fx.tg_tu_do_ban','fx.vcb_ban','gold.sjc_ban','gold.sjc_mua','gold.tg_usd','oil.brent','ppp_war.fair_brent',
+             'ppp_war.war_premium']
   },
   WEEKLY: {  // nguong 8 ngay — chu ky tuan
     days: 8,
-    fields: ['yield_curve.w1','yield_curve.w2','yield_curve.m1','yield_curve.m3','yield_curve.m6','yield_curve.shape','yield_curve.tpcp_10y','transmission.he_so','transmission.doanh_so','transmission.ty_trong','transmission.usd_shift','transmission.vs_omo','transmission.chuoi',
-             'omo.luu_hanh_moi','omo.ls_omo','omo.fx_swap_182d','omo.mua_spot_25500','omo.trangthai_usd_q3','omo.lailo_ngoaihoi_9t','omo.bom_du_test','omo.gap_swap_mkt','oil.xang_ron95','oil.xang_e5ron92','oil.ky_tiep',
-             'gold.sjc_mua','irp.gap_vnd_usd','fed.prob_hold','fed.meeting_now','trump.fed_signal',
-             'trump.iran_policy','trump.oil_action','hormuz.kb_now','hormuz.tau_ngay','ppp_war.war_premium',
-             'rates_tt1.tn_lon_6_12t','rates_tt1.tn_vua_6_12t','signals.tuan_nay','m2.global_bond','trump_tracker.us10y',
-             'fx.vcb_tienmat','dxy.note','omo.trang_thai','oil.spread_futures','oil.hormuz_tau','ppp_war.base_brent','ppp_war.fair_brent','irp.thuc_te','freight.houthi','trump.watch_next','trump.market_risk','signals.trump_watch']
+    fields: ['cpi.t3_forecast','dxy.value','fed.prob_hold','fx.nhnn_san','fx.nhnn_tc','fx.nhnn_tran','fx.tg_tu_do_mua','fx.vcb_mua',
+             'hormuz.kb_now','irp.du_bao_irp','irp.gap_tt1','irp.gap_vnd_usd','irp.thuc_te','oil.brent_baseline','oil.price_path_kba',
+             'oil.price_path_kbb','oil.price_path_kbc','oil.price_path_kbd','oil.spread_futures','omo.bom_du_test','omo.fx_swap_182d',
+             'omo.gap_swap_mkt','omo.luu_hanh_moi','omo.mua_spot_25500','omo.trang_thai','ppp_war.iea_offset','rates_tt1.big4_6_12t',
+             'rates_tt1.nm_1_3t','rates_tt1.nm_3_6t','rates_tt1.real_rate','rates_tt1.tn_12t_dinh','rates_tt1.tn_lon_6_12t','rates_tt1.tn_vua_6_12t',
+             'signals.khung_scorecard','signals.q2_du_bao_cpi','signals.q2_du_bao_ls','signals.q2_du_bao_ty_gia','signals.q4_q1_forecast',
+             'signals.trump_watch','signals.tuan_nay','transmission.chuoi','transmission.doanh_so','transmission.he_so','transmission.ty_trong',
+             'transmission.vs_omo','yield_curve.m1','yield_curve.m3','yield_curve.m6','yield_curve.on','yield_curve.w1']
   },
   MONTHLY: {  // nguong 35 ngay — cong bo hang thang
     days: 35,
-    fields: ['cpi.t3_forecast','cpi.bq_2t','cpi.core_cpi','cpi.forecast_v2','m2.yoy_2025','m2.abs_2025',
-             'bop.xk_2t','bop.nk_2t','bop.can_can_2t','bop.tong_xnk_2t','bop.fdi_giai_ngan','bop.fdi_dang_ky',
-             'nsnn.thu_2t','nsnn.chi_2t','dtc.giai_ngan_2t','m2.outside_money_flow','m2.net_money_flow',
-             'cpi_trans.brent_avg_t3','cpi_trans.cpi_impact_t5','freight.route','tax_cal.hien_tai',
-             'm2.room_tindung','m2.wf_gtcg','rates_tt1.time_to_impact',
-             'rates_tt1.big4_6_12t','rates_tt1.nm_1_3t','rates_tt1.nm_3_6t','rates_tt1.cv9608','rates_tt1.cv9736','rates_tt1.vpbank_0611','rates_tt1.lc_noidia','rates_tt1.tn_12t_dinh','rates_tt1.real_rate','rates_tt1.ldr','rates_tt1.tran_ngan_han','rates_tt1.nhan_xet','fed.dot_plot','fed.next_cut','freight.cpi_impact','cpi_trans.sensitivity','cpi.muc_tieu','cpi.base_effect','oil.brent_baseline','irp.du_bao_irp','fx.forecast_mua','fx.forecast_ban','bop.fx_flow_vs_trade','bop.deferred_demand','m2.tga_tgkb','nsnn.dong_kbnn','ppp_war.iea_offset','oil.iea_release']
+    fields: ['cpi_trans.cpi_impact_t5','dtc.du_bao_q2','dtc.giai_ngan_2t','fed.dot_plot','fed.meeting_now','fed.next_cut','fed.rate_range',
+             'freight.cpi_impact','freight.houthi','freight.hp_rotterdam','freight.route','fx.forecast_ban','fx.forecast_mua',
+             'fx.tg_cucqlnh','fx.vcb_tienmat','hormuz.tau_ngay','m2.abs_2025','m2.fed_framework','m2.global_bond','m2.net_money_flow',
+             'm2.nfa_dtnh','m2.outside_money_flow','m2.room_tindung','m2.tga_tgkb','m2.yoy_2025','nsnn.chi_2t','nsnn.co_che',
+             'nsnn.dong_kbnn','nsnn.thu_2t','oil.hormuz_tau','oil.iea_release','oil.wti','oil.xang_e5ron92','oil.xang_ron95',
+             'omo.co_che','omo.lailo_ngoaihoi_9t','omo.luu_hanh_truoc','omo.trangthai_usd_q3','rates_tt1.cv9608','rates_tt1.cv9736',
+             'rates_tt1.lc_noidia','rates_tt1.ldr','rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan','rates_tt1.nhan_xet','rates_tt1.vpbank_0611',
+             'transmission.usd_shift','trump.fed_signal','trump.hormuz_plan','trump.iran_policy','trump.market_risk','trump.oil_action',
+             'trump.tariff_status','trump.vector','trump.watch_next','yield_curve.shape','yield_curve.tpcp_10y','yield_curve.w2']
   },
   QUARTERLY: {  // nguong 100 ngay — cong bo theo quy
     days: 100,
-    fields: ['bop.du_tru','m2.nfa_dtnh','m2.tin_dung','m2.irp_link','m2.cash_to_m2_ratio',
-             'rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan','dtc.ke_hoach_2026','fx.uob_q2',
-             'm2.carry_tpcp_cof','m2.npl_rate_spread','m2.obligability_ratio','m2.liquidity_paradox','m2.leakage_3van','m2.pledgeability_test','m2.paradox_implication','dtc.du_bao_q2','fx.tb33nh']
+    fields: ['bop.bop_q1','bop.bop_vs_trade','bop.can_can_2t','bop.deferred_demand','bop.du_tru','bop.fdi_dang_ky','bop.fdi_giai_ngan',
+             'bop.flow_proxies','bop.fx_flow_vs_trade','bop.iip_banle','bop.nk_2t','bop.tong_xnk_2t','bop.xk_2t','cpi_trans.brent_avg_t3',
+             'cpi_trans.chain','dtc.ke_hoach_2026','irp.reer_canhbao','m2.asset_driven','m2.bds_co_cau','m2.co_che','m2.lcr_nsfr',
+             'm2.multi_mismatch','m2.tt50_dunno','m2.wf_gtcg','oil.booxd_status','oil.ky_tiep','rates_tt1.time_to_impact']
   }
-  // Con lai = STATIC: khung ly thuyet, snapshot lich su, ghi chu -> KHONG kiem tra do tuoi
+  // tham_so, lich_su, doi_chieu = KHONG kiem tuoi (xem tools/models.json)
 };
 
 const FREQ_MAP = {

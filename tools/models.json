@@ -326,11 +326,12 @@
       ],
       "chieu_dau": "bom du -> O/N ve duoi tran OMO; bom thieu -> O/N vuot tran du co swap",
       "nguong": "DAT khi O/N binh quan duoi 4,50%; KHONG DAT khi vuot 5,0%; that bai ro khi vuot 5,5%",
-      "tan_suat": "CORE",
+      "tan_suat": "WEEKLY",
       "cham_diem": "O/N binh quan ky thue so voi nguong tren",
       "tham_so": [
         "omo.ls_omo"
-      ]
+      ],
+      "ghi_chu": "Tan suat theo input cham nhat: omo.trang_thai la so tuan va omo.fx_swap_182d la su kien, du O/N va OMO luu hanh co hang ngay. Dat CORE o ban khai dau la sai quy tac chinh minh dat ra."
     },
     "bop_fx": {
       "ten": "Can can thanh toan thay can can thuong mai de du bao ty gia",

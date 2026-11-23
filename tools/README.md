@@ -27,11 +27,37 @@ Cả ba đều tính vào độ tin cậy trần và đều được coi là "fi
 
 Mỗi mô hình kế thừa mức **thấp nhất** trong các input của nó, theo thang `do_duoc → suy_ra → bao_chi → uoc_luong → lac_hau`. Ánh xạ từ nhãn tier nằm trong `tier_to_do_tin_cay` của `models.json`. Đây là chỗ sửa lỗi tháng 11/2026: EMP ghép một số VCB XML (gốc) với một số chợ đen (báo) nhưng hiện ra với độ chắc chắn như nhau.
 
+## Sinh tự động — `tools/gen_registry.py`
+
+```bash
+python3 tools/gen_registry.py            # ghi lại index.html
+python3 tools/gen_registry.py --check    # chỉ báo lệch, dùng trong CI
+```
+
+Script này **sinh toàn bộ `TIER_MAP`** và **danh sách `FIELD_CHUA_RENDER`** trong `index.html` từ `models.json`. Hai điểm mù cũ biến mất vì không còn hai đăng ký độc lập để quên:
+
+| Khoá trong hợp đồng | Tier nhận được |
+|---|---|
+| `input` | tần suất của mô hình |
+| `output` | tần suất của mô hình |
+| `input_phu` | nới một bậc (CORE→WEEKLY→MONTHLY→QUARTERLY) |
+| `tham_so`, `lich_su`, `doi_chieu` | **không vào `TIER_MAP`** — cố ý không kiểm tuổi |
+
+Field được nhiều mô hình gọi lấy tier **chặt nhất**. Script in rõ field nào được thêm, field nào bị bỏ và vì sao (đã xóa khỏi `data.js` / không mô hình nào gọi / là tham số).
+
+**Lưới an toàn render.** Field được mô hình gọi nhưng không panel nào có `drow` sẽ rơi xuống thẻ *LƯỚI AN TOÀN RENDER* ở cuối trang thay vì biến mất. Thẻ tự ẩn khi trống — trống là trạng thái mong muốn, còn field trong lưới nghĩa là nó hiển thị được nhưng chưa có chỗ đúng.
+
+Đừng sửa tay khối giữa `// ═══ AUTO-GEN ... ═══` và `// ═══ /AUTO-GEN ═══`, và đừng sửa tay `TIER_MAP`: lần chạy sau sẽ ghi đè.
+
 ## Khi thêm mô hình mới
 
 1. Khai đủ `cong_thuc`, `input`, `chieu_dau`, `nguong`, `tan_suat`, `cham_diem`. Thiếu `cham_diem` thì sau này không biết mô hình đúng hay sai.
 2. Chạy `check_models.py`, đảm bảo không có `input_thieu`.
-3. Field mới vẫn phải đăng ký `TIER_MAP` **và** thêm `drow` — xem mục dưới.
+3. Chạy `gen_registry.py` — `TIER_MAP` và lưới an toàn tự cập nhật. Thêm `drow` vào panel đúng chỗ khi muốn field ra khỏi lưới.
+
+## Bài học từ lần sinh đầu tiên
+
+Bản khai đặt `hqla_transform` ở CORE, nên mọi field `omo.*` thành ngưỡng 2 ngày và `check_all.py` báo 15 FAIL. Nhưng input chậm nhất của mô hình đó là `omo.trang_thai` (số tuần) và `omo.fx_swap_182d` (sự kiện) — đúng quy tắc phải là WEEKLY. Sửa lại còn 9 FAIL, và 9 field đó quá hạn thật vì dữ liệu dừng ở 18/11. **Khi `TIER_MAP` sinh tự động báo quá nhiều FAIL, kiểm `tan_suat` của mô hình trước khi nghi ngờ dữ liệu.**
 
 ---
 

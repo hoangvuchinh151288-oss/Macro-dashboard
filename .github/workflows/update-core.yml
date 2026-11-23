@@ -31,6 +31,15 @@ jobs:
         id: fetch
         run: python3 tools/fetch_core.py | tee /tmp/fetch.log
 
+      - name: Dong bo TIER_MAP voi models.json
+        # Chan code: index.html phai dang dong bo voi tools/models.json.
+        # Khong lien quan do tuoi du lieu nen buoc nay an toan de chan.
+        run: python3 tools/gen_registry.py --check
+
+      - name: Doi chieu hop dong mo hinh (bao cao, chua chan)
+        # Hien dang exit 1 vi 4 mo hinh thieu du lieu. Bo `|| true` khi da nuoi du.
+        run: python3 tools/check_models.py || true
+
       - name: Kiem tra truoc khi commit
         run: python3 tools/check_all.py
 
