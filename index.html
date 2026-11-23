@@ -567,6 +567,7 @@ function renderOilPath(){
     {label:`KB-B (${v(D.hormuz.kbb)}) · ${KB_DESC.B}`,cls:'y',value:v(D.oil.price_path_kbb),note:n(D.oil.price_path_kbb)},
     {label:`KB-C (${v(D.hormuz.kbc)}) · ${KB_DESC.C}`,cls:'r',value:v(D.oil.price_path_kbc),note:n(D.oil.price_path_kbc)},
     {label:`KB-D (${v(D.hormuz.kbd)}) · ${KB_DESC.D}`,cls:'r',value:v(D.oil.price_path_kbd),note:n(D.oil.price_path_kbd)},
+    {label:'Lưu lượng tàu qua Hormuz (UKMTO)',cls:'b',value:v(D.hormuz.tau_ngay),note:u(D.hormuz.tau_ngay)+' · '+n(D.hormuz.tau_ngay)},
   ];
   const refs=[
     {label:'Pre-war base (Feb 2026)',cls:'d',value:v(D.oil.brent_baseline),note:n(D.oil.brent_baseline)},
@@ -666,6 +667,7 @@ document.getElementById('panel-yc').innerHTML=`
       ${drow('GAP CCS TT1 (huy động)','+'+v(D.irp.gap_tt1)+'%','r',n(D.irp.gap_tt1).substring(0,90))}
       ${drow('Thực tế',v(D.irp.thuc_te),'g',n(D.irp.thuc_te))}
       ${drow('Dự báo IRP',v(D.irp.du_bao_irp),'b',n(D.irp.du_bao_irp))}
+      ${drow('⚠️ Cảnh báo REER',v(D.irp.reer_canhbao),'r',u(D.irp.reer_canhbao)+' · '+n(D.irp.reer_canhbao))}
     </div>
   </div>
   ${drow('TPCP 10 năm',v(D.yield_curve.tpcp_10y)+'%/năm','','HNX')}`;
@@ -954,7 +956,9 @@ document.getElementById('panel-transmission').innerHTML=`
   <div class="g2" style="gap:8px;margin-top:8px">
     ${mbox('Đối chiếu USD',v(D.transmission.usd_shift),n(D.transmission.usd_shift),'y')}
     ${mbox('Quy tắc chấm tuần',v(D.transmission.cham_tuan),n(D.transmission.cham_tuan),'b')}
-  </div>`;
+  </div>
+  ${drow('Hệ số truyền dẫn (số gốc)',v(D.transmission.he_so),'y',u(D.transmission.he_so)+' · '+n(D.transmission.he_so))}
+  ${drow('Chuỗi O/N theo tuần',v(D.transmission.chuoi),'b',u(D.transmission.chuoi)+' · '+n(D.transmission.chuoi))}`;
 
 
 // IV. TT1 & CPI
@@ -971,8 +975,18 @@ document.getElementById('panel-tt1').innerHTML=`
       <tr style="background:rgba(239,68,68,.04)"><td>12T đỉnh</td><td class="r">~7,5%</td><td class="r" colspan="2">${v(D.rates_tt1.tn_12t_dinh)}%</td></tr>
     </tbody>
   </table>
+  ${drow('Niêm yết 1–3T',v(D.rates_tt1.nm_1_3t)+'%','y',u(D.rates_tt1.nm_1_3t)+' · '+n(D.rates_tt1.nm_1_3t))}
+  ${drow('Niêm yết 3–6T',v(D.rates_tt1.nm_3_6t)+'%','r',u(D.rates_tt1.nm_3_6t)+' · '+n(D.rates_tt1.nm_3_6t))}
   ${drow('LDR hệ thống',v(D.rates_tt1.ldr),'r',n(D.rates_tt1.ldr))}
   <div class="co co-g" style="margin-top:8px"><strong>TREND 9/4:</strong> ${v(D.rates_tt1.nhan_xet)}</div>
+  <div style="margin-top:8px;padding:9px 12px;background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.22);border-left:3px solid var(--purple,#8b5cf6);border-radius:3px;font-size:12px;line-height:1.85">
+    <strong style="color:#a78bfa">📜 KHUNG ĐIỀU HÀNH ĐANG CÓ HIỆU LỰC</strong>
+    ${drow('CV 9608/NHNN-CSTT',short(v(D.rates_tt1.cv9608)),'y',u(D.rates_tt1.cv9608)+' · '+v(D.rates_tt1.cv9608))}
+    ${drow('CV 9736/NHNN-CSTT',short(v(D.rates_tt1.cv9736)),'y',u(D.rates_tt1.cv9736)+' · '+v(D.rates_tt1.cv9736))}
+    ${drow('Lỗ hổng TT 21/2024',short(v(D.rates_tt1.lc_noidia)),'r',u(D.rates_tt1.lc_noidia)+' · '+v(D.rates_tt1.lc_noidia))}
+    ${drow('⚠️ Bằng chứng ngược',short(v(D.rates_tt1.vpbank_0611)),'r',u(D.rates_tt1.vpbank_0611)+' · '+v(D.rates_tt1.vpbank_0611))}
+    <div style="color:var(--dim2);margin-top:6px"><em>→ CV 9736 giám sát lãi suất thực tế chứ không phải lãi suất niêm yết; VPBank 06/11 là quan sát hành vi phản ứng đầu tiên sau thông báo.</em></div>
+  </div>
   <div style="margin-top:8px;padding:9px 12px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red);border-radius:3px;font-size:13px;line-height:1.85">
     <strong style="color:var(--red)">📊 LDR PHÂN TẦNG — Nơi rủi ro thanh khoản tích tụ</strong><br>
     <span style="color:var(--dim2)">
@@ -1085,6 +1099,7 @@ document.getElementById('panel-m2').innerHTML=`
   </div>
 
   <!-- TGA/TGKB — co che kho bac -->
+  <div class="co co-b" style="margin-bottom:8px;font-size:11px"><strong>🔁 Cơ chế đảo nợ thuần:</strong> ${v(D.m2.co_che)}</div>
   <div class="co co-y" style="margin-bottom:8px;font-size:11px"><strong>🏛️ TGA/TGKB — cơ chế kho bạc:</strong> ${v(D.m2.tga_tgkb)}</div>
   <div style="color:var(--dim2);font-size:10px;margin-bottom:8px;line-height:1.6">${n(D.m2.tga_tgkb)}</div>
 
@@ -1658,7 +1673,7 @@ function renderScorecard(weeksFromStorage){
           ${f.note?`<div class="sc-item-note">${f.note}</div>`:''}
         </div>
       </div>`:'').join('')}</div>
-      <div class="sc-summary"><strong style="color:var(--blue)">Tóm tắt:</strong> ${w.summary}</div>
+      ${w.summary?`<div class="sc-summary"><strong style="color:var(--blue)">Tóm tắt:</strong> ${w.summary}</div>`:''}
       ${w.miss_note?`<div class="sc-summary" style="background:rgba(245,158,11,.04);border-color:rgba(245,158,11,.2)"><strong style="color:var(--amber)">Miss:</strong> ${w.miss_note}</div>`:''}
     </div>`;
   }).join('');
@@ -1834,19 +1849,7 @@ checkAutoTrigger();
 // không ai nhìn thấy (gặp 13/11: bốn field khuất một tuần). Giờ chúng rơi xuống
 // đây. Thẻ này trống khi mọi field đã có chỗ đúng — trống là trạng thái mong muốn.
 // ═══ AUTO-GEN tu tools/models.json — KHONG SUA TAY ═══
-const FIELD_CHUA_RENDER = [
-  'hormuz.tau_ngay',
-  'irp.reer_canhbao',
-  'm2.co_che',
-  'rates_tt1.cv9608',
-  'rates_tt1.cv9736',
-  'rates_tt1.lc_noidia',
-  'rates_tt1.nm_1_3t',
-  'rates_tt1.nm_3_6t',
-  'rates_tt1.vpbank_0611',
-  'transmission.chuoi',
-  'transmission.he_so',
-];
+const FIELD_CHUA_RENDER = [];
 // ═══ /AUTO-GEN ═══
 (()=>{
   const el=document.getElementById('panel-luoi-antoan');
