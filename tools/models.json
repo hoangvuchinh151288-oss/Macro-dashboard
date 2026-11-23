@@ -1,0 +1,573 @@
+{
+  "_doc": "Ban khai hop dong mo hinh. Field chi ton tai neu it nhat mot mo hinh goi ten no trong input/input_phu/output/doi_chieu. Xem tools/README.md muc 'Hop dong mo hinh'.",
+  "version": "2027.0-draft",
+  "cap_nhat": "23/11/2026",
+  "thang_do_tin_cay": [
+    "do_duoc",
+    "suy_ra",
+    "bao_chi",
+    "uoc_luong",
+    "lac_hau"
+  ],
+  "tier_to_do_tin_cay": {
+    "PRIMARY": "do_duoc",
+    "OFFICIAL": "do_duoc",
+    "MARKET": "do_duoc",
+    "DESK": "do_duoc",
+    "DERIVED": "suy_ra",
+    "PRESS": "bao_chi",
+    "MIXED": "bao_chi",
+    "KHONG_NHAN": "bao_chi",
+    "TIER": "bao_chi",
+    "ESTIMATE": "uoc_luong",
+    "HISTORICAL": "lac_hau"
+  },
+  "models": {
+    "emp": {
+      "ten": "Exchange Market Pressure",
+      "nhom": "truc_chinh",
+      "cong_thuc": "fx.tg_tu_do_ban - fx.vcb_ban",
+      "input": [
+        "fx.tg_tu_do_ban",
+        "fx.vcb_ban"
+      ],
+      "input_phu": [
+        "fx.tg_tu_do_mua",
+        "fx.vcb_mua",
+        "fx.nhnn_tran",
+        "fx.nhnn_san"
+      ],
+      "output": [
+        "fx.spread_emp"
+      ],
+      "doi_chieu": [
+        "fx.nhnn_tc"
+      ],
+      "chieu_dau": "EMP > 0 = cau USD vuot cung chinh thuc; EMP am = suc ep nguoc",
+      "nguong": "cang khi |EMP| > 200d; can bang khi < 50d",
+      "tan_suat": "CORE",
+      "cham_diem": "so bien dong fx.nhnn_tc 5 phien sau dau hieu EMP"
+    },
+    "gap_ccs": {
+      "ten": "Gap CCS - chenh lai suat VND/USD theo ky han",
+      "nhom": "truc_chinh",
+      "cong_thuc": "lai suat VND ky han t - lai suat USD lien ngan hang ky han t",
+      "input": [
+        "yield_curve.on",
+        "yield_curve.w1",
+        "yield_curve.m1",
+        "yield_curve.m3",
+        "yield_curve.m6",
+        "irp.thuc_te"
+      ],
+      "input_phu": [
+        "yield_curve.w2",
+        "yield_curve.shape"
+      ],
+      "output": [
+        "irp.gap_vnd_usd",
+        "irp.gap_tt1",
+        "omo.gap_swap_mkt"
+      ],
+      "chieu_dau": "Fed tang -> leg USD len -> gap hep; bom VND -> leg VND xuong -> gap hep",
+      "nguong": "gap 1M duoi 1,0 = ap luc chuyen sang ty gia; tren 3,0 = carry hap dan",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "so gap du bao voi quote desk phien ke tiep",
+      "tham_so": [
+        "irp.ls_usd_fed"
+      ],
+      "ghi_chu": "Tan suat theo input cham nhat: duong cong 3M/6M chi co quote tuan, du O/N co hang ngay. Muon theo doi O/N hang ngay thi tach mo hinh gap_ccs_on rieng."
+    },
+    "cd_macro": {
+      "ten": "C/D Macro - ty le tin dung tren huy dong cap he thong",
+      "nhom": "truc_chinh",
+      "cong_thuc": "du no tin dung / tien gui khach hang, cap he thong",
+      "input": [
+        "m2.room_tindung",
+        "m2.abs_2025",
+        "m2.yoy_2025",
+        "rates_tt1.ldr_big4",
+        "rates_tt1.ldr_tu_nhan"
+      ],
+      "input_phu": [
+        "m2.co_che",
+        "m2.bds_co_cau"
+      ],
+      "output": [
+        "rates_tt1.ldr"
+      ],
+      "chieu_dau": "C/D tang -> ap luc huy dong -> COF len",
+      "nguong": "KHONG dong nhat voi LDR phap ly TT22 (85%); C/D macro tren 100% la binh thuong",
+      "tan_suat": "MONTHLY",
+      "cham_diem": "so uoc tinh voi so NHNN cong bo quy sau"
+    },
+    "kb_hormuz": {
+      "ten": "Khung kich ban Iran - Hormuz (KB-A/B/C/D)",
+      "nhom": "truc_chinh",
+      "cong_thuc": "bon nhanh xac suat, moi nhanh neo mot dai Brent va mot dai ty gia",
+      "input": [
+        "oil.brent"
+      ],
+      "input_phu": [
+        "hormuz.tau_ngay",
+        "oil.hormuz_tau",
+        "trump.iran_policy",
+        "trump.hormuz_plan",
+        "trump.oil_action",
+        "trump.vector",
+        "trump.watch_next",
+        "trump.market_risk",
+        "trump.tariff_status",
+        "trump.fed_signal",
+        "oil.iea_release",
+        "freight.route",
+        "freight.houthi",
+        "oil.wti"
+      ],
+      "output": [
+        "hormuz.kb_now",
+        "oil.price_path_kba",
+        "oil.price_path_kbb",
+        "oil.price_path_kbc",
+        "oil.price_path_kbd"
+      ],
+      "chieu_dau": "xac suat dich sang KB-C/D -> Brent len -> war premium len",
+      "nguong": "tai dinh vi kich ban khi Brent ra khoi dai cua KB hien hanh 5 phien lien tiep",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "Brent thuc te roi vao dai nao so voi KB dang dat",
+      "tham_so": [
+        "hormuz.kba",
+        "hormuz.kbb",
+        "hormuz.kbc",
+        "hormuz.kbd"
+      ]
+    },
+    "war_premium": {
+      "ten": "Phan bu chien tranh tren gia dau",
+      "nhom": "dung_thuong",
+      "cong_thuc": "oil.brent - ppp_war.base_brent",
+      "input": [
+        "oil.brent"
+      ],
+      "input_phu": [
+        "ppp_war.iea_offset",
+        "oil.brent_baseline",
+        "oil.spread_futures"
+      ],
+      "output": [
+        "ppp_war.war_premium",
+        "ppp_war.fair_brent"
+      ],
+      "chieu_dau": "premium thu hep -> thi truong chiet khau rui ro dia chinh tri",
+      "nguong": "base_brent 73 USD; premium tren 25 USD = dinh gia kich ban KB-D",
+      "tan_suat": "CORE",
+      "cham_diem": "so fair_brent voi Brent binh quan 20 phien sau",
+      "tham_so": [
+        "ppp_war.base_brent"
+      ]
+    },
+    "cpi_passthrough": {
+      "ten": "Truyen dan gia dau va cuoc van tai sang CPI (mo hinh BCT 2 kenh)",
+      "nhom": "dung_thuong",
+      "cong_thuc": "kenh cost-push qua MOPS Singapore va kenh cuoc container",
+      "input": [
+        "oil.brent",
+        "oil.xang_ron95",
+        "oil.xang_e5ron92",
+        "freight.hp_rotterdam"
+      ],
+      "input_phu": [
+        "cpi_trans.chain",
+        "oil.ky_tiep",
+        "oil.booxd_status",
+        "cpi_trans.brent_avg_t3"
+      ],
+      "output": [
+        "cpi.t3_forecast",
+        "cpi_trans.cpi_impact_t5",
+        "freight.cpi_impact"
+      ],
+      "doi_chieu": [
+        "cpi.muc_tieu"
+      ],
+      "chieu_dau": "Brent len -> xang len sau 1-2 ky dieu hanh -> CPI len sau 1-2 thang",
+      "nguong": "muc tieu CPI 4,5%; vuot 2 thang lien tiep = pha dieu kien A1",
+      "tan_suat": "MONTHLY",
+      "cham_diem": "so CPI du bao voi so Cuc Thong ke cong bo thang sau",
+      "tham_so": [
+        "cpi_trans.sensitivity"
+      ]
+    },
+    "cof_4tang": {
+      "ten": "Bon tang lai suat huy dong - cau truc chi phi von",
+      "nhom": "dung_thuong",
+      "cong_thuc": "phan tang Big4 / tu nhan lon / tu nhan vua / nhom dinh thi truong",
+      "input": [
+        "rates_tt1.big4_6_12t",
+        "rates_tt1.tn_lon_6_12t",
+        "rates_tt1.tn_vua_6_12t",
+        "rates_tt1.tn_12t_dinh",
+        "rates_tt1.nm_1_3t",
+        "rates_tt1.nm_3_6t"
+      ],
+      "input_phu": [
+        "rates_tt1.cv9736",
+        "rates_tt1.cv9608",
+        "rates_tt1.lc_noidia",
+        "rates_tt1.vpbank_0611",
+        "rates_tt1.nhan_xet"
+      ],
+      "output": [
+        "rates_tt1.real_rate"
+      ],
+      "chieu_dau": "gian cach Big4 - nhom dinh noi rong -> ap luc huy dong phan tan",
+      "nguong": "CV 9736: cat 0,5dpt tren lai suat binh quan khoan moi tu 6 thang so nen 11-20/10",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "so lai suat niem yet thuc te voi du bao dau ky",
+      "tham_so": [
+        "rates_tt1.tran_ngan_han"
+      ]
+    },
+    "nsfr_lcr": {
+      "ten": "NSFR / LCR theo TT 50/2026",
+      "nhom": "dung_thuong",
+      "cong_thuc": "hai ty le an toan thanh khoan, hieu luc 01/12/2026",
+      "input": [
+        "m2.lcr_nsfr",
+        "m2.tt50_dunno"
+      ],
+      "input_phu": [
+        "m2.asset_driven",
+        "m2.multi_mismatch"
+      ],
+      "output": [
+        "rates_tt1.time_to_impact"
+      ],
+      "chieu_dau": "siet NSFR -> cau von trung dai han -> lai suat tu 6 thang len",
+      "nguong": "hieu luc 01/12/2026; co che dang ky tu nguyen theo Dieu 13",
+      "tan_suat": "QUARTERLY",
+      "cham_diem": "so du bao dich chuyen duong cong huy dong voi thuc te sau 01/12"
+    },
+    "signal_a": {
+      "ten": "Signal A1/A2/A3 - dieu kien noi chinh sach",
+      "nhom": "dung_thuong",
+      "cong_thuc": "A1: CPI duoi 4% hai thang. A2: Fed khong tang VA DXY duoi 103 VA EMP on. A3: O/N duoi 6% qua hai tuan. Can dat tu hai tren ba.",
+      "input": [
+        "cpi.t3_forecast",
+        "fed.prob_hold",
+        "dxy.value",
+        "fx.spread_emp",
+        "yield_curve.on"
+      ],
+      "input_phu": [
+        "fed.rate_range",
+        "fed.meeting_now",
+        "fed.dot_plot",
+        "fed.next_cut",
+        "m2.fed_framework",
+        "m2.global_bond"
+      ],
+      "output": [
+        "signals.tuan_nay",
+        "signals.q2_du_bao_ls",
+        "signals.trump_watch"
+      ],
+      "chieu_dau": "dat tu 2/3 -> xac suat noi tang",
+      "nguong": "A1 CPI <= 4,0% hai thang lien tiep; A2 DXY < 103; A3 O/N < 6,0% hai tuan",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "so trang thai tin hieu voi hanh dong thuc te cua NHNN trong 30 ngay",
+      "tham_so": [
+        "cpi.muc_tieu"
+      ]
+    },
+    "irp_covered": {
+      "ten": "Interest Rate Parity co bao hiem",
+      "nhom": "dung_thuong",
+      "cong_thuc": "forward/spot = (1 + i_VND) / (1 + i_USD)",
+      "input": [
+        "fx.nhnn_tc",
+        "yield_curve.m6",
+        "omo.fx_swap_182d"
+      ],
+      "input_phu": [
+        "irp.gap_vnd_usd"
+      ],
+      "output": [
+        "irp.du_bao_irp"
+      ],
+      "chieu_dau": "gap lai suat rong -> diem forward len",
+      "nguong": "lech gia swap NHNN so voi IRP ly thuyet tren 0,5dpt = co tro cap hoac phat",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "so gia swap du bao voi gia NHNN chao phien ke tiep",
+      "tham_so": [
+        "irp.ls_usd_fed"
+      ]
+    },
+    "hqla_transform": {
+      "ten": "HQLA transformation - swap va OMO cung ho",
+      "nhom": "dung_thuong",
+      "cong_thuc": "doi cau truc tai san thanh khoan, khong doi nang luc bang can doi",
+      "input": [
+        "omo.luu_hanh_moi",
+        "omo.fx_swap_182d",
+        "omo.mua_spot_25500",
+        "yield_curve.on",
+        "omo.trang_thai"
+      ],
+      "input_phu": [
+        "omo.luu_hanh_truoc",
+        "omo.trangthai_usd_q3",
+        "omo.lailo_ngoaihoi_9t",
+        "fx.tg_cucqlnh",
+        "fx.vcb_tienmat"
+      ],
+      "output": [
+        "omo.bom_du_test"
+      ],
+      "chieu_dau": "bom du -> O/N ve duoi tran OMO; bom thieu -> O/N vuot tran du co swap",
+      "nguong": "DAT khi O/N binh quan duoi 4,50%; KHONG DAT khi vuot 5,0%; that bai ro khi vuot 5,5%",
+      "tan_suat": "CORE",
+      "cham_diem": "O/N binh quan ky thue so voi nguong tren",
+      "tham_so": [
+        "omo.ls_omo"
+      ]
+    },
+    "bop_fx": {
+      "ten": "Can can thanh toan thay can can thuong mai de du bao ty gia",
+      "nhom": "dung_thuong",
+      "cong_thuc": "BOP = can can vang lai + von + sai sot; dong tien that khac dong hang hoa",
+      "input": [
+        "bop.bop_q1",
+        "bop.du_tru",
+        "bop.fdi_giai_ngan",
+        "bop.can_can_2t",
+        "bop.xk_2t",
+        "bop.nk_2t"
+      ],
+      "input_phu": [
+        "bop.fdi_dang_ky",
+        "bop.tong_xnk_2t",
+        "bop.iip_banle",
+        "bop.deferred_demand",
+        "bop.fx_flow_vs_trade"
+      ],
+      "output": [
+        "bop.bop_vs_trade",
+        "bop.flow_proxies"
+      ],
+      "chieu_dau": "BOP am -> du tru giam -> ap luc ty gia len",
+      "nguong": "du tru duoi 3 thang nhap khau = han che du dia can thiep",
+      "tan_suat": "QUARTERLY",
+      "cham_diem": "so huong BOP du bao voi so NHNN cong bo quy sau",
+      "lich_su": [
+        "bop.kieu_hoi_2025"
+      ]
+    },
+    "kbnn_liquidity": {
+      "ten": "Co che ngan quy nha nuoc - tac dong len thanh khoan he thong",
+      "nhom": "dung_thuong",
+      "cong_thuc": "thu NSNN vuot chi -> tien dong tai KBNN -> rut khoi M2 -> siet TT2",
+      "input": [
+        "nsnn.thu_2t",
+        "nsnn.chi_2t",
+        "m2.tga_tgkb",
+        "dtc.giai_ngan_2t"
+      ],
+      "input_phu": [
+        "dtc.ke_hoach_2026"
+      ],
+      "output": [
+        "nsnn.dong_kbnn",
+        "nsnn.co_che",
+        "omo.co_che"
+      ],
+      "chieu_dau": "chenh thu-chi noi rong -> O/N len",
+      "nguong": "dong tren 250k ty = ap luc thay duoc tren duong cong TT2",
+      "tan_suat": "MONTHLY",
+      "cham_diem": "so du bao huong O/N voi thuc te thang sau"
+    },
+    "transmission_tt1": {
+      "ten": "Truyen dan tren thi truong lien ngan hang",
+      "nhom": "dung_thuong",
+      "cong_thuc": "he so truyen dan tu O/N sang cac ky han dai hon",
+      "input": [
+        "transmission.doanh_so",
+        "transmission.ty_trong",
+        "yield_curve.on"
+      ],
+      "input_phu": [
+        "transmission.usd_shift",
+        "yield_curve.tpcp_10y"
+      ],
+      "output": [
+        "transmission.he_so",
+        "transmission.vs_omo",
+        "transmission.chuoi"
+      ],
+      "doi_chieu": [
+        "transmission.cham_tuan"
+      ],
+      "chieu_dau": "he so am keo dai -> duong cong dut gay -> bom OMO khong toi ky han dai",
+      "nguong": "he so moc 3 thang duy tri duoi 0,3 = truyen dan dut",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "theo quy tac trong transmission.cham_tuan",
+      "tham_so": [
+        "omo.ls_omo"
+      ]
+    },
+    "dong_tien_rong": {
+      "ten": "Inside/outside money - dong tien rong vao he thong",
+      "nhom": "dung_thuong",
+      "cong_thuc": "inside money (tin dung) + outside money (DTC, NFA) - rut rong",
+      "input": [
+        "m2.outside_money_flow",
+        "m2.net_money_flow",
+        "m2.nfa_dtnh",
+        "m2.abs_2025"
+      ],
+      "input_phu": [
+        "m2.wf_gtcg",
+        "m2.yoy_2025"
+      ],
+      "output": [
+        "m2.net_money_flow"
+      ],
+      "chieu_dau": "dong rong am -> thanh khoan he thong co lai du tin dung tang",
+      "nguong": "tham hut tren 1.000k ty luy ke = can bom bu qua OMO hoac mua ngoai te",
+      "tan_suat": "MONTHLY",
+      "cham_diem": "so huong du bao thanh khoan voi O/N thang sau"
+    },
+    "turn_basis": {
+      "ten": "Hieu ung chuyen nam tren duong cong ky han",
+      "nhom": "it_dung",
+      "cong_thuc": "phan bu ky han chua thoi diem 31/12",
+      "input": [
+        "yield_curve.m1",
+        "yield_curve.m3",
+        "yield_curve.m6"
+      ],
+      "input_phu": [],
+      "output": [],
+      "chieu_dau": "turn di chuyen vao bac ngan hon khi gan cuoi nam",
+      "nguong": "theo doi bac 1M tu 01/12",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "chua co quy tac cham - can bo sung"
+    },
+    "hieu_ung_nen": {
+      "ten": "Hieu ung nen trong so sanh CPI",
+      "nhom": "it_dung",
+      "cong_thuc": "so sanh CPI YoY theo nen cung ky nam truoc",
+      "input": [],
+      "input_phu": [],
+      "output": [
+        "cpi.t3_forecast"
+      ],
+      "chieu_dau": "nen thap -> YoY phong len du MoM khong doi",
+      "nguong": "khong co nguong - la hieu chinh doc so",
+      "tan_suat": "MONTHLY",
+      "cham_diem": "khong cham rieng - di kem cpi_passthrough",
+      "lich_su": [
+        "cpi.t1_2026",
+        "cpi.t2_2026",
+        "cpi.bq_2t"
+      ]
+    },
+    "scorecard": {
+      "ten": "Vong phan hoi - cham diem du bao",
+      "nhom": "vong_phan_hoi",
+      "cong_thuc": "moi muc du bao gan mot model_id, cham dung/sai sau khi co so thuc te",
+      "input": [
+        "signals.khung_scorecard",
+        "signals.q4_q1_forecast",
+        "signals.q2_du_bao_cpi",
+        "signals.q2_du_bao_ls",
+        "signals.q2_du_bao_ty_gia"
+      ],
+      "input_phu": [
+        "dtc.du_bao_q2",
+        "fx.forecast_mua",
+        "fx.forecast_ban"
+      ],
+      "output": [
+        "signals.khung_scorecard"
+      ],
+      "chieu_dau": "ty le dung theo mo hinh quyet dinh mo hinh nao o lai ban 2027",
+      "nguong": "mo hinh duoi 50% dung sau 20 muc cham = dua ra xem xet bo",
+      "tan_suat": "WEEKLY",
+      "cham_diem": "tu no la co che cham",
+      "ghi_chu": "CAN BO SUNG: moi muc du bao phai mang model_id de quy ty le dung ve tung mo hinh",
+      "doi_chieu": [
+        "oil.goldman_q1",
+        "oil.goldman_q2",
+        "oil.eia_q3_base",
+        "fx.uob_q2"
+      ]
+    },
+    "reer": {
+      "ten": "Ty gia thuc hieu luc theo ro thuong mai",
+      "nhom": "can_dung",
+      "cong_thuc": "REER = tich co trong so cua ty gia song phuong hieu chinh lam phat theo ro doi tac",
+      "input": [],
+      "input_can_co": [
+        "ro tien te doi tac theo trong so XNK",
+        "CPI tung doi tac",
+        "ty gia song phuong tung dong"
+      ],
+      "input_phu": [
+        "irp.reer_canhbao"
+      ],
+      "output": [],
+      "chieu_dau": "REER len = VND len gia thuc = giam canh tranh xuat khau",
+      "nguong": "chua dat - can dung xong moi dat",
+      "tan_suat": "MONTHLY",
+      "cham_diem": "chua co",
+      "trang_thai": "THIEU NGUON - da hai lan phai dung ty gia song phuong VND/USD thay the va phai tu dinh chinh"
+    },
+    "gold_premium": {
+      "ten": "Chenh lech vang SJC so voi gia the gioi quy doi",
+      "nhom": "dung_thuong",
+      "cong_thuc": "gold.sjc_ban - gold.tg_usd quy doi theo fx.vcb_ban",
+      "input": [
+        "gold.sjc_ban",
+        "gold.sjc_mua",
+        "gold.tg_usd",
+        "fx.vcb_ban"
+      ],
+      "tham_so": [],
+      "lich_su": [],
+      "input_phu": [],
+      "output": [],
+      "doi_chieu": [
+        "fx.spread_emp"
+      ],
+      "chieu_dau": "premium noi rong = cau tru an trong nuoc tang, cung huong voi EMP",
+      "nguong": "premium tren 15 trieu dong/luong = cau tru an bat thuong",
+      "tan_suat": "CORE",
+      "cham_diem": "so huong premium voi huong EMP trong 10 phien",
+      "ghi_chu": "CAN BO SUNG: chua co field luu ket qua premium, hien phai tinh tay"
+    }
+  },
+  "da_bo": {
+    "mv_pq": {
+      "ly_do": "chi nam trong note, khong co field so nao dung sau; dan BoE Quarterly Bulletin 2014 Q1 de bac chinh khai niem",
+      "field_lien_quan": [
+        "m2.irp_link"
+      ]
+    },
+    "he_so_nhan_tien": {
+      "ly_do": "chinh field m2.multiplier ghi 'KHAI NIEM LOI THOI (Bank of England 2014 bac bo)'; giu lai chi gay nham lan",
+      "field_lien_quan": [
+        "m2.multiplier"
+      ]
+    },
+    "pledgeability": {
+      "ly_do": "them vao nhung khong khai thac; field m2.pledgeability_test va m2.obligability_ratio da bi xoa khoi data.js, chi con muc mo trong TIER_MAP",
+      "field_lien_quan": []
+    },
+    "liquidity_paradox": {
+      "ly_do": "field m2.liquidity_paradox va m2.paradox_implication da bi xoa khoi data.js, chi con muc mo trong TIER_MAP",
+      "field_lien_quan": []
+    }
+  },
+  "_quy_tac_tan_suat": "Tan suat cua mo hinh = tan suat cong bo cua input CHAM NHAT trong nhom 'input'. Khong dat theo mong muon cap nhat. Neu mot input nhanh hon han phan con lai, tach thanh mo hinh rieng thay vi ha nguong ca cum."
+}

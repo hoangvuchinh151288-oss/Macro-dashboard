@@ -1,3 +1,40 @@
+# Hợp đồng mô hình — `tools/models.json` + `tools/check_models.py`
+
+Nguyên tắc của bản 2027: **mô hình chuẩn trước, dữ liệu theo sau.** Mỗi mô hình khai rõ công thức, input, chiều dấu, ngưỡng và cách chấm trong `tools/models.json`. Field chỉ tồn tại nếu ít nhất một mô hình gọi tên nó — field không ai gọi là ứng viên bỏ, không cần quyết định thủ công từng nhóm.
+
+```bash
+python3 tools/check_models.py                 # chạy được từ bất kỳ cwd nào
+python3 tools/check_models.py /đường/dẫn/repo
+```
+
+Exit `0` = không mô hình nào thiếu dữ liệu. Exit `1` = có mô hình ở trạng thái KHÔNG ĐỦ, **không được đăng kết luận của mô hình đó**. Exit `2` = không tìm thấy file. Báo cáo máy đọc được ghi ra `tools/models_report.json`.
+
+## Ba loại input — chỉ loại đầu bị kiểm tuổi
+
+| Khoá | Nghĩa | Ví dụ |
+|---|---|---|
+| `input` | số **đo được**, phải tươi theo tần suất mô hình | `oil.brent`, `yield_curve.on` |
+| `tham_so` | hằng số hoặc mức chính sách, không có lịch cập nhật | `ppp_war.base_brent` 73, trần OMO 4,5%, xác suất KB |
+| `lich_su` | chuỗi đã chốt theo thiết kế, không bao giờ mới | `cpi.t1_2026`, kiều hối thường niên |
+
+Cả ba đều tính vào độ tin cậy trần và đều được coi là "field được gọi". Lần chạy đầu tiên (23/11) gắn `base_brent`, trần OMO và lãi suất Fed vào `input` nên bốn mô hình bị báo KHÔNG ĐỦ sai — tách ba loại mới ra đúng.
+
+## Quy tắc đặt tần suất
+
+**Tần suất của mô hình = tần suất công bố của input chậm nhất trong nhóm `input`**, không đặt theo mong muốn cập nhật. Nếu một input nhanh hơn hẳn phần còn lại thì tách thành mô hình riêng chứ không hạ ngưỡng cả cụm. Ví dụ `gap_ccs` để WEEKLY vì đường cong 3M/6M chỉ có quote tuần, dù O/N có hằng ngày.
+
+## Độ tin cậy trần
+
+Mỗi mô hình kế thừa mức **thấp nhất** trong các input của nó, theo thang `do_duoc → suy_ra → bao_chi → uoc_luong → lac_hau`. Ánh xạ từ nhãn tier nằm trong `tier_to_do_tin_cay` của `models.json`. Đây là chỗ sửa lỗi tháng 11/2026: EMP ghép một số VCB XML (gốc) với một số chợ đen (báo) nhưng hiện ra với độ chắc chắn như nhau.
+
+## Khi thêm mô hình mới
+
+1. Khai đủ `cong_thuc`, `input`, `chieu_dau`, `nguong`, `tan_suat`, `cham_diem`. Thiếu `cham_diem` thì sau này không biết mô hình đúng hay sai.
+2. Chạy `check_models.py`, đảm bảo không có `input_thieu`.
+3. Field mới vẫn phải đăng ký `TIER_MAP` **và** thêm `drow` — xem mục dưới.
+
+---
+
 # tools/check_all.py
 
 Bộ kiểm tra bắt buộc chạy trước khi push.
