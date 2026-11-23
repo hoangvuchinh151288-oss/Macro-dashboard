@@ -109,7 +109,6 @@
         "oil.brent"
       ],
       "input_phu": [
-        "hormuz.tau_ngay",
         "oil.hormuz_tau",
         "trump.iran_policy",
         "trump.hormuz_plan",
@@ -140,7 +139,8 @@
         "hormuz.kbb",
         "hormuz.kbc",
         "hormuz.kbd"
-      ]
+      ],
+      "ghi_chu": "hormuz.tau_ngay va oil.hormuz_tau la hai ban ghi cua cung mot so UKMTO (122 ra / 155 vao, 31/10) voi hai chuoi source khac nhau. Gop ve oil.hormuz_tau ngay 23/11."
     },
     "war_premium": {
       "ten": "Phan bu chien tranh tren gia dau",
@@ -195,7 +195,8 @@
       "tan_suat": "MONTHLY",
       "cham_diem": "so CPI du bao voi so Cuc Thong ke cong bo thang sau",
       "tham_so": [
-        "cpi_trans.sensitivity"
+        "cpi_trans.sensitivity",
+        "freight.vs_2025"
       ]
     },
     "cof_4tang": {
@@ -436,7 +437,8 @@
       "chieu_dau": "dong rong am -> thanh khoan he thong co lai du tin dung tang",
       "nguong": "tham hut tren 1.000k ty luy ke = can bom bu qua OMO hoac mua ngoai te",
       "tan_suat": "MONTHLY",
-      "cham_diem": "so huong du bao thanh khoan voi O/N thang sau"
+      "cham_diem": "so huong du bao thanh khoan voi O/N thang sau",
+      "ghi_chu": "GIOI HAN DU LIEU (chuyen tu field m2.data_limit, bo 23/11): NHNN cong bo M2 va co cau tien gui theo QUY, khong real-time. So chinh thuc gan nhat T3/2026 (dan cu 10.560k + TCKT 6.010k = 16.570k ty). Moi so M2 trong ky hien hanh deu la uoc tinh."
     },
     "turn_basis": {
       "ten": "Hieu ung chuyen nam tren duong cong ky han",
@@ -550,16 +552,12 @@
   },
   "da_bo": {
     "mv_pq": {
-      "ly_do": "chi nam trong note, khong co field so nao dung sau; dan BoE Quarterly Bulletin 2014 Q1 de bac chinh khai niem",
-      "field_lien_quan": [
-        "m2.irp_link"
-      ]
+      "ly_do": "chi nam trong note, khong co field so nao dung sau; dan BoE Quarterly Bulletin 2014 Q1 de bac chinh khai niem — field m2.irp_link da bi xoa khoi data.js ngay 23/11",
+      "field_lien_quan": []
     },
     "he_so_nhan_tien": {
-      "ly_do": "chinh field m2.multiplier ghi 'KHAI NIEM LOI THOI (Bank of England 2014 bac bo)'; giu lai chi gay nham lan",
-      "field_lien_quan": [
-        "m2.multiplier"
-      ]
+      "ly_do": "chinh field m2.multiplier ghi 'KHAI NIEM LOI THOI (Bank of England 2014 bac bo)'; giu lai chi gay nham lan — field m2.multiplier da bi xoa khoi data.js ngay 23/11",
+      "field_lien_quan": []
     },
     "pledgeability": {
       "ly_do": "them vao nhung khong khai thac; field m2.pledgeability_test va m2.obligability_ratio da bi xoa khoi data.js, chi con muc mo trong TIER_MAP",

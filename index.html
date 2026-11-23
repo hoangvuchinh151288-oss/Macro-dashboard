@@ -265,9 +265,8 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   <div class="card"><div class="ctitle">KỊCH BẢN DẦU & HORMUZ — 4 KB</div><div id="panel-kb"></div></div>
 </div>
 
-<div class="sec" style="border-left:3px solid #ef4444;padding-left:12px"><span class="sec-n" style="background:#ef4444">T</span> Trump Policy Tracker <span class="badge-live" style="background:#ef444420;color:#ef4444">● Cập nhật theo phát ngôn</span> <span class="theory">Pain Threshold · Deal Signal · Political Clock</span></div>
+<div class="sec" style="border-left:3px solid #ef4444;padding-left:12px"><span class="sec-n" style="background:#ef4444">T</span> Chính sách Mỹ <span class="badge-live" style="background:#ef444420;color:#ef4444">● Cập nhật theo phát ngôn</span> <span class="theory">Đầu vào của khung kịch bản KB-A/B/C/D</span></div>
 <div class="card" id="panel-trump"></div>
-<div class="card" id="panel-trump-tracker" style="margin-top:10px"></div>
 
 <div class="sec"><span class="sec-n">XI</span> Tín Hiệu Tuần · Dự Báo Q3/2026</div>
 <div class="card" id="panel-signals"></div>
@@ -508,7 +507,7 @@ document.getElementById('fx-split').innerHTML=`
     <div class="fx-rate r">${fmt(v(D.fx.vcb_ban))}</div>
     <div class="fx-meta">VCB · ${u(D.fx.vcb_ban)}</div>
     <div class="fx-fc">Dự báo: <strong>${v(D.fx.forecast_ban)}</strong><br><span style="font-size:11px;color:var(--dim2)">${n(D.fx.forecast_ban)}</span></div>
-    <div class="mono" style="font-size:12px;color:var(--dim2);margin-top:6px">TB 33NH: ${v(D.fx.tb33nh)} · UOB Q2: ${fmt(v(D.fx.uob_q2))}</div>
+    <div class="mono" style="font-size:12px;color:var(--dim2);margin-top:6px">Dự báo tổ chức giữ để đối chiếu — UOB Q2: ${fmt(v(D.fx.uob_q2))}</div>
   </div>`;
 document.getElementById('fx-bottom').innerHTML=`
   <div class="g3" style="gap:6px;margin-bottom:6px">
@@ -535,7 +534,7 @@ document.getElementById('fx-tudo').innerHTML=`
 
 document.getElementById('panel-dxy').innerHTML=`
   ${drow('DXY Index',v(D.dxy.value),'y',u(D.dxy.value)+' · '+n(D.dxy.value))}
-  <div class="co co-y" style="margin-top:8px"><strong>DXY ${v(D.dxy.value)}</strong><br>${v(D.dxy.note)}</div>`;
+  <div class="co co-y" style="margin-top:8px"><strong>DXY ${v(D.dxy.value)}</strong> · cập nhật ${u(D.dxy.value)}<br>Brent ${v(D.oil.brent)} · war premium ${v(D.ppp_war.war_premium)} trên nền ${v(D.ppp_war.base_brent)} USD</div>`;
 document.getElementById('panel-gold').innerHTML=`
   ${drow('Vàng TG',v(D.gold.tg_usd)+' USD/oz','y',u(D.gold.tg_usd))}
   ${drow('SJC Mua',v(D.gold.sjc_mua),'g',u(D.gold.sjc_mua))}
@@ -567,7 +566,7 @@ function renderOilPath(){
     {label:`KB-B (${v(D.hormuz.kbb)}) · ${KB_DESC.B}`,cls:'y',value:v(D.oil.price_path_kbb),note:n(D.oil.price_path_kbb)},
     {label:`KB-C (${v(D.hormuz.kbc)}) · ${KB_DESC.C}`,cls:'r',value:v(D.oil.price_path_kbc),note:n(D.oil.price_path_kbc)},
     {label:`KB-D (${v(D.hormuz.kbd)}) · ${KB_DESC.D}`,cls:'r',value:v(D.oil.price_path_kbd),note:n(D.oil.price_path_kbd)},
-    {label:'Lưu lượng tàu qua Hormuz (UKMTO)',cls:'b',value:v(D.hormuz.tau_ngay),note:u(D.hormuz.tau_ngay)+' · '+n(D.hormuz.tau_ngay)},
+    {label:'Lưu lượng tàu qua Hormuz (UKMTO)',cls:'b',value:v(D.oil.hormuz_tau),note:u(D.oil.hormuz_tau)+' · '+n(D.oil.hormuz_tau)},
   ];
   const refs=[
     {label:'Pre-war base (Feb 2026)',cls:'d',value:v(D.oil.brent_baseline),note:n(D.oil.brent_baseline)},
@@ -1297,15 +1296,33 @@ document.getElementById('panel-dtc').innerHTML=`
   <div class="co co-g" style="margin-top:8px"><strong>Catalyst Q2:</strong> ${n(D.dtc.du_bao_q2)}</div>`;
 
 // VII. LỊCH THUẾ
-document.getElementById('panel-tax').innerHTML=`
-  <div class="g4" style="gap:8px;margin-bottom:10px">
-    ${mbox('Kỳ T3 (ĐÃ QUA)','31/03','Spike 8,8% đã qua','d')}
-    ${mbox('Kỳ T6 (ĐÃ QUA)','30/06','Spike lệch sang đầu T7, đã hạ nhiệt','d')}
-    ${mbox('Kỳ T9 (SẮP TỚI)','30/09','Quyết toán Q3 · còn ~44 ngày','y')}
-    ${mbox('Kỳ T12','31/12','Spike lớn nhất năm · còn ~137 ngày','r')}
-  </div>
-  <div class="co co-y"><strong>Hiện tại:</strong> ${v(D.tax_cal.hien_tai)}</div>
-  <div class="co co-b" style="margin-top:6px"><strong>Khuyến nghị:</strong> ${v(D.tax_cal.note)}</div>`;
+// LICH THUE — tinh truc tiep, khong luu field.
+// Truoc day 6 field tax_cal chi chep lai bon ngay cuoi quy va mot chuoi
+// "con ~44 ngay" viet tay — lac hau ngay hom sau khi viet.
+document.getElementById('panel-tax').innerHTML=(()=>{
+  const MO={T3:'Spike 8,8% (quyết toán Q1)',T6:'Spike lệch sang đầu T7',
+            T9:'Quyết toán Q3',T12:'Spike lớn nhất năm (quyết toán năm)'};
+  const now=new Date(), Y=now.getFullYear();
+  const mk=y=>[[2,31,'T3'],[5,30,'T6'],[8,30,'T9'],[11,31,'T12']]
+    .map(([m,d,lbl])=>({lbl,dt:new Date(y,m,d)}));
+  let ky=mk(Y); if(ky.every(k=>k.dt<now)) ky=mk(Y+1);
+  ky=ky.map(k=>({...k,con:Math.ceil((k.dt-now)/86400000)}));
+  const tiep=ky.find(k=>k.con>=0);
+  const dd=d=>String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0');
+  const o=ky.map(k=>{
+    const qua=k.con<0;
+    const cls=qua?'d':k.con<=15?'r':k.con<=45?'y':'b';
+    const sub=qua?MO[k.lbl]+' · đã qua':MO[k.lbl]+' · còn '+k.con+' ngày';
+    return mbox('Kỳ '+k.lbl+(qua?' (ĐÃ QUA)':tiep&&tiep.lbl===k.lbl?' (SẮP TỚI)':''),dd(k.dt),sub,cls);
+  }).join('');
+  // Quy tac auto-watch: 15 ngay truoc ky thue -> nang du bao spike TT2 1-2dpt
+  const canh = tiep && tiep.con<=15
+    ? '🔴 Trong vùng 15 ngày trước kỳ '+tiep.lbl+' — nâng dự báo spike TT2 thêm 1–2đpt'
+    : tiep ? 'Ngoài vùng cảnh báo · kỳ '+tiep.lbl+' còn '+tiep.con+' ngày' : '—';
+  return `<div class="g4" style="gap:8px;margin-bottom:10px">${o}</div>
+  <div class="co co-y"><strong>Hiện tại:</strong> ${tiep?'Kỳ tiếp theo '+tiep.lbl+' ngày '+dd(tiep.dt)+' · còn '+tiep.con+' ngày':'—'}</div>
+  <div class="co co-b" style="margin-top:6px"><strong>Quy tắc auto-watch:</strong> ${canh}</div>`;
+})();
 
 // VIII. RISK MATRIX
 (function(){
@@ -1434,12 +1451,25 @@ document.getElementById('panel-assumptions').innerHTML = (()=>{
 })();
 
 // FIX BUG #2: XII Changelog — thêm v316, v317, v318
+// CHANGELOG mo ta CODE chu khong mo ta nen kinh te, nen no thuoc lop render,
+// khong thuoc data.js. Chuyen ra day 23/11 cung voi viec bo nhom `review`.
+const CHANGELOG = [
+  'v3.4: Dashboard khởi tạo · D object · Dark theme · IRP·EMP',
+  'v3.5: CPI truyền dẫn · Xăng dầu VN · Lạm phát chain',
+  'v3.11: EMP gauge · FX section split mua/bán · Forecast',
+  'v3.12: Yield curve · IRP · Real rate · Gap VND-USD',
+  'v3.13: BOP · Freight · Cước container proxy CPI',
+  'v3.14: OMO tracker · TT1 peak signals · LDR analysis',
+  'v3.15: KB scenarios Hormuz · Ceasefire tracker · Brent path',
+  'v3.16: US10Y + CNH/USD + Scorecard weekly history',
+  'v3.17: Trump tracker · Bessent/Navarro Index · Pain Threshold',
+  'v3.18: Fix daysSince() · DOMContentLoaded race · KB render',
+  'v5.82: Tách data.js khỏi index.html · bộ kiểm tra 7 lớp',
+  'v5.99: Hợp đồng mô hình (tools/models.json) · TIER_MAP và lưới an toàn sinh tự động · bỏ nhóm review/tax_cal/trump_tracker',
+];
 document.getElementById('panel-changelog').innerHTML=`
   <div class="mono" style="font-size:12px;line-height:2;color:var(--dim2)">
-    ${[D.review.v34_changes,D.review.v35_changes,D.review.v311_changes,
-       D.review.v312_changes,D.review.v313_changes,D.review.v314_changes,
-       D.review.v315_changes,D.review.v316_changes,D.review.v317_changes,
-       D.review.v318_changes].filter(Boolean).map(r=>`<div>📋 ${v(r)}</div>`).join('')}
+    ${CHANGELOG.map(r=>`<div>📋 ${r}</div>`).join('')}
   </div>`;
 // [v4.05] roadmap render fixed: data đổi từ array sang object ở v3.45 nhưng render không đổi theo → chết ngầm từ đó
 (function(){
@@ -1763,84 +1793,12 @@ function checkAutoTrigger(){
 }
 checkAutoTrigger();
 
-// ── TRUMP POLICY TRACKER render ──
-(function(){
-  const T = D.trump_tracker;
-  const scoreColor = (val, good, warn) => {
-    if(!val) return 'y';
-    const v = parseFloat(val.toString().replace(',','.'));
-    if(!isNaN(v)) return v >= good ? 'g' : v >= warn ? 'y' : 'r';
-    return 'y';
-  };
-
-  // US10Y gauge
-  const y10 = parseFloat(String(T.us10y.value).replace(',','.'));
-  const y10Pct = Math.min(100, (y10/6)*100);
-  const y10C = y10 >= 4.8 ? 'r' : y10 >= 4.5 ? 'y' : 'g';
-  const y10Lbl = y10 >= 4.8 ? '🔴 NGƯỠNG PHẠT — Trump sẽ nhượng bộ' : y10 >= 4.5 ? '🟡 CẢNH BÁO — Sắp chạm ngưỡng' : '🟢 BÌNH THƯỜNG — Chưa đủ áp lực';
-
-  // CNH gauge
-  const cnhRaw = parseFloat(String(T.cnh_usd.value).replace(',','.'));
-  const cnhValid = !isNaN(cnhRaw);
-  const cnh = cnhValid ? cnhRaw : 0;
-  const cnhC = !cnhValid ? 'd' : cnh <= 6.70 ? 'g' : cnh <= 6.95 ? 'y' : 'r';
-  const cnhLbl = !cnhValid ? '⚪ CHƯA CÓ DỮ LIỆU — cần nguồn xác minh' : cnh <= 6.70 ? '🟢 DEAL SIGNAL — CNH mạnh = Trung Quốc nhượng bộ tiền tệ' : cnh <= 6.95 ? '🟡 THEO DÕI — CNH đang mạnh, chưa xác nhận' : '🔴 TRẢ ĐŨA — CNH yếu = Trung Quốc phản kháng';
-
-  const _tt = document.getElementById('panel-trump-tracker');
-  if (!_tt) return;
-  _tt.innerHTML = `
-  <div class="g3" style="gap:10px;margin-bottom:14px">
-    <!-- US 10Y -->
-    <div style="background:var(--s2);border:1px solid var(--border);padding:14px 16px;border-radius:3px">
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--dim);margin-bottom:6px">US 10Y TREASURY · PAIN THRESHOLD</div>
-      <div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--${y10C})">${v(T.us10y)}%</div>
-      <div style="font-size:11px;margin:4px 0;color:var(--dim2)">${y10Lbl}</div>
-      <div class="emp-bar" style="margin:8px 0 4px"><div class="emp-fill" style="width:${y10Pct.toFixed(0)}%;background:${y10C==='r'?'var(--red)':y10C==='y'?'var(--yellow)':'var(--ok)'}"></div></div>
-      <div class="mono" style="font-size:10px;color:var(--dim);display:flex;justify-content:space-between"><span>3,5%</span><span style="color:var(--yellow)">4,8% NGƯỠNG</span><span style="color:var(--red)">5,0%+</span></div>
-      <div style="margin-top:8px;font-size:11px;color:var(--dim2)">${n(T.us10y)}</div>
-    </div>
-
-    <!-- CNH/USD -->
-    <div style="background:var(--s2);border:1px solid var(--border);padding:14px 16px;border-radius:3px">
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--dim);margin-bottom:6px">USD/CNH OFFSHORE · DEAL SIGNAL</div>
-      <div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--${cnhC})">${v(T.cnh_usd)}</div>
-      <div style="font-size:11px;margin:4px 0;color:var(--dim2)">${cnhLbl}</div>
-      <div class="emp-bar" style="margin:8px 0 4px"><div class="emp-fill" style="width:${cnhValid?Math.max(0,Math.min(100,(7.3-cnh)/(7.3-6.5)*100)).toFixed(0):0}%;background:${cnhC==='g'?'var(--ok)':cnhC==='y'?'var(--yellow)':'var(--red)'}"></div></div>
-      <div class="mono" style="font-size:10px;color:var(--dim);display:flex;justify-content:space-between"><span style="color:var(--ok)">6,70 DEAL</span><span>6,95</span><span style="color:var(--red)">7,20+ TRẢ ĐŨA</span></div>
-      <div style="margin-top:8px;font-size:11px;color:var(--dim2)">${n(T.cnh_usd)}</div>
-    </div>
-
-    <!-- Bessent/Navarro + Clock -->
-    <div style="background:var(--s2);border:1px solid var(--border);padding:14px 16px;border-radius:3px">
-      <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--dim);margin-bottom:6px">POLITICAL CLOCK · DEAL WINDOW</div>
-      ${drow('Bessent vs Navarro',v(T.bessent_vs_navarro),'y',n(T.bessent_vs_navarro))}
-      ${drow('Midterm countdown',v(T.midterm_countdown),'r','Cần win trước Q3/2026')}
-      ${drow('Deal window',v(T.deal_window),'b',n(T.deal_window))}
-      ${drow('Xăng Mỹ',v(T.gas_price_us),'y','NGƯỠNG: >$4/gallon = áp lực cử tri')}
-    </div>
-  </div>
-
-  <!-- 3 câu hỏi tuần -->
-  <div style="background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.2);border-left:3px solid var(--blue);border-radius:3px;padding:12px 16px;font-size:12px;line-height:2">
-    <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--blue);margin-bottom:8px">3 CÂU HỎI MỖI TUẦN — ĐỌC DASHBOARD NÀY</div>
-    <div><strong style="color:var(--blue)">Q1:</strong> <span style="color:var(--dim2)">US 10Y > <strong style="color:var(--yellow)">4,8%</strong>? → Nếu có, Trump sẽ nhượng bộ trong 1-2 tuần · Hiện tại: <strong class="${y10C}">${v(T.us10y)}% → ${y10 >= 4.8 ? '🔴 ĐÃ CHẠM NGƯỠNG' : '🟢 Chưa đủ áp lực'}</strong></span></div>
-    <div><strong style="color:var(--blue)">Q2:</strong> <span style="color:var(--dim2)">Bessent hay Navarro dẫn tuần này? → <strong style="color:var(--yellow)">${v(T.bessent_vs_navarro)}</strong> · Bessent = đàm phán · Navarro = leo thang</span></div>
-    <div><strong style="color:var(--blue)">Q3:</strong> <span style="color:var(--dim2)">Hormuz mở bao nhiêu? → <strong style="color:var(--red)">${v(D.oil.hormuz_tau)} tàu/ngày</strong> · Áp lực dầu → áp lực kinh tế → buộc Trump hành động</span></div>
-  </div>
-
-  <!-- Scenario table -->
-  <div style="margin-top:12px">
-    <div style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--dim);margin-bottom:8px">DỰ BÁO TRUMP HÀNH ĐỘNG — THEO XÁC SUẤT</div>
-    <table class="tbl">
-      <thead><tr><th>Kịch bản</th><th>Xác suất</th><th>Trigger</th><th>Timeline</th><th>Tác động VN</th></tr></thead>
-      <tbody>
-        <tr><td class="g">Tiểu deal EU/Japan/Korea</td><td class="g" style="font-weight:700">50%</td><td style="font-size:11px">Cần political win trước midterm</td><td class="y">Q2/2026</td><td class="g">Tích cực</td></tr>
-        <tr><td class="b">Grand Deal Mỹ-Trung</td><td class="b" style="font-weight:700">30%</td><td style="font-size:11px">US10Y >4,8% hoặc S&P -15%</td><td class="y">Q3/2026</td><td class="r">Xấu ngắn hạn</td></tr>
-        <tr><td class="r">Tiếp tục leo thang</td><td class="r" style="font-weight:700">20%</td><td style="font-size:11px">Hormuz mở sớm → kinh tế chưa đau</td><td class="r">Đang xảy ra</td><td class="r">Bất định cao</td></tr>
-      </tbody>
-    </table>
-  </div>`;
-})();
+// ── TRUMP POLICY TRACKER — da bo 23/11/2026 ──
+// Ly do: ba trong sau field da chet (cnh_usd va gas_price_us deu 'N/A',
+// midterm_countdown dem nguoc toi 03/11 da qua). Panel hien N/A va mot
+// dong ho dem toi su kien trong qua khu thi te hon la khong co panel.
+// Nhom trump_tracker cung bi xoa khoi data.js. Khung phan tich chinh
+// sach My van con o nhom `trump` (panel-trump), do kb_hormuz goi.
 
 
 // ═══ LƯỚI AN TOÀN RENDER ═══
@@ -1858,7 +1816,7 @@ const FIELD_CHUA_RENDER = [];
     const[g,f]=p.split('.');const o=D?.[g]?.[f];
     return o?{p,o}:null;
   }).filter(Boolean);
-  if(!co.length){el.closest('.card').style.display='none';return;}
+  if(!co.length){const c=el.closest&&el.closest('.card'); if(c)c.style.display='none'; return;}
   el.innerHTML=co.map(({p,o})=>
     drow(p,v(o),'y',u(o)+(n(o)?' · '+n(o):''))
   ).join('');
@@ -1896,13 +1854,13 @@ const TIER_MAP = {
     days: 35,
     fields: ['cpi_trans.cpi_impact_t5','dtc.du_bao_q2','dtc.giai_ngan_2t','fed.dot_plot','fed.meeting_now','fed.next_cut','fed.rate_range',
              'freight.cpi_impact','freight.houthi','freight.hp_rotterdam','freight.route','fx.forecast_ban','fx.forecast_mua',
-             'fx.tg_cucqlnh','fx.vcb_tienmat','hormuz.tau_ngay','m2.abs_2025','m2.fed_framework','m2.global_bond','m2.net_money_flow',
-             'm2.nfa_dtnh','m2.outside_money_flow','m2.room_tindung','m2.tga_tgkb','m2.yoy_2025','nsnn.chi_2t','nsnn.co_che',
-             'nsnn.dong_kbnn','nsnn.thu_2t','oil.hormuz_tau','oil.iea_release','oil.wti','oil.xang_e5ron92','oil.xang_ron95',
-             'omo.co_che','omo.lailo_ngoaihoi_9t','omo.luu_hanh_truoc','omo.trangthai_usd_q3','rates_tt1.cv9608','rates_tt1.cv9736',
-             'rates_tt1.lc_noidia','rates_tt1.ldr','rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan','rates_tt1.nhan_xet','rates_tt1.vpbank_0611',
-             'transmission.usd_shift','trump.fed_signal','trump.hormuz_plan','trump.iran_policy','trump.market_risk','trump.oil_action',
-             'trump.tariff_status','trump.vector','trump.watch_next','yield_curve.shape','yield_curve.tpcp_10y','yield_curve.w2']
+             'fx.tg_cucqlnh','fx.vcb_tienmat','m2.abs_2025','m2.fed_framework','m2.global_bond','m2.net_money_flow','m2.nfa_dtnh',
+             'm2.outside_money_flow','m2.room_tindung','m2.tga_tgkb','m2.yoy_2025','nsnn.chi_2t','nsnn.co_che','nsnn.dong_kbnn',
+             'nsnn.thu_2t','oil.hormuz_tau','oil.iea_release','oil.wti','oil.xang_e5ron92','oil.xang_ron95','omo.co_che','omo.lailo_ngoaihoi_9t',
+             'omo.luu_hanh_truoc','omo.trangthai_usd_q3','rates_tt1.cv9608','rates_tt1.cv9736','rates_tt1.lc_noidia','rates_tt1.ldr',
+             'rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan','rates_tt1.nhan_xet','rates_tt1.vpbank_0611','transmission.usd_shift',
+             'trump.fed_signal','trump.hormuz_plan','trump.iran_policy','trump.market_risk','trump.oil_action','trump.tariff_status',
+             'trump.vector','trump.watch_next','yield_curve.shape','yield_curve.tpcp_10y','yield_curve.w2']
   },
   QUARTERLY: {  // nguong 100 ngay — cong bo theo quy
     days: 100,
