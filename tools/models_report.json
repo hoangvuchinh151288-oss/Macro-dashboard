@@ -17,18 +17,14 @@
     "gap_ccs": {
       "ten": "Gap CCS - chenh lai suat VND/USD theo ky han",
       "nhom": "truc_chinh",
-      "trang_thai": "KHONG DU",
+      "trang_thai": "CANH BAO",
       "do_tin_cay_tran": "do_duoc",
       "tuoi_input_cu_nhat": 23,
-      "nguong_tuoi": 2,
+      "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "yield_curve.on(5d)",
-        "yield_curve.w1(5d)",
-        "yield_curve.m1(5d)",
         "yield_curve.m3(9d)",
-        "yield_curve.m6(23d)",
-        "irp.thuc_te(5d)"
+        "yield_curve.m6(23d)"
       ]
     },
     "cd_macro": {
@@ -218,7 +214,7 @@
     "hieu_ung_nen": {
       "ten": "Hieu ung nen trong so sanh CPI",
       "nhom": "it_dung",
-      "trang_thai": "CHAY",
+      "trang_thai": "TINH TAY",
       "do_tin_cay_tran": "bao_chi",
       "tuoi_input_cu_nhat": 0,
       "nguong_tuoi": 35,
