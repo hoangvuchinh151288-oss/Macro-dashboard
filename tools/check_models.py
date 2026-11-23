@@ -90,6 +90,29 @@ def doc_tier_map(html):
     return set(re.findall(r"['\"]([a-z_0-9]+\.[a-z_0-9]+)['\"]", m.group(1)))
 
 
+
+def alias_domain(html):
+    """{'T': 'trump_tracker', ...} — bat `const T = D.trump_tracker;`
+    Panel co the doc field qua bien trung gian; neu khong giai alias thi
+    field dang render bi bao nham la chua render (gap 23/11 voi
+    trump_tracker, panel ve bang `const T = D.trump_tracker`)."""
+    ra = {}
+    for m in re.finditer(r"(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*D\.([a-z_0-9]+)\s*[;,\n]", html):
+        ra[m.group(1)] = m.group(2)
+    return ra
+
+
+def co_render(html, field, alias):
+    """field = 'nhom.ten'. Nhan ca `D.nhom.ten` lan `X.ten` khi X la alias cua nhom."""
+    nhom, ten = field.split(".", 1)
+    if ("D.%s.%s" % (nhom, ten)) in html:
+        return True
+    for bien, dom in alias.items():
+        if dom == nhom and re.search(r"\b%s\.%s\b" % (re.escape(bien), re.escape(ten)), html):
+            return True
+    return False
+
+
 def yeu_hon(a, b):
     """Tra ve muc do tin cay thap hon trong hai muc."""
     return a if THANG.index(a) >= THANG.index(b) else b
@@ -198,8 +221,9 @@ def main():
     # sinh danh sach nay vao index.html). Chung van hien, chi la chua co cho dung.
     ml = re.search(r"const FIELD_CHUA_RENDER\s*=\s*\[(.*?)\];", html, re.S)
     qua_luoi = set(re.findall(r"['\"]([a-z_0-9]+\.[a-z_0-9]+)['\"]", ml.group(1))) if ml else set()
+    alias = alias_domain(html)
     chua_render = sorted(f for f in giu
-                         if ("D." + f) not in html and f not in qua_luoi)
+                         if not co_render(html, f, alias) and f not in qua_luoi)
     luoi = sorted(f for f in giu if f in qua_luoi)
 
     print("-" * 72)

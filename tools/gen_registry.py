@@ -54,6 +54,29 @@ def chat_hon(a, b):
     return a if THU_TU.index(a) <= THU_TU.index(b) else b
 
 
+
+def alias_domain(html):
+    """{'T': 'trump_tracker', ...} — bat `const T = D.trump_tracker;`
+    Panel co the doc field qua bien trung gian; neu khong giai alias thi
+    field dang render bi bao nham la chua render (gap 23/11 voi
+    trump_tracker, panel ve bang `const T = D.trump_tracker`)."""
+    ra = {}
+    for m in re.finditer(r"(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*D\.([a-z_0-9]+)\s*[;,\n]", html):
+        ra[m.group(1)] = m.group(2)
+    return ra
+
+
+def co_render(html, field, alias):
+    """field = 'nhom.ten'. Nhan ca `D.nhom.ten` lan `X.ten` khi X la alias cua nhom."""
+    nhom, ten = field.split(".", 1)
+    if ("D.%s.%s" % (nhom, ten)) in html:
+        return True
+    for bien, dom in alias.items():
+        if dom == nhom and re.search(r"\b%s\.%s\b" % (re.escape(bien), re.escape(ten)), html):
+            return True
+    return False
+
+
 def khoi_ngoac(text, start):
     b = text.find("{", start)
     k = 0
@@ -167,8 +190,9 @@ def main():
 
     # -------------------------------------------------- FIELD_CHUA_RENDER
     # tinh tren ban GOC: khoi AUTO chi chua chuoi 'nhom.field', khong co 'D.nhom.field'
+    alias = alias_domain(goc)
     chua_render = sorted(f for f in duoc_goi
-                         if f in co_that and ("D." + f) not in goc)
+                         if f in co_that and not co_render(goc, f, alias))
     khoi_moi = "%s\nconst FIELD_CHUA_RENDER = [%s];\n%s" % (
         MO_DAU,
         "".join("\n  '%s'," % f for f in chua_render) + ("\n" if chua_render else ""),
