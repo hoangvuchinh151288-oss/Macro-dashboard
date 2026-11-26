@@ -18,7 +18,10 @@ Chay:  python3 tools/probe_sbv.py
 import re
 import sys
 
-URL = 'https://www.sbv.gov.vn/webcenter/portal/vi/menu/rm/ls/lsbqlnh'
+# URL cu www.sbv.gov.vn/webcenter/... DA CHET (redirect ve trang chu moi).
+# Cong thong ke tach sang subdomain dttktt.sbv.gov.vn, giu nguyen cau truc
+# webcenter. Tim ra 26/11 bang cach liet ke link tren trang chu moi.
+URL = 'https://dttktt.sbv.gov.vn/webcenter/portal/vi/menu/rm/ls/lsttlnh'
 MOC = ('Qua đêm', 'qua đêm', '1 tuần', 'Lãi suất bình quân')
 
 
