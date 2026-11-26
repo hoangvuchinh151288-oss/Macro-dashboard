@@ -23,5 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Cai xlrd (doc .xls cua EIA)
+        run: pip install --quiet xlrd
+
       - name: Do cac nguon ung vien
         run: python3 tools/probe_sources.py ${{ github.event.inputs.nhom }}
