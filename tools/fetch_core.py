@@ -171,8 +171,28 @@ def yahoo2(sym):
 
 
 def gold_api():
-    """api.gold-api.com — gia vang GIAO NGAY XAU/USD, khong can khoa."""
-    return float(json.loads(get('https://api.gold-api.com/price/XAU', 30))['price'])
+    """api.gold-api.com — gia vang GIAO NGAY XAU/USD, khong can khoa.
+    Doc them moc thoi gian neu API co tra ve: bao gia truc tiep ma gan ngay
+    chay thi mot phien cuoi tuan se dong dau ngay thu Bay len gia dong cua
+    hom thu Sau."""
+    js = json.loads(get('https://api.gold-api.com/price/XAU', 30))
+    gia = float(js['price'])
+    for k in ('updatedAt', 'updated_at', 'timestamp', 'time', 'date'):
+        v = js.get(k)
+        if not v:
+            continue
+        try:
+            if isinstance(v, (int, float)):
+                gio = datetime.datetime.fromtimestamp(v / (1000 if v > 1e11 else 1),
+                                                      datetime.timezone.utc)
+            else:
+                gio = datetime.datetime.fromisoformat(str(v).replace('Z', '+00:00'))
+            return gia, gio.date().isoformat()
+        except (ValueError, OSError, OverflowError):
+            continue
+    report.setdefault('ghi_chu', []).append(
+        'gold-api khong tra ve moc thoi gian (cac khoa co: %s)' % list(js)[:8])
+    return gia
 
 
 def eia_xls(kind):
