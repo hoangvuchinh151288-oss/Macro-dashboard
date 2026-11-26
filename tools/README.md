@@ -25,6 +25,24 @@ Ba điều phải nhớ khi sửa chuỗi này:
 
 **Nguồn trả về ngày quan sát thì ghi ngày đó, không ghi ngày chạy.** Một bộ dữ liệu đóng băng sẽ trông như số mới nếu gán ngày hôm nay cho nó — `datasets/oil-prices` chạy được nhưng ngày chốt 17/11, và script từ chối mọi quan sát cũ hơn 7 ngày rồi rơi xuống nguồn kế tiếp.
 
+## Đường cong liên ngân hàng và lãi suất huy động — kết quả dò 26/11
+
+`tools/probe_reach.py` (bấm tay, bốn chế độ: mặc định đo kết nối · `--trich` xem số có trong HTML không · `--dao` tìm endpoint ẩn · `--servlet` thử endpoint tìm được).
+
+**Đường cong liên ngân hàng: không có đường.** SBV với tới được (200, 424 KB) nhưng **số không nằm trong HTML** — từ khoá khớp đều ở menu. Portal chạy Liferay, bảng nạp bằng fragment; không file `.xls`/`.csv` nào, không endpoint dữ liệu nào lộ ra. Vietstock 200 nhưng không có cả từ khoá; VNDirect timeout. Muốn tự động thì phải chạy trình duyệt headless trong workflow. **Hiện vẫn nhập tay.**
+
+**Lãi suất huy động: được một ngân hàng.** BIDV lộ ba servlet trả JSON sạch, có số thật:
+
+| Endpoint | Nội dung |
+|---|---|
+| `/ServicesBIDV/InterestDetailServlet` | niêm yết tại quầy |
+| `/ServicesLaiSuatOnline/InterestDetailOnlineServlet` | lãi suất online |
+| `/ServicesLaiSuatOnline/InterestDetailDepositsServlet` | tiền gửi có kỳ hạn |
+
+Các ngân hàng khác đều không: VCB 200 nhưng dựng bằng JS và không lộ endpoint · VietinBank 405 · Agribank không lộ endpoint · Techcombank 404.
+
+Một ngân hàng không dựng được bảng bốn tầng của `cof_4tang`. Nếu dùng, phải vào **field riêng có nhãn rõ là BIDV**, không được đổ vào `rates_tt1.big4_6_12t` — đó là mức của cả nhóm Big4, không phải của một ngân hàng.
+
 ---
 
 # Hợp đồng mô hình — `tools/models.json` + `tools/check_models.py`
