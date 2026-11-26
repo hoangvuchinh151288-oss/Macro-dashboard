@@ -4,6 +4,10 @@
 
 **Chặn hẳn, đừng thử lại**: FRED timeout 60s cả bốn lần (`fredgraph.csv` lẫn `data/*.txt`) · stooq trả HTML chặn bot ở cả `stooq.com` và `stooq.pl` · Yahoo 429 ở mọi endpoint · LBMA và goldprice.org đều 403.
 
+Vàng miếng trong nước cũng không lấy được từ runner: SJC `PriceService.ashx` trả 403, API Bảo Tín Minh Châu timeout 31s. Nhiều site Việt Nam chặn dải IP của GitHub — nhưng VCB XML thì chạy, nên là chặn theo từng nguồn chứ không phải chặn cả nước.
+
+**Bốn field CORE còn lại phải nhập tay**: `fx.tg_tu_do_ban` và `fx.spread_emp` (giá chợ đen, không có nguồn gốc công khai nào) · `gold.sjc_mua` và `gold.sjc_ban` (SJC và BTMC đều không gọi được từ runner).
+
 **Chuỗi nguồn đang dùng:**
 
 | Field | Nguồn 1 | Dự phòng |
