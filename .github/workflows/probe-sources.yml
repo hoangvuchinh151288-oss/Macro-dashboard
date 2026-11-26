@@ -26,5 +26,10 @@ jobs:
       - name: Cai xlrd (doc .xls cua EIA)
         run: pip install --quiet xlrd
 
+      - name: Do kha nang ket noi (lien ngan hang, lai suat huy dong)
+        if: inputs.nhom == '' || inputs.nhom == 'reach'
+        run: python3 tools/probe_reach.py
+
       - name: Do cac nguon ung vien
+        if: inputs.nhom != 'reach'
         run: python3 tools/probe_sources.py ${{ github.event.inputs.nhom }}
