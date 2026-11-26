@@ -1,5 +1,5 @@
 {
-  "run_at_ict": "2026-11-26 10:21:21",
+  "run_at_ict": "2026-11-26 11:02:20",
   "ok": {
     "fx.vcb_mua": {
       "old": 25660.0,
@@ -30,15 +30,15 @@
       "ngay_quan_sat": "24/11/2026"
     },
     "gold.tg_usd": {
-      "old": 3578.4,
-      "new": 3576.899902,
+      "old": 3576.9,
+      "new": 3573.0,
       "src": "api.gold-api.com XAU giao ngay",
       "tier": "MARKET",
       "ngay_quan_sat": "26/11/2026"
     },
     "dxy.value": {
-      "old": 103.79,
-      "new": 103.8,
+      "old": 103.8,
+      "new": 103.812,
       "src": "CNBC .DXY (ICE)",
       "tier": "MARKET",
       "ngay_quan_sat": "25/11/2026"
@@ -74,7 +74,7 @@
     ]
   },
   "meta_date": {
-    "cu": "18/11/2026",
+    "cu": "26/11/2026",
     "moi": "26/11/2026"
   },
   "summary": "6 ghi / 0 bo qua"
