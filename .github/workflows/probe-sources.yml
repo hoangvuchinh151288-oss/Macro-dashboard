@@ -27,9 +27,9 @@ jobs:
         run: pip install --quiet xlrd
 
       - name: Do kha nang ket noi (lien ngan hang, lai suat huy dong)
-        if: inputs.nhom == '' || inputs.nhom == 'reach' || inputs.nhom == 'trich' || inputs.nhom == 'dao'
-        run: python3 tools/probe_reach.py ${{ inputs.nhom == 'trich' && '--trich' || inputs.nhom == 'dao' && '--dao' || '' }}
+        if: inputs.nhom == '' || inputs.nhom == 'reach' || inputs.nhom == 'trich' || inputs.nhom == 'dao' || inputs.nhom == 'servlet'
+        run: python3 tools/probe_reach.py ${{ inputs.nhom == 'trich' && '--trich' || inputs.nhom == 'dao' || inputs.nhom == 'servlet' && '--dao' || inputs.nhom == 'servlet' && '--servlet' || '' }}
 
       - name: Do cac nguon ung vien
-        if: inputs.nhom != 'reach' && inputs.nhom != 'trich' && inputs.nhom != 'dao'
+        if: inputs.nhom != 'reach' && inputs.nhom != 'trich' && inputs.nhom != 'dao' && inputs.nhom != 'servlet'
         run: python3 tools/probe_sources.py ${{ github.event.inputs.nhom }}

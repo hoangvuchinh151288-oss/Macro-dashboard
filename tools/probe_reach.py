@@ -125,7 +125,31 @@ def dao(url, ten):
         print('  %-20s %s' % (nhan, hit[:6] if hit else 'khong thay'))
 
 
+SERVLET = [
+    ('BIDV InterestDetailServlet', 'https://bidv.com.vn/ServicesBIDV/InterestDetailServlet'),
+    ('BIDV InterestDetailOnlineServlet', 'https://bidv.com.vn/ServicesLaiSuatOnline/InterestDetailOnlineServlet'),
+    ('BIDV InterestDetailDepositsServlet', 'https://bidv.com.vn/ServicesLaiSuatOnline/InterestDetailDepositsServlet'),
+]
+
+
+def servlet():
+    """Thu truc tiep cac endpoint tim duoc o che do --dao."""
+    for ten, url in SERVLET:
+        try:
+            ma, body, dt = thu(url, 30)
+            dau = re.sub(r'\s+', ' ', body[:260])
+            so = re.findall(r'\b\d{1,2}[.,]\d{1,2}\b', body)
+            print('  %-3s %-36s %6.1fs %7d byte' % (ma, ten[:36], dt, len(body)))
+            print('      dau: %s' % dau)
+            print('      so dang lai suat: %s' % (so[:14] or 'KHONG CO'))
+        except Exception as e:
+            print('  LOI %-36s %s: %s' % (ten[:36], type(e).__name__, str(e)[:70]))
+
+
 def main():
+    if '--servlet' in sys.argv:
+        servlet()
+        return 0
     if '--dao' in sys.argv:
         for g, ten, url, keys in MUC_TIEU:
             if not any(k for k in keys):
