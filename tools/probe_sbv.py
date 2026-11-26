@@ -71,6 +71,24 @@ def main():
             print('--- doan quanh "%s" ---' % m)
             print(re.sub(r'\n{2,}', '\n', text[max(0, i - 400):i + 1200]))
 
+        # URL cu /webcenter/portal/... da chet va redirect ve trang chu:
+        # SBV doi website. Liet ke link lien quan de tim duong dan moi.
+        print('\n=== LINK LIEN QUAN TREN TRANG ===')
+        lk = pg.eval_on_selector_all(
+            'a[href]',
+            "els => els.map(e => [e.innerText.trim().slice(0,70), e.href])")
+        tu = ('lãi suất', 'liên ngân hàng', 'thống kê', 'lai-suat', 'lien-ngan-hang',
+              'thong-ke', 'du-lieu')
+        ra = []
+        for t, h in lk:
+            gop = (t + ' ' + h).lower()
+            if any(k in gop for k in tu) and (t, h) not in ra:
+                ra.append((t, h))
+        for t, h in ra[:30]:
+            print('  %-46s %s' % (t[:46], h[:110]))
+        if not ra:
+            print('  khong thay link nao lien quan')
+
         print('\n=== CAC BANG TRONG TRANG ===')
         bang = pg.query_selector_all('table')
         print('so the <table>: %d' % len(bang))
