@@ -10,8 +10,7 @@
       "nguong_tuoi": 2,
       "input_thieu": [],
       "input_qua_han": [
-        "fx.tg_tu_do_ban(8d)",
-        "fx.vcb_ban(6d)"
+        "fx.tg_tu_do_ban(8d)"
       ]
     },
     "gap_ccs": {
@@ -47,7 +46,7 @@
       "nhom": "truc_chinh",
       "trang_thai": "CHAY",
       "do_tin_cay_tran": "suy_ra",
-      "tuoi_input_cu_nhat": 8,
+      "tuoi_input_cu_nhat": 2,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": []
@@ -55,14 +54,12 @@
     "war_premium": {
       "ten": "Phan bu chien tranh tren gia dau",
       "nhom": "dung_thuong",
-      "trang_thai": "KHONG DU",
+      "trang_thai": "CHAY",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 8,
-      "nguong_tuoi": 2,
+      "tuoi_input_cu_nhat": 2,
+      "nguong_tuoi": 8,
       "input_thieu": [],
-      "input_qua_han": [
-        "oil.brent(8d)"
-      ]
+      "input_qua_han": []
     },
     "cpi_passthrough": {
       "ten": "Truyen dan gia dau va cuoc van tai sang CPI (mo hinh BCT 2 kenh)",
@@ -254,9 +251,7 @@
       "input_thieu": [],
       "input_qua_han": [
         "gold.sjc_ban(8d)",
-        "gold.sjc_mua(8d)",
-        "gold.tg_usd(8d)",
-        "fx.vcb_ban(6d)"
+        "gold.sjc_mua(8d)"
       ]
     }
   },
