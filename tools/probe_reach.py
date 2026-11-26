@@ -46,6 +46,14 @@ MUC_TIEU = [
      'https://finance.vietstock.vn/du-lieu-vi-mo/52/lai-suat-lien-ngan-hang.htm',
      ['qua đêm', 'Qua đêm', 'liên ngân hàng']),
 
+    ('lnh', 'dttktt SBV lai suat TT lien NH [MOI]',
+     'https://dttktt.sbv.gov.vn/webcenter/portal/vi/menu/rm/ls/lsttlnh',
+     ['qua đêm', 'Qua đêm', '1 tuần']),
+    ('lnh', 'dttktt SBV goc',
+     'https://dttktt.sbv.gov.vn/', ['']),
+    ('lnh', 'sbv.gov.vn trang chu moi',
+     'https://sbv.gov.vn/vi/trang-chu', ['Lãi suất', 'lãi suất']),
+
     # ── bang lai suat huy dong: khong co nguon tap trung, phai tung ngan hang
     ('huydong', 'VCB bieu lai suat',
      'https://portal.vietcombank.com.vn/Personal/TG/Pages/lai-suat.aspx',
