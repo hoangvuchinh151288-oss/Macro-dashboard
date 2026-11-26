@@ -29,7 +29,14 @@ Ba điều phải nhớ khi sửa chuỗi này:
 
 `tools/probe_reach.py` (bấm tay, bốn chế độ: mặc định đo kết nối · `--trich` xem số có trong HTML không · `--dao` tìm endpoint ẩn · `--servlet` thử endpoint tìm được).
 
-**Đường cong liên ngân hàng: không có đường.** SBV với tới được (200, 424 KB) nhưng **số không nằm trong HTML** — từ khoá khớp đều ở menu. Portal chạy Liferay, bảng nạp bằng fragment; không file `.xls`/`.csv` nào, không endpoint dữ liệu nào lộ ra. Vietstock 200 nhưng không có cả từ khoá; VNDirect timeout. Muốn tự động thì phải chạy trình duyệt headless trong workflow. **Hiện vẫn nhập tay.**
+**Đường cong liên ngân hàng: không tự động được từ GitHub Actions.** Đã thử tới cùng, kể cả trình duyệt headless (`tools/probe_sbv.py`, chạy với `nhom=sbv`).
+
+Hai phát hiện xếp chồng:
+
+1. **URL cũ đã chết.** `www.sbv.gov.vn/webcenter/portal/vi/menu/rm/ls/lsbqlnh` nay **redirect im lặng về trang chủ**. Đo bằng HTTP thuần thấy 200 và 424 KB "có từ khoá liên ngân hàng" — đó là menu của trang chủ mới, không phải bảng số. Trang chủ mới và URL cũ trả về đúng cùng 423.876 byte. *Nếu anh còn bookmark đường dẫn cũ để tra tay thì nó đang dẫn về trang chủ.*
+2. **Cổng thống kê thật không với tới được.** Đường dẫn đúng là `https://dttktt.sbv.gov.vn/webcenter/portal/vi/menu/rm/ls/lsttlnh` — tìm ra bằng cách liệt kê link trên trang chủ mới. Nhưng subdomain `dttktt.sbv.gov.vn` **timeout ở tầng kết nối** từ runner, cả trang con lẫn trang gốc, cả urllib lẫn Chromium. Cùng loại với SJC (403) và BTMC (timeout): chặn theo IP.
+
+Nên trình duyệt headless không cứu được — vấn đề không nằm ở render mà ở chỗ host không trả lời IP của GitHub. Muốn tự động thì phải chạy fetch từ một máy ở Việt Nam rồi push lên. **Hiện vẫn nhập tay.**
 
 **Lãi suất huy động: được một ngân hàng.** BIDV lộ ba servlet trả JSON sạch, có số thật:
 
