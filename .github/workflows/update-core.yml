@@ -36,12 +36,12 @@ jobs:
         # Khong lien quan do tuoi du lieu nen buoc nay an toan de chan.
         run: python3 tools/gen_registry.py --check
 
-      - name: Doi chieu hop dong mo hinh (bao cao, chua chan)
-        # Hien dang exit 1 vi 4 mo hinh thieu du lieu. Bo `|| true` khi da nuoi du.
-        run: python3 tools/check_models.py || true
-
-      - name: Kiem tra truoc khi commit
-        run: python3 tools/check_all.py
+      - name: Kiem tra truoc khi commit (lop 1-4)
+        # CHI cu phap, runtime, NaN, kieu du lieu — nhung lop bao ve trang dang
+        # chay. Lop 5 (tuoi du lieu) CO Y khong chan o day: xem buoc "Chuong bao"
+        # ben duoi. Tu 23 den 25/11/2026 bo kiem tra day du chan ca ba lan chay,
+        # nen so VCB fetch duoc (25.600 -> 25.640) khong bao gio vao duoc repo.
+        run: python3 tools/check_all.py --pha truoc-commit
 
       - name: Commit neu co thay doi
         run: |
@@ -59,6 +59,17 @@ jobs:
           SUM=$(python3 -c "import json;print(json.load(open('tools/last_run.json'))['summary'])")
           git commit -m "auto: cap nhat field CORE ($SUM)"
           git push
+
+      - name: Doi chieu hop dong mo hinh (bao cao, chua chan)
+        if: always()
+        # Hien exit 1 vi con mo hinh thieu du lieu. Bo `|| true` khi da nuoi du.
+        run: python3 tools/check_models.py || true
+
+      - name: Chuong bao du lieu cu (lop 5, 5b, 6)
+        if: always()
+        # Chay SAU commit nen du lieu moi da vao repo roi. Buoc nay van lam job
+        # do khi du lieu qua han — canh bao van keu, chi khong con giam du lieu.
+        run: python3 tools/check_all.py --pha sau-commit
 
       - name: Bao cao
         if: always()

@@ -72,6 +72,23 @@ python3 tools/check_all.py /đường/dẫn/repo
 
 Exit `0` = đủ điều kiện push. Exit `1` = có FAIL, **không được push**. Exit `2` = không tìm thấy file.
 
+## Hai pha — `--pha truoc-commit` / `--pha sau-commit`
+
+```bash
+python3 tools/check_all.py --pha truoc-commit   # lớp 1,2,3,4 — chặn commit
+python3 tools/check_all.py --pha sau-commit     # lớp 5,5b,6 — chuông báo
+python3 tools/check_all.py                      # tất cả, dùng khi push tay
+```
+
+Mọi lần chạy đều chạy **đủ bảy lớp và in đủ kết quả**; cờ `--pha` chỉ đổi lớp nào được tính vào mã thoát. Lỗi ngoài pha vẫn in ra dưới nhãn *lỗi ngoài pha này*.
+
+| Pha | Lớp tính vào mã thoát | Vai trò |
+|---|---|---|
+| `truoc-commit` | 1, 2, 3, 4 — cú pháp, runtime, NaN, kiểu dữ liệu | bảo vệ trang đang chạy; chặn commit |
+| `sau-commit` | 5, 5b, 6 — tuổi, nguồn CORE, mâu thuẫn chéo | chuông báo dữ liệu cũ; chạy sau commit |
+
+**Vì sao phải tách.** Workflow cũ chạy fetch → check_all → commit. Dữ liệu cũ làm check_all FAIL ở lớp 5, job dừng, nên số VCB vừa lấy được cũng không vào được repo — dữ liệu cũ làm job hỏng, job hỏng làm dữ liệu cũ thêm. Ba lần chạy 23, 24, 25/11/2026 (run `45144750330`, `45380623267`, `45589770313`) đều như vậy: fetch lấy được `fx.vcb_mua` 25.600 → 25.640 rồi ném đi. Số mới lấy về luôn tốt hơn số cũ, nên không được chặn nó vì chỗ khác cũ. Chuông báo vẫn kêu — job vẫn đỏ khi dữ liệu quá hạn — chỉ không còn giam dữ liệu mới.
+
 ## Cấu trúc repo
 
 Từ **v5.82 (01/11/2026)** dữ liệu tách khỏi render:

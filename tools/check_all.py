@@ -8,10 +8,35 @@ Script doc CA HAI file.
 Chay:  python3 tools/check_all.py                  (tu bat ky cwd nao)
        python3 tools/check_all.py duong/dan/repo
 Exit 0 = du dieu kien push · 1 = co FAIL, KHONG push · 2 = khong tim thay file.
+
+HAI PHA (--pha truoc-commit | sau-commit)
+  Moi lan chay deu chay DU bay lop va in du ket qua; co `--pha` chi doi
+  nhung lop nao duoc tinh vao ma thoat.
+    truoc-commit : chi lop 1,2,3,4 (cu phap, runtime, NaN, kieu du lieu)
+                   — nhung lop bao ve TRANG DANG CHAY. Chan commit.
+    sau-commit   : chi lop 5,5b,6 (tuoi, nguon CORE, mau thuan cheo)
+                   — chuong bao du lieu cu. Chay SAU commit.
+    khong co co  : tinh tat ca, nhu truoc. Dung khi push tay.
+Ly do tach: workflow cu chay fetch -> check_all -> commit. Du lieu cu lam
+check_all FAIL o lop 5, job dung, nen so VCB vua lay duoc cung khong vao
+duoc repo. Ba ngay 23-25/11/2026 deu nhu vay (run 45144750330, 45380623267,
+45589770313): fetch lay duoc fx.vcb_mua 25.600 -> 25.640 roi vut di. So moi
+lay ve luon tot hon so cu, nen khong duoc chan no vi cho khac cu.
 """
 import re, sys, io, os, subprocess, datetime, tempfile
 
-ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_args = [a for a in sys.argv[1:] if not a.startswith('--')]
+_pha = None
+if '--pha' in sys.argv:
+    _i = sys.argv.index('--pha')
+    if _i + 1 < len(sys.argv): _pha = sys.argv[_i + 1]
+    if _pha in _args: _args.remove(_pha)
+if _pha not in (None, 'truoc-commit', 'sau-commit'):
+    print('--pha chi nhan: truoc-commit | sau-commit'); sys.exit(2)
+LOP_CHAN = {'truoc-commit': ('[1]', '[2]', '[3]', '[4]'),
+            'sau-commit': ('[5]', '[6]')}.get(_pha)
+
+ROOT = _args[0] if _args else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IDX = os.path.join(ROOT, 'index.html')
 DAT = os.path.join(ROOT, 'data.js')
 for f in (IDX, DAT):
@@ -185,11 +210,23 @@ print('[6] Mau thuan cheo: %d canh bao (%d chi tieu doi chieu)'
       % (len([w for w in warn if w.startswith('[6]')]), len(CANON)))
 
 print('\n' + '=' * 60)
-if fail:
-    print('*** FAIL (%d) — KHONG DUOC PUSH ***' % len(fail))
-    for f in fail[:25]: print(' ', f)
+# `fail` giu moi loi tim duoc; `chan` la nhung loi duoc tinh vao ma thoat cua
+# pha dang chay. Loi ngoai pha van IN RA, chi khong chan.
+chan = fail if LOP_CHAN is None else [f for f in fail if f.startswith(LOP_CHAN)]
+ngoai_pha = [f for f in fail if f not in chan]
+if _pha:
+    print('PHA: %s — chi lop %s duoc tinh vao ma thoat'
+          % (_pha, '/'.join(LOP_CHAN)))
+if chan:
+    print('*** FAIL (%d) — %s ***'
+          % (len(chan), 'KHONG DUOC COMMIT' if _pha == 'truoc-commit' else 'KHONG DUOC PUSH'))
+    for f in chan[:25]: print(' ', f)
+if ngoai_pha:
+    print('--- %d loi ngoai pha nay (van phai sua, khong chan o day) ---' % len(ngoai_pha))
+    for f in ngoai_pha[:25]: print(' ', f)
 if warn:
     print('--- WARN (%d) ---' % len(warn))
     for w in warn[:30]: print(' ', w)
-if not fail: print('>>> PASS — du dieu kien push')
-sys.exit(1 if fail else 0)
+if not chan:
+    print('>>> PASS%s' % (' pha %s' % _pha if _pha else ' — du dieu kien push'))
+sys.exit(1 if chan else 0)
