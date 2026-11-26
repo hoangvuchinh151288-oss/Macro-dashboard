@@ -1,30 +1,30 @@
 {
-  "ngay": "23/11/2026",
+  "ngay": "26/11/2026",
   "models": {
     "emp": {
       "ten": "Exchange Market Pressure",
       "nhom": "truc_chinh",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 5,
+      "tuoi_input_cu_nhat": 8,
       "nguong_tuoi": 2,
       "input_thieu": [],
       "input_qua_han": [
-        "fx.tg_tu_do_ban(5d)",
-        "fx.vcb_ban(3d)"
+        "fx.tg_tu_do_ban(8d)",
+        "fx.vcb_ban(6d)"
       ]
     },
     "gap_ccs": {
       "ten": "Gap CCS - chenh lai suat VND/USD theo ky han",
       "nhom": "truc_chinh",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 23,
+      "tuoi_input_cu_nhat": 26,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "yield_curve.m3(9d)",
-        "yield_curve.m6(23d)"
+        "yield_curve.m3(12d)",
+        "yield_curve.m6(26d)"
       ]
     },
     "cd_macro": {
@@ -32,14 +32,14 @@
       "nhom": "truc_chinh",
       "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "uoc_luong",
-      "tuoi_input_cu_nhat": 115,
+      "tuoi_input_cu_nhat": 118,
       "nguong_tuoi": 35,
       "input_thieu": [],
       "input_qua_han": [
-        "m2.abs_2025(40d)",
-        "m2.yoy_2025(40d)",
-        "rates_tt1.ldr_big4(115d)",
-        "rates_tt1.ldr_tu_nhan(115d)"
+        "m2.abs_2025(43d)",
+        "m2.yoy_2025(43d)",
+        "rates_tt1.ldr_big4(118d)",
+        "rates_tt1.ldr_tu_nhan(118d)"
       ]
     },
     "kb_hormuz": {
@@ -47,7 +47,7 @@
       "nhom": "truc_chinh",
       "trang_thai": "CHAY",
       "do_tin_cay_tran": "suy_ra",
-      "tuoi_input_cu_nhat": 5,
+      "tuoi_input_cu_nhat": 8,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": []
@@ -55,13 +55,13 @@
     "war_premium": {
       "ten": "Phan bu chien tranh tren gia dau",
       "nhom": "dung_thuong",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 5,
+      "tuoi_input_cu_nhat": 8,
       "nguong_tuoi": 2,
       "input_thieu": [],
       "input_qua_han": [
-        "oil.brent(5d)"
+        "oil.brent(8d)"
       ]
     },
     "cpi_passthrough": {
@@ -69,11 +69,11 @@
       "nhom": "dung_thuong",
       "trang_thai": "CANH BAO",
       "do_tin_cay_tran": "suy_ra",
-      "tuoi_input_cu_nhat": 67,
+      "tuoi_input_cu_nhat": 70,
       "nguong_tuoi": 35,
       "input_thieu": [],
       "input_qua_han": [
-        "freight.hp_rotterdam(67d)"
+        "freight.hp_rotterdam(70d)"
       ]
     },
     "cof_4tang": {
@@ -81,16 +81,16 @@
       "nhom": "dung_thuong",
       "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "bao_chi",
-      "tuoi_input_cu_nhat": 40,
+      "tuoi_input_cu_nhat": 43,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "rates_tt1.big4_6_12t(36d)",
-        "rates_tt1.tn_lon_6_12t(23d)",
-        "rates_tt1.tn_vua_6_12t(23d)",
-        "rates_tt1.tn_12t_dinh(40d)",
-        "rates_tt1.nm_1_3t(36d)",
-        "rates_tt1.nm_3_6t(36d)"
+        "rates_tt1.big4_6_12t(39d)",
+        "rates_tt1.tn_lon_6_12t(26d)",
+        "rates_tt1.tn_vua_6_12t(26d)",
+        "rates_tt1.tn_12t_dinh(43d)",
+        "rates_tt1.nm_1_3t(39d)",
+        "rates_tt1.nm_3_6t(39d)"
       ]
     },
     "nsfr_lcr": {
@@ -98,7 +98,7 @@
       "nhom": "dung_thuong",
       "trang_thai": "CHAY",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 53,
+      "tuoi_input_cu_nhat": 56,
       "nguong_tuoi": 100,
       "input_thieu": [],
       "input_qua_han": []
@@ -108,25 +108,25 @@
       "nhom": "dung_thuong",
       "trang_thai": "CANH BAO",
       "do_tin_cay_tran": "suy_ra",
-      "tuoi_input_cu_nhat": 18,
+      "tuoi_input_cu_nhat": 21,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "cpi.t3_forecast(18d)",
-        "fed.prob_hold(10d)"
+        "cpi.t3_forecast(21d)",
+        "fed.prob_hold(13d)"
       ]
     },
     "irp_covered": {
       "ten": "Interest Rate Parity co bao hiem",
       "nhom": "dung_thuong",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 23,
+      "tuoi_input_cu_nhat": 26,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "yield_curve.m6(23d)",
-        "omo.fx_swap_182d(18d)"
+        "yield_curve.m6(26d)",
+        "omo.fx_swap_182d(21d)"
       ]
     },
     "hqla_transform": {
@@ -134,12 +134,12 @@
       "nhom": "dung_thuong",
       "trang_thai": "CANH BAO",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 18,
+      "tuoi_input_cu_nhat": 21,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "omo.fx_swap_182d(18d)",
-        "omo.trang_thai(9d)"
+        "omo.fx_swap_182d(21d)",
+        "omo.trang_thai(12d)"
       ]
     },
     "bop_fx": {
@@ -147,7 +147,7 @@
       "nhom": "dung_thuong",
       "trang_thai": "CHAY",
       "do_tin_cay_tran": "bao_chi",
-      "tuoi_input_cu_nhat": 80,
+      "tuoi_input_cu_nhat": 83,
       "nguong_tuoi": 100,
       "input_thieu": [],
       "input_qua_han": []
@@ -157,27 +157,27 @@
       "nhom": "dung_thuong",
       "trang_thai": "CANH BAO",
       "do_tin_cay_tran": "bao_chi",
-      "tuoi_input_cu_nhat": 40,
+      "tuoi_input_cu_nhat": 43,
       "nguong_tuoi": 35,
       "input_thieu": [],
       "input_qua_han": [
-        "nsnn.thu_2t(40d)",
-        "nsnn.chi_2t(40d)",
-        "m2.tga_tgkb(40d)",
-        "dtc.giai_ngan_2t(36d)"
+        "nsnn.thu_2t(43d)",
+        "nsnn.chi_2t(43d)",
+        "m2.tga_tgkb(43d)",
+        "dtc.giai_ngan_2t(39d)"
       ]
     },
     "transmission_tt1": {
       "ten": "Truyen dan tren thi truong lien ngan hang",
       "nhom": "dung_thuong",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 23,
+      "tuoi_input_cu_nhat": 26,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "transmission.doanh_so(23d)",
-        "transmission.ty_trong(23d)"
+        "transmission.doanh_so(26d)",
+        "transmission.ty_trong(26d)"
       ]
     },
     "dong_tien_rong": {
@@ -185,27 +185,27 @@
       "nhom": "dung_thuong",
       "trang_thai": "CANH BAO",
       "do_tin_cay_tran": "bao_chi",
-      "tuoi_input_cu_nhat": 94,
+      "tuoi_input_cu_nhat": 97,
       "nguong_tuoi": 35,
       "input_thieu": [],
       "input_qua_han": [
-        "m2.outside_money_flow(40d)",
-        "m2.net_money_flow(40d)",
-        "m2.nfa_dtnh(94d)",
-        "m2.abs_2025(40d)"
+        "m2.outside_money_flow(43d)",
+        "m2.net_money_flow(43d)",
+        "m2.nfa_dtnh(97d)",
+        "m2.abs_2025(43d)"
       ]
     },
     "turn_basis": {
       "ten": "Hieu ung chuyen nam tren duong cong ky han",
       "nhom": "it_dung",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 23,
+      "tuoi_input_cu_nhat": 26,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "yield_curve.m3(9d)",
-        "yield_curve.m6(23d)"
+        "yield_curve.m3(12d)",
+        "yield_curve.m6(26d)"
       ]
     },
     "hieu_ung_nen": {
@@ -223,15 +223,15 @@
       "nhom": "vong_phan_hoi",
       "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "lac_hau",
-      "tuoi_input_cu_nhat": 90,
+      "tuoi_input_cu_nhat": 93,
       "nguong_tuoi": 8,
       "input_thieu": [],
       "input_qua_han": [
-        "signals.khung_scorecard(22d)",
-        "signals.q4_q1_forecast(22d)",
-        "signals.q2_du_bao_cpi(90d)",
-        "signals.q2_du_bao_ls(22d)",
-        "signals.q2_du_bao_ty_gia(22d)"
+        "signals.khung_scorecard(25d)",
+        "signals.q4_q1_forecast(25d)",
+        "signals.q2_du_bao_cpi(93d)",
+        "signals.q2_du_bao_ls(25d)",
+        "signals.q2_du_bao_ty_gia(25d)"
       ]
     },
     "reer": {
@@ -247,16 +247,16 @@
     "gold_premium": {
       "ten": "Chenh lech vang SJC so voi gia the gioi quy doi",
       "nhom": "dung_thuong",
-      "trang_thai": "CANH BAO",
+      "trang_thai": "KHONG DU",
       "do_tin_cay_tran": "do_duoc",
-      "tuoi_input_cu_nhat": 5,
+      "tuoi_input_cu_nhat": 8,
       "nguong_tuoi": 2,
       "input_thieu": [],
       "input_qua_han": [
-        "gold.sjc_ban(5d)",
-        "gold.sjc_mua(5d)",
-        "gold.tg_usd(5d)",
-        "fx.vcb_ban(3d)"
+        "gold.sjc_ban(8d)",
+        "gold.sjc_mua(8d)",
+        "gold.tg_usd(8d)",
+        "fx.vcb_ban(6d)"
       ]
     }
   },
