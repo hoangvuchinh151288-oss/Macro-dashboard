@@ -78,7 +78,37 @@ def thu(url, timeout=25):
         return r.status, raw.decode('utf-8', 'replace'), time.time() - t0
 
 
+def trich(url, moc, rong=1100):
+    """In mot doan HTML quanh tu khoa — de biet SO co nam san trong trang hay
+    trang chi la khung roi JS moi nap du lieu. Khong co so trong HTML thi
+    urllib khong lay duoc, phai doi cach khac."""
+    try:
+        _, body, _ = thu(url, 40)
+    except Exception as e:
+        print('  khong tai duoc: %s' % e)
+        return
+    i = -1
+    for m in moc:
+        i = body.find(m)
+        if i >= 0:
+            break
+    if i < 0:
+        print('  khong thay moc nao trong %d byte' % len(body))
+        return
+    doan = re.sub(r'\s+', ' ', body[max(0, i - 200):i + rong])
+    print('  ...%s...' % doan)
+    so = re.findall(r'\b\d{1,2}[.,]\d{1,2}\b', doan)
+    print('  >> cac so dang lai suat trong doan: %s' % (so[:20] or 'KHONG CO'))
+
+
 def main():
+    if '--trich' in sys.argv:
+        for g, ten, url, keys in MUC_TIEU:
+            if not any(k for k in keys):
+                continue
+            print('\n--- %s ---' % ten)
+            trich(url, [k for k in keys if k])
+        return 0
     for nhom in ('lnh', 'huydong'):
         print('\n' + '=' * 74)
         print('NHOM %s' % ('DUONG CONG LIEN NGAN HANG' if nhom == 'lnh'
