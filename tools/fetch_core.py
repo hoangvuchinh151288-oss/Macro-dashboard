@@ -145,30 +145,99 @@ def yahoo2(sym):
     return float(mp)
 
 
+def gold_api():
+    """api.gold-api.com — gia vang GIAO NGAY XAU/USD, khong can khoa."""
+    return float(json.loads(get('https://api.gold-api.com/price/XAU', 30))['price'])
+
+
+def eia_xls(kind):
+    """EIA — U.S. Energy Information Administration, CO QUAN CONG BO. Chuoi gia
+    GIAO NGAY Brent (RBRTE) va WTI (RWTC), dung chuoi ma FRED phat hanh lai,
+    nen thay FRED bang EIA la giu NGUYEN chuoi so chu khong doi cong cu.
+    File .xls dinh dang BIFF cu, doc bang xlrd 2.x. Tra ve (gia, ngay quan sat)."""
+    import xlrd
+    u = ('https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls' if kind == 'brent'
+         else 'https://www.eia.gov/dnav/pet/hist_xls/RWTCd.xls')
+    req = urllib.request.Request(u, headers=UA)
+    with urllib.request.urlopen(req, timeout=60) as r:
+        raw = r.read()
+    wb = xlrd.open_workbook(file_contents=raw)
+    sh = wb.sheet_by_index(1)          # sheet 0 la muc luc, sheet 1 la du lieu
+    for i in range(sh.nrows - 1, 2, -1):
+        gt = sh.cell_value(i, 1)
+        if isinstance(gt, float) and gt > 0:
+            ng = xlrd.xldate_as_datetime(sh.cell_value(i, 0), wb.datemode)
+            return float(gt), ng.strftime('%Y-%m-%d')
+    raise ValueError('EIA %s: khong tim thay dong co so' % kind)
+
+
+def datahub(path):
+    """raw.githubusercontent datasets/oil-prices — phat hanh lai chinh chuoi EIA.
+    Cap nhat that thuong nen chi dung lam du phong; ngay quan sat duoc tra ve
+    de ham main tu choi neu qua cu."""
+    csv = get('https://raw.githubusercontent.com/datasets/%s' % path, 30)
+    rows = [r for r in csv.strip().split('\n')[1:] if r.strip()]
+    last = rows[-1].split(',')
+    return float(last[1]), last[0]
+
+
+def cnbc(sym):
+    """CNBC quote json, khong can khoa. LUU Y: @LCO.1 / @CL.1 / @GC.1 la HOP DONG
+    TUONG LAI thang gan, KHAC voi gia giao ngay cua EIA — chenh 2-3%. Chi dung
+    lam du phong cuoi va phai ghi ro trong note. Rieng .DXY dung la chi so ICE."""
+    u = ('https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol'
+         '?symbols=%s&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1'
+         '&output=json&events=1' % sym)
+    js = json.loads(get(u, 30))
+    q = js['FormattedQuoteResult']['FormattedQuote'][0]
+    return float(str(q['last']).replace(',', '')), str(q.get('last_time', ''))[:10]
+
+
+def ecb_dxy():
+    """DXY suy ra tu ty gia tham chieu ECB theo cong thuc va trong so da cong bo:
+       USDX = 50.14348112 x EURUSD^-0.576 x USDJPY^0.136 x GBPUSD^-0.119
+                          x USDCAD^0.091 x USDSEK^0.042 x USDCHF^0.036
+    Do thu 26/11 cho 104,04 trong khi .DXY that cua ICE la 103,794 — lech 0,24%.
+    Day la SO SUY RA, khong phai chi so ICE; chi dung khi CNBC hong."""
+    js = json.loads(get('https://api.frankfurter.dev/v1/latest?base=EUR'
+                        '&symbols=USD,JPY,GBP,CAD,SEK,CHF', 30))
+    r = js['rates']
+    eurusd = r['USD']
+    usdjpy, gbpusd = r['JPY'] / eurusd, eurusd / r['GBP']
+    usdcad, usdsek, usdchf = r['CAD'] / eurusd, r['SEK'] / eurusd, r['CHF'] / eurusd
+    v = (50.14348112 * eurusd ** -0.576 * usdjpy ** 0.136 * gbpusd ** -0.119
+         * usdcad ** 0.091 * usdsek ** 0.042 * usdchf ** 0.036)
+    return round(v, 2), js.get('date', '')
+
+
 # Moi field co MOT CHUOI nguon du phong. Thu lan luot, cai nao duoc thi dung,
 # va ghi lai nguon nao da dung de lan sau biet nguon nao on dinh.
 # (ten_field): [ (ten_nguon, ham), ... ], min, max, so chu so thap phan
 SOURCES = {
-    'fx.vcb_mua':  ([('VCB XML', lambda: src_vcb()[0])],                        20000, 32000, 0),
-    'fx.vcb_ban':  ([('VCB XML', lambda: src_vcb()[1])],                        20000, 32000, 0),
-    'oil.brent':   ([('FRED DCOILBRENTEU', lambda: fred('DCOILBRENTEU')[0]),
-                     ('stooq_dl cb.f',     lambda: stooq_dl('cb.f')),
-                     ('yahoo2 BZ=F',       lambda: yahoo2('BZ%3DF')),
-                     ('yahoo BZ=F',        lambda: yahoo('BZ%3DF'))],              30,   250, 2),
-    'oil.wti':     ([('FRED DCOILWTICO',   lambda: fred('DCOILWTICO')[0]),
-                     ('stooq_dl cl.f',     lambda: stooq_dl('cl.f')),
-                     ('yahoo2 CL=F',       lambda: yahoo2('CL%3DF')),
-                     ('yahoo CL=F',        lambda: yahoo('CL%3DF'))],              25,   240, 2),
-    'gold.tg_usd': ([('stooq_dl xauusd',   lambda: stooq_dl('xauusd')),
-                     ('yahoo2 GC=F',       lambda: yahoo2('GC%3DF')),
-                     ('yahoo GC=F',        lambda: yahoo('GC%3DF'))],            1500,  9000, 2),
-    # ⚠️ DXY KHONG CO NGUON FRED. Chuoi DTWEXBGS cua FRED la "broad dollar index"
-    # goc Jan-2006=100, hien quanh 121 — KHAC HAN DXY (~102, ro 6 dong tien).
-    # Bien hop ly [80,130] se KHONG chan duoc so 121 nen se ghi nham chi so khac
-    # vao field DXY. Vi vay thu hep bien ve [90,115] va tuyet doi khong them FRED.
-    'dxy.value':   ([('yahoo2 DX-Y.NYB',   lambda: yahoo2('DX-Y.NYB')),
-                     ('stooq_dl dx.f',     lambda: stooq_dl('dx.f')),
-                     ('yahoo DX-Y.NYB',    lambda: yahoo('DX-Y.NYB'))],            90,   115, 2),
+    # (ten_field): [ (ten_nguon, tier, ham), ... ], min, max, so chu so thap phan
+    # tier di vao chuoi source cua field — PRIMARY = co quan cong bo truc tiep.
+    'fx.vcb_mua':  ([('VCB XML', 'MARKET', lambda: src_vcb()[0])],              20000, 32000, 0),
+    'fx.vcb_ban':  ([('VCB XML', 'MARKET', lambda: src_vcb()[1])],              20000, 32000, 0),
+
+    # Brent/WTI: GIU NGUYEN chuoi gia giao ngay. FRED truoc day phat hanh lai
+    # chuoi cua EIA, nay FRED timeout tu runner (do 26/11: 60s ca 4 lan) nen
+    # lay thang tu EIA. CNBC la hop dong tuong lai — KHAC cong cu, chi du phong.
+    'oil.brent':   ([('EIA RBRTE giao ngay', 'PRIMARY', lambda: eia_xls('brent')),
+                     ('datasets/oil-prices', 'DERIVED', lambda: datahub('oil-prices/main/data/brent-daily.csv')),
+                     ('CNBC @LCO.1 [TUONG LAI]', 'MARKET', lambda: cnbc('%40LCO.1'))],  30,  250, 2),
+    'oil.wti':     ([('EIA RWTC giao ngay', 'PRIMARY', lambda: eia_xls('wti')),
+                     ('datasets/oil-prices', 'DERIVED', lambda: datahub('oil-prices/main/data/wti-daily.csv')),
+                     ('CNBC @CL.1 [TUONG LAI]', 'MARKET', lambda: cnbc('%40CL.1'))],    25,  240, 2),
+
+    # Vang the gioi giao ngay XAU/USD. CNBC @GC.1 la COMEX tuong lai, du phong.
+    'gold.tg_usd': ([('api.gold-api.com XAU giao ngay', 'MARKET', gold_api),
+                     ('CNBC @GC.1 [TUONG LAI]', 'MARKET', lambda: cnbc('%40GC.1'))],  1500, 9000, 2),
+
+    # DXY: .DXY cua CNBC dung la chi so ICE. Du phong la so SUY RA tu ty gia
+    # tham chieu ECB theo cong thuc DXY da cong bo (do 26/11 lech 0,24%).
+    # TUYET DOI khong dung FRED DTWEXBGS: do la chi so khac, goc 2006=100, ~121.
+    'dxy.value':   ([('CNBC .DXY (ICE)', 'MARKET', lambda: cnbc('.DXY')),
+                     ('ECB -> cong thuc DXY [SUY RA]', 'DERIVED', ecb_dxy)],            90,  115, 2),
 }
 
 
@@ -206,14 +275,14 @@ def current_number(d, dom, fn):
     return float(v.replace('.', '').replace(',', '.'))
 
 
-def write_field(d, dom, fn, newval_str, src, note):
+def write_field(d, dom, fn, newval_str, src, note, tier='MARKET', ngay=None):
     loc = field_block(d, dom, fn)
     if not loc: raise KeyError(dom + '.' + fn)
     b0, e0, b1, e1, blk = loc
     b = blk[b1:e1]
     b = re.sub(r'value:\s*("(?:[^"\\]|\\.)*"|-?[\d.]+)', 'value: "' + newval_str + '"', b, count=1)
-    b = re.sub(r'updated:\s*"[^"]*"', 'updated: "' + DSTR + '"', b, count=1)
-    b = re.sub(r'source:\s*"(?:[^"\\]|\\.)*"', 'source: "[MARKET] auto ' + src + '"', b, count=1)
+    b = re.sub(r'updated:\s*"[^"]*"', 'updated: "' + (ngay or DSTR) + '"', b, count=1)
+    b = re.sub(r'source:\s*"(?:[^"\\]|\\.)*"', 'source: "[%s] auto %s"' % (tier, src), b, count=1)
     b = re.sub(r'note:\s*"(?:[^"\\]|\\.)*"', 'note: "' + note.replace('"', "'") + '"', b, count=1)
     return d[:b0] + blk[:b1] + b + blk[e1:] + d[e0:]
 
@@ -222,10 +291,26 @@ def main():
     d = io.open(DATA, encoding='utf-8').read()
     for path, (candidates, lo, hi, dec) in SOURCES.items():
         dom, fn = path.split('.')
-        val = None; src = None; tried = []
-        for name, fetch in candidates:
+        val = None; src = None; tier = 'MARKET'; ngay = None; tried = []
+        for name, tr, fetch in candidates:
             try:
-                val = fetch(); src = name; tried.append(name + ': OK')
+                kq = fetch()
+                # Nguon co the tra ve so, hoac (so, ngay quan sat ISO).
+                if isinstance(kq, tuple):
+                    v, ng_iso = kq
+                    # Khong nhan so qua cu: mot bo du lieu dong bang se trong
+                    # nhu so moi neu ta gan ngay hom nay cho no. Gap 26/11 voi
+                    # datasets/oil-prices — ban chay duoc nhung ngay chot 17/11.
+                    tuoi = (TODAY.date() - datetime.date.fromisoformat(ng_iso)).days
+                    if tuoi > 7:
+                        tried.append('%s: BO QUA, ngay quan sat %s da %d ngay'
+                                     % (name, ng_iso, tuoi))
+                        continue
+                    val, ngay = v, datetime.date.fromisoformat(ng_iso).strftime('%d/%m/%Y')
+                else:
+                    val, ngay = kq, None     # bao gia truc tiep, lay ngay hom nay
+                src, tier = name, tr
+                tried.append(name + ': OK')
                 break
             except Exception as ex:
                 tried.append('%s: %s %s' % (name, type(ex).__name__, str(ex)[:110]))
@@ -244,10 +329,12 @@ def main():
                 continue
         txt = vn(val, dec) if dec else ('%d' % round(val))
         delta = '' if not old else (' (%+.2f so lan cap nhat truoc)' % (val - old)).replace('.', ',')
-        note = ('TU DONG cap nhat %s tu %s%s · Gia tri nay do tools/fetch_core.py ghi, '
-                'KHONG phai phan tich. Dien giai va nhan dinh van lam tay.' % (DSTR, src, delta))
-        d = write_field(d, dom, fn, txt, src, note)
-        report['ok'][path] = {'old': old, 'new': val, 'src': src}
+        note = ('TU DONG chay %s, ngay quan sat %s, nguon %s%s · Gia tri nay do '
+                'tools/fetch_core.py ghi, KHONG phai phan tich. Dien giai va nhan '
+                'dinh van lam tay.' % (DSTR, ngay or DSTR, src, delta))
+        d = write_field(d, dom, fn, txt, src, note, tier, ngay)
+        report['ok'][path] = {'old': old, 'new': val, 'src': src,
+                              'tier': tier, 'ngay_quan_sat': ngay or DSTR}
         report['written'].append(path)
 
     report['summary'] = '%d ghi / %d bo qua' % (len(report['written']), len(report['skipped']))

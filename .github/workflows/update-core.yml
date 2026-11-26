@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Cai xlrd (doc .xls giao ngay cua EIA)
+        run: pip install --quiet xlrd
+
       - name: Lay du lieu CORE
         id: fetch
         run: python3 tools/fetch_core.py | tee /tmp/fetch.log

@@ -1836,15 +1836,14 @@ const FIELD_CHUA_RENDER = [];
 const TIER_MAP = {
   CORE: {  // nguong 2 ngay — bien dong hang ngay, quyet dinh nhan dinh
     days: 2,
-    fields: ['fx.spread_emp','fx.tg_tu_do_ban','fx.vcb_ban','gold.sjc_ban','gold.sjc_mua','gold.tg_usd','oil.brent','ppp_war.fair_brent',
-             'ppp_war.war_premium']
+    fields: ['fx.spread_emp','fx.tg_tu_do_ban','fx.vcb_ban','gold.sjc_ban','gold.sjc_mua','gold.tg_usd']
   },
   WEEKLY: {  // nguong 8 ngay — chu ky tuan
     days: 8,
     fields: ['cpi.t3_forecast','dxy.value','fed.prob_hold','fx.nhnn_san','fx.nhnn_tc','fx.nhnn_tran','fx.tg_tu_do_mua','fx.vcb_mua',
-             'hormuz.kb_now','irp.du_bao_irp','irp.gap_tt1','irp.gap_vnd_usd','irp.thuc_te','oil.brent_baseline','oil.price_path_kba',
-             'oil.price_path_kbb','oil.price_path_kbc','oil.price_path_kbd','oil.spread_futures','omo.bom_du_test','omo.fx_swap_182d',
-             'omo.gap_swap_mkt','omo.luu_hanh_moi','omo.mua_spot_25500','omo.trang_thai','ppp_war.iea_offset','rates_tt1.big4_6_12t',
+             'hormuz.kb_now','irp.du_bao_irp','irp.gap_tt1','irp.gap_vnd_usd','irp.thuc_te','oil.brent','oil.price_path_kba',
+             'oil.price_path_kbb','oil.price_path_kbc','oil.price_path_kbd','omo.bom_du_test','omo.fx_swap_182d','omo.gap_swap_mkt',
+             'omo.luu_hanh_moi','omo.mua_spot_25500','omo.trang_thai','ppp_war.fair_brent','ppp_war.war_premium','rates_tt1.big4_6_12t',
              'rates_tt1.nm_1_3t','rates_tt1.nm_3_6t','rates_tt1.real_rate','rates_tt1.tn_12t_dinh','rates_tt1.tn_lon_6_12t','rates_tt1.tn_vua_6_12t',
              'signals.khung_scorecard','signals.q2_du_bao_cpi','signals.q2_du_bao_ls','signals.q2_du_bao_ty_gia','signals.q4_q1_forecast',
              'signals.trump_watch','signals.tuan_nay','transmission.chuoi','transmission.doanh_so','transmission.he_so','transmission.ty_trong',
@@ -1856,11 +1855,12 @@ const TIER_MAP = {
              'freight.cpi_impact','freight.houthi','freight.hp_rotterdam','freight.route','fx.forecast_ban','fx.forecast_mua',
              'fx.tg_cucqlnh','fx.vcb_tienmat','m2.abs_2025','m2.fed_framework','m2.global_bond','m2.net_money_flow','m2.nfa_dtnh',
              'm2.outside_money_flow','m2.room_tindung','m2.tga_tgkb','m2.yoy_2025','nsnn.chi_2t','nsnn.co_che','nsnn.dong_kbnn',
-             'nsnn.thu_2t','oil.hormuz_tau','oil.iea_release','oil.wti','oil.xang_e5ron92','oil.xang_ron95','omo.co_che','omo.lailo_ngoaihoi_9t',
-             'omo.luu_hanh_truoc','omo.trangthai_usd_q3','rates_tt1.cv9608','rates_tt1.cv9736','rates_tt1.lc_noidia','rates_tt1.ldr',
-             'rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan','rates_tt1.nhan_xet','rates_tt1.vpbank_0611','transmission.usd_shift',
-             'trump.fed_signal','trump.hormuz_plan','trump.iran_policy','trump.market_risk','trump.oil_action','trump.tariff_status',
-             'trump.vector','trump.watch_next','yield_curve.shape','yield_curve.tpcp_10y','yield_curve.w2']
+             'nsnn.thu_2t','oil.brent_baseline','oil.hormuz_tau','oil.iea_release','oil.spread_futures','oil.wti','oil.xang_e5ron92',
+             'oil.xang_ron95','omo.co_che','omo.lailo_ngoaihoi_9t','omo.luu_hanh_truoc','omo.trangthai_usd_q3','ppp_war.iea_offset',
+             'rates_tt1.cv9608','rates_tt1.cv9736','rates_tt1.lc_noidia','rates_tt1.ldr','rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan',
+             'rates_tt1.nhan_xet','rates_tt1.vpbank_0611','transmission.usd_shift','trump.fed_signal','trump.hormuz_plan','trump.iran_policy',
+             'trump.market_risk','trump.oil_action','trump.tariff_status','trump.vector','trump.watch_next','yield_curve.shape',
+             'yield_curve.tpcp_10y','yield_curve.w2']
   },
   QUARTERLY: {  // nguong 100 ngay — cong bo theo quy
     days: 100,

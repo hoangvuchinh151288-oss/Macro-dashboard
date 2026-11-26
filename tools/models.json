@@ -160,11 +160,12 @@
       ],
       "chieu_dau": "premium thu hep -> thi truong chiet khau rui ro dia chinh tri",
       "nguong": "base_brent 73 USD; premium tren 25 USD = dinh gia kich ban KB-D",
-      "tan_suat": "CORE",
+      "tan_suat": "WEEKLY",
       "cham_diem": "so fair_brent voi Brent binh quan 20 phien sau",
       "tham_so": [
         "ppp_war.base_brent"
-      ]
+      ],
+      "ghi_chu": "Ha tu CORE xuong WEEKLY ngay 26/11 theo dung quy tac 'tan suat = tan suat cong bo cua input cham nhat'. oil.brent lay tu chuoi gia GIAO NGAY cua EIA, cong bo tre 2-4 ngay (do 26/11: quan sat moi nhat la 24/11). Co the giu CORE neu doi sang hop dong tuong lai cua CNBC — co hang ngay — nhung do la CONG CU KHAC, lech 2-3% so gia giao ngay va se tao mot buoc nhay gia khong phai bien dong thi truong. Chon giu nguyen chuoi so."
     },
     "cpi_passthrough": {
       "ten": "Truyen dan gia dau va cuoc van tai sang CPI (mo hinh BCT 2 kenh)",

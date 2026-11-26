@@ -1,3 +1,28 @@
+# Nguồn dữ liệu CORE — kết quả dò 26/11/2026
+
+`tools/probe_sources.py` + workflow *Do nguon du lieu* (chỉ chạy khi bấm tay) thử 29 nguồn ứng viên **từ chính runner của GitHub**. Phải dò ở đó: môi trường phát triển chặn gần hết host ngoài package registry nên thử chỗ khác không nói lên gì.
+
+**Chặn hẳn, đừng thử lại**: FRED timeout 60s cả bốn lần (`fredgraph.csv` lẫn `data/*.txt`) · stooq trả HTML chặn bot ở cả `stooq.com` và `stooq.pl` · Yahoo 429 ở mọi endpoint · LBMA và goldprice.org đều 403.
+
+**Chuỗi nguồn đang dùng:**
+
+| Field | Nguồn 1 | Dự phòng |
+|---|---|---|
+| `oil.brent` | EIA RBRTE giao ngay `[PRIMARY]` | datasets/oil-prices → CNBC @LCO.1 |
+| `oil.wti` | EIA RWTC giao ngay `[PRIMARY]` | datasets/oil-prices → CNBC @CL.1 |
+| `gold.tg_usd` | api.gold-api.com XAU giao ngay | CNBC @GC.1 |
+| `dxy.value` | CNBC `.DXY` (chỉ số ICE) | ECB → công thức DXY `[DERIVED]` |
+
+Ba điều phải nhớ khi sửa chuỗi này:
+
+**EIA là chuỗi cũ, không phải nguồn mới.** FRED trước đây chỉ phát hành lại chuỗi giao ngay của EIA, nên thay FRED bằng EIA là giữ nguyên chuỗi số chứ không đổi công cụ. File `.xls` định dạng BIFF cũ, cần `pip install xlrd` trong workflow.
+
+**CNBC `@LCO.1`/`@CL.1`/`@GC.1` là hợp đồng tương lai, khác giá giao ngay 2–3%.** Chỉ dùng làm dự phòng cuối và note phải ghi rõ. Riêng `.DXY` thì đúng là chỉ số ICE.
+
+**Nguồn trả về ngày quan sát thì ghi ngày đó, không ghi ngày chạy.** Một bộ dữ liệu đóng băng sẽ trông như số mới nếu gán ngày hôm nay cho nó — `datasets/oil-prices` chạy được nhưng ngày chốt 17/11, và script từ chối mọi quan sát cũ hơn 7 ngày rồi rơi xuống nguồn kế tiếp.
+
+---
+
 # Hợp đồng mô hình — `tools/models.json` + `tools/check_models.py`
 
 Nguyên tắc của bản 2027: **mô hình chuẩn trước, dữ liệu theo sau.** Mỗi mô hình khai rõ công thức, input, chiều dấu, ngưỡng và cách chấm trong `tools/models.json`. Field chỉ tồn tại nếu ít nhất một mô hình gọi tên nó — field không ai gọi là ứng viên bỏ, không cần quyết định thủ công từng nhóm.
