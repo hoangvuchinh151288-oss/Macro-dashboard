@@ -101,7 +101,38 @@ def trich(url, moc, rong=1100):
     print('  >> cac so dang lai suat trong doan: %s' % (so[:20] or 'KHONG CO'))
 
 
+def dao(url, ten):
+    """Tim duong dan du lieu an trong trang: link file tai ve (.xls/.csv/.json)
+    va cac endpoint ma JS se goi. Trang nap bang JS thi so khong nam trong HTML,
+    nhung duong dan toi so thuong van nam."""
+    try:
+        _, body, _ = thu(url, 45)
+    except Exception as e:
+        print('  khong tai duoc: %s' % e)
+        return
+    print('  %d byte' % len(body))
+    mau = {
+        'file tai ve': r'["\']([^"\' ]{4,160}\.(?:xlsx?|csv|json|txt))["\']',
+        'ShowProperty/nodeId': r'(ShowProperty[^"\' <>]{0,120})',
+        'endpoint ajax/api': r'["\'](/?[\w./-]*(?:api|ajax|service|handler|getdata|rest)[\w./?=&-]{0,90})["\']',
+    }
+    for nhan, pat in mau.items():
+        hit = []
+        for m in re.findall(pat, body, re.I):
+            m = m if isinstance(m, str) else m[0]
+            if m not in hit:
+                hit.append(m)
+        print('  %-20s %s' % (nhan, hit[:6] if hit else 'khong thay'))
+
+
 def main():
+    if '--dao' in sys.argv:
+        for g, ten, url, keys in MUC_TIEU:
+            if not any(k for k in keys):
+                continue
+            print('\n--- %s ---' % ten)
+            dao(url, ten)
+        return 0
     if '--trich' in sys.argv:
         for g, ten, url, keys in MUC_TIEU:
             if not any(k for k in keys):
