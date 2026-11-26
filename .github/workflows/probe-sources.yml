@@ -1,0 +1,27 @@
+name: Do nguon du lieu
+
+# Chi chay khi bam tay. Khong co lich.
+# Muc dich: biet nguon nao goi duoc TU RUNNER CUA GITHUB. Moi truong phat trien
+# chan gan het host ngoai package registry nen thu o cho khac khong noi len gi.
+# Script chi DOC, khong ghi vao data.js, nen chay bao nhieu lan cung an toan.
+on:
+  workflow_dispatch:
+    inputs:
+      nhom:
+        description: 'Nhom can do, cach nhau bang dau cach (brent wti gold dxy). De trong = tat ca.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Do cac nguon ung vien
+        run: python3 tools/probe_sources.py ${{ github.event.inputs.nhom }}
