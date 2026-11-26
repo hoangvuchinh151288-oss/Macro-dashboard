@@ -22,7 +22,7 @@ NHAT KY LOI DA GAP — dung lap lai:
 Chay tay:  python3 tools/fetch_core.py            (ghi that)
            python3 tools/fetch_core.py --dry-run  (chi in, khong ghi)
 """
-import re, io, os, sys, json, datetime, urllib.request, urllib.error
+import re, io, os, sys, json, time, datetime, urllib.request, urllib.error
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data.js')
@@ -68,6 +68,25 @@ def src_vcb():
     out = (f(tr.group(1)), f(sl.group(1)))
     if not all(1000 < v < 100000 for v in out):
         raise ValueError('so VCB sau khi parse khong hop ly: %s (tag: %s)' % (out, tag[:140]))
+    # Lay ngay cong bo tu chinh XML. Khong co ngay thi ham ghi se gan ngay
+    # CHAY, va mot phien cuoi tuan se dong dau ngay moi len dung gia hom
+    # thu Sau — so dung im nhung trong nhu vua cap nhat.
+    ng = None
+    dm = re.search(r'<DateTime>([^<]+)</DateTime>', x)
+    if dm:
+        raw = dm.group(1).strip()
+        for pat in ('%m/%d/%Y %I:%M:%S %p', '%d/%m/%Y %I:%M:%S %p',
+                    '%m/%d/%Y %H:%M:%S', '%d/%m/%Y %H:%M:%S',
+                    '%Y-%m-%d %H:%M:%S', '%d/%m/%Y', '%m/%d/%Y'):
+            try:
+                ng = datetime.datetime.strptime(raw, pat).date().isoformat()
+                break
+            except ValueError:
+                continue
+        if ng is None:
+            report.setdefault('ghi_chu', []).append(
+                'VCB <DateTime> khong khop dinh dang nao: %r' % raw[:40])
+    out = (out[0], out[1], ng)
     _vcb_cache['v'] = out
     return out
 
@@ -216,8 +235,8 @@ def ecb_dxy():
 SOURCES = {
     # (ten_field): [ (ten_nguon, tier, ham), ... ], min, max, so chu so thap phan
     # tier di vao chuoi source cua field — PRIMARY = co quan cong bo truc tiep.
-    'fx.vcb_mua':  ([('VCB XML', 'MARKET', lambda: src_vcb()[0])],              20000, 32000, 0),
-    'fx.vcb_ban':  ([('VCB XML', 'MARKET', lambda: src_vcb()[1])],              20000, 32000, 0),
+    'fx.vcb_mua':  ([('VCB XML', 'MARKET', lambda: (src_vcb()[0], src_vcb()[2]) if src_vcb()[2] else src_vcb()[0])],              20000, 32000, 0),
+    'fx.vcb_ban':  ([('VCB XML', 'MARKET', lambda: (src_vcb()[1], src_vcb()[2]) if src_vcb()[2] else src_vcb()[1])],              20000, 32000, 0),
 
     # Brent/WTI: GIU NGUYEN chuoi gia giao ngay. FRED truoc day phat hanh lai
     # chuoi cua EIA, nay FRED timeout tu runner (do 26/11: 60s ca 4 lan) nen
@@ -294,7 +313,13 @@ def main():
         val = None; src = None; tier = 'MARKET'; ngay = None; tried = []
         for name, tr, fetch in candidates:
             try:
-                kq = fetch()
+                try:
+                    kq = fetch()
+                except Exception:
+                    # Mot lan truot vi mang chap chon khong dang mat ca ngay
+                    # du lieu. Thu lai mot lan roi moi chuyen nguon.
+                    time.sleep(3)
+                    kq = fetch()
                 # Nguon co the tra ve so, hoac (so, ngay quan sat ISO).
                 if isinstance(kq, tuple):
                     v, ng_iso = kq
@@ -327,6 +352,13 @@ def main():
             if chg > 0.15:
                 report['skipped'][path] = 'LECH %.1f%% so gia tri cu %s (moi: %s, nguon %s) — tu choi ghi, can kiem tra tay' % (chg * 100, old, val, src)
                 continue
+        # Gia tri khong doi va nguon khong cho ngay quan sat: GIU updated cu.
+        # Dong dau ngay moi len mot so khong doi se lam no trong nhu vua cap
+        # nhat, va do dung la thu lop kiem tuoi sinh ra de phat hien.
+        if ngay is None and old is not None and abs(val - old) < 1e-9:
+            report['skipped'][path] = ('GIA TRI KHONG DOI (%s) va nguon khong cho '
+                                       'ngay quan sat — giu nguyen updated cu' % old)
+            continue
         txt = vn(val, dec) if dec else ('%d' % round(val))
         delta = '' if not old else (' (%+.2f so lan cap nhat truoc)' % (val - old)).replace('.', ',')
         note = ('TU DONG chay %s, ngay quan sat %s, nguon %s%s · Gia tri nay do '

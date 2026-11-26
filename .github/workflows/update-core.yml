@@ -54,7 +54,10 @@ jobs:
           # Run #1 (02/11) khong commit duoc vi `git diff --quiet` KHONG thay file
           # chua duoc theo doi: tools/last_run.json con untracked nen diff rong,
           # script thoat som va bao cao khong bao gio vao duoc repo.
-          git add data.js tools/last_run.json
+          # models_report.json cung phai vao: no la ban chup trang thai mo hinh,
+          # check_models.py sinh lai moi lan chay. Khong commit thi ban trong repo
+          # cu dan va noi sai ve tinh trang hien tai.
+          git add data.js tools/last_run.json tools/models_report.json
           if git diff --cached --quiet; then
             echo "Khong co thay doi, bo qua commit."
             exit 0
