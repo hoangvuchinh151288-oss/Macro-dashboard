@@ -30,7 +30,7 @@ const D = {
   },
 
   dxy: {
-    value: { value: "103,81", updated: "25/11/2026", source: "[MARKET] auto CNBC .DXY (ICE)", note: "TU DONG chay 26/11/2026, ngay quan sat 25/11/2026, nguon CNBC .DXY (ICE) (+0,01 so lan cap nhat truoc) · Gia tri nay do tools/fetch_core.py ghi, KHONG phai phan tich. Dien giai va nhan dinh van lam tay." },
+    value: { value: "103,82", updated: "25/11/2026", source: "[MARKET] auto CNBC .DXY (ICE)", note: "TU DONG chay 26/11/2026, ngay quan sat 25/11/2026, nguon CNBC .DXY (ICE) (+0,01 so lan cap nhat truoc) · Gia tri nay do tools/fetch_core.py ghi, KHONG phai phan tich. Dien giai va nhan dinh van lam tay." },
   },
 
   oil: {
@@ -68,7 +68,7 @@ const D = {
   },
 
   gold: {
-    tg_usd: { value: "3573,00", updated: "26/11/2026", source: "[MARKET] auto api.gold-api.com XAU giao ngay", note: "TU DONG chay 26/11/2026, ngay quan sat 26/11/2026, nguon api.gold-api.com XAU giao ngay (-3,90 so lan cap nhat truoc) · Gia tri nay do tools/fetch_core.py ghi, KHONG phai phan tich. Dien giai va nhan dinh van lam tay." },
+    tg_usd: { value: "3576,70", updated: "26/11/2026", source: "[MARKET] auto api.gold-api.com XAU giao ngay", note: "TU DONG chay 26/11/2026, ngay quan sat 26/11/2026, nguon api.gold-api.com XAU giao ngay (+3,70 so lan cap nhat truoc) · Gia tri nay do tools/fetch_core.py ghi, KHONG phai phan tich. Dien giai va nhan dinh van lam tay." },
     sjc_mua: { value: "134.200.000", updated: "18/11/2026", source: "[PRIMARY] TBTCVN phien 18/11 (11:00)", note: "SJC mua 134,2 trieu/luong (18/11), giam 500 nghin · Chenh mua-ban 3,0 trieu" },
     sjc_ban: { value: "137.200.000", updated: "18/11/2026", source: "[PRIMARY] TBTCVN phien 18/11 (11:00)", note: "SJC ban 137,2 trieu/luong (18/11), giam 500 nghin · CHUOI: 142,5 (05/11) → 140,9 (11/11) → 138,0 (14/11) → 137,2 (18/11) · Quy doi the gioi = 3.822 x 1,20565 x 25.880 = 119,25 trieu/luong → ⚠️⚠️ CHENH 17,95 TRIEU/LUONG · CHUOI CHENH: 17,4 (31/10) → 13,69 (05/11) → 15,10 (11/11) → 16,59 (14/11) → 17,95 (18/11) · ⭐⭐ CHENH NOI RA 4,26 TRIEU TRONG 13 NGAY va da VUOT muc 31/10. The gioi sup 7,7% trong 8 phien (4.142 → 3.822) ma trong nuoc chi giam 3,7% (142,5 → 137,2). Gia trong nuoc bam rat cham theo chieu giam — hanh vi quen thuoc nhung muc chenh gan 18 trieu la dang theo doi · Vang nhan giam manh hon: PNJ 130,8/135,0, giam 2,2 trieu" },
   },
