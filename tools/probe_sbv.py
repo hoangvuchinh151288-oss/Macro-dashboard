@@ -59,6 +59,13 @@ def main():
         print('\n=== TEXT RENDER: %d ky tu ===' % len(text))
         thay = [m for m in MOC if m in text]
         print('moc tim thay: %s' % (thay or 'KHONG CO'))
+        print('URL cuoi: %s' % pg.url)
+        print('TITLE   : %s' % pg.title())
+        if not thay:
+            # Khong thay moc thi phai biet trang nay thuc ra la gi: trang loi,
+            # tuong chan, hay chi la khung dieu huong vi URL da doi.
+            print('--- 1500 ky tu dau cua trang ---')
+            print(re.sub(r'\n{2,}', '\n', text[:1500]))
         for m in thay[:1]:
             i = text.find(m)
             print('--- doan quanh "%s" ---' % m)
