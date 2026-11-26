@@ -150,6 +150,29 @@ def ecb_dxy():
     return round(v, 2), js.get('date', '')
 
 
+def sjc_ashx():
+    """SJC cong bo gia vang mieng tren trang chinh chu — nguon GOC trong nuoc."""
+    raw = get('https://sjc.com.vn/GoldPrice/Services/PriceService.ashx', 30)
+    js = json.loads(raw)
+    for r in js.get('data', []):
+        if 'SJC' in str(r.get('TypeName', '')) and '1L' in str(r.get('TypeName', '')):
+            return (float(r['Buy'].replace(',', '')), float(r['Sell'].replace(',', '')))
+    r = js['data'][0]
+    return (float(str(r['Buy']).replace(',', '')), float(str(r['Sell']).replace(',', '')))
+
+
+def btmc():
+    """Bao Tin Minh Chau — cong bo gia vang mieng, dung doi chieu voi SJC."""
+    import xml.etree.ElementTree as ET
+    x = ET.fromstring(get('http://api.btmc.vn/api/BTMCAPI/getpricebtmc?key=3kd8ub1llcg9t45hnoh8hmn7t5kc2v', 30))
+    for d in x.iter():
+        a = d.attrib
+        for k in a:
+            if k.startswith('pb_'):
+                return float(a[k]) * 1000
+    raise ValueError('khong doc duoc gia BTMC')
+
+
 def bnm_oil(kind):
     """Trading Economics / investing deu chan bot. Thu nguon cua EIA dang
     'browser' khong can API key: bang gia giao ngay dang csv tren eia.gov."""
@@ -189,6 +212,10 @@ UNG_VIEN = {
         ('stooq.pl xauusd', lambda: stooq_dl('xauusd', 'stooq.pl')),
         ('yahoo query2 GC=F', lambda: yahoo('GC%3DF', 'query2')),
         ('CNBC @GC.1', lambda: cnbc('%40GC.1')),
+    ],
+    'sjc': [
+        ('SJC PriceService.ashx [NGUON GOC]', sjc_ashx),
+        ('Bao Tin Minh Chau API', btmc),
     ],
     'dxy': [
         ('yahoo query1 DX-Y.NYB', lambda: yahoo('DX-Y.NYB', 'query1')),
