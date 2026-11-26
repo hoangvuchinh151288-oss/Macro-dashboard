@@ -99,6 +99,57 @@ def yahoo(sym, host='query1'):
     return float(r0['meta']['regularMarketPrice'])
 
 
+def eia_xls(kind):
+    """EIA la CO QUAN CONG BO (U.S. Energy Information Administration) — nguon GOC
+    cho gia giao ngay Brent (RBRTE) va WTI (RWTC). File .xls dinh dang BIFF cu,
+    doc bang xlrd 2.x. Vong do dau tai duoc 452 KB nhung chua parse."""
+    import urllib.request as _u
+    import xlrd
+    u = ('https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls' if kind == 'brent'
+         else 'https://www.eia.gov/dnav/pet/hist_xls/RWTCd.xls')
+    req = _u.Request(u, headers=UA)
+    with _u.urlopen(req, timeout=60) as r:
+        raw = r.read()
+    wb = xlrd.open_workbook(file_contents=raw)
+    sh = wb.sheet_by_index(1)          # sheet 0 la muc luc, sheet 1 la du lieu
+    for i in range(sh.nrows - 1, 2, -1):
+        gt = sh.cell_value(i, 1)
+        if isinstance(gt, float) and gt > 0:
+            ng = xlrd.xldate_as_datetime(sh.cell_value(i, 0), wb.datemode)
+            return float(gt), ng.strftime('%Y-%m-%d')
+    raise ValueError('khong tim thay dong co so')
+
+
+def cnbc(sym):
+    """CNBC co endpoint quote json khong can khoa."""
+    u = ('https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol'
+         '?symbols=%s&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1'
+         '&output=json&events=1' % sym)
+    js = json.loads(get(u, 30))
+    q = js['FormattedQuoteResult']['FormattedQuote'][0]
+    return float(str(q['last']).replace(',', '')), str(q.get('last_time', ''))[:10]
+
+
+def ecb_dxy():
+    """Tinh DXY tu ty gia tham chieu ECB theo cong thuc va trong so da cong bo:
+       USDX = 50.14348112 x EURUSD^-0.576 x USDJPY^0.136 x GBPUSD^-0.119
+                          x USDCAD^0.091 x USDSEK^0.042 x USDCHF^0.036
+    Day la SO SUY RA tu nguon goc (ECB), khong phai chi so ICE. Chenh voi DXY
+    that do ECB chot mot lan/ngay con DXY chay lien tuc."""
+    js = json.loads(get('https://api.frankfurter.dev/v1/latest?base=EUR'
+                        '&symbols=USD,JPY,GBP,CAD,SEK,CHF', 30))
+    r = js['rates']
+    eurusd = r['USD']
+    usdjpy = r['JPY'] / eurusd
+    gbpusd = eurusd / r['GBP']
+    usdcad = r['CAD'] / eurusd
+    usdsek = r['SEK'] / eurusd
+    usdchf = r['CHF'] / eurusd
+    v = (50.14348112 * eurusd ** -0.576 * usdjpy ** 0.136 * gbpusd ** -0.119
+         * usdcad ** 0.091 * usdsek ** 0.042 * usdchf ** 0.036)
+    return round(v, 2), js.get('date', '')
+
+
 def bnm_oil(kind):
     """Trading Economics / investing deu chan bot. Thu nguon cua EIA dang
     'browser' khong can API key: bang gia giao ngay dang csv tren eia.gov."""
@@ -118,7 +169,8 @@ UNG_VIEN = {
         ('stooq.pl cb.f', lambda: stooq_dl('cb.f', 'stooq.pl')),
         ('yahoo query1 BZ=F', lambda: yahoo('BZ%3DF', 'query1')),
         ('yahoo query2 BZ=F', lambda: yahoo('BZ%3DF', 'query2')),
-        ('EIA RBRTEd.xls', lambda: bnm_oil('brent')),
+        ('EIA RBRTEd.xls (xlrd) [NGUON GOC]', lambda: eia_xls('brent')),
+        ('CNBC @LCO.1', lambda: cnbc('%40LCO.1')),
     ],
     'wti': [
         ('FRED DCOILWTICO (fredgraph.csv)', lambda: fred_csv('DCOILWTICO')),
@@ -126,7 +178,8 @@ UNG_VIEN = {
         ('datasets/oil-prices wti-daily', lambda: datahub_csv('oil-prices/main/data/wti-daily.csv')),
         ('stooq.pl cl.f', lambda: stooq_dl('cl.f', 'stooq.pl')),
         ('yahoo query2 CL=F', lambda: yahoo('CL%3DF', 'query2')),
-        ('EIA RWTCd.xls', lambda: bnm_oil('wti')),
+        ('EIA RWTCd.xls (xlrd) [NGUON GOC]', lambda: eia_xls('wti')),
+        ('CNBC @CL.1', lambda: cnbc('%40CL.1')),
     ],
     'gold': [
         ('LBMA gold_pm (nguon goc)', lambda: lbma_json('gold_pm')),
@@ -135,6 +188,7 @@ UNG_VIEN = {
         ('data-asg.goldprice.org', goldprice_org),
         ('stooq.pl xauusd', lambda: stooq_dl('xauusd', 'stooq.pl')),
         ('yahoo query2 GC=F', lambda: yahoo('GC%3DF', 'query2')),
+        ('CNBC @GC.1', lambda: cnbc('%40GC.1')),
     ],
     'dxy': [
         ('yahoo query1 DX-Y.NYB', lambda: yahoo('DX-Y.NYB', 'query1')),
@@ -144,7 +198,8 @@ UNG_VIEN = {
         # FRED DTWEXBGS la chi so KHAC (broad dollar, goc 2006=100, ~121).
         # Do o day CHI de biet no con song khong, TUYET DOI khong ghi vao
         # field dxy.value — xem canh bao trong fetch_core.py.
-        ('FRED DTWEXBGS [CHI SO KHAC]', lambda: fred_txt('DTWEXBGS')),
+        ('CNBC .DXY', lambda: cnbc('.DXY')),
+        ('ECB frankfurter -> cong thuc DXY [SUY RA]', ecb_dxy),
     ],
 }
 
