@@ -73,6 +73,12 @@ def src_vcb():
     # thu Sau — so dung im nhung trong nhu vua cap nhat.
     ng = None
     dm = re.search(r'<DateTime>([^<]+)</DateTime>', x)
+    if not dm:
+        # Khong co the <DateTime> thi ham ghi se lang le gan ngay CHAY. Phai
+        # bao ra, neu khong se khong phan biet duoc 'doc dung ngay cong bo'
+        # voi 'roi ve ngay hom nay' — hai cai nay trung nhau vao ngay thuong.
+        report.setdefault('ghi_chu', []).append(
+            'VCB XML KHONG co the <DateTime> — updated se lay ngay chay')
     if dm:
         raw = dm.group(1).strip()
         for pat in ('%m/%d/%Y %I:%M:%S %p', '%d/%m/%Y %I:%M:%S %p',
@@ -365,8 +371,9 @@ def main():
                 'tools/fetch_core.py ghi, KHONG phai phan tich. Dien giai va nhan '
                 'dinh van lam tay.' % (DSTR, ngay or DSTR, src, delta))
         d = write_field(d, dom, fn, txt, src, note, tier, ngay)
-        report['ok'][path] = {'old': old, 'new': val, 'src': src,
-                              'tier': tier, 'ngay_quan_sat': ngay or DSTR}
+        report['ok'][path] = {'old': old, 'new': val, 'src': src, 'tier': tier,
+                              'ngay_quan_sat': ngay or DSTR,
+                              'ngay_tu': 'nguon' if ngay else 'ngay chay (nguon khong cho ngay)'}
         report['written'].append(path)
 
     # meta.date = lan cuoi CO du lieu moi. Chi nhay khi thuc su ghi duoc field,
