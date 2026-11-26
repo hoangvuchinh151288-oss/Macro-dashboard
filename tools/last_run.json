@@ -1,44 +1,44 @@
 {
-  "run_at_ict": "2026-11-26 10:13:13",
+  "run_at_ict": "2026-11-26 10:21:21",
   "ok": {
     "fx.vcb_mua": {
-      "old": 25640.0,
+      "old": 25660.0,
       "new": 25660.0,
       "src": "VCB XML",
       "tier": "MARKET",
       "ngay_quan_sat": "26/11/2026"
     },
     "fx.vcb_ban": {
-      "old": 26020.0,
+      "old": 26040.0,
       "new": 26040.0,
       "src": "VCB XML",
       "tier": "MARKET",
       "ngay_quan_sat": "26/11/2026"
     },
     "oil.brent": {
-      "old": 92.18,
+      "old": 91.8,
       "new": 91.8,
       "src": "EIA RBRTE giao ngay",
       "tier": "PRIMARY",
       "ngay_quan_sat": "24/11/2026"
     },
     "oil.wti": {
-      "old": 85.45,
+      "old": 82.24,
       "new": 82.24,
       "src": "EIA RWTC giao ngay",
       "tier": "PRIMARY",
       "ngay_quan_sat": "24/11/2026"
     },
     "gold.tg_usd": {
-      "old": 3822.0,
-      "new": 3578.399902,
+      "old": 3578.4,
+      "new": 3576.899902,
       "src": "api.gold-api.com XAU giao ngay",
       "tier": "MARKET",
       "ngay_quan_sat": "26/11/2026"
     },
     "dxy.value": {
-      "old": 103.62,
-      "new": 103.793,
+      "old": 103.79,
+      "new": 103.8,
       "src": "CNBC .DXY (ICE)",
       "tier": "MARKET",
       "ngay_quan_sat": "25/11/2026"
@@ -72,6 +72,10 @@
     "dxy.value": [
       "CNBC .DXY (ICE): OK"
     ]
+  },
+  "meta_date": {
+    "cu": "18/11/2026",
+    "moi": "26/11/2026"
   },
   "summary": "6 ghi / 0 bo qua"
 }
