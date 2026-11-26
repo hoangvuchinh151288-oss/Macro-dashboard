@@ -185,7 +185,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 
 <body>
 <div class="hdr">
-  <div class="hdr-tag">// VN Macro Dashboard · <span class="live-dot"></span>Data-driven v<span id="h-ver"></span> · <span id="h-date"></span> · IRP·EMP·PPP·MV=PQ·Mundell-Fleming</div>
+  <div class="hdr-tag">// VN Macro Dashboard · <span class="live-dot"></span>Data-driven v<span id="h-ver"></span> · <span id="h-date"></span> · EMP·Gap CCS·C/D Macro·KB Hormuz</div>
   <div class="hdr-title">VN <em>MACRO</em> DASHBOARD <span class="patch-badge" id="patch-note"></span></div>
   <div class="hdr-sub" id="h-sub"></div>
   <div class="kpi-strip" id="kpi-strip"></div>
@@ -221,10 +221,10 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="sec"><span class="sec-n">II-c</span> Xăng Dầu VN & Quỹ BÔXD</div>
 <div class="card" id="panel-xang"></div>
 
-<div class="sec"><span class="sec-n">III</span> TT2 & OMO · LDR Cấu Trúc <span class="theory">IRP · MV=PQ</span></div>
+<div class="sec"><span class="sec-n">III</span> TT2 & OMO · LDR Cấu Trúc <span class="theory">hqla_transform · cd_macro · irp_covered</span></div>
 <div class="g3">
   <div class="card" style="grid-column:span 2"><div class="ctitle">YIELD CURVE TT2 & GAP IRP <span class="theory">IRP</span></div><div id="panel-yc"></div></div>
-  <div class="card"><div class="ctitle">NGHIỆP VỤ THỊ TRƯỜNG MỞ (OMO) <span class="theory">MV=PQ</span></div><div id="panel-omo"></div></div>
+  <div class="card"><div class="ctitle">NGHIỆP VỤ THỊ TRƯỜNG MỞ (OMO) <span class="theory">hqla_transform</span></div><div id="panel-omo"></div></div>
 </div>
 
 <div class="sec"><span class="sec-n">III-b</span> Truyền Dẫn Lãi Suất Theo Kỳ Hạn <span class="theory">Số gốc NHNN · chấm hàng tuần</span></div>
@@ -242,12 +242,12 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   <div class="card"><div class="ctitle">CƯỚC CONTAINER — PROXY CHUỖI CUNG ỨNG <span class="theory">CPI Chi phí đẩy</span></div><div id="panel-freight"></div></div>
 </div>
 
-<div class="sec"><span class="sec-n">VI</span> M2 · Số Nhân Tiền Tệ · NSNN → LS LNH · ĐTC <span class="theory">MV=PQ</span></div>
+<div class="sec"><span class="sec-n">VI</span> M2 · Dòng Tiền Ròng · NSNN → LS LNH · ĐTC <span class="theory">dong_tien_rong · kbnn_liquidity</span></div>
 <div class="g3">
-  <div class="card"><div class="ctitle">M2 & SỐ NHÂN TIỀN TỆ <span class="theory">MV=PQ</span></div><div id="panel-m2"></div></div>
+  <div class="card"><div class="ctitle">M2 & DÒNG TIỀN RÒNG <span class="theory">dong_tien_rong</span></div><div id="panel-m2"></div></div>
   <div class="card"><div class="card-t"><span class="sec-n">III-b</span> TIỀN NỘI SINH — CƠ CHẾ TẠO TIỀN THỰC TẾ <span class="theory">Endogenous Money · Bank of England 2014</span></div><div id="panel-endogenous"></div></div>
-  <div class="card"><div class="ctitle">NSNN → M2 → LS LNH <span class="theory">MV=PQ Mechanism</span></div><div id="panel-nsnn"></div></div>
-  <div class="card"><div class="ctitle">ĐẦU TƯ CÔNG 2026 <span class="theory">MV=PQ</span></div><div id="panel-dtc"></div></div>
+  <div class="card"><div class="ctitle">NSNN → M2 → LS LNH <span class="theory">kbnn_liquidity</span></div><div id="panel-nsnn"></div></div>
+  <div class="card"><div class="ctitle">ĐẦU TƯ CÔNG 2026 <span class="theory">kbnn_liquidity</span></div><div id="panel-dtc"></div></div>
 </div>
 
 <div class="sec"><span class="sec-n">VII</span> Lịch Nghĩa Vụ Thuế DN — Điểm Trũng Thanh Khoản <span class="theory">TT2 Spike</span></div>
@@ -316,7 +316,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 </div>
 
 <div class="footer">
-  <div>VN Macro Dashboard v<span id="f-ver"></span> · <span id="f-date"></span> · IRP·EMP·PPP·MV=PQ·Mundell-Fleming</div>
+  <div>VN Macro Dashboard v<span id="f-ver"></span> · <span id="f-date"></span> · EMP·Gap CCS·C/D Macro·KB Hormuz</div>
   <div id="f-cl"></div>
   <div>Data-driven · Chỉ sửa D.xxx để cập nhật</div>
 </div>
@@ -573,7 +573,7 @@ function renderOilPath(){
     {label:'EIA Q3-Q4 (post-deal)',cls:'d',value:v(D.oil.eia_q3_base),note:n(D.oil.eia_q3_base)},
     {label:'Goldman Q3-Q4 (revised)',cls:'b',value:v(D.oil.goldman_q2),note:n(D.oil.goldman_q2)},
   ];
-  let html=`<div style="margin-bottom:8px;font-size:11px;color:var(--dim)">Nguồn: Goldman · IEA · EIA STEO · Macquarie · ${D.meta.date}</div>`;
+  let html=`<div style="margin-bottom:8px;font-size:11px;color:var(--dim)">Nguồn: Goldman · IEA · EIA STEO · Macquarie · cập nhật ${[D.oil.brent_baseline,D.oil.eia_q3_base,D.oil.goldman_q2].map(u).sort((x,y)=>x.split('/').reverse().join().localeCompare(y.split('/').reverse().join())).pop()}</div>`;
   html+=`<table class="tbl" style="margin-bottom:8px"><thead><tr><th>Kịch bản</th><th>Brent Q4/2026 – Q1/2027</th></tr></thead><tbody>`;
   kbs.forEach(k=>{html+=`<tr><td class="${k.cls}" style="font-size:11px">${k.label}</td><td class="${k.cls}" style="font-weight:600">${k.value}</td></tr>`;});
   html+=`</tbody></table>`;
@@ -689,7 +689,7 @@ document.getElementById('panel-omo').innerHTML=`
   ${drow('⭐ Mua NT giao ngay 25.500',v(D.omo.mua_spot_25500),'g',u(D.omo.mua_spot_25500)+' · '+n(D.omo.mua_spot_25500))}
   ${drow('Trạng thái USD 26 NH (Q3)',v(D.omo.trangthai_usd_q3),'y',u(D.omo.trangthai_usd_q3)+' · '+n(D.omo.trangthai_usd_q3))}
   ${drow('⭐ Lãi/lỗ ngoại hối 9T',v(D.omo.lailo_ngoaihoi_9t),'g',u(D.omo.lailo_ngoaihoi_9t)+' · '+n(D.omo.lailo_ngoaihoi_9t))}
-  <div class="co co-y" style="margin-top:8px"><strong>Cơ chế MV=PQ:</strong> ${v(D.omo.co_che)}</div>
+  <div class="co co-y" style="margin-top:8px"><strong>Cơ chế đọng/bơm ngân quỹ:</strong> ${v(D.omo.co_che)}</div>
   <div style="margin-top:10px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.25);border-left:3px solid var(--blue);border-radius:3px;padding:10px 12px;font-size:12px">
     <strong style="color:var(--blue)">🔗 CƠ CHẾ TRUYỀN DẪN Q3/Q4 — Hai kịch bản</strong>
     <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px">

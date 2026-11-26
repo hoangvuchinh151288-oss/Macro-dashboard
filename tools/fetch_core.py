@@ -337,6 +337,15 @@ def main():
                               'tier': tier, 'ngay_quan_sat': ngay or DSTR}
         report['written'].append(path)
 
+    # meta.date = lan cuoi CO du lieu moi. Chi nhay khi thuc su ghi duoc field,
+    # khong nhay o nhung lan chay ma moi nguon deu hong — neu khong thi no chi
+    # con la ngay chay cron chu khong con noi len dieu gi ve do tuoi du lieu.
+    if report['written']:
+        cu_date = re.search(r'(\n  meta:\s*\{.*?\bdate:\s*")([^"]*)(")', d, re.S)
+        if cu_date:
+            report['meta_date'] = {'cu': cu_date.group(2), 'moi': DSTR}
+            d = d[:cu_date.start(2)] + DSTR + d[cu_date.end(2):]
+
     report['summary'] = '%d ghi / %d bo qua' % (len(report['written']), len(report['skipped']))
     out = json.dumps(report, ensure_ascii=False, indent=2)
     if DRY:
