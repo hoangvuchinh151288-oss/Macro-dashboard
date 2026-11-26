@@ -42,8 +42,18 @@ def main():
 
         pg.on('response', ghi)
         print('Dang tai %s' % URL)
-        pg.goto(URL, wait_until='networkidle', timeout=90000)
-        pg.wait_for_timeout(4000)
+        # KHONG dung networkidle: portal Liferay poll lien tuc nen trang thai
+        # do khong bao gio dat (do 26/11 timeout 90s). Cho DOM roi cho chinh
+        # noi dung xuat hien.
+        pg.goto(URL, wait_until='domcontentloaded', timeout=90000)
+        try:
+            pg.wait_for_function(
+                "() => /Qua đêm|qua đêm|1 tuần/.test(document.body.innerText)",
+                timeout=60000)
+            print('da thay noi dung bang')
+        except Exception as e:
+            print('CHO NOI DUNG THAT BAI: %s' % str(e)[:120])
+        pg.wait_for_timeout(3000)
 
         text = pg.inner_text('body')
         print('\n=== TEXT RENDER: %d ky tu ===' % len(text))
