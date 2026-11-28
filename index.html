@@ -1807,7 +1807,9 @@ checkAutoTrigger();
 // không ai nhìn thấy (gặp 13/11: bốn field khuất một tuần). Giờ chúng rơi xuống
 // đây. Thẻ này trống khi mọi field đã có chỗ đúng — trống là trạng thái mong muốn.
 // ═══ AUTO-GEN tu tools/models.json — KHONG SUA TAY ═══
-const FIELD_CHUA_RENDER = [];
+const FIELD_CHUA_RENDER = [
+  'omo.co_cau_ky_han_omo',
+];
 // ═══ /AUTO-GEN ═══
 (()=>{
   const el=document.getElementById('panel-luoi-antoan');
@@ -1856,11 +1858,11 @@ const TIER_MAP = {
              'fx.tg_cucqlnh','fx.vcb_tienmat','m2.abs_2025','m2.fed_framework','m2.global_bond','m2.net_money_flow','m2.nfa_dtnh',
              'm2.outside_money_flow','m2.room_tindung','m2.tga_tgkb','m2.yoy_2025','nsnn.chi_2t','nsnn.co_che','nsnn.dong_kbnn',
              'nsnn.thu_2t','oil.brent_baseline','oil.hormuz_tau','oil.iea_release','oil.spread_futures','oil.wti','oil.xang_e5ron92',
-             'oil.xang_ron95','omo.co_che','omo.lailo_ngoaihoi_9t','omo.luu_hanh_truoc','omo.trangthai_usd_q3','ppp_war.iea_offset',
-             'rates_tt1.cv9608','rates_tt1.cv9736','rates_tt1.lc_noidia','rates_tt1.ldr','rates_tt1.ldr_big4','rates_tt1.ldr_tu_nhan',
-             'rates_tt1.nhan_xet','rates_tt1.vpbank_0611','transmission.usd_shift','trump.fed_signal','trump.hormuz_plan','trump.iran_policy',
-             'trump.market_risk','trump.oil_action','trump.tariff_status','trump.vector','trump.watch_next','yield_curve.shape',
-             'yield_curve.tpcp_10y','yield_curve.w2']
+             'oil.xang_ron95','omo.co_cau_ky_han_omo','omo.co_che','omo.lailo_ngoaihoi_9t','omo.luu_hanh_truoc','omo.trangthai_usd_q3',
+             'ppp_war.iea_offset','rates_tt1.cv9608','rates_tt1.cv9736','rates_tt1.lc_noidia','rates_tt1.ldr','rates_tt1.ldr_big4',
+             'rates_tt1.ldr_tu_nhan','rates_tt1.nhan_xet','rates_tt1.vpbank_0611','transmission.usd_shift','trump.fed_signal',
+             'trump.hormuz_plan','trump.iran_policy','trump.market_risk','trump.oil_action','trump.tariff_status','trump.vector',
+             'trump.watch_next','yield_curve.shape','yield_curve.tpcp_10y','yield_curve.w2']
   },
   QUARTERLY: {  // nguong 100 ngay — cong bo theo quy
     days: 100,

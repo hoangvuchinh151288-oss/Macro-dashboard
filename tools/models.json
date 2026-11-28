@@ -321,7 +321,8 @@
         "omo.trangthai_usd_q3",
         "omo.lailo_ngoaihoi_9t",
         "fx.tg_cucqlnh",
-        "fx.vcb_tienmat"
+        "fx.vcb_tienmat",
+        "omo.co_cau_ky_han_omo"
       ],
       "output": [
         "omo.bom_du_test"
